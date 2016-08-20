@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+  {% include head.html %}
+  <body class="site">
+    {% include header.html %}
+    <div class="site-content">
+      <div class="content post-info">
+        <h1 class="main-heading page-title post-title text-centered">{{ page.title }}</h1>
+        <h3 class="post-date text-centered">{{ page.date | date_to_long_string }}</h3>
+      </div>
+      <div class="content">
+        <div class="width-reduced">
+          {{ content }}
+        </div>
+      </div>
+    </div>
+    {% include footer.html %}
+  </div>
+  </body>
+</html>

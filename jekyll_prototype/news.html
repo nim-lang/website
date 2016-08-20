@@ -1,0 +1,23 @@
+---
+layout: default
+title: News from the Nim programming language
+---
+
+<section class="content">
+  <h1 class="main-heading page-title">News</h1>
+  {% for post in site.posts %}
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">{{ post.date | date_to_long_string }}</div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title | escape }}</a>
+        </h2>
+        <p>{{ post.excerpt | escape }}</p>
+      </div>
+    </div>
+    <hr>
+  {% endfor %}
+  <p class="feed-rss"><a href="{{ "/feed.xml" | prepend: site.baseurl }}">RSS feed</a></p>
+</section>

@@ -1,0 +1,59 @@
+---
+layout: default
+title: Home of the Nim programming language
+---
+
+<section class="jumbotron">
+  <section class="content">
+    <div class="pure-g">
+      <div class="pure-u-1 pure-u-md-3-5 main-block">
+        <h1>Efficient concise programming.</h1>
+        <h2>Nim is a systems and applications programming language. Statically typed and compiled, it provides high performance out of the box.</h2>
+        <ul>
+          <li>High-performance garbage-collected language</li>
+          <li>Compiles to C, C++ or JavaScript</li>
+          <li>Runs on Windows, macOS, Linux, and more</li>
+        </ul>
+        <div class="text-centered">
+          <a class="pure-button pure-button-primary" href="{{ site.baseurl }}/download/">Download</a>
+          <a class="pure-button" href="{{ site.baseurl }}/documentation/">Documentation</a>
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-2-5">
+        <h2 class="text-centered">Nim is simple…</h2>
+        <pre><code class="nimrod">
+# Compute average line length
+var
+  sum = 0
+  count = 0
+
+for line in stdin.lines:
+  sum += line.len
+  count += 1
+
+echo("Average line length: ",
+if count > 0: sum / count else: 0)
+        </code></pre>
+        <div class="text-centered">
+          <a href="examples.html">More examples…</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>
+<section class="content">
+  <h1 class="section-heading">News</h1>
+  <div class="pure-g">
+    {% for post in site.posts %}
+      <div class="news-item pure-u-1 pure-u-md-1-2">
+        <div class="post-meta">{{ post.date | date_to_long_string }}</div>
+        <h2>
+          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title | escape }}</a>
+        </h2>
+        <p>{{ post.excerpt | escape }}</p>
+        <hr>
+      </div>
+    {% endfor %}
+  </div>
+  <p class="feed-rss"><a href="{{ "/feed.xml" | prepend: site.baseurl }}">RSS feed</a></p>
+</section>

@@ -1,0 +1,16 @@
+# Site settings
+title: Nim
+description: >
+  The Nim programming language is a concise, fast programming language that
+  compiles to C, C++ and JavaScript.
+baseurl: ""
+
+# Build settings
+markdown: kramdown
+permalink: pretty
+sass:
+  style: compressed
+exclude:
+  - CNAME
+  - README.md
+  - LICENSE.md
