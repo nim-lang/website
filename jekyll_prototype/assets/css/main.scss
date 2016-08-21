@@ -3,6 +3,7 @@
 ---
 
 @import "fonts";
+@import "examples"; // Styles for Examples page
 
 $dark-color: #222430;
 $jumbotron-background-color: darken($dark-color, 5%);
@@ -17,10 +18,11 @@ $menu-background-color: $dark-color;
 $menu-color: #fff;
 $menu-separator-color: #888;
 $highlight-color: #ffe953;
-$a-color: darken($highlight-color, 34%);
+$a-color: darken($highlight-color, 36%);
 $a-dark-color: $highlight-color;
 $a-footer-color: #ccc;
 $menu-height: 51px;
+$hr-color: #cfcfcf;
 
 // Adjust anchor link location to not cover titles with header
 :target:before {
@@ -72,8 +74,15 @@ a {
 }
 
 code {
+  font-family: "Inconsolata", monospace;
+  font-size: 120%;
   background-color: #dfdfdf;
   border-radius: 2px;
+}
+
+hr {
+  border: 1px solid $hr-color;
+  margin: 25px 0;
 }
 
 footer {
@@ -96,6 +105,10 @@ footer {
       color: darken($a-footer-color, 10%);
     }
   }
+}
+
+.background-faded {
+  background-color: darken($default-background-color, 8%);
 }
 
 .copyright {
@@ -227,9 +240,7 @@ a.pure-menu-link.pure-menu-heading {
   padding-right: 30px;
 }
 
-// Override theme background color for highlighted code
 .hljs {
-  background-color: lighten($jumbotron-background-color, 5%);
   padding-left: 20px;
 }
 
@@ -273,7 +284,7 @@ a.pure-menu-link.pure-menu-heading {
 
 .feed-rss {
   text-align: center;
-  margin-top: 50px;
+  margin: 25px 0 50px 0;
 }
 
 .pure-button {
@@ -327,6 +338,10 @@ a.pure-button.pure-button-primary {
 
   .pure-menu.pure-menu-horizontal {
     margin-top: -($menu-height * $mobile-default-font-size / $desktop-default-font-size);
+  }
+
+  .site-logo {
+    height: 26px;
   }
 }
 

@@ -1,0 +1,25 @@
+.examples h2 {
+  font-size: 200%;
+}
+
+.example-text {
+  text-align: justify;
+}
+
+.call-to-action {
+  font-size: 125%;
+  padding: 20px 0 60px 0;
+  margin-top: 100px;
+}
+
+// Some padding for the example text, which is besides the code samples on large
+// enough displays
+@media (min-width: 768px) {
+  .example-text-left {
+    padding-right: 5%;
+  }
+
+  .example-text-right {
+    padding-left: 5%;
+  }
+}

@@ -16,7 +16,7 @@ title: Home of the Nim programming language
         </ul>
         <div class="text-centered">
           <a class="pure-button pure-button-primary" href="{{ site.baseurl }}/download/">Download</a>
-          <a class="pure-button" href="{{ site.baseurl }}/documentation/">Documentation</a>
+          <a class="pure-button" href="{{ site.baseurl }}/examples/">Learn more</a>
         </div>
       </div>
       <div class="pure-u-1 pure-u-md-2-5">
@@ -35,7 +35,7 @@ echo("Average line length: ",
 if count > 0: sum / count else: 0)
         </code></pre>
         <div class="text-centered">
-          <a href="examples.html">More examples…</a>
+          <a href="{{ site.baseurl }}/examples/">More examples…</a>
         </div>
       </div>
     </div>
@@ -55,5 +55,7 @@ if count > 0: sum / count else: 0)
       </div>
     {% endfor %}
   </div>
-  <p class="feed-rss"><a href="{{ "/feed.xml" | prepend: site.baseurl }}">RSS feed</a></p>
+  <p class="feed-rss">
+    <a href="{{ "/feed.xml" | prepend: site.baseurl }}">RSS feed</a>
+  </p>
 </section>

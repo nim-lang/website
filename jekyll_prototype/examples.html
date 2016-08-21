@@ -1,0 +1,120 @@
+---
+layout: page
+title: Examples
+---
+
+<section class="content examples">
+  <h1 class="text-centered page-title main-heading">Examples</h1>
+  <div class="pure-g">
+    <div class="pure-u-1 pure-u-md-13-24 example-text example-text-left">
+      <h2>Nim is simple, yet fast</h2>
+      <p>
+        Nim was designed from the ground up to be simple, yet powerful. Forget
+        about pointers and manual memory management*, Nim's threaded garbage
+        collector will automatically ensure that your code keeps its memory
+        footprint low. Even though it has the benefits of an interpreted
+        language, as a compiled language, Nim can achieve very high performance
+        when optimized, sometimes on par with C or C++.
+      </p>
+      <p>
+        <em><sub>* Can still be done manually if needed.</sub></em>
+      </p>
+    </div>
+    <div class="pure-u-1 pure-u-md-11-24">
+      <pre><code class="nimrod">
+# Compute average line length
+var
+  sum = 0
+  count = 0
+
+for line in stdin.lines:
+  sum += line.len
+  count += 1
+
+echo("Average line length: ",
+  if count > 0: sum / count else: 0)
+      </code></pre>
+    </div>
+  </div>
+  <hr>
+
+  <div class="pure-g">
+    <div class="pure-u-1 pure-u-md-11-24">
+      <pre><code class="nimrod">
+# Create and greet someone
+type Person = object
+  name: string
+  age: int
+
+proc greet(p: Person) =
+  echo "Hi, I'm ", p.name, "."
+  echo "I am ", p.age, " years old."
+
+let p = Person(name:"Jon", age:18)
+p.greet() # Or greet(p)
+      </code></pre>
+    </div>
+    <div class="pure-u-1 pure-u-md-13-24 example-text example-text-right">
+      <h2>Nim is type safe</h2>
+      <p>
+        With its automatic array bounds checking, among many other safety
+        features, Nim is one of the safest languages to program in.
+      </p>
+    </div>
+  </div>
+  <hr>
+
+  <div class="pure-g">
+    <div class="pure-u-1 pure-u-md-13-24 example-text example-text-left">
+      <h2>Nim plays well with others</h2>
+      <p>
+        Nim is interoperable with C and C++, which means you can not only call
+        C or C++ code if needed, but also leverage the power of existing
+        libraries such as GTK+, libui, SDL, SFML and many more.
+    </p>
+    </div>
+    <div class="pure-u-1 pure-u-md-11-24">
+      <pre><code class="nimrod">
+# Declare a C procedure…
+proc unsafeScanf(f: File, s: cstring)
+  {.varargs,
+    importc: "fscanf",
+    header: "&lt;stdio.h&gt;".}
+
+# …and use it…
+var x: cint
+stdin.unsafeScanf("%d", addr x)
+      </code></pre>
+    </div>
+  </div>
+  <hr>
+
+  <div class="pure-g">
+    <div class="pure-u-1 pure-u-md-11-24">
+      <pre><code class="nimrod">
+# A simple html server
+import
+  jester, asyncdispatch, htmlgen
+
+routes:
+  get "/":
+    resp h1("Hello world")
+
+runForever()
+      </code></pre>
+    </div>
+    <div class="pure-u-1 pure-u-md-13-24 example-text example-text-right">
+      <h2>Nim for Web developers</h2>
+      <p>
+        Using the Sinatra-like <a href="https://github.com/dom96/jester">Jester</a>
+        Web framework, Nim makes it easy to quickly create Web applications.
+      </p>
+    </div>
+  </div>
+</section>
+<section class="background-faded call-to-action">
+  <section class="content text-centered">
+    <h2>Ready to discover Nim?</h2>
+    <a class="pure-button pure-button-primary">Download</a>
+  </section>
+</section>

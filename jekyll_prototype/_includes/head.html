@@ -5,6 +5,10 @@
   <title>{{ page.title }} | {{ site.title }}</title>
   <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/pure.min.css">
   <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/pure-grids-responsive.min.css">
-  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/highlight/atom-one-dark.css">
+  {% if page.title == "Examples" %}
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/highlight/color-brewer.css">
+  {% else %}
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/highlight/dracula.css">
+  {% endif %}
   <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/main.css">
 </head>
