@@ -1,0 +1,8 @@
+.download li {
+  list-style-type: none;
+  &::before {
+    content: "»";
+    margin: 0 8px 0 -40px;
+    font-weight: bold;
+  }
+}

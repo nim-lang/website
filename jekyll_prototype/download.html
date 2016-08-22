@@ -1,0 +1,104 @@
+---
+layout: page
+title: Download
+---
+
+<section class="content download">
+  <div class="width-reduced">
+    <h1 class="text-centered page-title main-heading">Download Nim</h1>
+    <h2 class="post-date text-centered">v0.14.2, released on 2016-06-11</h2>
+    <p>
+      <strong>Note:</strong> The Nim compiler requires a C compiler to compile
+      software. On Windows we recommend that you use <a href="http://mingw-w64.org/">Mingw-w64</a>. GCC is recommended
+      on Linux and Clang on macOS.
+    </p>
+    <div class="download-binaries">
+      <h2>Binaries</h2>
+      <p>
+        Unfortunately, right now we only provide binaries for Windows. You can download an installer for both 32-bit and 64-bit versions of Windows below.
+      </p>
+      <ul>
+        <li>
+          <strong>Windows 64-bit: <a href="http://nim-lang.org/download/nim-0.14.2_x64.exe">nim-0.14.2_x64.exe</a></strong><br>
+          <sub>SHA-256: <code>1fec054d3a5f54c0a67a40db615bb9ecb1d56413b19e324244110713bd4337d1</code></sub>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <strong>Windows 32-bit: <a href="http://nim-lang.org/download/nim-0.14.2_x32.exe">nim-0.14.2_x32.exe</a></strong><br>
+          <sub>SHA-256: <code>ca2de37759006d95db98732083a6fab20151bb9819186af2fa29d41884df78c9</code></sub>
+        </li>
+      </ul>
+      <p>
+      These installers also include Aporia, Nimble and other useful Nim tools to get you started with Nim development!
+      </p>
+    </div>
+    <div class="download-source-code">
+      <h2>Installation based on generated C code</h2>
+      <p>
+        This installation method is the preferred way for Linux, macOS, and other UNIX-like systems. Binary packages may be provided in the future.
+      </p>
+      <p>
+        Firstly, download this archive:
+      </p>
+      <ul>
+        <li>
+          <strong>Source code: <a href="http://nim-lang.org/download/nim-0.14.2.tar.xz">nim-0.14.2.tar.xz</a></strong><br>
+          <sub>SHA-256: <code>8f8d38d70ed57164795fc55e19de4c11488fcd31dbe42094e44a92a23e3f5e92</code></sub>
+        </li>
+      </ul>
+      <p>
+        Extract the archive. Then copy the extracted files into your chosen installation directory, ideally somewhere in your home directory. For example: ~/programs/nim.
+      </p>
+        Now open a terminal and follow these instructions:
+      <p>
+        <code>cd</code> into your installation directory, for example by executing
+        <code>cd ~/programs/nim</code>.
+      </p>
+      <p>
+        Run <code>sh build.sh</code>.
+        Add <code>$your_install_dir/bin</code> to your PATH environment variable.
+        After restarting your terminal, you should be able to run <code>nim -v</code> which should show you the version of Nim you just installed.
+      </p>
+      <p>
+        There are other ways to install Nim (like using the <code>install.sh</code> script), but these tend to cause more problems.
+      </p>
+    </div>
+    <div class="download-bleeding-edge">
+      <h2>Bleeding-edge installation from GitHub</h2>
+      <p>
+        <a href="http://github.com/nim-lang/nim">GitHub</a> is where Nim's development takes place. You may wish to grab the latest development version of Nim, because sometimes bug fixes and new features may not have made it to an official release yet. In those circumstances you are better off grabbing the current development branch.
+      </p>
+      <p>
+        You will also need to do this if you would like to contribute to Nim.
+      </p>
+      <p>
+        Before you download the code, open a new terminal and cd into the directory where you would like the download to take place.
+      </p>
+      <p>
+        The following commands can be used to download the current development branch and then to build it:
+      </p>
+      <pre><code>git clone https://github.com/nim-lang/Nim.git
+cd Nim
+git clone --depth 1 https://github.com/nim-lang/csources.git
+cd csources &amp;&amp; sh build.sh
+cd ..
+bin/nim c koch
+./koch boot -d:release</code></pre>
+      <p>
+        You should then add the ./bin (make sure to expand this into an absolute path) directory to your PATH.
+      </p>
+    </div>
+    <div class="download-docker">
+      <h2>Installing using Docker</h2>
+      <p>
+        If you use <a href="https://www.docker.com/">Docker</a>, you can use the
+        <a href="https://hub.docker.com/r/nimlang/nim/">official Docker images published at Docker Hub</a>.
+      </p>
+      <ul><li><strong>Get the latest stable image from Docker Hub:</strong></li></ul>
+      <pre><code>docker pull nimlang/nim</code></pre>
+      <ul><li><strong>Get the latest development version from Docker Hub:</strong></li></ul>
+      <pre><code>docker pull nimlang/nim:devel</code></pre>
+    </div>
+  </div>
+</section>

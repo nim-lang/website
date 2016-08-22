@@ -2,8 +2,9 @@
 # This comment ensures that Jekyll reads this file
 ---
 
-@import "fonts";
+@import "fonts";    // @font-face declarations
 @import "examples"; // Styles for Examples page
+@import "download"; // Styles for Download page
 
 $dark-color: #222430;
 $jumbotron-background-color: darken($dark-color, 5%);
@@ -75,7 +76,8 @@ a {
 
 code {
   font-family: "Inconsolata", monospace;
-  font-size: 120%;
+  font-size: 110%;
+  padding: 2px;
   background-color: #dfdfdf;
   border-radius: 2px;
 }
@@ -87,6 +89,7 @@ hr {
 
 footer {
   padding: 15px 0 20px 0;
+  margin-top: 75px;
   color: $footer-color;
   background-color: $footer-background-color;
   font-size: 90%;
