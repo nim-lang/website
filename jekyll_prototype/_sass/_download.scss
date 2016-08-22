@@ -1,8 +1,31 @@
-.download li {
-  list-style-type: none;
-  &::before {
-    content: "»";
-    margin: 0 8px 0 -40px;
-    font-weight: bold;
+.download-tile {
+  padding: 60px 0 40px 0;
+  margin: 8px 0;
+  background-color: lighten($dark-color, 5%);
+  color: #fff;
+
+  h3 {
+    font-size: 140%;
+  }
+}
+
+a.download-tile {
+  &:hover, &:focus {
+    color: $a-dark-color;
+    text-decoration: none;
+  }
+  &:active {
+    color: darken($a-dark-color, 10%);
+  }
+}
+
+.download-tile-icon {
+  font-size: 400%;
+}
+
+@media (min-width: 568px) {
+  .download-tile {
+    margin: 8px;
+    width: calc(33.3333% - 16px);
   }
 }

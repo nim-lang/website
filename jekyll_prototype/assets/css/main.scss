@@ -2,28 +2,10 @@
 # This comment ensures that Jekyll reads this file
 ---
 
-@import "fonts";    // @font-face declarations
-@import "examples"; // Styles for Examples page
-@import "download"; // Styles for Download page
-
-$dark-color: #222430;
-$jumbotron-background-color: darken($dark-color, 5%);
-$jumbotron-color: #fff;
-$footer-background-color: darken($dark-color, 5%);
-$footer-color: #888;
-$default-background-color: #fdfdfd;
-$default-color: #333;
-$desktop-default-font-size: 17px;
-$mobile-default-font-size: 15px;
-$menu-background-color: $dark-color;
-$menu-color: #fff;
-$menu-separator-color: #888;
-$highlight-color: #ffe953;
-$a-color: darken($highlight-color, 36%);
-$a-dark-color: $highlight-color;
-$a-footer-color: #ccc;
-$menu-height: 51px;
-$hr-color: #cfcfcf;
+@import "variables"; // Global variables
+@import "fonts";     // @font-face declarations
+@import "examples";  // Styles for Examples page
+@import "download";  // Styles for Download page
 
 // Adjust anchor link location to not cover titles with header
 :target:before {
@@ -82,9 +64,17 @@ code {
   border-radius: 2px;
 }
 
+.page-subtitle {
+  margin: -40px 0 40px 0;
+}
+
 hr {
   border: 1px solid $hr-color;
   margin: 25px 0;
+}
+
+.text-large {
+  font-size: 135%;
 }
 
 footer {
