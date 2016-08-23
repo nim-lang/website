@@ -1,0 +1,37 @@
+$banner-background-color: #484;
+$banner-color: #fff;
+$banner-min-height: 35px;
+$banner-top-padding: 5px;
+
+.banner {
+  transition: .15s background-color;
+  background-color: $banner-background-color;
+  color: $banner-color;
+  text-align: center;
+  min-height: $banner-min-height;
+
+  .content {
+    padding-top: $banner-top-padding;
+  }
+
+  &:hover, &:focus {
+    background-color: lighten($banner-background-color, 8%);
+  }
+  &:active {
+    background-color: darken($banner-background-color, 8%);
+  }
+}
+
+.banner-link {
+  &:hover, &:focus {
+    text-decoration: none;
+  }
+}
+
+@media (max-width: 1370px) {
+  .banner {
+    .content {
+      padding-top: $banner-top-padding * 1.5;
+    }
+  }
+}

@@ -6,6 +6,7 @@
 @import "fonts";     // @font-face declarations
 @import "examples";  // Styles for Examples page
 @import "download";  // Styles for Download page
+@import "banner";    // Styles for top banner
 
 // Adjust anchor link location to not cover titles with header
 :target:before {
@@ -21,6 +22,12 @@ body {
   cursor: default;
   font-size: $desktop-default-font-size;
   margin-top: $menu-height;
+}
+
+// Gradient that will cause overflowing menu items to "fade"
+// See media query for actual declaration
+.menu-fade {
+  display: none; // Displayed only on small screens
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -116,12 +123,25 @@ footer {
   line-height: 1;
   margin-top: -$menu-height;
   background-color: $menu-background-color;
-  box-shadow: 0 0 8px rgba(0, 0, 0, .5);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.6); // Drop shadow
   position: fixed;
 
   a {
     color: $menu-color;
   }
+
+  // Remove extraneous spacing between menu items
+  ul {
+    font-size: 0;
+  }
+
+  li {
+    font-size: $desktop-default-font-size;
+  }
+}
+
+.site-logo-container {
+  margin: 0 0 -2px 0 !important;
 }
 
 .pure-menu-heading {
@@ -131,7 +151,7 @@ footer {
 
 .menu-separator {
   height: 30px;
-  margin: 0 10px -11px 10px;
+  margin: 0 10px -12px 10px;
   display: inline-block;
   width: 0;
   border-left: 1px solid $menu-separator-color;
@@ -153,12 +173,6 @@ footer {
   }
 }
 
-.note {
-  font-style: italic;
-  font-size: 90%;
-  color: #ccc;
-}
-
 .text-centered {
   text-align: center;
 }
@@ -167,7 +181,7 @@ a.pure-menu-link {
   transition: .15s background-color;
   text-decoration: none;
   padding: 17px 15px;
-  margin: 0;
+  margin-top: -7px;
   &:hover, &:focus {
     background-color: rgba(255, 255, 255, .15);
   }
@@ -301,11 +315,12 @@ a.pure-menu-link.pure-menu-heading {
 a.pure-button {
   background-color: #ccc;
   color: $default-color;
-  transition: 0.15s;
+  transition: .15s background-color;
   text-decoration: none;
-  // Prevent existing anchor styles from modifying button text color
+  // Undo some Pure styles
   &:hover, &:focus, &:active {
-    color: inherit;
+    box-shadow: none;
+    background-image: none;
   }
 }
 
@@ -331,10 +346,23 @@ a.pure-button.pure-button-primary {
 
   .pure-menu.pure-menu-horizontal {
     margin-top: -($menu-height * $mobile-default-font-size / $desktop-default-font-size);
+
+    li {
+      font-size: $mobile-default-font-size;
+    }
+  }
+
+  a.pure-menu-link {
+    margin-top: -7px;
   }
 
   .site-logo {
-    height: 26px;
+    height: 25px;
+    padding-left: 4px;
+  }
+
+  .menu-separator {
+    margin: 0 5px -12px 5px;
   }
 }
 
@@ -361,5 +389,16 @@ a.pure-button.pure-button-primary {
 @media (max-width: 767px) {
   footer {
     text-align: center;
+  }
+
+  .menu-fade {
+    display: block; // Restore display
+    height: $menu-height * $mobile-default-font-size / $desktop-default-font-size + 2px;
+    width: $menu-fade-width;
+    position: fixed;
+    pointer-events: none;
+    right: 0;
+    top: 0;
+    background: linear-gradient(to right, transparent, $menu-background-color);
   }
 }
