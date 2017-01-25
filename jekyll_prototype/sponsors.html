@@ -13,21 +13,20 @@ title: Sponsors
   </h3>
   <div class="pure-g"><!-- this should be a template, with a for sponsor in sponsorslist loop to create the list -->
     <div class="pure-u-1 pure-u-md-1-3 pad">
-     <h2>{{sponsor.link || sponsor.name}}</h2>
-     {{ if sponsor.thismonth > 250 : sponsor.logo }}
-     Donated {{sponsor.thismonth}} this month
-     Donated {{sponsor.total}} in total since {{sponsor.firstcontrib}}  
+     <h2>:sponsor.link || sponsor.name:</h2>
+      <p> :if sponsor.thismonth > 250 : sponsor.logo: </p>
+      <p>Donated :sponsor.thismonth: this month</p>
+      <p>Donated :sponsor.total: in total since :sponsor.firstcontrib:</p>
     </div>
   </div>
 </section>
 <section class="content past-sponsors">
-  <h3 class="text-centered page-subtitle">
-  This section lists the companies and individuals that contributed financially to help sustain Nim development. For more details take a look at the <a href="https://salt.bountysource.com/teams/nim">Bountysource campaign</a>.  
-  </h3>
+  <h4 class="page-subtitle">
+  This section lists the companies and individuals that contributed financially to help sustain Nim development.</h4>
   <div class="pure-g"><!-- this should be a template, with a for sponsor in pastsponsorslist loop to create the list -->
     <div class="pure-u-1 pure-u-md-1-3 pad">
-     <h2>{{sponsor.link || sponsor.name}}</h2>
-     Donated {{sponsor.total}} in total since {{sponsor.firstcontrib}}  
+     <h2>:sponsor.link || sponsor.name:</h2>
+     Donated :sponsor.total: in total since :sponsor.firstcontrib:  
     </div>
   </div>
 </section>
