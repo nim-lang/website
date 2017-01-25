@@ -14,3 +14,5 @@ exclude:
   - CNAME
   - README.md
   - LICENSE.md
+host: 0.0.0.0
+port: 8000

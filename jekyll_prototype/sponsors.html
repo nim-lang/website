@@ -12,12 +12,16 @@ title: Sponsors
   <small>Last updated: 08/01/2017</small>
   </h3>
   <div class="pure-g"><!-- this should be a template, with a for sponsor in sponsorslist loop to create the list -->
+	  {% for sponsor in site.data.sponsors %}
     <div class="pure-u-1 pure-u-md-1-3 pad">
-     <h2>:sponsor.link || sponsor.name:</h2>
-      <p> :if sponsor.thismonth > 250 : sponsor.logo: </p>
-      <p>Donated :sponsor.thismonth: this month</p>
-      <p>Donated :sponsor.total: in total since :sponsor.firstcontrib:</p>
+	    <h2>{{sponsor.name}}</h2>
+	    {% if sponsor.level == "250" %}
+	    <img style="width:100%;" src="/{{sponsor.logo}}"></img>
+	    {% endif %}
+	    <p>Donated {{sponsor.this_month}} this month</p>
+	    <p>Donated {{sponsor.all_time}} in total since {{sponsor.since}}</p>
     </div>
+    {% endfor %}
   </div>
 </section>
 <section class="content past-sponsors">
@@ -30,3 +34,4 @@ title: Sponsors
     </div>
   </div>
 </section>
+
