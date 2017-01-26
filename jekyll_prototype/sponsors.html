@@ -9,29 +9,35 @@ title: Sponsors
   <h1 class="text-centered page-title main-heading">Our Current Sponsors</h1>
   <h3 class="text-centered page-subtitle">
   This section lists the companies and individuals that are, very kindly, contributing a monthly amount to help sustain Nim development. For more details take a look at the <a href="https://salt.bountysource.com/teams/nim">Bountysource campaign</a>.
-  <small>Last updated: 08/01/2017</small>
+  <p><small>Last updated: <time>08/01/2017</time></small></p><!--TODO use _config.yml to update this-->
   </h3>
   <div class="pure-g"><!-- this should be a template, with a for sponsor in sponsorslist loop to create the list -->
 	  {% for sponsor in site.data.sponsors %}
     <div class="pure-u-1 pure-u-md-1-3 pad">
+	    {% if sponsor.url%}
+	    <h2><a href="{{sponsor.url}}">{{sponsor.name}}</a></h2>
+	    {% else %}
 	    <h2>{{sponsor.name}}</h2>
+	    {%endif%}
 	    {% if sponsor.level == "250" %}
 	    <img style="width:100%;" src="/{{sponsor.logo}}"></img>
 	    {% endif %}
-	    <p>Donated {{sponsor.this_month}} this month</p>
-	    <p>Donated {{sponsor.all_time}} in total since {{sponsor.since}}</p>
+	    <p>Donated <strong>${{sponsor.this_month}}</strong> this month</p>
+	    <p>Donated <strong>${{sponsor.all_time}}</strong> in total since {{sponsor.since}}</p>
     </div>
     {% endfor %}
   </div>
 </section>
-<section class="content past-sponsors">
-  <h4 class="page-subtitle">
-  This section lists the companies and individuals that contributed financially to help sustain Nim development.</h4>
-  <div class="pure-g"><!-- this should be a template, with a for sponsor in pastsponsorslist loop to create the list -->
+<section class="past-sponsors">
+  <h1 class="text-centered page-title">Past sponsors</h1>
+  <h3 class="text-centered page-subtitle">
+  This section lists the companies and individuals that contributed financially to Nim development in the past.</h3>
+  <div class="pure-g">
+    {% for sponsor in site.data.inactive_sponsors %}
     <div class="pure-u-1 pure-u-md-1-3 pad">
-     <h2>:sponsor.link || sponsor.name:</h2>
-     Donated :sponsor.total: in total since :sponsor.firstcontrib:  
+	    <h2>{{sponsor.name}}</h2>
+	    Donated <strong>${{sponsor.all_time}}</strong> in total since {{sponsor.since}}  
     </div>
+    {%endfor%}
   </div>
 </section>
-
