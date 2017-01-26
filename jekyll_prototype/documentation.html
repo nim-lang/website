@@ -2,46 +2,45 @@
 title: "Documentation"
 layout: page
 ---
-<h1 class="text-centered page-title main-heading">{{page.title}}</h1>
-<h2 class="page-subtitle">Search Options</h2>
+<style>
+.pad { padding:1em;}
+</style>
+
+<div class="pure-g pad">
+<h1 class="pure-u-1 text-centered page-title main-heading">{{page.title}}</h1>
+<div class="pure-u-1 pure-u-md-1-2">
+<h2 class="">Search Options</h2>
 <p>Documentation Index <a href="/docs/theindex.html">The generated index.</a></p>
 <strong>Index + (Ctrl+F) == Joy</strong>
-
+</div>
+<div class="pure-u-1 pure-u-md-1-2">
 <h2 class="">Standards & Guides</h2>
-<a href="/docs/lib.html">Standard Library</a>
-This document describes Nim's standard library.
+<p><a href="/docs/lib.html">Standard Library</a>
+ This document describes Nim's standard library.</p>
 
-    - | `Language Manual <docs/manual.html>`_
-      | The Nim manual is a draft that will evolve into a proper specification.
+<p><a href="/docs/manual.html">Language Manual</a> The Nim manual is a draft that will evolve into a proper specification.</p>
 
-    - | `Nim Style Guide <docs/nep1.html>`_
-      | The stylistic conventions that Nim's official projects adhere to.
+<p><a href="/docs/nep1.html">Nim Style Guide</a> The stylistic conventions that Nim's official projects adhere to.</p>
 
-    - | `Compiler User Guide <docs/nimc.html>`_
-      | The user guide lists command line arguments, special features of the
-        compiler, etc.
+<p><a href="/docs/nimc.html">Compiler User Guide</a> The user guide lists command line arguments, special features of the compiler, etc.</p>
 
-    - | `NimScript <docs/nims.html>`_
-      | NimScript is the upcoming new way to configure Nim.
+<p><a href="/docs/nims.html">NimScript</a> NimScript is the upcoming new way to configure Nim.</p>
 
-    - | `Nim Backend Integration <docs/backends.html>`_
-      | The Backend Integeration guide gives further information of how Nim can
-        interact with C, C++, Objective C and JavaScript.
+<p><a href="/docs/backends.html">Nim Backend Integration</a> The Backend Integeration guide gives further information of how Nim can interact with C, C++, Objective C and JavaScript.</p>
 
+</div>
+<div class="pure-u-1 pure-u-md-1-2">
 <h2 class="">Tools & Features</h2>
-    - | `Source Code Filters <docs/filters.html>`_
-      | The Nim compiler supports source code filters as a simple yet powerful
-        builtin templating system.
 
-    - | `Tools Documentation <docs/tools.html>`_
-      | Description of some tools that come with the standard distribution.
+<p><a href="/docs/filters.html">Source Code Filters</a> The Nim compiler supports source code filters as a simple yet powerful builtin templating system.</p>
 
+<p><a href="/docs/tools.html">Tools Documentation</a> Description of some tools that come with the standard distribution.</p>
 
-      <h2 class="">Internal Details</h2>
-    - | `Garbage Collector <docs/gc.html>`_
-      | Additional documentation about Nim's GC and how to operate it in a
-        realtime setting.
+</div>
+<div class="pure-u-1 pure-u-md-1-2">
+<h2 class="">Internal Details</h2>
+<p><a href="/docs/gc.html">Garbage Collector</a> Additional documentation about Nim's GC and how to operate it in a realtime setting.</p>
 
-    - | `Internal Documentation <docs/intern.html>`_
-      | The internal documentation describes how the compiler is implemented.
-        Read this if you want to hack the compiler.
+<p><a href="/docs/intern.html">Internal Documentation</a> The internal documentation describes how the compiler is implemented. Read this if you want to hack the compiler.</p>
+</div>
+</div>
