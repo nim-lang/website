@@ -4,7 +4,9 @@
   <body class="site">
     {% include header.html %}
     <div class="site-content">
-      {{ content }}
+      {% include downloadtop.html %}
+      	    {{ content }}
+      {% include downloadbottom.html %}
     </div>
     {% include footer.html %}
   </body>
