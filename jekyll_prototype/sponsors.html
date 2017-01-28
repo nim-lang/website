@@ -11,7 +11,7 @@ title: Sponsors
   This section lists the companies and individuals that are, very kindly, contributing a monthly amount to help sustain Nim development. For more details take a look at the <a href="https://salt.bountysource.com/teams/nim">Bountysource campaign</a>.
   <p><small>Last updated: <time>08/01/2017</time></small></p><!--TODO use _config.yml to update this-->
   </h3>
-  <div class="pure-g"><!-- this should be a template, with a for sponsor in sponsorslist loop to create the list -->
+  <div class="pure-g">
 	  {% for sponsor in site.data.sponsors %}
     <div class="pure-u-1 pure-u-md-1-3 pad">
 	    {% if sponsor.url%}
@@ -20,7 +20,7 @@ title: Sponsors
 	    <h2>{{sponsor.name}}</h2>
 	    {%endif%}
 	    {% if sponsor.level == "250" %}
-	    <img style="width:100%;" src="/{{sponsor.logo}}"></img>
+	    <img class="pure-img" src="/{{sponsor.logo}}"></img>
 	    {% endif %}
 	    <p>Donated <strong>${{sponsor.this_month}}</strong> this month</p>
 	    <p>Donated <strong>${{sponsor.all_time}}</strong> in total since {{sponsor.since}}</p>
