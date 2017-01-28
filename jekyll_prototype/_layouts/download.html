@@ -4,9 +4,15 @@
   <body class="site">
     {% include header.html %}
     <div class="site-content">
-      {% include downloadtop.html %}
-      	    {{ content }}
-      {% include downloadbottom.html %}
+      <section class="content pure-g {{page.platform | downcase}}">
+        <h1 class="page-title">
+	  <a href="{{ site.baseurl }}/download-{{page.platform | downcase}}/" class="pure-u-1 text-centered">
+		  <i class="fa fa-{{page.fa|downcase}} download-tile-icon"></i>
+		  {{page.title}}
+	  </a>
+        </h1>
+	    {{ content }}
+      </section>
     </div>
     {% include footer.html %}
   </body>
