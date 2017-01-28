@@ -337,6 +337,23 @@ a.pure-button.pure-button-primary {
   }
 }
 
+// Styles for the bountysource banner.
+section#bountysource {
+  .fa-heart {
+      color: #fe8a21;
+
+  }
+
+  #bountysource-sponsors {
+    background-color: #282a36;
+    img {
+      height: 200px;
+
+    }
+  }
+}
+
+
 // Styles that apply only to medium-sized screens (small laptops for example)
 @media (max-width: 1370px) {
   body {
