@@ -1,0 +1,26 @@
+---
+title: "Download: Linux / BSD"
+layout: download
+platform: "linux/bsd"
+fa: "linux"
+---
+<div class="pure-u-1">
+<h2 class="">Installation based on generated C code</h2>
+	<p>Note: The Nim compiler requires a C compiler to compile software. GCC is recommended on Linux.</p>
+	<p>Firstly, download this archive:</p>
+	<ul>
+		<li><p><a href="http://nim-lang.org/download/nim-0.16.0.tar.xz">nim-0.16.0.tar.xz (2.9MB)</a></p></li>
+		<li><p>SHA-256: <code>9e199823be47cba55e62dd6982f02cf0aad732f369799fec42a4d8c2265c5167</code></p></li>
+	</ul>
+	<p>Extract the archive.</p> 
+	<p>Then copy the extracted files into your chosen installation directory, ideally somewhere in your home directory. For example: <code>~/programs/nim</code>.</p>
+	<p>Now open a terminal and follow these instructions:</p>
+	<ul>
+		<li><p>cd into your installation directory, for example by executing <code>cd ~/programs/nim</code>.</p></li>
+		<li><p>run <code>sh build.sh</code>.</p></li>
+		<li><p>Then add <code>$your_install_dir/bin</code> to your PATH.</p></li>
+	</ul>
+	<p>To build associated tools like nimble and nimsuggest run <code>nim c koch && koch tools</code>.</p>
+	<p>After restarting your terminal, you should be able to run <code>nim -v</code> which should show you the version of Nim you just installed.</p>
+	<p>There are other ways to install Nim (like using the <code>install.sh</code> script), but these tend to cause more problems.</p>
+</div>
