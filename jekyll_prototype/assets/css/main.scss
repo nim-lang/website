@@ -123,8 +123,6 @@ footer {
   line-height: 1;
   margin-top: -$menu-height;
   background-color: $menu-background-color;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.6); // Drop shadow
-  position: fixed;
 
   a {
     color: $menu-color;
@@ -138,6 +136,10 @@ footer {
   li {
     font-size: $desktop-default-font-size;
   }
+}
+
+.pure-menu-list {
+  padding-left: 44.6%; /* TODO: Make this less hackish */
 }
 
 .site-logo-container {
@@ -192,6 +194,7 @@ a.pure-menu-link {
 
 a.pure-menu-link.pure-menu-heading {
   padding: 10px;
+  padding-left: 0;
 }
 
 .header-main {

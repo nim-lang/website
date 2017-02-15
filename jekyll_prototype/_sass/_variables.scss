@@ -7,7 +7,7 @@ $default-background-color: #fdfdfd;
 $default-color: #333;
 $desktop-default-font-size: 17px;
 $mobile-default-font-size: 15px;
-$menu-background-color: $dark-color;
+$menu-background-color: darken($dark-color, 5%);
 $menu-color: #fff;
 $menu-separator-color: #888;
 $highlight-color: #ffe953;
