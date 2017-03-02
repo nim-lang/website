@@ -138,10 +138,6 @@ footer {
   }
 }
 
-.pure-menu-list {
-  padding-left: 44.6%; /* TODO: Make this less hackish */
-}
-
 .site-logo-container {
   margin: 0 0 -2px 0 !important;
 }
@@ -301,6 +297,15 @@ a.pure-menu-link.pure-menu-heading {
   padding: 12px 24px;
 }
 
+.pure-menu-heading {
+  float: left; // Correct navbar/logo display on Firefox
+}
+
+.pure-menu-list {
+  float: right;
+  padding-top: 7px; // HACK: Move down menu items slightly, because `float: right` makes them go up
+}
+
 // Buttons of the main page's jumbotron
 .text-centered a.pure-button {
   margin: 15px 10px;
@@ -409,6 +414,14 @@ section#bountysource {
 @media (max-width: 767px) {
   footer {
     text-align: center;
+  }
+
+  .pure-menu.pure-menu-horizontal {
+    position: fixed;
+  }
+
+  .pure-menu-list {
+    float: none;
   }
 
   .menu-fade {
