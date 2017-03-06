@@ -279,6 +279,38 @@ a.pure-menu-link.pure-menu-heading {
   margin-top: 50px;
 }
 
+.section-subheading {
+  text-align: center;
+
+  line-height: 0;
+  margin: 52px 0 48px 0;
+
+  span {
+    display: inline-block;
+    position: relative;
+  }
+
+  span:before, span:after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    border-bottom: 1px solid grey;
+    border-top: 1px solid grey;
+    top: 0;
+    width: 23em;
+  }
+
+  span:before {
+    right: 100%;
+    margin-right: 15px;
+  }
+
+  span:after {
+    left: 100%;
+    margin-left: 15px;
+  }
+}
+
 .page-title {
   padding-top: 40px; // This needs to be a padding, else the whole menu is vertically offset
 }
@@ -345,22 +377,47 @@ a.pure-button.pure-button-primary {
   }
 }
 
-// Styles for the bountysource banner.
-section#bountysource {
-  .fa-heart {
-      color: #fe8a21;
-
-  }
-
-  #bountysource-sponsors {
-    background-color: #282a36;
-    img {
-      height: 200px;
-
-    }
-  }
+section#book img {
+  border: 1px solid #272935;
 }
 
+// Styles for the donations section.
+section#donations {
+  .main-block h1 {
+      margin: 0;
+  }
+
+  .fa-heart {
+      color: #ea4c2a;
+      font-size: 70%;
+      padding-right: 6pt;
+  }
+
+  .pure-u-md-2-5 {
+      background: radial-gradient(50% 56%, #cceaff, #fff);
+  }
+
+  #sponsors-list {
+    margin-bottom: 48px;
+  }
+
+  #sponsors-list a {
+    margin-right: 20pt;
+    text-align: center;
+  }
+
+  #sponsors-list img {
+      height: 100px;
+      display: block;
+      margin-bottom: 10pt;
+    }
+}
+
+.center {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
 
 // Styles that apply only to medium-sized screens (small laptops for example)
 @media (max-width: 1370px) {
