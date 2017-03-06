@@ -72,7 +72,9 @@ code {
 }
 
 .page-subtitle {
-  margin: -40px 0 40px 0;
+  max-width: 600px;
+  margin: 0 auto;
+  padding-bottom: 10%;
 }
 
 hr {
@@ -163,6 +165,10 @@ footer {
 .content, .nav-content {
   max-width: 1200px;
   margin: 0 auto;
+}
+
+.slim {
+  max-width: 800px;
 }
 
 .site-content > .content {
