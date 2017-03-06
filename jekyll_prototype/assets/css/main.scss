@@ -87,17 +87,10 @@ hr {
 }
 
 footer {
-  padding: 15px 0 20px 0;
+  padding: 10px 0 10px 0;
   margin-top: 75px;
   color: $footer-color;
   background-color: $footer-background-color;
-  font-size: 90%;
-  ul {
-    padding-left: 0;
-  }
-  li {
-    list-style-type: none;
-  }
   a {
     color: $a-footer-color;
     &:hover, &:focus {
@@ -106,6 +99,16 @@ footer {
     &:active {
       color: darken($a-footer-color, 10%);
     }
+  }
+
+  img {
+    height: 40px;
+  }
+
+  .right-center {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
   }
 }
 
