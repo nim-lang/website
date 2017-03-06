@@ -165,6 +165,10 @@ footer {
   margin: 0 auto;
 }
 
+.site-content > .content {
+  margin: 25px auto 50px auto;
+}
+
 @media (max-width: 1250px) {
   .content {
     margin: 0 2.5%;
@@ -311,6 +315,39 @@ a.pure-menu-link.pure-menu-heading {
   }
 }
 
+/* Community section */
+#community {
+  .fa {
+    margin-right: 5pt;
+    font-size: 175%;
+    vertical-align: middle;
+  }
+
+  .fa-irc {
+    font-family: Courier, monospace, Arial;
+  }
+
+  .fa-gitter {
+    background-image: url('{{ site.baseurl }}/assets/img/gitter.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 14px;
+    height: 22px;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  ul {
+    padding: 0;
+  }
+
+  .pure-u-1 {
+    padding: 0 20pt;
+  }
+}
+
 .page-title {
   padding-top: 40px; // This needs to be a padding, else the whole menu is vertically offset
 }
@@ -322,7 +359,6 @@ a.pure-menu-link.pure-menu-heading {
 
 .feed-rss {
   text-align: center;
-  margin: 25px 0 50px 0;
 }
 
 .pure-button {
@@ -338,22 +374,9 @@ a.pure-menu-link.pure-menu-heading {
   padding-top: 7px; // HACK: Move down menu items slightly, because `float: right` makes them go up
 }
 
-// Buttons of the main page's jumbotron
-.text-centered a.pure-button {
-  margin: 15px 10px;
-  color: $default-color;
-  &:hover, &:focus {
-    background-color: lighten(#ccc, 10%);
-    color: $default-color;
-  }
-  &:active {
-    background-color: darken(#ccc, 10%);
-    color: $default-color;
-  }
-}
-
 a.pure-button {
   background-color: #ccc;
+  margin: 15px 10px;
   color: $default-color;
   transition: .15s background-color;
   text-decoration: none;
@@ -361,6 +384,14 @@ a.pure-button {
   &:hover, &:focus, &:active {
     box-shadow: none;
     background-image: none;
+  }
+  &:hover, &:focus {
+    background-color: lighten(#ccc, 10%);
+    color: $default-color;
+  }
+  &:active {
+    background-color: darken(#ccc, 10%);
+    color: $default-color;
   }
 }
 
