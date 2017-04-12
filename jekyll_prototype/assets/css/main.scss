@@ -264,6 +264,26 @@ a.pure-menu-link.pure-menu-heading {
   box-sizing: border-box;
 }
 
+.learn-nim {
+  text-align: center;
+  .fa-graduation-cap {
+    width: 100%;
+  }
+
+}
+
+.version-button {
+  font-size: 80%;
+  background-color: $index-code-bg;
+  padding: 5pt 10pt;
+  border-radius: 5px;
+
+  &:hover, &:focus, &:active {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
 // The left part of the main page jumbotron
 .main-block {
   padding-right: 30px;
