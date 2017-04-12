@@ -64,11 +64,15 @@ a {
 }
 
 figure.highlight {
-  font-family: "Inconsolata", monospace;
+  code {
+    font-family: "Inconsolata", monospace;
+  }
   padding: 25px;
   /*background-color: #dfdfdf;*/
   border-radius: 2px;
   margin: 0;
+  margin-bottom: 12pt;
+  font-size: 120%;
 }
 
 pre {
