@@ -72,7 +72,9 @@ code {
 }
 
 .page-subtitle {
-  margin: -40px 0 40px 0;
+  max-width: 600px;
+  margin: 0 auto;
+  padding-bottom: 10%;
 }
 
 hr {
@@ -85,17 +87,10 @@ hr {
 }
 
 footer {
-  padding: 15px 0 20px 0;
+  padding: 10px 0 10px 0;
   margin-top: 75px;
   color: $footer-color;
   background-color: $footer-background-color;
-  font-size: 90%;
-  ul {
-    padding-left: 0;
-  }
-  li {
-    list-style-type: none;
-  }
   a {
     color: $a-footer-color;
     &:hover, &:focus {
@@ -104,6 +99,16 @@ footer {
     &:active {
       color: darken($a-footer-color, 10%);
     }
+  }
+
+  img {
+    height: 40px;
+  }
+
+  .right-center {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
   }
 }
 
@@ -163,6 +168,14 @@ footer {
 .content, .nav-content {
   max-width: 1200px;
   margin: 0 auto;
+}
+
+.slim {
+  max-width: 800px;
+}
+
+.site-content > .content {
+  margin: 25px auto 50px auto;
 }
 
 @media (max-width: 1250px) {
@@ -279,6 +292,72 @@ a.pure-menu-link.pure-menu-heading {
   margin-top: 50px;
 }
 
+.section-subheading {
+  text-align: center;
+
+  line-height: 0;
+  margin: 52px 0 48px 0;
+
+  // https://css-tricks.com/line-on-sides-headers/
+  span {
+    display: inline-block;
+    position: relative;
+  }
+
+  span:before, span:after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    border-bottom: 1px solid grey;
+    border-top: 1px solid grey;
+    top: 0;
+    width: 23em;
+  }
+
+  span:before {
+    right: 100%;
+    margin-right: 15px;
+  }
+
+  span:after {
+    left: 100%;
+    margin-left: 15px;
+  }
+}
+
+/* Community section */
+#community {
+  .fa {
+    margin-right: 5pt;
+    font-size: 175%;
+    vertical-align: middle;
+  }
+
+  .fa-irc {
+    font-family: Courier, monospace, Arial;
+  }
+
+  .fa-gitter {
+    background-image: url('{{ site.baseurl }}/assets/img/gitter.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 14px;
+    height: 22px;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  ul {
+    padding: 0;
+  }
+
+  .pure-u-1 {
+    padding: 0 20pt;
+  }
+}
+
 .page-title {
   padding-top: 40px; // This needs to be a padding, else the whole menu is vertically offset
 }
@@ -290,7 +369,6 @@ a.pure-menu-link.pure-menu-heading {
 
 .feed-rss {
   text-align: center;
-  margin: 25px 0 50px 0;
 }
 
 .pure-button {
@@ -306,22 +384,9 @@ a.pure-menu-link.pure-menu-heading {
   padding-top: 7px; // HACK: Move down menu items slightly, because `float: right` makes them go up
 }
 
-// Buttons of the main page's jumbotron
-.text-centered a.pure-button {
-  margin: 15px 10px;
-  color: $default-color;
-  &:hover, &:focus {
-    background-color: lighten(#ccc, 10%);
-    color: $default-color;
-  }
-  &:active {
-    background-color: darken(#ccc, 10%);
-    color: $default-color;
-  }
-}
-
 a.pure-button {
   background-color: #ccc;
+  margin: 15px 10px;
   color: $default-color;
   transition: .15s background-color;
   text-decoration: none;
@@ -329,6 +394,14 @@ a.pure-button {
   &:hover, &:focus, &:active {
     box-shadow: none;
     background-image: none;
+  }
+  &:hover, &:focus {
+    background-color: lighten(#ccc, 10%);
+    color: $default-color;
+  }
+  &:active {
+    background-color: darken(#ccc, 10%);
+    color: $default-color;
   }
 }
 
@@ -345,22 +418,47 @@ a.pure-button.pure-button-primary {
   }
 }
 
-// Styles for the bountysource banner.
-section#bountysource {
-  .fa-heart {
-      color: #fe8a21;
-
-  }
-
-  #bountysource-sponsors {
-    background-color: #282a36;
-    img {
-      height: 200px;
-
-    }
-  }
+section#book img {
+  border: 1px solid #272935;
 }
 
+// Styles for the donations section.
+section#donations {
+  .main-block h1 {
+      margin: 0;
+  }
+
+  .fa-heart {
+      color: #ea4c2a;
+      font-size: 70%;
+      padding-right: 6pt;
+  }
+
+  .pure-u-md-2-5 {
+      background: radial-gradient(50% 56%, #cceaff, #fff);
+  }
+
+  #sponsors-list {
+    margin-bottom: 48px;
+  }
+
+  #sponsors-list a {
+    margin-right: 20pt;
+    text-align: center;
+  }
+
+  #sponsors-list img {
+      height: 100px;
+      display: block;
+      margin-bottom: 10pt;
+    }
+}
+
+.center {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
 
 // Styles that apply only to medium-sized screens (small laptops for example)
 @media (max-width: 1370px) {
