@@ -15,7 +15,7 @@ from xmltree import escape
 
 const
   gitRepo = "https://github.com/nim-lang/Nim"
-  cmdRst2Html = " rst2html --compileonly $1 -o:temp/$2.temp $2.rst"
+  cmdRst2Html = " rst2html --compileonly $1 -o:temp/$2.temp src/$2.rst"
 
 type
   TabKind = enum tabRst, tabHtml, tabExternHtml, tabTmpl
@@ -35,17 +35,11 @@ const
     ("Sponsors", "sponsors", tabTmpl),
     ("Documentation", "documentation", tabRst)
   ]
-  links = [
-    ("Community", "community.html", "link forum"),
-    ("GitHub Repo", "https://github.com/nim-lang/Nim", "link github")
-  ]
-  ticker = "ticker.html"
 
 type
   ConfigData = object
-    outdir, ticker: string
+    outdir: string
     nimArgs: string
-    numProcessors: int # Set by parallelBuild:n, only works for values > 0.
     gaId: string  # google analytics ID, nil means analytics are disabled
   TRssItem = object
     year, month, day, title, url, content: string
@@ -62,7 +56,6 @@ type
 proc initConfigData(c: var ConfigData) =
   c.outdir = ""
   c.nimArgs = "--hint[Conf]:off --hint[Path]:off --hint[Processing]:off "
-  c.numProcessors = countProcessors()
 
 proc exe(f: string): string = return addFileExt(f, ExeExt)
 
@@ -311,11 +304,8 @@ proc buildNews(c: var ConfigData, newsDir: string, outputDir: string) =
       echo("Skipping file in news directory: ", path)
 
 proc buildWebsite(c: var ConfigData) =
-  if ticker.len > 0:
-    try:
-      c.ticker = readFile(ticker)
-    except IOError:
-      quit("[Error] cannot open: " & ticker)
+  createDir("temp")
+  createDir("upload")
   for i in 0..tabs.len-1:
     if tabs[i][2] == tabRst:
       var file = tabs[i][1]
@@ -325,7 +315,7 @@ proc buildWebsite(c: var ConfigData) =
   buildNewsRss(c, "upload")
   buildSponsors(c, "upload")
   buildNews(c, "news", "upload/news")
-  copyFile("style.css", "upload/style.css")
+  copyFile("src/style.css", "upload/assets/css/style.css")
 
 var c: ConfigData
 initConfigData(c)
