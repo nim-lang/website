@@ -22,7 +22,7 @@ title: Nim programming language
       </div>
       <div class="pure-u-1 pure-u-md-2-5">
         <h2 class="text-centered">Nim is simple…</h2>
-        <pre><code class="nimrod">
+        {% highlight nim %}
 # Compute average line length
 var
   sum = 0
@@ -34,7 +34,7 @@ for line in stdin.lines:
 
 echo("Average line length: ",
      if count > 0: sum / count else: 0)
-        </code></pre>
+{% endhighlight %}
         <div class="text-centered">
           <a href="{{ site.baseurl }}/examples/">More examples…</a>
         </div>

@@ -63,12 +63,16 @@ a {
   }
 }
 
-code {
+figure.highlight {
   font-family: "Inconsolata", monospace;
-  font-size: 110%;
-  padding: 2px;
-  background-color: #dfdfdf;
+  padding: 25px;
+  /*background-color: #dfdfdf;*/
   border-radius: 2px;
+  margin: 0;
+}
+
+pre {
+  margin: 0;
 }
 
 .page-subtitle {
