@@ -1,5 +1,5 @@
 $dark-color: #222430;
-$jumbotron-background-color: darken($dark-color, 5%);
+
 $jumbotron-color: #fff;
 $footer-background-color: darken($dark-color, 5%);
 $footer-color: #888;
@@ -20,3 +20,6 @@ $hr-color: #cfcfcf;
 
 
 $index-code-bg: #282a36;
+$jumbotron-background-color: #232733;
+$main-jumbotron-background-color: darken($dark-color, 5%);
+$faded-background-color: darken($default-background-color, 8%);

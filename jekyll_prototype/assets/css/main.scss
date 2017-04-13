@@ -99,10 +99,12 @@ hr {
 }
 
 footer {
-  padding: 10px 0 10px 0;
+  padding: 5px 0 5px 0;
   margin-top: 75px;
+  font-size: 70%;
   color: $footer-color;
-  background-color: $footer-background-color;
+  border-top: 4px solid lighten($jumbotron-background-color, 30%);
+  background-color: $jumbotron-background-color;
   a {
     color: $a-footer-color;
     &:hover, &:focus {
@@ -114,7 +116,7 @@ footer {
   }
 
   img {
-    height: 40px;
+    height: 35px;
   }
 
   .right-center {
@@ -125,7 +127,7 @@ footer {
 }
 
 .background-faded {
-  background-color: darken($default-background-color, 8%);
+  background-color: $faded-background-color;
 }
 
 .copyright {
@@ -224,12 +226,12 @@ a.pure-menu-link.pure-menu-heading {
 
 // Differently colored sections on front page.
 .main.jumbotron {
-  background-color: $jumbotron-background-color;
+  background-color: $main-jumbotron-background-color;
 }
 
 .jumbotron {
   padding: 50px 0;
-  background-color: #232733;
+  background-color: $jumbotron-background-color;
   color: $jumbotron-color;
 
   h1 {
