@@ -222,10 +222,14 @@ a.pure-menu-link.pure-menu-heading {
   margin: 0;
 }
 
-// The main section of the home page
+// Differently colored sections on front page.
+.main.jumbotron {
+  background-color: $jumbotron-background-color;
+}
+
 .jumbotron {
   padding: 50px 0;
-  background-color: $jumbotron-background-color;
+  background-color: #232733;
   color: $jumbotron-color;
 
   h1 {
