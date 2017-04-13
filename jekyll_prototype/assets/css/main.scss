@@ -492,6 +492,60 @@ section#donations {
   align-items:center;
 }
 
+/* Style for the featured projects section */
+
+.project-container {
+  width: 100px;
+  display: inline-block;
+  margin-right: 15pt;
+
+  h1 {
+    margin: 0;
+  }
+
+  a {
+    text-decoration: none;
+    color: $default-color;
+    &:hover, &:focus {
+      text-decoration: underline;
+      color: $default-color;
+    }
+    &:active {
+      text-decoration: none;
+      color: $default-color;
+    }
+  }
+}
+
+.project-box {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.project-box > h1 {
+  background-color: #3d3d3d;
+  width: 50px;
+  height: 50px;
+  color: white;
+  line-height: 1.3;
+}
+
+span.tag {
+  font-size: 60%;
+  background-color: $index-code-bg;
+  color: white;
+  border-radius: 2px;
+  padding: 2pt 5pt;
+}
+
+#karax {
+  background-image: url("http://www.gravatar.com/avatar/6275fdd9f48ec9184c5d6511d525c563?s=100&d=identicon");
+}
+
 // Styles that apply only to medium-sized screens (small laptops for example)
 @media (max-width: 1370px) {
   body {

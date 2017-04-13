@@ -52,13 +52,53 @@ echo("Average line length: ",
           <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title | escape }}</a>
         </h2>
         <p>{{ post.excerpt | escape }}</p>
-        <hr>
       </div>
     {% endfor %}
   </div>
   <p class="feed-rss">
-    <a href="{{ "/feed.xml" | prepend: site.baseurl }}">RSS feed</a>
+    <a class="pure-button" href="{{ "/blog.html" | prepend: site.baseurl }}">All articles</a>
+    <a class="pure-button" href="{{ "/feed.xml" | prepend: site.baseurl }}">RSS feed</a>
   </p>
+</section>
+
+<section class="background-faded call-to-action">
+  <section class="content text-centered">
+    <h2>Featured projects</h2>
+    <div class="pure-g center">
+      <div class="pure-u-1-3">
+        <div class="project-container">
+          <a href="https://github.com/Araq/karax">
+            <div class="project-box" id="karax">
+              <h1>K</h1>
+            </div>
+            <span class="tag">SPA framework</span>
+            <h1>karax</h1>
+          </a>
+        </div>
+
+        <div class="project-container">
+          <a href="https://github.com/dom96/jester">
+            <div class="project-box" id="jester">
+              <h1>J</h1>
+            </div>
+            <span class="tag">Web framework</span>
+            <h1>jester</h1>
+          </a>
+        </div>
+
+        <div class="project-container">
+          <a href="https://github.com/yglukhov/nimx">
+            <div class="project-box" id="nimx">
+              <h1>N</h1>
+            </div>
+            <span class="tag">Web framework</span>
+            <h1>nimx</h1>
+          </a>
+        </div>
+      </div>
+    </div>
+    <a class="pure-button" href="https://github.com/trending/nim">See more</a>
+  </section>
 </section>
 
 <section class="content center-banner">
@@ -70,7 +110,8 @@ echo("Average line length: ",
     <div class="pure-u-1-2">
       <p>
         The Nim compiler and tools are all written in Nim and licensed under the
-        MIT license. Be sure to watch the repository to get updates on Nim's
+        MIT license, with most development taking place on GitHub.
+        Be sure to watch the repository to get updates on Nim's
         development.
       </p>
     </div>
