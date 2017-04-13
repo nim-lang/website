@@ -19,7 +19,6 @@
 body {
   background-color: $default-background-color;
   color: $default-color;
-  cursor: default;
   font-size: $desktop-default-font-size;
   margin-top: $menu-height;
 }
@@ -38,7 +37,11 @@ h1, h2, h3, h4, h5, h6 {
 // http://purecss.io/grids/#using-grids-with-custom-fonts
 html, button, input, select, textarea,
 .pure-g [class *= "pure-u"] {
-  font-family: "Titillium Web", sans-serif;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Titillium Web";
 }
 
 h1 {
