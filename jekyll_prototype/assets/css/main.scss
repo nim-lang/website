@@ -53,7 +53,6 @@ h2 {
 
 a {
   text-decoration: none;
-  transition: 0.15s color;
   color: $a-color;
   &:hover, &:focus {
     text-decoration: underline;
@@ -203,7 +202,6 @@ footer {
 }
 
 a.pure-menu-link {
-  transition: .15s background-color;
   text-decoration: none;
   padding: 17px 15px;
   margin-top: -7px;
@@ -428,7 +426,6 @@ a.pure-button {
   background-color: #ccc;
   margin: 15px 10px;
   color: $default-color;
-  transition: .15s background-color;
   text-decoration: none;
   // Undo some Pure styles
   &:hover, &:focus, &:active {
@@ -436,7 +433,7 @@ a.pure-button {
     background-image: none;
   }
   &:hover, &:focus {
-    background-color: lighten(#ccc, 10%);
+    background-color: darken(#ccc, 10%);
     color: $default-color;
   }
   &:active {
@@ -449,7 +446,7 @@ a.pure-button.pure-button-primary {
   background-color: $highlight-color;
   color: $default-color;
   &:hover, &:focus {
-    background-color: lighten($highlight-color, 10%);
+    background-color: darken($highlight-color, 10%);
     color: $default-color;
   }
   &:active {
