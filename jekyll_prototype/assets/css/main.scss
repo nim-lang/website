@@ -3,7 +3,6 @@
 ---
 
 @import "variables"; // Global variables
-@import "fonts";     // @font-face declarations
 @import "examples";  // Styles for Examples page
 @import "download";  // Styles for Download page
 @import "banner";    // Styles for top banner
@@ -267,12 +266,12 @@ a.pure-menu-link.pure-menu-heading {
   box-sizing: border-box;
 }
 
-.learn-nim {
-  text-align: center;
-  .fa-graduation-cap {
-    width: 100%;
-  }
+.center-banner > .section-heading > i.fa {
+  width: 100%;
+}
 
+.center-banner {
+  text-align: center;
 }
 
 .version-button {
