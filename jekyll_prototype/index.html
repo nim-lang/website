@@ -56,8 +56,7 @@ echo("Average line length: ",
     {% endfor %}
   </div>
   <p class="feed-rss">
-    <a class="pure-button" href="{{ "/blog.html" | prepend: site.baseurl }}">All articles</a>
-    <a class="pure-button" href="{{ "/feed.xml" | prepend: site.baseurl }}">RSS feed</a>
+    <a href="{{ "/blog" | prepend: site.baseurl }}">All articles</a>
   </p>
 </section>
 
@@ -175,21 +174,17 @@ echo("Average line length: ",
     <h2>Top sponsors</h2>
     <div class="pure-g center">
       <div class="pure-u-1-3">
-        <div class="sponsor-container">
-          <a href="https://www.secondspectrum.com/">
-            <img src="{{ site.baseurl }}/assets/bountysource/secondspectrum.png"/>
-            <span class="green tag">+$250/month</span>
-            <p class="title">Second Spectrum</p>
-          </a>
-        </div>
-
-        <div class="sponsor-container">
-          <a href="https://xored.com">
-            <img src="{{ site.baseurl }}/assets/bountysource/xored.svg"/>
-            <span class="green tag">+$250/month</span>
-            <p class="title">Xored</p>
-          </a>
-        </div>
+        {% for sponsor in site.data.sponsors %}
+          {% if sponsor.level == "250" %}
+            <div class="sponsor-container">
+              <a href="{{sponsor.url}}">
+                <img src="{{ site.baseurl }}/{{sponsor.logo}}"/>
+                <span class="green tag">+${{sponsor.this_month}}/month</span>
+                <p class="title">{{sponsor.name}}</p>
+              </a>
+            </div>
+          {% endif %}
+        {% endfor %}
       </div>
     </div>
     <a class="pure-button" href="https://github.com/trending/nim">See more</a>
