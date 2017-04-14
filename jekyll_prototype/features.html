@@ -192,7 +192,7 @@ window.onload = onLoad
   </section>
 
   <section class="background-faded call-to-action">
-    <section class="content">
+    <section class="content metaprogramming">
       <div class="pure-g">
         <div class="pure-u-1 pure-u-md-1-2">
           <h2>Small core with a rich prospect for extensibility</h2>
@@ -210,13 +210,13 @@ window.onload = onLoad
             different programming paradigms.
           </h3>
         </div>
-        <div class="pure-u-1 pure-u-md-1-2">
+        <div class="pure-u-1 pure-u-md-1-2 center">
           {% highlight nim %}
 import macros, strutils
 
 macro toEnum(words: static[string]): untyped =
   result = newTree(nnkEnumTy, newEmptyNode())
-  
+
   for w in splitWhitespace(words):
     result.add ident(w)
 
@@ -230,4 +230,59 @@ var color = Indigo
     </section>
   </section>
 
-  <!-- Nimble -->
+  <section class="content nimble">
+    <div class="pure-g">
+      <div class="pure-u-1 center">
+        <h1>Package management.</h1>
+      </div>
+      <div class="pure-u-1 center">
+        <img height="150px" src="{{ site.baseurl }}/assets/img/nimble.svg"/>
+      </div>
+      <div class="pure-u-1 pure-u-md-1-2">
+        <h2>
+          Nimble is the Nim package manager. The package list and packages
+          themselves are stored in Git repositories
+          (Mercurial is also supported). They can be installed via Git or
+          Mercurial URLs or locally from a directory.
+        </h2>
+        <h2>
+          Packages are defined using a
+          specially formatted <code>.nimble</code> file that is evaluated by the
+          Nim compiler. This means that it supports a large subset of the
+          Nim programming language, allowing various powerful features including
+          the ability to determine the OS and specify external dependencies.
+        </h2>
+      </div>
+      <div class="pure-u-1 pure-u-md-1-2 center">
+        {% highlight nim %}
+# Package
+
+version       = "v0.1.0"
+author        = "Benedict Cumberbatch"
+description   = "Sample package."
+license       = "MIT"
+
+# Dependencies
+requires "nim >= 0.13.0", "jester >= 0.1.0"
+
+import distros
+if detectOs(Ubuntu):
+  foreignDep "libssl-dev"
+else:
+  foreignDep "openssl"
+
+task test, "Run the tester!":
+  withDir "tests":
+    exec "nim c -r tester"
+          {% endhighlight %}
+      </div>
+      <div class="pure-u-1 center">
+        <a class="pure-button pure-button-primary" href="https://github.com/nim-lang/nimble#readme">Learn more</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Easy C and C++ wrapping -->
+
+  <!-- Awesome tracebacks -->
