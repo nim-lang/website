@@ -585,8 +585,7 @@ span.tag {
 
 // Styles for the features page.
 
-div.image-right {
-  float: right;
+div.image {
   margin-top: 80px;
 
   img {
@@ -594,8 +593,12 @@ div.image-right {
   }
 
   p {
-    font-size: 80%;
+    font-size: 9pt;
   }
+}
+
+div.image.right {
+  float: right;
 }
 
 // Styles that apply only to medium-sized screens (small laptops for example)
