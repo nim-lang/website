@@ -191,4 +191,43 @@ window.onload = onLoad
     </div>
   </section>
 
-  <!-- Small core but a rich prospect for extensibility -->
+  <section class="background-faded call-to-action">
+    <section class="content">
+      <div class="pure-g">
+        <div class="pure-u-1 pure-u-md-1-2">
+          <h2>Small core with a rich prospect for extensibility</h2>
+          <h3>
+            Nim implements a small core language with a powerful
+            set of metaprogramming features.
+          </h3>
+          <h3>
+            The metaprogramming features in Nim include support for generics,
+            templates, and macros. This allows Nim to be extended with support
+            for various programming paradigms and allows developers to avoid
+            boilerplate. The standard library
+            implements async await using these metaprogramming features and
+            the Nim community has developed various packages implementing
+            different programming paradigms.
+          </h3>
+        </div>
+        <div class="pure-u-1 pure-u-md-1-2">
+          {% highlight nim %}
+type
+  Container[T] = ref object
+    value: T
+
+proc `*`[T: SomeNumber](c1,
+    c2: Container[T]): Container[T] =
+  Container(value: c1.value * c2.value)
+
+proc `$`[T](container: Container[T]): string =
+  $container.value
+
+
+          {% endhighlight %}
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <!-- Nimble -->
