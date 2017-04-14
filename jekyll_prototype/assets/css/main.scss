@@ -583,6 +583,21 @@ span.tag {
   }
 }
 
+// Styles for the features page.
+
+div.image-right {
+  float: right;
+  margin-top: 80px;
+
+  img {
+    height: 300px;
+  }
+
+  p {
+    font-size: 80%;
+  }
+}
+
 // Styles that apply only to medium-sized screens (small laptops for example)
 @media (max-width: 1370px) {
   body {
