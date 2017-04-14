@@ -78,6 +78,11 @@ figure.highlight {
   font-size: 120%;
 }
 
+div.inline figure.highlight {
+  margin-top: 0;
+  padding: 0;
+}
+
 pre {
   margin: 0;
 }
@@ -599,6 +604,15 @@ div.image {
 
 div.image.right {
   float: right;
+}
+
+div.image.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+
+  margin-top: 170px;
 }
 
 // Styles that apply only to medium-sized screens (small laptops for example)

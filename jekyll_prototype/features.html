@@ -117,4 +117,75 @@ for person in people:
     </section>
   </section>
 
-  <!-- JS compilation -->
+  <section class="content">
+    <div class="pure-g">
+      <div class="pure-u-1 pure-u-md-1-2">
+        <h1>JavaScript compilation.</h1>
+        <h2>
+          Nim includes a JavaScript backend so you can target the client and
+          server effortlessly at the same time.
+        </h2>
+        <div class="inline">
+          {% highlight nim %}
+import dom
+
+proc onLoad(event: Event) =
+  let p = document.createElement("p")
+  p.innerHTML = "Click me!"
+  p.style.fontFamily = "Helvetica"
+  p.style.color = "red"
+
+  p.addEventListener("click",
+    proc (event: Event) =
+      window.alert("Hello World!")
+  )
+
+  document.body.appendChild(p)
+
+window.onload = onLoad
+          {% endhighlight %}
+      </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-1-2">
+        <div class="image center">
+          <script type="text/javascript" src="http://picheta.me/snake/snake.js"></script>
+
+          <link rel="stylesheet" type="text/css" href="http://picheta.me/snake/snake.css">
+          <style>
+            #snake_center {
+              width: 402px;
+            }
+
+            #snake_center > p {
+              width: 100%;
+              margin-bottom: 0;
+            }
+          </style>
+          <div id="snake_center">
+            <div id="snake">
+              <canvas id="snake_canvas"></canvas>
+              <div id="snake_controls">
+                <span><b>New Game:</b> N</span>
+                <span><b>Play/Pause: </b> P</span>
+                <span><b>Controls: </b> ← → ↑ ↓</span>
+              </div>
+            </div>
+            <p>
+              The above game is written in Nim, compiled using the JavaScript
+              backend and drawn using the canvas API.
+            </p>
+            <p>
+              <b>Source code: </b>
+              <a href="https://github.com/dom96/snake">https://github.com/dom96/snake</a>
+            </p>
+            <p>
+              <b>Game website: </b>
+              <a href="http://picheta.me/snake">http://picheta.me/snake</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Small core but a rich prospect for extensibility -->
