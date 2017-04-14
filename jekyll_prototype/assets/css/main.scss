@@ -459,6 +459,15 @@ section#book img {
   border: 1px solid #272935;
 }
 
+span.disclaimer {
+  color: $highlight-color;
+}
+
+p.disclaimer {
+  font-size: 60%;
+  color: $hr-color;
+}
+
 // Styles for the donations section.
 section#donations {
   .main-block h1 {
