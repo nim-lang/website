@@ -606,13 +606,8 @@ div.image.right {
   float: right;
 }
 
-div.image.center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-flow: column;
-
-  margin-top: 170px;
+.center figure.highlight {
+  margin-top: 7.4em;
 }
 
 // Styles that apply only to medium-sized screens (small laptops for example)
