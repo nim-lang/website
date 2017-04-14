@@ -212,18 +212,18 @@ window.onload = onLoad
         </div>
         <div class="pure-u-1 pure-u-md-1-2">
           {% highlight nim %}
+import macros, strutils
+
+macro toEnum(words: static[string]): untyped =
+  result = newTree(nnkEnumTy, newEmptyNode())
+  
+  for w in splitWhitespace(words):
+    result.add ident(w)
+
 type
-  Container[T] = ref object
-    value: T
+  Color = toEnum"Red Green Blue Indigo"
 
-proc `*`[T: SomeNumber](c1,
-    c2: Container[T]): Container[T] =
-  Container(value: c1.value * c2.value)
-
-proc `$`[T](container: Container[T]): string =
-  $container.value
-
-
+var color = Indigo
           {% endhighlight %}
         </div>
       </div>
