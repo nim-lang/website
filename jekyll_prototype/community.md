@@ -55,6 +55,17 @@ the account when tweeting about Nim!
 <i class="fa fa-twitter" aria-hidden="true"></i>
 [@nim_lang](https://twitter.com/nim_lang)
 
+# Blog
+
+The blog is where we will be posting release announcements and other news first.
+If you are an avid RSS user then it should be just for you.
+
+<i class="fa fa-bullhorn" aria-hidden="true"></i>
+[Nim blog]({{ site.baseurl }}/blog.html)
+
+<i class="fa fa-rss" aria-hidden="true"></i>
+[Blog feed]({{ site.baseurl }}/feed.xml)
+
 # Reddit
 
 The Nim subreddit contains many user submitted announcements, blog posts,
@@ -74,6 +85,16 @@ questions.
 <i class="fa fa-stack-overflow" aria-hidden="true"></i>
 [nim](https://stackoverflow.com/questions/tagged/nim)
 
+# Meetups
+
+If you're planning on organising a Nim meetup, please let us know, we would
+love to include it here and announce it via Twitter and other means.
+
+As of right now, there don't appear to be any active meetups, although the
+following groups have been set up:
+
+* [São Paulo, Brazil](http://www.meetup.com/pt-BR/nim-br)
+* [Paris, France](https://www.meetup.com/nim-lang/)
 
 # Issues and RFCs
 
