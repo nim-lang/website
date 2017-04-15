@@ -339,6 +339,26 @@ proc display*(window: RenderWindow)
     </section>
   </section>
 
-  <!-- Easy C and C++ wrapping -->
-
-  <!-- Awesome tracebacks -->
+  <section class="content">
+    <div class="pure-g">
+      <div class="pure-u-1 pure-u-md-1-2">
+        <h1>Awesome tracebacks.</h1>
+        <h2>
+          Inspired by Python. When a Nim application crashes with an exception,
+          it will output a stack trace before terminating. The format of this
+          stack trace is very easy to grasp and contains all the required
+          information to debug the exception.
+        </h2>
+      </div>
+      <div class="pure-u-1 pure-u-md-1-2 center">
+        {% highlight plain %}
+Traceback (most recent call last)
+module.nim(10)           module
+module.nim(8)            readData
+strutils.nim             parseInt
+Error: unhandled exception:
+       invalid integer: Hello World [ValueError]
+        {% endhighlight %}
+      </div>
+    </div>
+  </section>
