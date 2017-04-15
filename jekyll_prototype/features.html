@@ -240,11 +240,15 @@ var color = Indigo
       </div>
       <div class="pure-u-1 pure-u-md-1-2">
         <h2>
-          Nimble is the Nim package manager. The package list and packages
-          themselves are stored in Git and Mercurial repositories.
-          They can be installed via Git or
-          Mercurial URLs, or locally from a directory.
+          The Nim package manager is called Nimble. Packages
+          are distributed via Git and Mercurial repositories, and tags are
+          queried remotely to determine version information.
         </h2>
+        <h3>
+          A mapping between package names and repository URLs is defined in a
+          <code>packages.json</code> file that is stored on
+          <a href="https://github.com/nim-lang/packages">GitHub</a>.
+        </h3>
         <h2>
           Packages are defined using a
           specially formatted <code>.nimble</code> file that is evaluated by the
