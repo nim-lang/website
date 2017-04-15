@@ -609,12 +609,18 @@ div.image.right {
   float: right;
 }
 
-div h1:first-child, div h2:first-child, div h3:first-child {
-  margin-top: 0;
+section > div > div:not(:first-child) {
+  h1:first-child, h2:first-child, h3:first-child {
+    margin-top: 0;
+  }
 }
 
 .pure-u-1.center > img {
     margin-bottom: 50px;
+}
+
+.fa-windows, .fa-linux, .fa-apple {
+  margin-right: 20pt;
 }
 
 // Styles that apply only to medium-sized screens (small laptops for example)
