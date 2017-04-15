@@ -11,14 +11,12 @@ defaults:
       path: ""
       type: pages
     values:
-      image: /images/icon.png
       layout: default
   -
     scope:
       path: ""
       type: posts
     values:
-      image: /images/icon.png
       layout: post
       is_post: true
 
