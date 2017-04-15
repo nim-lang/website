@@ -37,13 +37,16 @@ This section lists the companies and individuals that are, very kindly, contribu
 
 <div class="site-content slim content">
   <table>
-    <tr>
-      <th></th>
-      <th class="name">Sponsor</th>
-      <th>This month</th>
-      <th>Total</th>
-      <th>First contribution</th>
-    </tr>
+    <thead>
+      <tr>
+        <th></th>
+        <th class="name">Sponsor</th>
+        <th>This month</th>
+        <th>Total</th>
+        <th>First contribution</th>
+      </tr>
+    </thead>
+    <tbody>
     {% for sponsor in site.data.sponsors %}
       {% if sponsor.level != "250" %}
         <tr>
@@ -63,6 +66,7 @@ This section lists the companies and individuals that are, very kindly, contribu
         </tr>
       {% endif %}
     {% endfor %}
+    </tbody>
   </table>
 
   <h1 class="text-centered page-title">Past sponsors</h1>
@@ -70,17 +74,21 @@ This section lists the companies and individuals that are, very kindly, contribu
     This section lists the companies and individuals that contributed financially to Nim development in the past.
   </h3>
   <table>
-    <tr>
-      <th class="name">Sponsor</th>
-      <th>Total</th>
-      <th>First contribution</th>
-    </tr>
-    {% for sponsor in site.data.inactive_sponsors %}
-        <tr>
-          <td>{{sponsor.name}}</td>
-          <td>${{sponsor.all_time}}</td>
-          <td>{{sponsor.since}}</td>
-        </tr>
-    {% endfor %}
+    <thead>
+      <tr>
+        <th class="name">Sponsor</th>
+        <th>Total</th>
+        <th>First contribution</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for sponsor in site.data.inactive_sponsors %}
+          <tr>
+            <td>{{sponsor.name}}</td>
+            <td>${{sponsor.all_time}}</td>
+            <td>{{sponsor.since}}</td>
+          </tr>
+      {% endfor %}
+    </tbody>
   </table>
 </div>

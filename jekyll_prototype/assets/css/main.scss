@@ -679,12 +679,16 @@ div.image.right {
     font-size: 60%;
     width: 200px;
   }
+
+  table {
+    font-size: 140%;
+    width: 100%;
+  }
 }
 
 table {
-  font-size: 140%;
-  width: 100%;
-  tr:first-child {
+  font-size: 90%;
+  thead > tr {
     background-color: $faded-background-color;
     border-bottom: 4px solid darken($faded-background-color, 30%);
   }
@@ -712,6 +716,7 @@ table {
     height: 50px;
   }
 }
+
 
 // Styles that apply only to medium-sized screens (small laptops for example)
 @media (max-width: 1370px) {
