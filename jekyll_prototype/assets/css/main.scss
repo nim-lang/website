@@ -668,6 +668,51 @@ div.image.right {
 
 }
 
+// Styles for the sponsors page.
+
+.sponsors {
+  .call-to-action {
+    margin-top: 0;
+  }
+
+  span.tag {
+    font-size: 60%;
+    width: 200px;
+  }
+}
+
+table {
+  font-size: 140%;
+  width: 100%;
+  tr:first-child {
+    background-color: $faded-background-color;
+    border-bottom: 4px solid darken($faded-background-color, 30%);
+  }
+
+  th {
+    padding: 10pt;
+    text-align: left;
+  }
+
+  td {
+    padding-top: 5pt;
+    padding-bottom: 5pt;
+    padding-left: 10pt;
+    padding-right: 10pt;
+    border-bottom: 2px solid $faded-background-color;
+
+    height: 50px;
+  }
+
+  td.name, th.name {
+    width: 250px;
+  }
+
+  td img {
+    height: 50px;
+  }
+}
+
 // Styles that apply only to medium-sized screens (small laptops for example)
 @media (max-width: 1370px) {
   body {
