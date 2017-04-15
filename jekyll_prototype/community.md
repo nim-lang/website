@@ -19,11 +19,11 @@ by joining one of our chat rooms.
 Our official chat room is the #nim channel on irc.freenode.net. You can
 access it in multiple ways:
 
-<i class="fa fa-desktop li" aria-hidden="true"></i>
+<i class="fa fa-irc li" aria-hidden="true">#</i>
 Use an [IRC client](https://en.wikipedia.org/wiki/Internet_Relay_Chat#Clients)
 to connect to irc.freenode.net and join the #nim channel
 
-<i class="fa fa-globe li" aria-hidden="true"></i>
+<i class="fa fa-gitter black li" aria-hidden="true"></i>
 Join the Gitter chat room, which relays messages both ways between IRC and
 Gitter, by clicking [here](https://gitter.im/nim-lang/Nim).
 
@@ -44,7 +44,36 @@ This is a good place for long questions or to gauge the community's interest
 on specific topics such as new features.
 
 <i class="fa fa-comments" aria-hidden="true"></i>
-[Nim forum](https://forum.nim-lang.org).
+[Nim forum](https://forum.nim-lang.org)
+
+# Twitter
+
+For announcements including news about releases, events and projects. Be sure
+to follow the official Twitter account and remember to mention
+the account when tweeting about Nim!
+
+<i class="fa fa-twitter" aria-hidden="true"></i>
+[@nim_lang](https://twitter.com/nim_lang)
+
+# Reddit
+
+The Nim subreddit contains many user submitted announcements, blog posts,
+discussions. It is a good place to share your work with the Nim community and
+to get updates about the project so be sure to hit that subscribe button.
+
+<i class="fa fa-reddit" aria-hidden="true"></i>
+[r/nim](https://reddit.com/r/nim)
+
+# StackOverflow
+
+There is already an active number of Nim developers answering questions on
+StackOverflow, you can be one of them. It is also a good place for newcomers to
+get help with their project. Be sure to use the ``nim`` tag when asking
+questions.
+
+<i class="fa fa-stack-overflow" aria-hidden="true"></i>
+[nim](https://stackoverflow.com/questions/tagged/nim)
+
 
 # Issues and RFCs
 

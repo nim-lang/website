@@ -372,6 +372,24 @@ a.pure-menu-link.pure-menu-heading {
 }
 
 /* Community section */
+
+.fa-irc {
+  font-family: Courier, monospace, Arial;
+  color: black;
+}
+
+.fa-gitter {
+  background-image: url('{{ site.baseurl }}/assets/img/gitter.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 14px;
+  height: 22px;
+}
+
+.fa-gitter.black {
+  background-image: url('{{ site.baseurl }}/assets/img/gitter_black.svg');
+}
+
 #community {
   .fa {
     margin-right: 5pt;
@@ -380,15 +398,7 @@ a.pure-menu-link.pure-menu-heading {
   }
 
   .fa-irc {
-    font-family: Courier, monospace, Arial;
-  }
-
-  .fa-gitter {
-    background-image: url('{{ site.baseurl }}/assets/img/gitter.svg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    width: 14px;
-    height: 22px;
+    color: inherit;
   }
 
   h1 {
@@ -643,9 +653,19 @@ div.image.right {
 
 // Styles for community page.
 
+.community {
+  .fa {
+    font-size: 160%;
+    vertical-align: middle;
+    text-align: center;
+    margin-right: 5pt;
+  }
+
+}
+
 .fa.li {
   margin-left: 15pt;
-  width: 20px;
+
 }
 
 // Styles that apply only to medium-sized screens (small laptops for example)
