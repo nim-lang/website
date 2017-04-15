@@ -68,19 +68,21 @@ figure.highlight {
   code {
     font-family: "Inconsolata", monospace;
   }
-  padding: 25px;
   /*background-color: #dfdfdf;*/
+  // background-color: #f6f9fa;
+  background-color: #f8f8f8;
   border-radius: 2px;
   margin: 0;
-  margin-top: 4em;
   margin-bottom: 12pt;
-
+  padding: 10px;
   font-size: 120%;
 }
 
-div.inline figure.highlight {
-  margin-top: 0;
-  padding: 0;
+.jumbotron {
+  figure.highlight {
+    padding: 25px;
+    margin-top: 4em;
+  }
 }
 
 pre {
@@ -606,16 +608,12 @@ div.image.right {
   float: right;
 }
 
-.center figure.highlight {
-  margin-top: 7.4em;
+div h1:first-child, div h2:first-child, div h3:first-child {
+  margin-top: 0;
 }
 
-.nimble figure.highlight {
-  margin-top: 2em;
-}
-
-.metaprogramming figure.highlight {
-  margin-top: 4.2em;
+.pure-u-1.center > img {
+    margin-bottom: 50px;
 }
 
 // Styles that apply only to medium-sized screens (small laptops for example)

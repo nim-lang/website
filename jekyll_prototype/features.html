@@ -7,8 +7,10 @@ title: Features
 
   <section class="content">
     <div class="pure-g">
-      <div class="pure-u-1 pure-u-md-1-2">
+      <div class="pure-u-1">
         <h1>Intuitive and clean syntax.</h1>
+      </div>
+      <div class="pure-u-1 pure-u-md-1-2">
         <h2>
           Taking inspiration from multiple languages, the Nim syntax is
           easily understood and results in code that can be modified very
@@ -22,8 +24,7 @@ title: Features
           <li>Pascal-inspired type sections for leaner definitions</li>
         </ul>
       </div>
-      <div class="pure-u-1 pure-u-md-1-2">
-        <div class="center">
+      <div class="pure-u-1 pure-u-md-1-2 center">
         {% highlight nim %}
 import strutils
 type
@@ -37,9 +38,7 @@ var people = [
 ]
 
 for person in people:
-  echo("$1 is $2 years old" % [person.name, $person.age])
-        {% endhighlight %}
-        </div>
+  echo("$1 is $2 years old" % [person.name, $person.age]){% endhighlight %}
       </div>
     </div>
   </section>
@@ -121,8 +120,10 @@ for person in people:
 
   <section class="content">
     <div class="pure-g">
-      <div class="pure-u-1 pure-u-md-1-2">
+      <div class="pure-u-1">
         <h1>JavaScript compilation.</h1>
+      </div>
+      <div class="pure-u-1 pure-u-md-1-2">
         <h2>
           Nim includes a first-class JavaScript backend so you can target the
           client and server effortlessly at the same time.
@@ -166,8 +167,7 @@ for person in people:
           </div>
         </div>
       </div>
-      <div class="pure-u-1 pure-u-md-1-2">
-        <div class="center">
+      <div class="pure-u-1 pure-u-md-1-2 center">
           {% highlight nim %}
 import dom
 
@@ -184,9 +184,7 @@ proc onLoad(event: Event) =
 
   document.body.appendChild(p)
 
-window.onload = onLoad
-          {% endhighlight %}
-        </div>
+window.onload = onLoad{% endhighlight %}
       </div>
     </div>
   </section>
@@ -194,8 +192,10 @@ window.onload = onLoad
   <section class="background-faded call-to-action">
     <section class="content metaprogramming">
       <div class="pure-g">
+        <div class="pure-u-1">
+          <h1>Small core with a rich prospect for extensibility</h1>
+        </div>
         <div class="pure-u-1 pure-u-md-1-2">
-          <h2>Small core with a rich prospect for extensibility</h2>
           <h3>
             Nim implements a small core language with a powerful
             set of metaprogramming features.
@@ -223,8 +223,7 @@ macro toEnum(words: static[string]): untyped =
 type
   Color = toEnum"Red Green Blue Indigo"
 
-var color = Indigo
-          {% endhighlight %}
+var color = Indigo{% endhighlight %}
         </div>
       </div>
     </section>
@@ -277,8 +276,7 @@ else:
 
 task test, "Run the tester!":
   withDir "tests":
-    exec "nim c -r tester"
-          {% endhighlight %}
+    exec "nim c -r tester"{% endhighlight %}
       </div>
       <div class="pure-u-1 center">
         <a class="pure-button pure-button-primary" href="https://github.com/nim-lang/nimble#readme">Learn more</a>
@@ -322,8 +320,7 @@ proc clear*(window: RenderWindow, color: Color)
     {.importcpp: "#.clear(@)".}
 
 proc display*(window: RenderWindow)
-    {.importcpp: "#.display()".}
-          {% endhighlight %}
+    {.importcpp: "#.display()".}{% endhighlight %}
         </div>
         <div class="pure-u-1 pure-u-md-1-2 center">
           <h3>
@@ -341,8 +338,10 @@ proc display*(window: RenderWindow)
 
   <section class="content">
     <div class="pure-g">
-      <div class="pure-u-1 pure-u-md-1-2">
+      <div class="pure-u-1">
         <h1>Awesome tracebacks.</h1>
+      </div>
+      <div class="pure-u-1 pure-u-md-1-2">
         <h2>
           Inspired by Python. When a Nim application crashes with an exception,
           it will output a stack trace before terminating. The format of this
@@ -357,8 +356,7 @@ module.nim(10)           module
 module.nim(8)            readData
 strutils.nim             parseInt
 Error: unhandled exception:
-       invalid integer: Hello World [ValueError]
-        {% endhighlight %}
+       invalid integer: Hello World [ValueError]{% endhighlight %}
       </div>
     </div>
   </section>
