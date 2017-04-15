@@ -19,10 +19,13 @@ by joining one of our chat rooms.
 Our official chat room is the #nim channel on irc.freenode.net. You can
 access it in multiple ways:
 
-* Use an [IRC client](https://en.wikipedia.org/wiki/Internet_Relay_Chat#Clients)
-  to connect to irc.freenode.net and join the #nim channel
-* Join the Gitter chat room, which relays messages both ways between IRC and
-  Gitter, by clicking [here](https://gitter.im/nim-lang/Nim).
+<i class="fa fa-desktop li" aria-hidden="true"></i>
+Use an [IRC client](https://en.wikipedia.org/wiki/Internet_Relay_Chat#Clients)
+to connect to irc.freenode.net and join the #nim channel
+
+<i class="fa fa-globe li" aria-hidden="true"></i>
+Join the Gitter chat room, which relays messages both ways between IRC and
+Gitter, by clicking [here](https://gitter.im/nim-lang/Nim).
 
 You can join this chat room to ask a quick question, or engage in a discussion
 about features and projects that interest you. For formal feature requests and
@@ -37,22 +40,27 @@ semi-official #nim-offtopic channel for off-topic discussion.
 
 # Forum
 
-For threaded discussion be sure to visit the [Nim forum](https://forum.nim-lang.org).
-
 This is a good place for long questions or to gauge the community's interest
 on specific topics such as new features.
+
+<i class="fa fa-comments" aria-hidden="true"></i>
+[Nim forum](https://forum.nim-lang.org).
 
 # Issues and RFCs
 
 The issue tracker is hosted on GitHub together with the main repository.
 Most projects under the Nim umbrella have their own issue tracker:
 
-* Nim compiler, standard library, documentation generator and other tools -
-  [https://github.com/nim-lang/Nim/issues](https://github.com/nim-lang/Nim/issues)
-* Nimsuggest - [https://github.com/nim-lang/nimsuggest/issues](https://github.com/nim-lang/nimsuggest/issues)
-* Nimble - [https://github.com/nim-lang/nimsuggest/issues](https://github.com/nim-lang/nimble/issues)
-* NimForum - [https://github.com/nim-lang/nimforum/issues](https://github.com/nim-lang/nimsuggest/issues)
-* This website - [https://github.com/nim-lang/website/issues](https://github.com/nim-lang/nimsuggest/issues)
+
+* [Nim compiler and standard library issue tracker](https://github.com/nim-lang/Nim/issues)
+
+* [Nimsuggest issue tracker](https://github.com/nim-lang/nimsuggest/issues)
+
+* [Nimble issue tracker](https://github.com/nim-lang/nimble/issues)
+
+* [NimForum issue tracker](https://github.com/nim-lang/nimsuggest/issues)
+
+* [This website's issue tracker](https://github.com/nim-lang/website/issues)
 
 If you have found an issue in the compiler, the standard library or any of
 the tools then please create an issue in the relevant repository. If
