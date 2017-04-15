@@ -625,6 +625,22 @@ div.image.right {
   margin-right: 20pt;
 }
 
+// Styles for the install page.
+
+.os-box {
+  i {
+    float: left;
+  }
+  .links {
+    display: inline;
+
+    span {
+      display: block;
+    }
+  }
+
+}
+
 // Styles that apply only to medium-sized screens (small laptops for example)
 @media (max-width: 1370px) {
   body {

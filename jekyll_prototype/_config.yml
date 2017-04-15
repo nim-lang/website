@@ -5,12 +5,30 @@ description: >
   compiles to C, C++ and JavaScript.
 baseurl: ""
 
+defaults:
+  -
+    scope:
+      path: ""
+      type: pages
+    values:
+      image: /images/icon.png
+      layout: default
+  -
+    scope:
+      path: ""
+      type: posts
+    values:
+      image: /images/icon.png
+      layout: post
+      is_post: true
+
 # Build settings
 markdown: kramdown
-permalink: pretty
+permalink: date
 sass:
   style: compressed
 exclude:
   - CNAME
   - README.md
   - LICENSE.md
+
