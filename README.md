@@ -1,11 +1,14 @@
 # Nim website development
 
-## `jekyll_prototype`
+The Nim website hosted on https://nim-lang.org.
 
-A [Jekyll](http://jekyllrb.com/) prototype (news entries are copy-pasted from
-the current site). Install Jekyll, then use `jekyll serve` to serve to a local
-Web server with automatic refresh on changes.
+## Developing
+
+Install Jekyll, then ``cd jekyll`` and use `jekyll serve`
+to serve to a local Web server with automatic refresh on changes.
 
 ## License
 
-MIT, see [LICENSE.md](/LICENSE.md) for details.
+Unless otherwise stated, the content of this page is licensed under the Creative Commons Attribution 3.0 license.
+
+The design of this website is Copyright (C) Nim developers.
