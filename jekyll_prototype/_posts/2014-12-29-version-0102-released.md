@@ -6,18 +6,18 @@ author: Dominik Picheta
 This release marks the completion of a very important change to the project:
 the official renaming from Nimrod to Nim. Version 0.10.2 contains many language
 changes, some of which may break your existing code. For your convenience, we
-added a new tool called `nimfix <nimfix.html>`_ that will help you convert your
+added a new tool called [nimfix]({{site.baseurl}}/docs/nimfix.html) that will help you convert your
 existing projects so that it works with the latest version of the compiler.
 
-Progress towards version 1.0
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+## Progress towards version 1.0
+
 
 Although Nim is still pre-1.0, we were able to keep the number of breaking
 changes to a minimum so far. Starting with version 1.0, we will not introduce
 any breaking changes between major release versions.
 One of Nim's goals is to ensure that the compiler is as efficient as possible.
 Take a look at the
-`latest benchmarks <https://github.com/logicchains/LPATHBench/blob/master/writeup.md>`_,
+[latest benchmarks](https://github.com/logicchains/LPATHBench/blob/master/writeup.md),
 which show that Nim is consistently near
 the top and already nearly as fast as C and C++. Recent developments, such as
 the new ``asyncdispatch`` module will allow you to write efficient web server
@@ -32,8 +32,7 @@ Nick Greenfield for the much more beautiful documentation!
 
 
 
-What's left to be done
-~~~~~~~~~~~~~~~~~~~~~~
+## What's left to be done
 
 The 1.0 release is actually very close. Apart from bug fixes, there are
 two major features missing or incomplete:
@@ -47,8 +46,7 @@ This means that fancy matrix libraries will finally start to work, which used
 to be a major point of pain in the language.
 
 
-Nimble and other Nim tools
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+## Nimble and other Nim tools
 
 Outside of the language and the compiler itself many Nim tools have seen
 considerable improvements.
@@ -62,13 +60,12 @@ packages repository which is hosted on a GitHub repo. Packages can also be
 installed via a Git repo URL or Mercurial repo URL. The package repository
 is searchable through Nimble. Anyone is free to add their own packages to
 the package repository by forking the
-`nim-lang/packages <https://github.com/nim-lang/packages>`_ repo and creating
+[nim-lang/packages](https://github.com/nim-lang/packages) repo and creating
 a pull request. Nimble is fully cross-platform and should be fully functional
 on all major operating systems.
 It is of course completely written in Nim.
 
-Changelog
-~~~~~~~~~
+## Changelog
 
 Changes affecting backwards compatibility
 -----------------------------------------
@@ -102,7 +99,8 @@ Changes affecting backwards compatibility
   standalone ``except`` requires an explicit ``try``.
 - Operators ending in ``>`` are considered as "arrow like" and have their
   own priority level and are right associative. This means that
-  the ``=>`` and ``->`` operators from the `future <future.html>`_ module
+  the ``=>`` and ``->`` operators from the
+  [future](https://nim-lang.org/docs/future.html) module
   work better.
 - Field names in tuples are now ignored for type comparisons. This allows
   for greater interoperability between different modules.
@@ -146,7 +144,7 @@ Compiler Additions
 
 - Two backticks now produce a single backtick within an ``emit`` or ``asm``
   statement.
-- There is a new tool, `nimfix <nimfix.html>`_ to help you in updating your
+- There is a new tool, [nimfix](nimfix.html) to help you in updating your
   code from Nimrod to Nim.
 - The compiler's output has been prettified.
 
@@ -174,17 +172,17 @@ Bugfixes
   ``db_*`` modules.
 - Fixed issue with OS module in non-unicode mode on Windows.
 - Fixed issue with ``x.low``
-  (`#1366 <https://github.com/Araq/Nim/issues/1366>`_).
+  ([#1366](https://github.com/Araq/Nim/issues/1366)).
 - Fixed tuple unpacking issue inside closure iterators
-  (`#1067 <https://github.com/Araq/Nim/issues/1067>`_).
+  ([#1067](https://github.com/Araq/Nim/issues/1067)).
 - Fixed ENDB compilation issues.
 - Many ``asynchttpserver`` fixes.
 - Macros can now keep global state across macro calls
-  (`#903 <https://github.com/Araq/Nim/issues/903>`_).
+  ([#903](https://github.com/Araq/Nim/issues/903)).
 - ``osproc`` fixes on Windows.
 - ``osproc.terminate`` fixed.
 - Improvements to exception handling in async procedures.
-  (`#1487 <https://github.com/Araq/Nim/issues/1487>`_).
+  ([#1487](https://github.com/Araq/Nim/issues/1487)).
 - ``try`` now works at compile-time.
 - Fixes ``T = ref T`` to be an illegal recursive type.
 - Self imports are now disallowed.

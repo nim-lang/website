@@ -19,4 +19,4 @@ During the workshop you will learn:
 - Games in Nim and the ability to rapidly prototype without sacrificing speed.
 
 Registration is free, but the number of places is limited. More details
-can be found `here <https://nimworkshop.splashthat.com/>`_.
+can be found [here](https://nimworkshop.splashthat.com/).

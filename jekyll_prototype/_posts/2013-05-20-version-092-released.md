@@ -10,13 +10,13 @@ to any other release.
 This release brings with it many new features and bug fixes, a list of which
 can be seen later. One of the major new features is the effect system together
 with exception tracking which allows for checked exceptions and more,
-for further details check out the `manual <manual.html#effect-system>`_.
+for further details check out the [manual ](manual.html#effect-system).
 Another major new feature is the introduction of statement list expressions,
-more details on these can be found `here <manual.html#statement-list-expression>`_.
+more details on these can be found [here](manual.html#statement-list-expression).
 The ability to exclude symbols from modules has also been
 implemented, this feature can be used like so: ``import module except symbol``.
 
-Thanks to all `contributors <https://github.com/Araq/Nimrod/contributors>`_!
+Thanks to all [contributors](https://github.com/Araq/Nimrod/contributors)!
 
 Bugfixes
 --------

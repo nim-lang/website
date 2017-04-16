@@ -11,14 +11,13 @@ any more breaking changes to Nim.
 The *language* itself is very close to 1.0, the primary area that requires
 more work is the standard library.
 
-Take a look at the `download <download.html>`_ page for binaries (Windows-only)
+Take a look at the [download]({{site.baseurl}}/install.html) page for binaries (Windows-only)
 and 0.11.0 snapshots of the source code. The Windows installer now also
-includes `Aporia <https://github.com/nim-lang/aporia>`_,
-`Nimble <https://github.com/nim-lang/nimble>`_ and other useful tools to get
+includes [Aporia](https://github.com/nim-lang/aporia),
+[Nimble](https://github.com/nim-lang/nimble) and other useful tools to get
 you started with Nim.
 
-What's left to be done
-~~~~~~~~~~~~~~~~~~~~~~
+## What's left to be done
 
 The 1.0 release is expected by the end of this year. Rumors say it will be in
 summer 2015. What's left:
@@ -45,16 +44,16 @@ Changes affecting backwards compatibility
   templates though that used to rely on the fact that they are not.
   (Bug #1915.) This means this doesn't compile anymore:
 
-.. code-block:: nim
+    ```nim
 
-  template doIt(body: stmt) {.immediate.} =
-    # this used to inject the 'str' parameter:
-    proc res(str: string) =
-      body
+    template doIt(body: stmt) {.immediate.} =
+      # this used to inject the 'str' parameter:
+      proc res(str: string) =
+        body
 
-  doIt:
-    echo str # Error: undeclared identifier: 'str'
-..
+    doIt:
+      echo str # Error: undeclared identifier: 'str'
+    ```
 
   This used to inject the ``str`` parameter into the scope of the body.
   Declare the ``doIt`` template as ``immediate, dirty`` to get the old
@@ -66,7 +65,7 @@ Changes affecting backwards compatibility
   ``addHandler``, ``getHandlers``, ``setLogFilter`` and ``getLogFilter``
   should be used instead.
 - ``nim idetools`` has been replaced by a separate
-  tool `nimsuggest <0.11.0/nimsuggest.html>`_.
+  tool [nimsuggest](0.11.0/nimsuggest.html).
 - *arrow like* operators are not right associative anymore and are required
   to end with either ``->``, ``~>`` or
   ``=>``, not just ``>``. Examples of operators still considered arrow like:
@@ -83,19 +82,21 @@ Changes affecting backwards compatibility
 - The ``inc``, ``dec``, ``+=``, ``-=`` builtins now produce OverflowError
   exceptions. This means code like the following:
 
-.. code-block:: nim
-  var x = low(T)
-  while x <= high(T):
-    echo x
-    inc x
+    ```nim
+    var x = low(T)
+    while x <= high(T):
+      echo x
+      inc x
+    ```
 
-Needs to be replaced by something like this:
+    Needs to be replaced by something like this:
 
-.. code-block:: nim
-  var x = low(T).int
-  while x <= high(T).int:
-    echo x.T
-    inc x
+    ```nim
+    var x = low(T).int
+    while x <= high(T).int:
+      echo x.T
+      inc x
+    ```
 
 - **Negative indexing for slicing does not work anymore!** Instead
   of ``a[0.. -1]`` you can
@@ -128,38 +129,40 @@ Language Additions
 - Automatic dereferencing is now done for the first argument of a routine
   call if overloading resolution produces no match otherwise. This feature
   has to be enabled with
-  the `experimental <0.11.0/manual.html#pragmas-experimental-pragma>`_ pragma.
+  the [experimental](0.11.0/manual.html#pragmas-experimental-pragma) pragma.
 - Objects that do not use inheritance nor ``case`` can be put into ``const``
   sections. This means that finally this is possible and produces rather
   nice code:
 
-.. code-block:: nim
-  import tables
+    ```nim
+    import tables
 
-  const
-    foo = {"ah": "finally", "this": "is", "possible.": "nice!"}.toTable()
-
+    const
+      foo = {"ah": "finally", "this": "is", "possible.": "nice!"}.toTable()
+    ```
 
 - Ordinary parameters can follow after a varargs parameter. This means the
   following is finally accepted by the compiler:
 
-.. code-block:: nim
-  template takesBlock(a, b: int, x: varargs[expr]; blck: stmt) =
-    blck
-    echo a, b
+    ```nim
+    template takesBlock(a, b: int, x: varargs[expr]; blck: stmt) =
+      blck
+      echo a, b
 
-  takesBlock 1, 2, "some", 0.90, "random stuff":
-    echo "yay"
+    takesBlock 1, 2, "some", 0.90, "random stuff":
+      echo "yay"
+    ```
 
 - Overloading by 'var T' is now finally possible:
 
-.. code-block:: nim
-  proc varOrConst(x: var int) = echo "var"
-  proc varOrConst(x: int) = echo "const"
+    ```nim
+    proc varOrConst(x: var int) = echo "var"
+    proc varOrConst(x: int) = echo "const"
 
-  var x: int
-  varOrConst(x) # "var"
-  varOrConst(45) # "const"
+    var x: int
+    varOrConst(x) # "var"
+    varOrConst(45) # "const"
+    ```
 
 - Array and seq indexing can now use the builtin ``^`` operator to access
   things from backwards: ``a[^1]`` is like Python's ``a[-1]``.
@@ -169,14 +172,14 @@ Language Additions
 
 - A single underscore can now be used to discard values when unpacking tuples:
 
-.. code-block:: nim
-  let (path, _, _) = os.splitFile("path/file.ext")
-
+    ```nim
+    let (path, _, _) = os.splitFile("path/file.ext")
+    ```
 
 - ``marshal.$$`` and ``marshal.to`` can be executed at compile-time.
 - Interoperability with C++ improved tremendously; C++'s templates and
   operators can be wrapped directly. See
-  `this <0.11.0/nimc.html#additional-features-importcpp-pragma>`_
+  [this](0.11.0/nimc.html#additional-features-importcpp-pragma)
   for more information.
 - ``macros.getType`` can be used to query an AST's type at compile-time. This
   enables more powerful macros, for instance *currying* can now be done with
@@ -202,193 +205,193 @@ Bugfixes
 --------
 
 - Fixed internal compiler error when using ``char()`` in an echo call
-  (`#1788 <https://github.com/Araq/Nim/issues/1788>`_).
+  ([#1788](https://github.com/Araq/Nim/issues/1788)).
 - Fixed Windows cross-compilation on Linux.
 - Overload resolution now works for types distinguished only by a
   ``static[int]`` param
-  (`#1056 <https://github.com/Araq/Nim/issues/1056>`_).
+  ([#1056](https://github.com/Araq/Nim/issues/1056)).
 - Other fixes relating to generic types and static params.
 - Fixed some compiler crashes with unnamed tuples
-  (`#1774 <https://github.com/Araq/Nim/issues/1774>`_).
+  ([#1774](https://github.com/Araq/Nim/issues/1774)).
 - Fixed ``channels.tryRecv`` blocking
-  (`#1816 <https://github.com/Araq/Nim/issues/1816>`_).
+  ([#1816](https://github.com/Araq/Nim/issues/1816)).
 - Fixed generic instantiation errors with ``typedesc``
-  (`#419 <https://github.com/Araq/Nim/issues/419>`_).
+  ([#419](https://github.com/Araq/Nim/issues/419)).
 - Fixed generic regression where the compiler no longer detected constant
-  expressions properly (`#544 <https://github.com/Araq/Nim/issues/544>`_).
+  expressions properly ([#544](https://github.com/Araq/Nim/issues/544)).
 - Fixed internal error with generic proc using ``static[T]`` in a specific
-  way (`#1049 <https://github.com/Araq/Nim/issues/1049>`_).
-- More fixes relating to generics (`#1820 <https://github.com/Araq/Nim/issues/1820>`_,
-  `#1050 <https://github.com/Araq/Nim/issues/1050>`_,
-  `#1859 <https://github.com/Araq/Nim/issues/1859>`_,
-  `#1858 <https://github.com/Araq/Nim/issues/1858>`_).
+  way ([#1049](https://github.com/Araq/Nim/issues/1049)).
+- More fixes relating to generics ([#1820](https://github.com/Araq/Nim/issues/1820),
+  [#1050](https://github.com/Araq/Nim/issues/1050),
+  [#1859](https://github.com/Araq/Nim/issues/1859),
+  [#1858](https://github.com/Araq/Nim/issues/1858)).
 - Fixed httpclient to properly encode queries.
 - Many fixes to the ``uri`` module.
 - Async sockets are now closed on error.
 - Fixes to httpclient's handling of multipart data.
 - Fixed GC segfaults with asynchronous sockets
-  (`#1796 <https://github.com/Araq/Nim/issues/1796>`_).
+  ([#1796](https://github.com/Araq/Nim/issues/1796)).
 - Added more versions to openssl's DLL version list
-  (`076f993 <https://github.com/Araq/Nim/commit/076f993>`_).
+  ([076f993](https://github.com/Araq/Nim/commit/076f993)).
 - Fixed shallow copy in iterators being broken
-  (`#1803 <https://github.com/Araq/Nim/issues/1803>`_).
+  ([#1803](https://github.com/Araq/Nim/issues/1803)).
 - ``nil`` can now be inserted into tables with the ``db_sqlite`` module
-  (`#1866 <https://github.com/Araq/Nim/issues/1866>`_).
+  ([#1866](https://github.com/Araq/Nim/issues/1866)).
 - Fixed "Incorrect assembler generated"
-  (`#1907 <https://github.com/Araq/Nim/issues/1907>`_)
+  ([#1907](https://github.com/Araq/Nim/issues/1907))
 - Fixed "Expression templates that define macros are unusable in some contexts"
-  (`#1903 <https://github.com/Araq/Nim/issues/1903>`_)
+  ([#1903](https://github.com/Araq/Nim/issues/1903))
 - Fixed "a second level generic subclass causes the compiler to crash"
-  (`#1919 <https://github.com/Araq/Nim/issues/1919>`_)
+  ([#1919](https://github.com/Araq/Nim/issues/1919))
 - Fixed "nim 0.10.2 generates invalid AsyncHttpClient C code for MSVC "
-  (`#1901 <https://github.com/Araq/Nim/issues/1901>`_)
+  ([#1901](https://github.com/Araq/Nim/issues/1901))
 - Fixed "1 shl n produces wrong C code"
-  (`#1928 <https://github.com/Araq/Nim/issues/1928>`_)
+  ([#1928](https://github.com/Araq/Nim/issues/1928))
 - Fixed "Internal error on tuple yield"
-  (`#1838 <https://github.com/Araq/Nim/issues/1838>`_)
+  ([#1838](https://github.com/Araq/Nim/issues/1838))
 - Fixed "ICE with template"
-  (`#1915 <https://github.com/Araq/Nim/issues/1915>`_)
+  ([#1915](https://github.com/Araq/Nim/issues/1915))
 - Fixed "include the tool directory in the installer as it is required by koch"
-  (`#1947 <https://github.com/Araq/Nim/issues/1947>`_)
+  ([#1947](https://github.com/Araq/Nim/issues/1947))
 - Fixed "Can't compile if file location contains spaces on Windows"
-  (`#1955 <https://github.com/Araq/Nim/issues/1955>`_)
+  ([#1955](https://github.com/Araq/Nim/issues/1955))
 - Fixed "List comprehension macro only supports infix checks as guards"
-  (`#1920 <https://github.com/Araq/Nim/issues/1920>`_)
+  ([#1920](https://github.com/Araq/Nim/issues/1920))
 - Fixed "wrong field names of compatible tuples in generic types"
-  (`#1910 <https://github.com/Araq/Nim/issues/1910>`_)
+  ([#1910](https://github.com/Araq/Nim/issues/1910))
 - Fixed "Macros within templates no longer work as expected"
-  (`#1944 <https://github.com/Araq/Nim/issues/1944>`_)
+  ([#1944](https://github.com/Araq/Nim/issues/1944))
 - Fixed "Compiling for Standalone AVR broken in 0.10.2"
-  (`#1964 <https://github.com/Araq/Nim/issues/1964>`_)
+  ([#1964](https://github.com/Araq/Nim/issues/1964))
 - Fixed "Compiling for Standalone AVR broken in 0.10.2"
-  (`#1964 <https://github.com/Araq/Nim/issues/1964>`_)
+  ([#1964](https://github.com/Araq/Nim/issues/1964))
 - Fixed "Code generation for mitems with tuple elements"
-  (`#1833 <https://github.com/Araq/Nim/issues/1833>`_)
+  ([#1833](https://github.com/Araq/Nim/issues/1833))
 - Fixed "httpclient.HttpMethod should not be an enum"
-  (`#1962 <https://github.com/Araq/Nim/issues/1962>`_)
+  ([#1962](https://github.com/Araq/Nim/issues/1962))
 - Fixed "terminal / eraseScreen() throws an OverflowError"
-  (`#1906 <https://github.com/Araq/Nim/issues/1906>`_)
+  ([#1906](https://github.com/Araq/Nim/issues/1906))
 - Fixed "setControlCHook(nil) disables registered quit procs"
-  (`#1546 <https://github.com/Araq/Nim/issues/1546>`_)
+  ([#1546](https://github.com/Araq/Nim/issues/1546))
 - Fixed "Unexpected idetools behaviour"
-  (`#325 <https://github.com/Araq/Nim/issues/325>`_)
+  ([#325](https://github.com/Araq/Nim/issues/325))
 - Fixed "Unused lifted lambda does not compile"
-  (`#1642 <https://github.com/Araq/Nim/issues/1642>`_)
+  ([#1642](https://github.com/Araq/Nim/issues/1642))
 - Fixed "'low' and 'high' don't work with cstring asguments"
-  (`#2030 <https://github.com/Araq/Nim/issues/2030>`_)
+  ([#2030](https://github.com/Araq/Nim/issues/2030))
 - Fixed "Converting to int does not round in JS backend"
-  (`#1959 <https://github.com/Araq/Nim/issues/1959>`_)
+  ([#1959](https://github.com/Araq/Nim/issues/1959))
 - Fixed "Internal error genRecordField 2 when adding region to pointer."
-  (`#2039 <https://github.com/Araq/Nim/issues/2039>`_)
+  ([#2039](https://github.com/Araq/Nim/issues/2039))
 - Fixed "Macros fail to compile when compiled with --os:standalone"
-  (`#2041 <https://github.com/Araq/Nim/issues/2041>`_)
+  ([#2041](https://github.com/Araq/Nim/issues/2041))
 - Fixed "Reading from {.compileTime.} variables can cause code generation to fail"
-  (`#2022 <https://github.com/Araq/Nim/issues/2022>`_)
+  ([#2022](https://github.com/Araq/Nim/issues/2022))
 - Fixed "Passing overloaded symbols to templates fails inside generic procedures"
-  (`#1988 <https://github.com/Araq/Nim/issues/1988>`_)
+  ([#1988](https://github.com/Araq/Nim/issues/1988))
 - Fixed "Compiling iterator with object assignment in release mode causes "var not init""
-  (`#2023 <https://github.com/Araq/Nim/issues/2023>`_)
+  ([#2023](https://github.com/Araq/Nim/issues/2023))
 - Fixed "calling a large number of macros doing some computation fails"
-  (`#1989 <https://github.com/Araq/Nim/issues/1989>`_)
+  ([#1989](https://github.com/Araq/Nim/issues/1989))
 - Fixed "Can't get Koch to install nim under Windows"
-  (`#2061 <https://github.com/Araq/Nim/issues/2061>`_)
+  ([#2061](https://github.com/Araq/Nim/issues/2061))
 - Fixed "Template with two stmt parameters segfaults compiler"
-  (`#2057 <https://github.com/Araq/Nim/issues/2057>`_)
+  ([#2057](https://github.com/Araq/Nim/issues/2057))
 - Fixed "`noSideEffect` not affected by `echo`"
-  (`#2011 <https://github.com/Araq/Nim/issues/2011>`_)
+  ([#2011](https://github.com/Araq/Nim/issues/2011))
 - Fixed "Compiling with the cpp backend ignores --passc"
-  (`#1601 <https://github.com/Araq/Nim/issues/1601>`_)
+  ([#1601](https://github.com/Araq/Nim/issues/1601))
 - Fixed "Put untyped procedure parameters behind the experimental pragma"
-  (`#1956 <https://github.com/Araq/Nim/issues/1956>`_)
+  ([#1956](https://github.com/Araq/Nim/issues/1956))
 - Fixed "generic regression"
-  (`#2073 <https://github.com/Araq/Nim/issues/2073>`_)
+  ([#2073](https://github.com/Araq/Nim/issues/2073))
 - Fixed "generic regression"
-  (`#2073 <https://github.com/Araq/Nim/issues/2073>`_)
+  ([#2073](https://github.com/Araq/Nim/issues/2073))
 - Fixed "Regression in template lookup with generics"
-  (`#2004 <https://github.com/Araq/Nim/issues/2004>`_)
+  ([#2004](https://github.com/Araq/Nim/issues/2004))
 - Fixed "GC's growObj is wrong for edge cases"
-  (`#2070 <https://github.com/Araq/Nim/issues/2070>`_)
+  ([#2070](https://github.com/Araq/Nim/issues/2070))
 - Fixed "Compiler internal error when creating an array out of a typeclass"
-  (`#1131 <https://github.com/Araq/Nim/issues/1131>`_)
+  ([#1131](https://github.com/Araq/Nim/issues/1131))
 - Fixed "GC's growObj is wrong for edge cases"
-  (`#2070 <https://github.com/Araq/Nim/issues/2070>`_)
+  ([#2070](https://github.com/Araq/Nim/issues/2070))
 - Fixed "Invalid Objective-C code generated when calling class method"
-  (`#2068 <https://github.com/Araq/Nim/issues/2068>`_)
+  ([#2068](https://github.com/Araq/Nim/issues/2068))
 - Fixed "walkDirRec Error"
-  (`#2116 <https://github.com/Araq/Nim/issues/2116>`_)
+  ([#2116](https://github.com/Araq/Nim/issues/2116))
 - Fixed "Typo in code causes compiler SIGSEGV in evalAtCompileTime"
-  (`#2113 <https://github.com/Araq/Nim/issues/2113>`_)
+  ([#2113](https://github.com/Araq/Nim/issues/2113))
 - Fixed "Regression on exportc"
-  (`#2118 <https://github.com/Araq/Nim/issues/2118>`_)
+  ([#2118](https://github.com/Araq/Nim/issues/2118))
 - Fixed "Error message"
-  (`#2102 <https://github.com/Araq/Nim/issues/2102>`_)
+  ([#2102](https://github.com/Araq/Nim/issues/2102))
 - Fixed "hint[path] = off not working in nim.cfg"
-  (`#2103 <https://github.com/Araq/Nim/issues/2103>`_)
+  ([#2103](https://github.com/Araq/Nim/issues/2103))
 - Fixed "compiler crashes when getting a tuple from a sequence of generic tuples"
-  (`#2121 <https://github.com/Araq/Nim/issues/2121>`_)
+  ([#2121](https://github.com/Araq/Nim/issues/2121))
 - Fixed "nim check hangs with when"
-  (`#2123 <https://github.com/Araq/Nim/issues/2123>`_)
+  ([#2123](https://github.com/Araq/Nim/issues/2123))
 - Fixed "static[T] param in nested type resolve/caching issue"
-  (`#2125 <https://github.com/Araq/Nim/issues/2125>`_)
+  ([#2125](https://github.com/Araq/Nim/issues/2125))
 - Fixed "repr should display ``\0``"
-  (`#2124 <https://github.com/Araq/Nim/issues/2124>`_)
+  ([#2124](https://github.com/Araq/Nim/issues/2124))
 - Fixed "'nim check' never ends in case of recursive dependency "
-  (`#2051 <https://github.com/Araq/Nim/issues/2051>`_)
+  ([#2051](https://github.com/Araq/Nim/issues/2051))
 - Fixed "From macros: Error: unhandled exception: sons is not accessible"
-  (`#2167 <https://github.com/Araq/Nim/issues/2167>`_)
+  ([#2167](https://github.com/Araq/Nim/issues/2167))
 - Fixed "`fieldPairs` doesn't work inside templates"
-  (`#1902 <https://github.com/Araq/Nim/issues/1902>`_)
+  ([#1902](https://github.com/Araq/Nim/issues/1902))
 - Fixed "fields iterator misbehavior on break statement"
-  (`#2134 <https://github.com/Araq/Nim/issues/2134>`_)
+  ([#2134](https://github.com/Araq/Nim/issues/2134))
 - Fixed "Fix for compiler not building anymore since #c3244ef1ff"
-  (`#2193 <https://github.com/Araq/Nim/issues/2193>`_)
+  ([#2193](https://github.com/Araq/Nim/issues/2193))
 - Fixed "JSON parser fails in cpp output mode"
-  (`#2199 <https://github.com/Araq/Nim/issues/2199>`_)
+  ([#2199](https://github.com/Araq/Nim/issues/2199))
 - Fixed "macros.getType mishandles void return"
-  (`#2211 <https://github.com/Araq/Nim/issues/2211>`_)
+  ([#2211](https://github.com/Araq/Nim/issues/2211))
 - Fixed "Regression involving templates instantiated within generics"
-  (`#2215 <https://github.com/Araq/Nim/issues/2215>`_)
+  ([#2215](https://github.com/Araq/Nim/issues/2215))
 - Fixed ""Error: invalid type" for 'not nil' on generic type."
-  (`#2216 <https://github.com/Araq/Nim/issues/2216>`_)
+  ([#2216](https://github.com/Araq/Nim/issues/2216))
 - Fixed "--threads:on breaks async"
-  (`#2074 <https://github.com/Araq/Nim/issues/2074>`_)
+  ([#2074](https://github.com/Araq/Nim/issues/2074))
 - Fixed "Type mismatch not always caught, can generate bad code for C backend."
-  (`#2169 <https://github.com/Araq/Nim/issues/2169>`_)
+  ([#2169](https://github.com/Araq/Nim/issues/2169))
 - Fixed "Failed C compilation when storing proc to own type in object"
-  (`#2233 <https://github.com/Araq/Nim/issues/2233>`_)
+  ([#2233](https://github.com/Araq/Nim/issues/2233))
 - Fixed "Unknown line/column number in constant declaration type conversion error"
-  (`#2252 <https://github.com/Araq/Nim/issues/2252>`_)
+  ([#2252](https://github.com/Araq/Nim/issues/2252))
 - Fixed "Adding {.compile.} fails if nimcache already exists."
-  (`#2247 <https://github.com/Araq/Nim/issues/2247>`_)
+  ([#2247](https://github.com/Araq/Nim/issues/2247))
 - Fixed "Two different type names generated for a single type (C backend)"
-  (`#2250 <https://github.com/Araq/Nim/issues/2250>`_)
+  ([#2250](https://github.com/Araq/Nim/issues/2250))
 - Fixed "Ambigous call when it should not be"
-  (`#2229 <https://github.com/Araq/Nim/issues/2229>`_)
+  ([#2229](https://github.com/Araq/Nim/issues/2229))
 - Fixed "Make sure we can load root urls"
-  (`#2227 <https://github.com/Araq/Nim/issues/2227>`_)
+  ([#2227](https://github.com/Araq/Nim/issues/2227))
 - Fixed "Failure to slice a string with an int subrange type"
-  (`#794 <https://github.com/Araq/Nim/issues/794>`_)
+  ([#794](https://github.com/Araq/Nim/issues/794))
 - Fixed "documentation error"
-  (`#2205 <https://github.com/Araq/Nim/issues/2205>`_)
+  ([#2205](https://github.com/Araq/Nim/issues/2205))
 - Fixed "Code growth when using `const`"
-  (`#1940 <https://github.com/Araq/Nim/issues/1940>`_)
+  ([#1940](https://github.com/Araq/Nim/issues/1940))
 - Fixed "Instances of generic types confuse overload resolution"
-  (`#2220 <https://github.com/Araq/Nim/issues/2220>`_)
+  ([#2220](https://github.com/Araq/Nim/issues/2220))
 - Fixed "Compiler error when initializing sdl2's EventType"
-  (`#2316 <https://github.com/Araq/Nim/issues/2316>`_)
+  ([#2316](https://github.com/Araq/Nim/issues/2316))
 - Fixed "Parallel disjoint checking can't handle `<`, `items`, or arrays"
-  (`#2287 <https://github.com/Araq/Nim/issues/2287>`_)
+  ([#2287](https://github.com/Araq/Nim/issues/2287))
 - Fixed "Strings aren't copied in parallel loop"
-  (`#2286 <https://github.com/Araq/Nim/issues/2286>`_)
+  ([#2286](https://github.com/Araq/Nim/issues/2286))
 - Fixed "JavaScript compiler crash with tables"
-  (`#2298 <https://github.com/Araq/Nim/issues/2298>`_)
+  ([#2298](https://github.com/Araq/Nim/issues/2298))
 - Fixed "Range checker too restrictive"
-  (`#1845 <https://github.com/Araq/Nim/issues/1845>`_)
+  ([#1845](https://github.com/Araq/Nim/issues/1845))
 - Fixed "Failure to slice a string with an int subrange type"
-  (`#794 <https://github.com/Araq/Nim/issues/794>`_)
+  ([#794](https://github.com/Araq/Nim/issues/794))
 - Fixed "Remind user when compiling in debug mode"
-  (`#1868 <https://github.com/Araq/Nim/issues/1868>`_)
+  ([#1868](https://github.com/Araq/Nim/issues/1868))
 - Fixed "Compiler user guide has jumbled options/commands."
-  (`#1819 <https://github.com/Araq/Nim/issues/1819>`_)
+  ([#1819](https://github.com/Araq/Nim/issues/1819))
 - Fixed "using `method`: 1 in a objects constructor fails when compiling"
-  (`#1791 <https://github.com/Araq/Nim/issues/1791>`_)
+  ([#1791](https://github.com/Araq/Nim/issues/1791))

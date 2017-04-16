@@ -8,7 +8,7 @@ and related tools. This release comes just 3 months after the last
 release!
 
 A new version of Nimble which depends on this release, has also been
-released. See `this <http://forum.nim-lang.org/t/1912>`_ forum thread for
+released. See [this](http://forum.nim-lang.org/t/1912) forum thread for
 more information about the Nimble release.
 
 This release of Nim includes over 116 bug fixes, many of which are related
@@ -28,7 +28,7 @@ ways to add multi-core support to async await. Standard library improvements
 are also on our roadmap but may not make it for Nim 0.14.
 
 As always you can download the latest version of Nim from the
-`download <download.html>`_ page.
+[download]({{site.baseurl}}/install.html) page.
 
 Happy coding!
 
@@ -51,8 +51,8 @@ Changes affecting backwards compatibility
   the ``math`` module to a new ``stats`` module.
 
 
-Syntax changes
-~~~~~~~~~~~~~~
+## Syntax changes
+
 
 The parser now considers leading whitespace in front of operators
 to determine if an operator is used in prefix or infix position.
@@ -67,49 +67,48 @@ code like ``0..kArraySize div 2 -1`` needs to be changed to
 
 This release also adds multi-line comments to Nim. The syntax for them is:
 ``#[ comment here ]#``. For more details read the section of
-the `manual <docs/manual.html#lexical-analysis-multiline-comments>`_.
+the [manual](docs/manual.html#lexical-analysis-multiline-comments).
 
-Iterator changes
-~~~~~~~~~~~~~~~~
+## Iterator changes
 
 Implicit return type inference for iterators has been removed from the language. The following used to work:
 
-.. code-block:: nim
-  iterator it =
-    yield 7
+```nim
+iterator it =
+  yield 7
+```
 
 This was a strange special case and has been removed. Now you need to write it like so which is consistent with procs:
 
-.. code-block:: nim
-  iterator it: auto =
-    yield 7
+```nim
+iterator it: auto =
+  yield 7
+```
 
-
-Closure changes
-~~~~~~~~~~~~~~~
+## Closure changes
 
 The semantics of closures changed: Capturing variables that are in loops do not produce a new environment. Nim closures behave like JavaScript closures now.
 
 The following used to work as the environment creation used to be attached to the loop body:
 
-.. code-block:: nim
-
-  proc outer =
-    var s: seq[proc(): int {.closure.}] = @[]
-    for i in 0 ..< 30:
-      let ii = i
-      s.add(proc(): int = return ii*ii)
+```nim
+proc outer =
+  var s: seq[proc(): int {.closure.}] = @[]
+  for i in 0 ..< 30:
+    let ii = i
+    s.add(proc(): int = return ii*ii)
+```
 
 This behaviour has changed in 0.13.0 and now needs to be written as:
 
-.. code-block:: nim
-
-  proc outer =
-    var s: seq[proc(): int {.closure.}] = @[]
-    for i in 0 ..< 30:
-      (proc () =
-        let ii = i
-        s.add(proc(): int = return ii*ii))()
+```nim
+proc outer =
+  var s: seq[proc(): int {.closure.}] = @[]
+  for i in 0 ..< 30:
+    (proc () =
+      let ii = i
+      s.add(proc(): int = return ii*ii))()
+```
 
 The reason is that environment creations are now only performed once
 per proc call. This change is subtle and unfortunate, but:
@@ -124,57 +123,57 @@ Bugfixes
 The list below has been generated based on the commits in Nim's git
 repository. As such it lists only the issues which have been closed
 via a commit, for a full list see
-`this link on Github <https://github.com/nim-lang/Nim/issues?utf8=%E2%9C%93&q=is%3Aissue+closed%3A%222015-10-27+..+2016-01-19%22+>`_.
+[this link on Github](https://github.com/nim-lang/Nim/issues?utf8=%E2%9C%93&q=is%3Aissue+closed%3A%222015-10-27+..+2016-01-19%22+).
 
 - Fixed "Generic arguments cannot be used in templates (raising undeclared identifier)"
-  (`#3498 <https://github.com/nim-lang/Nim/issues/3498>`_)
+  ([#3498](https://github.com/nim-lang/Nim/issues/3498))
 - Fixed "multimethods: Error: internal error: cgmeth.genConv"
-  (`#3550 <https://github.com/nim-lang/Nim/issues/3550>`_)
+  ([#3550](https://github.com/nim-lang/Nim/issues/3550))
 - Fixed "nimscript - SIGSEGV in except block"
-  (`#3546 <https://github.com/nim-lang/Nim/issues/3546>`_)
+  ([#3546](https://github.com/nim-lang/Nim/issues/3546))
 - Fixed "Bool literals in macros do not work."
-  (`#3541 <https://github.com/nim-lang/Nim/issues/3541>`_)
+  ([#3541](https://github.com/nim-lang/Nim/issues/3541))
 - Fixed "Docs: nativesocket.html - 404"
-  (`#3582 <https://github.com/nim-lang/Nim/issues/3582>`_)
+  ([#3582](https://github.com/nim-lang/Nim/issues/3582))
 - Fixed ""not nil" return types never trigger an error or warning"
-  (`#2285 <https://github.com/nim-lang/Nim/issues/2285>`_)
+  ([#2285](https://github.com/nim-lang/Nim/issues/2285))
 - Fixed "No warning or error is raised even if not nil is specified "
-  (`#3222 <https://github.com/nim-lang/Nim/issues/3222>`_)
+  ([#3222](https://github.com/nim-lang/Nim/issues/3222))
 - Fixed "Incorrect fsmonitor add() filter logic"
-  (`#3611 <https://github.com/nim-lang/Nim/issues/3611>`_)
+  ([#3611](https://github.com/nim-lang/Nim/issues/3611))
 - Fixed ""nimble install nimsuggest" failed"
-  (`#3622 <https://github.com/nim-lang/Nim/issues/3622>`_)
+  ([#3622](https://github.com/nim-lang/Nim/issues/3622))
 - Fixed "compile time `excl ` cause SIGSEGV"
-  (`#3639 <https://github.com/nim-lang/Nim/issues/3639>`_)
+  ([#3639](https://github.com/nim-lang/Nim/issues/3639))
 - Fixed "Unable to echo unsigned ints at compile-time"
-  (`#2514 <https://github.com/nim-lang/Nim/issues/2514>`_)
+  ([#2514](https://github.com/nim-lang/Nim/issues/2514))
 - Fixed "Nested closure iterator produces internal error"
-  (`#1725 <https://github.com/nim-lang/Nim/issues/1725>`_)
+  ([#1725](https://github.com/nim-lang/Nim/issues/1725))
 - Fixed "C Error on walkDirRec closure"
-  (`#3636 <https://github.com/nim-lang/Nim/issues/3636>`_)
+  ([#3636](https://github.com/nim-lang/Nim/issues/3636))
 - Fixed "Error in generated c code"
-  (`#3201 <https://github.com/nim-lang/Nim/issues/3201>`_)
+  ([#3201](https://github.com/nim-lang/Nim/issues/3201))
 - Fixed "C Compile-time error with generic proc type."
-  (`#2659 <https://github.com/nim-lang/Nim/issues/2659>`_)
+  ([#2659](https://github.com/nim-lang/Nim/issues/2659))
 - Fixed "ICE dereferencing array pointer"
-  (`#2240 <https://github.com/nim-lang/Nim/issues/2240>`_)
+  ([#2240](https://github.com/nim-lang/Nim/issues/2240))
 - Fixed "Lambda lifting crash"
-  (`#2007 <https://github.com/nim-lang/Nim/issues/2007>`_)
+  ([#2007](https://github.com/nim-lang/Nim/issues/2007))
 - Fixed "Can't reference outer variables from a closure in an iterator"
-  (`#2604 <https://github.com/nim-lang/Nim/issues/2604>`_)
+  ([#2604](https://github.com/nim-lang/Nim/issues/2604))
 - Fixed "M&S collector breaks with nested for loops."
-  (`#603 <https://github.com/nim-lang/Nim/issues/603>`_)
+  ([#603](https://github.com/nim-lang/Nim/issues/603))
 - Fixed "Regression: bad C codegen"
-  (`#3723 <https://github.com/nim-lang/Nim/issues/3723>`_)
+  ([#3723](https://github.com/nim-lang/Nim/issues/3723))
 - Fixed "JS backend - handle bool type in case statement"
-  (`#3722 <https://github.com/nim-lang/Nim/issues/3722>`_)
+  ([#3722](https://github.com/nim-lang/Nim/issues/3722))
 - Fixed "linenoise compilation with cpp"
-  (`#3720 <https://github.com/nim-lang/Nim/issues/3720>`_)
+  ([#3720](https://github.com/nim-lang/Nim/issues/3720))
 - Fixed "(???,???) duplicate case label"
-  (`#3665 <https://github.com/nim-lang/Nim/issues/3665>`_)
+  ([#3665](https://github.com/nim-lang/Nim/issues/3665))
 - Fixed "linenoise compilation with cpp"
-  (`#3720 <https://github.com/nim-lang/Nim/issues/3720>`_)
+  ([#3720](https://github.com/nim-lang/Nim/issues/3720))
 - Fixed "Update list of backward incompatibilities for Nim 0.12.0 in the main site"
-  (`#3689 <https://github.com/nim-lang/Nim/issues/3689>`_)
+  ([#3689](https://github.com/nim-lang/Nim/issues/3689))
 - Fixed "Can't compile nimble with latest devel - codegen bug"
-  (`#3730 <https://github.com/nim-lang/Nim/issues/3730>`_)
+  ([#3730](https://github.com/nim-lang/Nim/issues/3730))

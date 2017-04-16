@@ -5,7 +5,6 @@ author: Andreas Rumpf
 
 Summary
 -------
-
 * Unsigned integers have been added.
 * The integer type promotion rules changed.
 * The template and macro system evolved.
@@ -176,5 +175,6 @@ Language Additions
   the current scope.
 - A proc body can consist of an expression that has a type. This is rewritten
   to ``result = expression`` then.
-- Term rewriting macros (see `trmacros <http://nimrod-code.org/trmacros.html>`_)
+- Term rewriting macros (see
+  [trmacros](https://nim-lang.org/docs/manual.html#term-rewriting-macros))
   have been implemented but are still in alpha.

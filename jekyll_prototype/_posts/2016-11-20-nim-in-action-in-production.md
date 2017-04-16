@@ -19,8 +19,8 @@ That said, it may still take some time before the eBook is updated with the
 latest corrections.
 
 I am incredibly thankful to everyone that purchased the book already. Many of
-you have also given me a lot of `brilliant <http://forum.nim-lang.org/t/1978>`_
-`feedback <https://forums.manning.com/forums/nim-in-action>`_,
+you have also given me a lot of [brilliant](http://forum.nim-lang.org/t/1978)
+[feedback](https://forums.manning.com/forums/nim-in-action),
 thank you very much for
 taking the time to do so. I have done my best to act on this
 feedback and I hope you will agree that the book has risen in quality as a
@@ -34,15 +34,15 @@ happened, even if you did not purchase a copy your interest in Nim has made it
 possible and I thank you for that.
 
 As always, you can make a purchase on
-`Manning's website <https://manning.com/books/nim-in-action?a_aid=niminaction&a_bid=78a27e81>`_.
+[Manning's website](https://manning.com/books/nim-in-action?a_aid=niminaction&a_bid=78a27e81).
 Both eBook's and printed books are available, and purchasing a printed book will
 get you an eBook for free.
 You can now also pre-order Nim in Action on
-`Amazon <https://www.amazon.co.uk/Nim-Action-Dominik-Picheta/dp/1617293431/ref=sr_1_1?ie=UTF8&qid=1479663850&sr=8-1&keywords=nim+in+action>`_!
+[Amazon](https://www.amazon.co.uk/Nim-Action-Dominik-Picheta/dp/1617293431/ref=sr_1_1?ie=UTF8&qid=1479663850&sr=8-1&keywords=nim+in+action)!
 
 If you would like updates about the book then please feel free to
-follow either `myself <https://twitter.com/d0m96>`_ or
-`@nim_lang <https://twitter.com/nim_lang>`_ on Twitter. Finally, if you have any
+follow either [myself](https://twitter.com/d0m96) or
+[@nim_lang](https://twitter.com/nim_lang) on Twitter. Finally, if you have any
 questions, do get in touch via `Twitter, NimForum,
 IRC or Gitter <http://nim-lang.org/community.html>`_.
 

@@ -9,10 +9,10 @@ considered beta quality! Lots of new features have been implemented but
 unfortunately some do not fulfill our quality standards yet.**
 
 Prebuilt binaries and instructions for building from source are available
-on the `download page <download.html>`_.
+on the [download page]({{ site.baseurl }}/install.html).
 
 This release includes about
-`1400 changes <https://github.com/Araq/Nimrod/compare/v0.9.2...v0.9.4>`_
+[1400 changes](https://github.com/Araq/Nimrod/compare/v0.9.2...v0.9.4)
 in total including various bug
 fixes, new languages features and standard library additions and improvements.
 This release brings with it support for user-defined type classes, a brand
@@ -20,7 +20,7 @@ new VM for executing Nimrod code at compile-time and new symbol binding
 rules for clean templates.
 
 It also introduces support for the brand new
-`Babel package manager <https://github.com/nimrod-code/babel>`_ which
+[Babel package manager](https://github.com/nimrod-code/babel) which
 has itself seen its first release recently. Many of the wrappers that were
 present in the standard library have been moved to separate repositories
 and should now be installed using Babel.
@@ -38,31 +38,31 @@ the use of an ``await`` macro which behaves similar to C#'s await. The
 following is a very simple chat server demonstrating Nimrod's new async
 capabilities.
 
-.. code-block::nim
-  import asyncnet, asyncdispatch
+```nim
+import asyncnet, asyncdispatch
 
-  var clients: seq[PAsyncSocket] = @[]
+var clients: seq[PAsyncSocket] = @[]
 
-  proc processClient(client: PAsyncSocket) {.async.} =
-    while true:
-      let line = await client.recvLine()
-      for c in clients:
-        await c.send(line & "\c\L")
+proc processClient(client: PAsyncSocket) {.async.} =
+  while true:
+    let line = await client.recvLine()
+    for c in clients:
+      await c.send(line & "\c\L")
 
-  proc serve() {.async.} =
-    var server = newAsyncSocket()
-    server.bindAddr(TPort(12345))
-    server.listen()
+proc serve() {.async.} =
+  var server = newAsyncSocket()
+  server.bindAddr(TPort(12345))
+  server.listen()
 
-    while true:
-      let client = await server.accept()
-      clients.add client
+  while true:
+    let client = await server.accept()
+    clients.add client
 
-      processClient(client)
+    processClient(client)
 
-  serve()
-  runForever()
-
+serve()
+runForever()
+```
 
 Note that this feature has been implemented with Nimrod's macro system and so
 ``await`` and ``async`` are no keywords.
@@ -71,14 +71,15 @@ Syntactic sugar for anonymous procedures has also been introduced. It too has
 been implemented as a macro. The following shows some simple usage of the new
 syntax:
 
-.. code-block::nim
-  import future
+```nim
+import future
 
-  var s = @[1, 2, 3, 4, 5]
-  echo(s.map((x: int) => x * 5))
+var s = @[1, 2, 3, 4, 5]
+echo(s.map((x: int) => x * 5))
+```
 
 A list of changes follows, for a comprehensive list of changes take a look
-`here <https://github.com/Araq/Nimrod/compare/v0.9.2...v0.9.4>`_.
+[here](https://github.com/Araq/Nimrod/compare/v0.9.2...v0.9.4).
 
 Library Additions
 -----------------

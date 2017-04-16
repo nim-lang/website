@@ -9,4 +9,4 @@ generation, and the Windows installers bundle the latest stable nimble
 release.
 
 The news about the 0.14.0 release are still relevant, so check them out
-`here <http://nim-lang.org/news/2016_06_07_version_0_14_0_released.html>`_.
+[here]({{site.baseurl}}/blog/2016/06/07/version-0140-released.html).
