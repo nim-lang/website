@@ -19,7 +19,6 @@ body {
   background-color: $default-background-color;
   color: $default-color;
   font-size: $desktop-default-font-size;
-  margin-top: $menu-height;
 }
 
 // Gradient that will cause overflowing menu items to "fade"
@@ -147,7 +146,6 @@ footer {
   padding: 0;
   z-index: 100;
   line-height: 1;
-  margin-top: -$menu-height;
   background-color: $menu-background-color;
 
   a {
@@ -197,6 +195,22 @@ footer {
 
 .site-content > .content {
   margin: 25px auto 50px auto;
+}
+
+// Fix footer to stick to the bottom using flexbox.
+// Ref: https://css-tricks.com/couple-takes-sticky-footer/
+body.site {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+html {
+  height: 100%;
+}
+
+.site-content {
+  flex: 1;
 }
 
 @media (max-width: 1250px) {
@@ -730,11 +744,10 @@ table {
 @media (max-width: 1370px) {
   body {
     font-size: $mobile-default-font-size;
-    margin-top: $menu-height * $mobile-default-font-size / $desktop-default-font-size;
+    //margin-top: $menu-height * $mobile-default-font-size / $desktop-default-font-size;
   }
 
   .pure-menu.pure-menu-horizontal {
-    margin-top: -($menu-height * $mobile-default-font-size / $desktop-default-font-size);
 
     li {
       font-size: $mobile-default-font-size;
