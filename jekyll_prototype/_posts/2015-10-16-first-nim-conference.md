@@ -1,9 +1,12 @@
 ---
 title: "First Nim conference"
+excerpt: "Learn about the first Nim workshop in Kyiv."
 author: Dominik Picheta
 ---
 
-<img src="../assets/zeo/banner.jpg" alt="First Nim conference in Ukraine!" width="682"/>
+<div class="center">
+  <img src="{{site.baseurl}}/assets/zeo/banner.jpg" alt="First Nim conference in Ukraine!" width="500"/>
+</div>
 
 This Autumn you have the unique opportunity to take part in the first Nim event
 held in Kyiv and to meet the creator of the Nim programming language -

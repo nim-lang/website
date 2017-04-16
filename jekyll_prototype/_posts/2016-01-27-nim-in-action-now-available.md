@@ -1,11 +1,15 @@
 ---
 title: "Nim in Action is now available!"
+excerpt: "We are proud to announce that Nim in Action, a book about
+the Nim programming language, is now available!"
 author: Dominik Picheta
 ---
 
-<a href="https://manning.com/books/nim-in-action?a_aid=niminaction&a_bid=78a27e81">
-  <img src="../assets/niminaction/banner.jpg" alt="New in Manning Early Access Program: Nim in Action!" width="682"/>
-</a>
+<div class="center">
+  <a href="https://manning.com/books/nim-in-action?a_aid=niminaction&a_bid=78a27e81">
+    <img src="{{site.baseurl}}/assets/niminaction/banner.jpg" alt="New in Manning Early Access Program: Nim in Action!" width="400"/>
+  </a>
+</div>
 
 We are proud to announce that *Nim in Action*, a book about the Nim programming
 language, is now available!

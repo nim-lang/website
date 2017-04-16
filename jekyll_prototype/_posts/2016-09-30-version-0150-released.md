@@ -23,20 +23,16 @@ All pages in the documentation now contain a search box and a drop down to
 select how procedures should be sorted. This allows you to search for
 procedures, types, macros and more from any documentation page.
 
-
-
-  <a href="../assets/news/images/0.15.0/doc_search.gif">
-    <img src="../assets/news/images/0.15.0/doc_search.gif" alt="Doc search" style="width:100%"/>
-  </a>
+<a href="{{ site.baseurl }}/assets/news/images/0.15.0/doc_search.gif">
+  <img src="{{ site.baseurl }}/assets/news/images/0.15.0/doc_search.gif" alt="Doc search" style="width:100%"/>
+</a>
 
 Sorting the procedures by type shows a more natural table of contents. This
 should also help you to find procedures and other identifiers.
 
-
-
-  <a href="../assets/news/images/0.15.0/doc_sort.gif">
-    <img src="../assets/news/images/0.15.0/doc_sort.gif" alt="Doc sort" style="width:100%"/>
-  </a>
+<a href="{{ site.baseurl }}/assets/news/images/0.15.0/doc_sort.gif">
+  <img src="{{ site.baseurl }}/assets/news/images/0.15.0/doc_sort.gif" alt="Doc sort" style="width:100%"/>
+</a>
 
 ## Multisync macro
 

@@ -1,11 +1,17 @@
 ---
 title: "Nim in Action is going into production!"
+excerpt: "I am very happy to say that just last week I have put the finishing touches
+on Nim in Action. The final manuscript has been submitted to Manning (the book's
+publisher), and the printed version is expected to start shipping in March
+2017 (give or take 1 month)."
 author: Dominik Picheta
 ---
 
-<a href="https://manning.com/books/nim-in-action?a_aid=niminaction&a_bid=78a27e81">
-  <img src="../assets/niminaction/banner2.png" alt="A printed copy of Nim in Action should be available in March 2017!" width="682"/>
-</a>
+<div class="center">
+  <a href="https://manning.com/books/nim-in-action?a_aid=niminaction&a_bid=78a27e81">
+    <img src="{{ site.baseurl }}/assets/niminaction/banner2.png" alt="A printed copy of Nim in Action should be available in March 2017!" width="500"/>
+  </a>
+</div>
 
 I am very happy to say that just last week I have put the finishing touches
 on Nim in Action. The final manuscript has been submitted to Manning (the book's

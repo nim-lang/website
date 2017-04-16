@@ -21,9 +21,9 @@ The new Nimble release that is included with Nim 0.16.0 includes a variety of
 new features and bug fixes. The most prominent of which is the improved output
 system, as shown in the figure below.
 
-  <a href="../assets/news/images/0.16.0/nimble.png">
-    <img src="../assets/news/images/0.16.0/nimble.png" alt="Nimble 0.8.0" style="width:100%"/>
-  </a>
+<a href="{{ site.baseurl }}/assets/news/images/0.16.0/nimble.png">
+  <img src="{{ site.baseurl }}/assets/news/images/0.16.0/nimble.png" alt="Nimble 0.8.0" style="width:100%"/>
+</a>
 
 For a full list of changes in Nimble, see its
 [changelog](https://github.com/nim-lang/nimble/blob/master/changelog.markdown#080---05012017).
