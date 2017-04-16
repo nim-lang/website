@@ -19,7 +19,7 @@ title: Blog
         <h2>
           <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title | escape }}</a>
         </h2>
-        <p>{{ post.excerpt | escape }}</p>
+        {{ post.excerpt}}
       </div>
     </div>
     <hr>
