@@ -11,7 +11,7 @@ css_class: features
       <div class="pure-u-1">
         <h1>Intuitive and clean syntax.</h1>
       </div>
-      <div class="pure-u-1 pure-u-md-1-2">
+      <div class="pure-u-1 pure-u-md-1-2 code-align">
         <h2>
           Taking inspiration from multiple languages, the Nim syntax is
           easily understood and results in code that can be modified very
@@ -124,7 +124,7 @@ for person in people:
       <div class="pure-u-1">
         <h1>JavaScript compilation.</h1>
       </div>
-      <div class="pure-u-1 pure-u-md-1-2">
+      <div class="pure-u-1 pure-u-md-1-2 code-align">
         <h2>
           Nim includes a first-class JavaScript backend so you can target the
           client and server effortlessly at the same time.
@@ -137,6 +137,7 @@ for person in people:
             #snake_center {
               width: 402px;
               margin-top: 30pt;
+              height: 400px;
             }
 
             #snake_center > p {
@@ -238,7 +239,7 @@ var color = Indigo{% endhighlight %}
       <div class="pure-u-1 center">
         <img height="150px" src="{{ site.baseurl }}/assets/img/nimble.svg"/>
       </div>
-      <div class="pure-u-1 pure-u-md-1-2">
+      <div class="pure-u-1 pure-u-md-1-2 code-align">
         <h2>
           The Nim package manager is called Nimble. Packages
           are distributed via Git and Mercurial repositories, and tags are
@@ -286,7 +287,7 @@ task test, "Run the tester!":
   </section>
 
   <section class="background-faded call-to-action">
-    <section class="content">
+    <section class="content ffi">
       <div class="pure-g center">
         <div class="pure-u-1 center">
           <h2>Easy C, C++ <b>and</b> Objective C wrapping</h2>
@@ -342,7 +343,7 @@ proc display*(window: RenderWindow)
       <div class="pure-u-1">
         <h1>Awesome tracebacks.</h1>
       </div>
-      <div class="pure-u-1 pure-u-md-1-2">
+      <div class="pure-u-1 pure-u-md-1-2 code-align">
         <h2>
           Inspired by Python. When a Nim application crashes with an exception,
           it will output a stack trace before terminating. The format of this

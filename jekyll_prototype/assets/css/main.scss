@@ -3,7 +3,6 @@
 ---
 
 @import "variables"; // Global variables
-@import "examples";  // Styles for Examples page
 @import "download";  // Styles for Download page
 @import "banner";    // Styles for top banner
 
@@ -75,6 +74,7 @@ figure.highlight {
   margin-bottom: 12pt;
   padding: 10px;
   font-size: 120%;
+  max-width: 100%;
 }
 
 .jumbotron {
@@ -194,7 +194,7 @@ footer {
 }
 
 .site-content > .content {
-  margin: 25px auto 50px auto;
+  margin-bottom: 100px;
 }
 
 // Fix footer to stick to the bottom using flexbox.
@@ -489,6 +489,9 @@ a.pure-button.pure-button-primary {
 
 section#book img {
   border: 1px solid #272935;
+  max-width: 80%;
+  height: auto;
+  display: block;
 }
 
 span.disclaimer {
@@ -629,7 +632,9 @@ div.image {
   margin-top: 80px;
 
   img {
-    height: 300px;
+    height: auto;
+    max-width: 90%;
+    display: block;
   }
 
   p {
@@ -638,14 +643,16 @@ div.image {
 }
 
 div.image.right {
-  float: right;
+  text-align: right;
+
+  img {
+    margin-left: auto;
+  }
 }
 
-.site-content.features {
-  section > div > div:not(:first-child) {
-    h1:first-child, h2:first-child, h3:first-child {
-      margin-top: 0;
-    }
+div.code-align {
+  h1:first-child, h2:first-child, h3:first-child {
+    margin-top: 0;
   }
 }
 
@@ -655,6 +662,17 @@ div.image.right {
 
 .fa-windows, .fa-linux, .fa-apple {
   margin-right: 20pt;
+}
+
+.call-to-action {
+  font-size: 125%;
+  padding: 20px 0 60px 0;
+}
+
+.content.ffi {
+  figure.highlight {
+    margin: 20pt 0;
+  }
 }
 
 // Styles for the install page.
@@ -796,8 +814,14 @@ blockquote {
 
 // Styles that apply only to very narrow screens (usually smartphones)
 @media (max-width: 767px) {
-  footer {
-    text-align: center;
+  footer img {
+    height: 25px;
+  }
+
+  section#book img {
+    max-width: 50%;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .pure-menu.pure-menu-horizontal {
@@ -817,5 +841,10 @@ blockquote {
     right: 0;
     top: 0;
     background: linear-gradient(to right, transparent, $menu-background-color);
+  }
+
+  .page-title {
+    // Compensate for the fixed header.
+    padding-top: 70px;
   }
 }
