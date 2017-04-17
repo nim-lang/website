@@ -47,7 +47,12 @@ echo("Average line length: ",
   <div class="pure-g">
     {% for post in site.posts limit: 2 %}
       <div class="news-item pure-u-1 pure-u-md-1-2">
-        <div class="post-meta">{{ post.date | date_to_long_string }}</div>
+        <div class="post-meta">
+          <span>
+            <i class="fa fa-calendar" aria-hidden="true"></i>
+            {{ post.date | date_to_long_string }}
+          </span>
+        </div>
         <h2>
           <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title | escape }}</a>
         </h2>

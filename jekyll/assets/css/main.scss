@@ -185,6 +185,10 @@ footer {
 .news-item {
   padding: 20px;
   text-align: justify;
+
+  p {
+    margin: 0;
+  }
 }
 
 .content, .nav-content {
@@ -334,14 +338,17 @@ a.pure-menu-link.pure-menu-heading {
 
 // For the news list
 .post-meta {
-  font-size: 125%;
-  margin: 2px 0;
+  margin: 5pt 0;
   color: #888;
+
+  span {
+    display: block;
+  }
 }
 
 .news-item h2 {
   font-size: 140%;
-  margin: 2px 0;
+  margin: 0;
 }
 
 .main-heading {
@@ -808,10 +815,6 @@ blockquote {
 
   .post-meta {
     margin-bottom: -5px;
-  }
-
-  .news-item h2 {
-    margin-bottom: 40px;
   }
 }
 
