@@ -3,40 +3,79 @@ title: "Documentation"
 layout: page
 ---
 <section class="pure-g content">
-<h1 class="pure-u-1 text-centered page-title main-heading">{{page.title}}</h1>
-<div class="pure-u-1 pure-u-md-1-2">
-<h2 class="">Search Options</h2>
-<p>Documentation Index <a href="/docs/theindex.html">The generated index.</a></p>
-<strong>Index + (Ctrl+F) == Joy</strong>
-</div>
-<div class="pure-u-1 pure-u-md-1-2">
-<h2 class="">Standards & Guides</h2>
-<p><a href="/docs/lib.html">Standard Library</a>
- This document describes Nim's standard library.</p>
+  <h1 class="pure-u-1 text-centered page-title main-heading">{{page.title}}</h1>
+  <div class="pure-u-1 pure-u-md-1-2">
+    <h2 class="">Search Options</h2>
+    <p>
+      <i class="fa fa-search" aria-hidden="true"></i>
+      <a href="{{ site.baseurl }}/docs/theindex.html">Searchable index</a>
+      (Use Ctrl/Cmd+F)
+    </p>
+  </div>
 
-<p><a href="/docs/manual.html">Language Manual</a> The Nim manual is a draft that will evolve into a proper specification.</p>
+  <div class="pure-u-1 pure-u-md-1-2">
+    <h2 class="">Standards &amp; Guides</h2>
+    <h3><a href="{{ site.baseurl }}/docs/lib.html">Standard Library</a></h3>
+    <p>
+      Provides a listing and description of all the modules in the standard
+      library.
+    </p>
 
-<p><a href="/docs/nep1.html">Nim Style Guide</a> The stylistic conventions that Nim's official projects adhere to.</p>
+    <h3><a href="{{ site.baseurl }}/docs/manual.html">Language Manual</a></h3>
+    <p>
+      The Nim programming language specification.
+    </p>
 
-<p><a href="/docs/nimc.html">Compiler User Guide</a> The user guide lists command line arguments, special features of the compiler, etc.</p>
+    <h3><a href="{{ site.baseurl }}/docs/nep1.html">Nim Style Guide</a></h3>
+    <p>
+      The stylistic conventions that Nim's official projects adhere to.
+    </p>
 
-<p><a href="/docs/nims.html">NimScript</a> NimScript is the upcoming new way to configure Nim.</p>
+    <h3><a href="{{ site.baseurl }}/docs/nimc.html">Compiler User Guide</a></h3>
+    <p>
+      Outlines the commands and command line flags the Nim compiler supports.
+      Explains how the Nim compiler can be configured and describes how to
+      cross-compile, generate DLLs, and more.
+    </p>
+    <h3><a href="{{ site.baseurl }}/docs/nims.html">NimScript</a></h3>
+    <p>
+      Describes the subset of Nim used for configuring Nim and specifying
+      Nimble packages.
+    </p>
+    <h3>
+      <a href="{{ site.baseurl }}/docs/backends.html">Nim Backend Integration</a>
+    </h3>
+    <p>
+      Describes the various backends supported by Nim, including C, C++, Obj C,
+      and JS. It also explains how to interface with libraries written in those
+      languages.
+    </p>
+  </div>
 
-<p><a href="/docs/backends.html">Nim Backend Integration</a> The Backend Integeration guide gives further information of how Nim can interact with C, C++, Objective C and JavaScript.</p>
+  <div class="pure-u-1 pure-u-md-1-2">
+    <h2 class="">Tools &amp; Features</h2>
+    <h3><a href="{{ site.baseurl }}/docs/filters.html">Source Code Filters</a></h3>
+    <p>
+      The Nim compiler supports source code filters as a simple yet powerful
+      builtin templating system.
+    </p>
+    <h3><a href="{{ site.baseurl }}/docs/tools.html">Tools Documentation</a></h3>
+    <p>
+      Description of some tools that come with the standard distribution.
+    </p>
+  </div>
 
-</div>
-<div class="pure-u-1 pure-u-md-1-2">
-<h2 class="">Tools & Features</h2>
-
-<p><a href="/docs/filters.html">Source Code Filters</a> The Nim compiler supports source code filters as a simple yet powerful builtin templating system.</p>
-
-<p><a href="/docs/tools.html">Tools Documentation</a> Description of some tools that come with the standard distribution.</p>
-
-</div>
-<div class="pure-u-1 pure-u-md-1-2">
-<h2 class="">Internal Details</h2>
-<p><a href="/docs/gc.html">Garbage Collector</a> Additional documentation about Nim's GC and how to operate it in a realtime setting.</p>
-
-<p><a href="/docs/intern.html">Internal Documentation</a> The internal documentation describes how the compiler is implemented. Read this if you want to hack the compiler.</p>
-</div>
+  <div class="pure-u-1 pure-u-md-1-2">
+    <h2 class="">Internal Details</h2>
+    <p><a href="{{ site.baseurl }}/docs/gc.html">Garbage Collector</a></h3>
+    <p>
+      Additional documentation about Nim's GC and how to operate it in a
+      realtime setting.
+    </p>
+    <h3><a href="{{ site.baseurl }}/docs/intern.html">Internal Documentation</a></h3>
+    <p>
+      The internal documentation describes how the compiler is implemented.
+      Read this if you want to hack the compiler.
+    </p>
+  </div>
 </section>

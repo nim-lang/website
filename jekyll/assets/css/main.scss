@@ -220,12 +220,6 @@ html {
   flex: 1;
 }
 
-@media (max-width: 1250px) {
-  .content {
-    margin: 0 2.5%;
-  }
-}
-
 .text-centered {
   text-align: center;
 }
@@ -834,6 +828,10 @@ blockquote {
 
 // Styles that apply only to very narrow screens (usually smartphones)
 @media (max-width: 767px) {
+  .content {
+    margin: 0 2.5%;
+  }
+
   footer img {
     height: 25px;
   }
