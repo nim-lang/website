@@ -66,13 +66,16 @@ figure.highlight {
   code {
     font-family: "Inconsolata", monospace;
   }
+
+  pre {
+    padding: 10px;
+  }
   /*background-color: #dfdfdf;*/
   // background-color: #f6f9fa;
   background-color: #f8f8f8;
   border-radius: 2px;
   margin: 0;
   margin-bottom: 12pt;
-  padding: 10px;
   font-size: 120%;
   max-width: 100%;
 }
