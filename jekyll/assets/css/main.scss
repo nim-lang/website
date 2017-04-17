@@ -194,6 +194,7 @@ footer {
 .content, .nav-content {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0pt 10pt;
 }
 
 .slim {
@@ -860,7 +861,7 @@ blockquote {
     top: 0;
     background: linear-gradient(to right, transparent, $menu-background-color);
   }
-
+  
   .page-title {
     // Compensate for the fixed header.
     padding-top: 70px;
