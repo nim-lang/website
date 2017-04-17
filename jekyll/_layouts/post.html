@@ -3,13 +3,24 @@
   {% include head.html %}
   <body class="site">
     {% include header.html %}
-    <div class="site-content">
-      <div class="content post-info">
-        <h1 class="main-heading page-title post-title text-centered">{{ page.title }}</h1>
-        <h3 class="post-date text-centered">{{ page.date | date_to_long_string }}</h3>
-      </div>
+    <div class="site-content post-page">
       <div class="content">
         <div class="width-reduced">
+          <h1 class="post-title">
+            {{ page.title }}
+          </h1>
+          <h3 class="post-meta">
+            <span>
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              {{ page.date | date_to_long_string }}
+            </span>
+            {% for author in page.author %}
+            <span>
+              <i class="fa fa-user-circle" aria-hidden="true"></i>
+              {{ author }}
+            </span>
+            {% endfor %}
+          </h3>
           {{ content }}
         </div>
       </div>

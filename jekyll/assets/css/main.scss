@@ -346,6 +346,20 @@ a.pure-menu-link.pure-menu-heading {
   }
 }
 
+h1.post-title {
+  margin-bottom: 0;
+}
+
+.post-page .post-meta {
+  margin-top: 0;
+  margin-bottom: 20pt;
+
+  span {
+    display: inline;
+    margin-right: 10pt;
+  }
+}
+
 .news-item h2 {
   font-size: 140%;
   margin: 0;

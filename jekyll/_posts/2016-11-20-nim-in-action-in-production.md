@@ -49,7 +49,7 @@ You can now also pre-order Nim in Action on
 If you would like updates about the book then please feel free to
 follow either [myself](https://twitter.com/d0m96) or
 [@nim_lang](https://twitter.com/nim_lang) on Twitter. Finally, if you have any
-questions, do get in touch via `Twitter, NimForum,
-IRC or Gitter <http://nim-lang.org/community.html>`_.
+questions, do get in touch via [Twitter, NimForum,
+IRC or Gitter](http://nim-lang.org/community.html).
 
 Thanks for reading!
