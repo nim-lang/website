@@ -868,3 +868,18 @@ blockquote {
     padding-top: 70px;
   }
 }
+
+// IE 10 & 11
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  // Fix the footer.
+  body {
+    height: 100%;
+    display: block;
+    min-height: auto;
+  }
+
+  .site-content {
+    height: 100%;
+  }
+}
+
