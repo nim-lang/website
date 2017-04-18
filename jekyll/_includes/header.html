@@ -7,7 +7,7 @@
       <ul class="pure-menu-list">
         {% for item in site.navigation %}
         <li class="pure-menu-item">
-          <a href="{{ site.baseurl }}/{{ item.url }}"
+          <a href="{{ site.baseurl }}{{ item.url }}"
              class="pure-menu-link {% if page.current == item.title or layout.current == item.title or page.title == item.title %}current{% endif %}">
             {{ item.title }}
           </a>
