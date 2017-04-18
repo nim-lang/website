@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Windows installation
-css_class: install_windows
+title: Unix installation
+css_class: install_unix
 current: Install
 ---
 
@@ -108,3 +108,10 @@ docker pull nimlang/nim:devel
 ```
 pacman -S nim
 ```
+
+## Void Linux
+
+```
+xbps-install -S nim
+```
+
