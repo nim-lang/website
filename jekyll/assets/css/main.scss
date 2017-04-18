@@ -3,8 +3,6 @@
 ---
 
 @import "variables"; // Global variables
-@import "download";  // Styles for Download page
-@import "banner";    // Styles for top banner
 
 // Adjust anchor link location to not cover titles with header
 :target:before {
@@ -679,8 +677,10 @@ div.code-align {
     margin-bottom: 50px;
 }
 
-.fa-windows, .fa-linux, .fa-apple {
-  margin-right: 20pt;
+.features {
+  .fa-windows, .fa-linux, .fa-apple {
+    margin-right: 20pt;
+  }
 }
 
 .call-to-action {
@@ -708,6 +708,66 @@ div.code-align {
     }
   }
 
+}
+
+.os-pickers {
+  text-align: center;
+
+  h2 {
+    margin-top: 20pt;
+  }
+
+  a {
+    text-decoration: none;
+    color: $default-color;
+    &:hover, &:focus {
+      h2 {
+        text-decoration: underline;
+        color: $default-color;
+      }
+    }
+    &:active {
+      h2 {
+        text-decoration: none;
+        color: $default-color;
+      }
+    }
+  }
+
+  @media (max-width: 850px) {
+    div {
+      margin-right: 5pt; // Fix for small resolutions.
+    }
+  }
+}
+
+.os-picker-box {
+  background-color: $index-code-bg;
+  color: white;
+  padding: 40pt;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  height: 100pt;
+  width: 100pt;
+
+  i {
+    font-size: 500%;
+  }
+
+  i.fa-windows {
+    font-size: 800%;
+  }
+
+  i.fa-apple {
+    margin-right: 15pt;
+  }
+
+}
+
+.download-button {
+  width: 170pt;
 }
 
 // Styles for community page.
