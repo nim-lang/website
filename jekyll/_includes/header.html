@@ -5,14 +5,14 @@
         <img class="site-logo" src="{{ site.baseurl }}/assets/img/logo.svg" height="28" alt="Nim">
       </a>
       <ul class="pure-menu-list">
-        <li class="pure-menu-item"><a href="{{ site.baseurl }}/blog.html" class="pure-menu-link">Blog</a></li>
-        <li class="pure-menu-item"><a href="{{ site.baseurl }}/features.html" class="pure-menu-link">Features</a></li>
-        <li class="pure-menu-item"><a href="{{ site.baseurl }}/install.html" class="pure-menu-link">Install</a></li>
-        <li class="pure-menu-item"><a href="{{ site.baseurl }}/documentation.html" class="pure-menu-link">Documentation</a></li>
-        <li class="pure-menu-item"><a href="{{ site.baseurl }}/community.html" class="pure-menu-link">Community</a></li>
-        <li class="pure-menu-item"><a href="{{ site.baseurl }}/sponsors.html" class="pure-menu-link">Sponsors</a></li>
-        <li class="pure-menu-item"><a href="{{ site.baseurl }}/donate.html" class="pure-menu-link">Donate</a></li>
-        <li class="pure-menu-item"><a href="{{ site.baseurl }}/faq.html" class="pure-menu-link">FAQ</a></li>
+        {% for item in site.navigation %}
+        <li class="pure-menu-item">
+          <a href="{{ site.baseurl }}/{{ item.url }}"
+             class="pure-menu-link {% if page.current == item.title or layout.current == item.title or page.title == item.title %}current{% endif %}">
+            {{ item.title }}
+          </a>
+        </li>
+        {% endfor %}
       </ul>
     </div>
     <div class="menu-fade"></div>

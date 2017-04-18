@@ -20,6 +20,24 @@ defaults:
       layout: post
       is_post: true
 
+navigation:
+  - title: Blog
+    url: /blog.html
+  - title: Features
+    url: /features.html
+  - title: Install
+    url: /install.html
+  - title: Documentation
+    url: /documentation.html
+  - title: Community
+    url: /community.html
+  - title: Sponsors
+    url: /sponsors.html
+  - title: Donate
+    url: /donate.html
+  - title: FAQ
+    url: /faq.html
+
 # Build settings
 markdown: kramdown
 permalink: /blog/:year/:month/:day/:title.html
