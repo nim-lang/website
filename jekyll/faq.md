@@ -55,7 +55,7 @@ for years but still needs some work.
 ## What about JVM/CLR backends?
 
 JVM/CLR support is not in the nearest plans. However, since these VMs support FFI to C
-it should be possible to create native Nim bridges, that transparenlty generate all the
+it should be possible to create native Nim bridges, that transparently generate all the
 glue code thanks to powerful metaprogramming capabilities of Nim.
 
 ## What about editor support?
@@ -80,8 +80,8 @@ glue code thanks to powerful metaprogramming capabilities of Nim.
 *Procedure* used to be the common term as opposed to a *function* which is a
 mathematical entity that has no side effects. It is planned to have ``func``
 as syntactic sugar for ``proc {.noSideEffect.}`` and ``func`` is already a
-keyword. Naming it ``def`` would not make sense because Nim also provides a
-``iterator`` and ``method`` keywords, whereas ``def`` stands for ``define``.
+keyword. Naming it ``def`` would not make sense because Nim also provides an
+``iterator`` and a ``method`` keyword, whereas ``def`` stands for ``define``.
 
 
 # Compilation FAQ
