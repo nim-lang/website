@@ -104,7 +104,7 @@ Change the value of the ``cc`` variable to one of the following:
 |``vcc``           | Microsoft's Visual C++                      |
 |``gcc``           | Gnu C                                       |
 |``llvm_gcc``      | LLVM-GCC compiler                           |
-|``icc``           | Intel C++ compiler                          |
+|``icc``           | Intel C compiler                            |
 |``clang``         | Clang compiler                              |
 |``ucc``           | Generic UNIX C compiler                     |
 
