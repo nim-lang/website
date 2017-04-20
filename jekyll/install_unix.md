@@ -41,8 +41,8 @@ The compiler and tool binaries live inside the ``bin`` directory.
 It is common for Nim developers to include two directories in their
 [``PATH`` environment variable](https://en.wikipedia.org/wiki/PATH_(variable)):
 
-* the aforementioned ``bin`` folder
-* ``~/.nimble/bin``
+* the aforementioned ``bin`` directory
+* ``~/.nimble/bin`` (where ``~`` is the home directory)
 
 # Notes about compiler dependencies
 
