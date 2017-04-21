@@ -42,12 +42,12 @@ directory.
 
 ## Configuring the ``PATH`` environment variable
 
-The binaries from the zip file live inside the ``bin`` folder.
+The binaries from the zip file live inside the ``bin`` directory.
 It is common for Nim developers to include two directories in their
 [``PATH`` environment variable](https://en.wikipedia.org/wiki/PATH_(variable)):
 
-* the aforementioned ``bin`` folder
-* ``~/.nimble/bin`` (where ``~`` is ``C:\Users\username\.nimble``)
+* the aforementioned ``bin`` directory
+* ``%USERPROFILE%\.nimble\bin`` (where ``%USERPROFILE%`` is the home directory)
 
 The zip file includes a simple application called ``finish.exe`` that can
 attempt to add the first directory into your ``PATH``.
