@@ -115,3 +115,9 @@ pacman -S nim
 xbps-install -S nim
 ```
 
+## FreeBSD
+
+```
+pkg install nim
+```
+
