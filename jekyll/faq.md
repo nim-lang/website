@@ -61,18 +61,20 @@ glue code thanks to powerful metaprogramming capabilities of Nim.
 ## What about editor support?
 
 
-- Native Nim Editor: https://github.com/nim-lang/Aporia
+- Aporia (native Nim editor): https://github.com/nim-lang/Aporia
 - Visual Studio Code: https://marketplace.visualstudio.com/items?itemName-kosz78.nim
 - Emacs: https://github.com/nim-lang/nim-mode
 - Vim: https://github.com/zah/nimrod.vim/
 - Scite: Included
 - Gedit: The [Aporia .lang file](https://github.com/nim-lang/Aporia/blob/master/share/gtksourceview-2.0/language-specs/nim.lang).
 - jEdit: https://github.com/exhu/nimrod-misc/tree/master/jedit
-- TextMate: Available in bundle installer ([Repository](https://github.com/textmate/nim.tmbundle))
-- Sublime Text: Available via Package Control ([Repository](https://github.com/Varriount/NimLime))
+- TextMate: https://github.com/textmate/nim.tmbundle
+- Sublime Text: https://github.com/Varriount/NimLime
 - LiClipse: http://www.liclipse.com/ (Eclipse based plugin)
 - Howl: Included
-- Notepad++: Available via [plugin](https://github.com/jangko/nppnim/releases)
+- Notepad++: https://github.com/jangko/nppnim/releases
+- Micro: Included
+- Atom: https://atom.io/packages/nim
 
 
 ## Why is it named ``proc``?
