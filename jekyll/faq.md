@@ -64,7 +64,7 @@ glue code thanks to powerful metaprogramming capabilities of Nim.
 - Aporia (native Nim editor): [https://github.com/nim-lang/Aporia](https://github.com/nim-lang/Aporia)
 - Visual Studio Code: [https://marketplace.visualstudio.com/items?itemName-kosz78.nim](https://marketplace.visualstudio.com/items?itemName-kosz78.nim)
 - Emacs: [https://github.com/nim-lang/nim-mode](https://github.com/nim-lang/nim-mode)
-- Vim: [https://github.com/zah/nimrod.vim/](https://github.com/nim-lang/nim-mode)
+- Vim: [https://github.com/zah/nimrod.vim/](https://github.com/zah/nimrod.vim)
 - Scite: Included
 - Gedit: The [Aporia .lang file](https://github.com/nim-lang/Aporia/blob/master/share/gtksourceview-2.0/language-specs/nim.lang).
 - jEdit: [https://github.com/exhu/nimrod-misc/tree/master/jedit](https://github.com/exhu/nimrod-misc/tree/master/jedit)
