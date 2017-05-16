@@ -3,13 +3,36 @@ title: "Version 0.17.0 released"
 author: The Nim Team
 ---
 
+The Nim team is happy to announce that the latest release of Nim,
+version 0.17.0, is now available. Nim is a systems programming language that
+focuses on performance, portability and expressiveness.
+
 This release fixes the most important regressions introduced in version 0.16.0.
-In particular memory manager and channel bugs have been fixed.
+In particular memory manager and channel bugs have been fixed. There was also
+many significant improvements to the language, in particular a lot of work was
+put into concepts. Zahary has been leading this effort and we thank him for
+his hard work. Be sure to check out the changelog [below](#changelog) for
+a comprehensive list of changes.
 
 The NSIS based
 installer is not provided anymore as the Nim website moved to ``https`` and
-this causes NSIS downloads to fail.
+this caused NSIS downloads to fail. The latest version of Nim for Windows can
+still be downloaded as a zip archive from the
+[downloads page]({{site.baseurl}}/install.html).
 
+We would also like to invite you to test a brand new tool that aims to make
+the installation and management of multiple Nim versions much easier. This tool
+is called ``choosenim`` and allows you to install the latest version of Nim
+with a single command.
+Check out the
+[installation instructions](https://github.com/dom96/choosenim#installation)
+on GitHub to give it a go, but keep in mind that this tool is still
+experimental.
+
+This release also includes version 0.8.6 of the Nimble package manager,
+be sure to check out its
+[changelog](https://github.com/nim-lang/nimble/blob/master/changelog.markdown)
+for a list of changes since its last release.
 
 # Changelog
 
@@ -18,7 +41,9 @@ this causes NSIS downloads to fail.
 - There are now two different HTTP response types, ``Response`` and
   ``AsyncResponse``. ``AsyncResponse``'s ``body`` accessor returns a
   ``Future[string]``!
-- ``httpclient.request`` now respects ``maxRedirects`` option. Previously
+
+  Due to this change you may need to add another ``await`` in your code.
+- ``httpclient.request`` now respects the ``maxRedirects`` option. Previously
   redirects were handled only by ``get`` and ``post`` procs.
 - The IO routines now raise ``EOFError`` for the "end of file" condition.
   ``EOFError`` is a subtype of ``IOError`` and so it's easier to distinguish
@@ -31,7 +56,7 @@ this causes NSIS downloads to fail.
 - Macros accepting `varargs` arguments will now receive a node having the
   `nkArgList` node kind. Previous code expecting the node kind to be `nkBracket`
   may have to be updated.
-- ``memfiles.open`` now closes file handleds/fds by default.  Passing
+- ``memfiles.open`` now closes file handles/fds by default.  Passing
   ``allowRemap=true`` to ``memfiles.open`` recovers the old behavior.  The old
   behavior is only needed to call ``mapMem`` on the resulting ``MemFile``.
 - ``posix.nim``: For better C++ interop the field
@@ -55,7 +80,7 @@ this causes NSIS downloads to fail.
 - ``posix.nim``: the family of ``ntohs`` procs now takes unsigned integers
   instead of signed integers.
 - In Nim identifiers en-dash (Unicode point U+2013) is not an alias for the
-  underscore anymore. Use underscores and fix your programming font instead.
+  underscore anymore. Use underscores instead.
 - When the ``requiresInit`` pragma is applied to a record type, future versions
   of Nim will also require you to initialize all the fields of the type during
   object construction. For now, only a warning will be produced.
@@ -66,7 +91,7 @@ this causes NSIS downloads to fail.
 - On posix, the results of `waitForExit`, `peekExitCode`, `execCmd` will return
   128 + signal number if the application terminates via signal.
 - ``ospaths.getConfigDir`` now conforms to the XDG Base Directory specification
-  on non-Windows OSs. It returns the value of the XDG_CONFIG_DIR environment
+  on non-Windows OSs. It returns the value of the ``XDG_CONFIG_DIR`` environment
   variable if it is set, and returns the default configuration directory,
   "~/.config/", otherwise.
 
@@ -76,7 +101,7 @@ Library Additions
 - Added ``system.onThreadDestruction``.
 - Added ``dial`` procedure to networking modules: ``net``, ``asyncdispatch``,
   ``asyncnet``. It merges socket creation, address resolution, and connection
-  into single step. When using ``dial``, you don't have to worry about
+  into single step. When using ``dial``, you don't have to worry about the
   IPv4 vs IPv6 problem. ``httpclient`` now supports IPv6.
 
 Tool Additions
@@ -147,7 +172,7 @@ found [here](http://nim-lang.org/docs/manual.html#pragmas-used-pragma).
 The list below has been generated based on the commits in Nim's git
 repository. As such it lists only the issues which have been closed
 via a commit, for a full list see
-[this link on Github](https://github.com/nim-lang/Nim/issues?utf8=%E2%9C%93&q=is%3Aissue+closed%3A%222017-01-07+..+2017-02-06%22+).
+[this link on Github](https://github.com/nim-lang/Nim/issues?utf8=%E2%9C%93&q=is%3Aissue+closed%3A%222017-01-07+..+2017-05-16%22+).
 
 - Fixed "Weird compilation bug"
   ([#4884](https://github.com/nim-lang/Nim/issues/4884))
