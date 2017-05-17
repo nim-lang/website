@@ -94,15 +94,39 @@ for a list of changes since its last release.
   on non-Windows OSs. It returns the value of the ``XDG_CONFIG_DIR`` environment
   variable if it is set, and returns the default configuration directory,
   "~/.config/", otherwise.
+- Renamed the line info node parameter for ``newNimNode`` procedure.
 
 Library Additions
 -----------------
 
 - Added ``system.onThreadDestruction``.
+
 - Added ``dial`` procedure to networking modules: ``net``, ``asyncdispatch``,
   ``asyncnet``. It merges socket creation, address resolution, and connection
   into single step. When using ``dial``, you don't have to worry about the
   IPv4 vs IPv6 problem. ``httpclient`` now supports IPv6.
+
+- Added `to` macro which allows JSON to be unmarshalled into a type.
+
+    ```nim
+    import json
+
+    type
+      Person = object
+        name: string
+        age: int
+
+    let data = """
+      {
+        "name": "Amy",
+        "age": 4
+      }
+    """
+
+    let node = parseJson(data)
+    let obj = node.to(Person)
+    echo(obj)
+    ```
 
 Tool Additions
 --------------
@@ -350,3 +374,45 @@ via a commit, for a full list see
   ([#2423](https://github.com/nim-lang/Nim/issues/2423))
 - Fixed "Bugs with concepts?"
   ([#2882](https://github.com/nim-lang/Nim/issues/2882))
+
+- Fixed "Improve error messages for concepts"
+    ([#3330](https://github.com/nim-lang/Nim/issues/3330))
+- Fixed "Dynamic dispatch is not working correctly"
+    ([#5599](https://github.com/nim-lang/Nim/issues/5599))
+- Fixed "asynchttpserver may consume unbounded memory reading headers"
+    ([#3847](https://github.com/nim-lang/Nim/issues/3847))
+- Fixed "nim check crash due to missing var keyword"
+    ([#5618](https://github.com/nim-lang/Nim/issues/5618))
+- Fixed "Unexpected template resolution"
+    ([#5625](https://github.com/nim-lang/Nim/issues/5625))
+- Fixed "Installer fails to download mingw.zip"
+    ([#5422](https://github.com/nim-lang/Nim/issues/5422))
+- Fixed "Exception name and parent get lost after reraising"
+    ([#5628](https://github.com/nim-lang/Nim/issues/5628))
+- Fixed "generic ref object typeRel problem"
+    ([#5621](https://github.com/nim-lang/Nim/issues/5621))
+- Fixed "typedesc typeRel regression"
+    ([#5632](https://github.com/nim-lang/Nim/issues/5632))
+- Fixed "http client respects only one "Set-Cookie" header"
+    ([#5611](https://github.com/nim-lang/Nim/issues/5611))
+- Fixed "Internal assert when using ``compiles``"
+    ([#5638](https://github.com/nim-lang/Nim/issues/5638))
+- Fixed "Compiler crash for variant type."
+    ([#4556](https://github.com/nim-lang/Nim/issues/4556))
+- Fixed "MultipartData in httpclient.Post appears to break header"
+    ([#5710](https://github.com/nim-lang/Nim/issues/5710))
+
+- Fixed "setCookie incorrect timestamp format"
+    ([#5718](https://github.com/nim-lang/Nim/issues/5718))
+- Fixed "[Regression] strdefine consts cannot be passed to a procvar"
+    ([#5729](https://github.com/nim-lang/Nim/issues/5729))
+- Fixed "Nim's --nimblepaths picks 1.0 over #head"
+    ([#5752](https://github.com/nim-lang/Nim/issues/5752))
+- Fixed "Async writes are not queued up on Windows"
+    ([#5532](https://github.com/nim-lang/Nim/issues/5532))
+- Fixed "float32 literals are translated to double literals in C"
+  ([#5821](https://github.com/nim-lang/Nim/issues/5821))
+- Fixed "LibreSSL isn't recognized as legit SSL library"
+  ([#4893](https://github.com/nim-lang/Nim/issues/4893))
+- Fixed "exception when using json "to" proc"
+  ([#5761](https://github.com/nim-lang/Nim/issues/5761))
