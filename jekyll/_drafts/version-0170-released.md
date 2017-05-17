@@ -95,6 +95,27 @@ for a list of changes since its last release.
   variable if it is set, and returns the default configuration directory,
   "~/.config/", otherwise.
 - Renamed the line info node parameter for ``newNimNode`` procedure.
+- The parsing rules of ``do`` changed.
+
+    ```nim
+    foo bar do:
+      baz
+    ```
+
+  Used to be parsed as:
+
+    ```nim
+    foo(bar(do:
+      baz))
+    ```
+
+  Now it is parsed as:
+
+    ```nim
+    foo(bar, do:
+      baz)
+    ```
+
 
 Library Additions
 -----------------
