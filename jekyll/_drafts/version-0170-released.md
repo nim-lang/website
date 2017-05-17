@@ -161,7 +161,7 @@ Compiler Additions
 
 - The name mangling rules used by the C code generator changed. Most of the time
   local variables and parameters are not mangled at all anymore. This improves
-  debugging experience.
+  the debugging experience.
 - The compiler produces explicit name mangling files when ``--debugger:native``
   is enabled. Debuggers can read these ``.ndi`` files in order to improve
   debugging Nim code.
