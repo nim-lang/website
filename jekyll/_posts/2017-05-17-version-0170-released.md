@@ -197,7 +197,7 @@ found [here](http://nim-lang.org/docs/manual.html#pragmas-used-pragma).
     ```nim
     template ve(value, effect): untyped =
       effect
-      val
+      value
 
     let x = ve(4):
       echo "welcome to Nim!"
