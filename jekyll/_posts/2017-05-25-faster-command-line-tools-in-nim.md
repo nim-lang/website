@@ -132,7 +132,7 @@ user	0m1.140s
 sys	0m0.040s
 ```
 
-Nim comes in first, beating D by `0.147` seconds! I had been planning to go back and see if I could further optimise the Nim implementation, fully expecting the tuned D implementation to beat the simple Nim one by a fair margin. At this point though, I kind of felt like I'd seen all I needed to see.
+Nim comes in first, beating D by `0.147` seconds! I had been planning to go back and see if I could further optimise the Nim implementation, fully expecting the tuned D implementation to beat the simple Nim one by a fair margin. At this point though, I kind of felt like [that kid from the Simpsons](https://www.youtube.com/watch?v=qQ6wSei-NJU).
 
 ## Benchmarking with multiple runs
 
@@ -240,7 +240,7 @@ MIN TIME: 1.17s
 PEAK MEM: 0.9Mb
 ```
 
-In repeated runs, Python is clearly the loser. At its peak, it uses 6 times as much memory as the Nim implementation and is around 11 times slower to run that the Nim implementation.
+In repeated runs, Python is clearly the loser. At its peak, it uses 6 times as much memory as the Nim implementation and is around 11 times slower to run than the Nim implementation.
 
 This test also shows the gulf between the DMD and LDC compilers. The same code compiled with the DMD compiler takes a whole 1 second longer to execute than it does when compiled with LDC, though it does use 0.1Mb less memory at its peak.
 
