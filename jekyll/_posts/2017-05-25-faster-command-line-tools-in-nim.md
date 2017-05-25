@@ -3,6 +3,8 @@ title: "Faster Command Line Tools in Nim"
 author: Euan Torano
 ---
 
+*This is a guest post by cross-posted from [Faster Command Line Tools in Nim](https://www.euantorano.co.uk/posts/faster-command-line-tools-in-nim/). If you would like to publish articles as a guest author on nim-lang.org then get in touch with us via Twitter or otherwise.*
+
 After having read the blog post titled [`Faster Command Line Tools in D` by Jon Degenhardt](http://dlang.org/blog/2017/05/24/faster-command-line-tools-in-d/) on the D Blog, I was interested to see how Nim would stack up performing the same task.
 
 Rather than explain the task again, I might as well quote the reference post that inspired me:
@@ -17,7 +19,7 @@ Rather than explain the task again, I might as well quote the reference post tha
 
 ## Implementing the Nim program, first try
 
-This is quite a simple program. All that we need to do is read a file, parse it as CSV data with a tab delemiter and sum the counts.
+This is quite a simple program. All that we need to do is read a file, parse it as CSV data with a tab delimiter and sum the counts.
 
 Luckily, Nim's standard library has many useful modules to help with common tasks like these:
 
@@ -87,7 +89,7 @@ The versions of the tools used in this post are as follows:
 - **Nim**: `Nim Compiler Version 0.17.0 (2017-05-18) [MacOSX: amd64]`
 - **Clang**: `Apple LLVM version 8.1.0 (clang-802.0.42)`
 
-Testing was performed against the D version compiled using both the reference `DMD` D compiler, and the `LDC` LLVM based D compiler. The compiliation switches used for the D versions were as follows:
+Testing was performed against the D version compiled using both the reference `DMD` D compiler, and the `LDC` LLVM based D compiler. The compilation switches used for the D versions were as follows:
 
 - **DMD**: `dmd -O -release -inline -boundscheck=off -of=./D/csv_test ./D/csv_test.d`
 - **LDC**: `ldc2 -of=./D/csv_test_ldc -O -release -boundscheck=off ./D/csv_test.d`
@@ -134,7 +136,7 @@ Nim comes in first, beating D by `0.147` seconds! I had been planning to go back
 
 ## Benchmarking with multiple runs
 
-I then decided to run the pogram multiple times, using the `repeat.rb` script from [Kostya's benchmarks project](https://github.com/kostya/benchmarks). This script also provides the added bonus of providing the peak amount of memory used by each version. Here's the results:
+I then decided to run the program multiple times, using the `repeat.rb` script from [Kostya's benchmarks project](https://github.com/kostya/benchmarks). This script also provides the added bonus of providing the peak amount of memory used by each version. Here's the results:
 
 ```
 Python...
@@ -248,7 +250,7 @@ Nim still comes out ahead though. Even at its slowest (1.30 seconds), it still b
 
 Having come this far, I though I might as well benchmark how long compilation times are for the two D implementations and the Nim implementation. Obviously, the Python implementation is excluded from this test.
 
-I cleared out all build artifacts (such as the `*.o` files for D and the `nimcache` folder for Nim) along with the built executables, then simply timed each build. Here are the results:
+I cleared out all build artefacts (such as the `*.o` files for D and the `nimcache` folder for Nim) along with the built executables, then simply timed each build. Here are the results:
 
 - **DMD**: `real	0m0.947s`
 - **LDC**: `real	0m2.296s`
@@ -261,4 +263,4 @@ It turns out that the DMD compiler is much quicker than the LDC compiler. Obviou
 
 And that was the end of my little test. It turns out that Nim can certainly hold its own when it comes to parsing CSV files.
 
-I'd be interested to see how things run on other machines and operating systems to see how things are across platforms. I'm also sure there are far bettwe ways I could benchmark these implementations, which is why I've [posted the project publicly on GitHub](https://github.com/euantorano/faster-command-line-tools-in-nim) - I'd welcome any enhancements to any of the versions or the benchmarking scripts, and would certainly welcome some more results to see how things stack up!
+I'd be interested to see how things run on other machines and operating systems to see how things are across platforms. I'm also sure there are far better ways I could benchmark these implementations, which is why I've [posted the project publicly on GitHub](https://github.com/euantorano/faster-command-line-tools-in-nim) - I'd welcome any enhancements to any of the versions or the benchmarking scripts, and would certainly welcome some more results to see how things stack up!
