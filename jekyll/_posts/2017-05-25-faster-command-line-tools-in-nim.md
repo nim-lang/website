@@ -3,7 +3,7 @@ title: "Faster Command Line Tools in Nim"
 author: Euan Torano
 ---
 
-*This is a guest post by cross-posted from [Faster Command Line Tools in Nim](https://www.euantorano.co.uk/posts/faster-command-line-tools-in-nim/). If you would like to publish articles as a guest author on nim-lang.org then get in touch with us via Twitter or otherwise.*
+*This is a guest post by Euan Torano cross-posted from [Faster Command Line Tools in Nim](https://www.euantorano.co.uk/posts/faster-command-line-tools-in-nim/). If you would like to publish articles as a guest author on nim-lang.org then get in touch with us via [Twitter](https://twitter.com/nim_lang) or [otherwise](https://github.com/nim-lang/website/issues).*
 
 After having read the blog post titled [`Faster Command Line Tools in D` by Jon Degenhardt](http://dlang.org/blog/2017/05/24/faster-command-line-tools-in-d/) on the D Blog, I was interested to see how Nim would stack up performing the same task.
 
