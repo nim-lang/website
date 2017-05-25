@@ -79,6 +79,14 @@ We then read through all of the rows in the CSV file, and if the row has enough 
 
 With this initial implementation complete, I built it in release mode (`nim c -d:release test_csv.nim`) and benchmarked it against the Python implementation and the final optimised D implementation (`max_column_sum_by_key_v4b.d`).
 
+The versions of the tools used in this post are as follows:
+
+- **Python**: `Python 2.7.13`
+- **DMD**: `DMD64 D Compiler v2.074.0`
+- **LDC**: `LDC - the LLVM D compiler (1.2.0): based on DMD v2.072.2 and LLVM 4.0.0`
+- **Nim**: `Nim Compiler Version 0.17.0 (2017-05-18) [MacOSX: amd64]`
+- **Clang**: `Apple LLVM version 8.1.0 (clang-802.0.42)`
+
 Testing was performed against the D version compiled using both the reference `DMD` D compiler, and the `LDC` LLVM based D compiler. The compiliation switches used for the D versions were as follows:
 
 - **DMD**: `dmd -O -release -inline -boundscheck=off -of=./D/csv_test ./D/csv_test.d`
@@ -90,7 +98,7 @@ I then ran all of these implementations against [the same ngram file from the Go
 max_key: 2006 sum: 22569013
 ```
 
-The benchamrk was ran on my mid 2014 MacBook Pro with a 2.8GHz Intel Core i7. I'll let the results speak for themselves:
+The benchmark was ran on my mid 2014 MacBook Pro with a 2.8GHz Intel Core i7 running macOS Sierra 10.12.4. I'll let the results speak for themselves:
 
 ```
 Python...
