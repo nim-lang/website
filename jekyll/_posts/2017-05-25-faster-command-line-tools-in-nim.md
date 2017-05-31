@@ -15,7 +15,7 @@ Rather than explain the task again, I might as well quote the reference post tha
 >
 > With the first field as key, second field as value, the key with the max sum is B, with a total of 13.
 >
-> Fields are delimited by a TAB, and there may be any number of fields on a line. The file name and field numbers of the key and value are passed as command line arguments.
+> Fields are delimited by a *tabulation*, and there may be any number of fields on a line. The file name and field numbers of the key and value are passed as command line arguments.
 
 ## Implementing the Nim program, first try
 
@@ -24,7 +24,7 @@ This is quite a simple program. All that we need to do is read a file, parse it 
 Luckily, Nim's standard library has many useful modules to help with common tasks like these:
 
 - The [streams](https://nim-lang.org/docs/streams.html) module provides a `FileStream` type for reading from and writing to files.
-- The [parsecv](https://nim-lang.org/docs/parsecsv.html) module provides a simple high performance CSV parser.
+- The [parsecsv](https://nim-lang.org/docs/parsecsv.html) module provides a simple high performance CSV parser.
 - The [tables](https://nim-lang.org/docs/tables.html) module provides a `CountTable` type designed to map a key to its number of occurrences - precisely the task we're trying to accomplish!
 
 The code is pretty simple, so let's start by looking at it in its entirety:
@@ -257,7 +257,6 @@ I cleared out all build artefacts (such as the `*.o` files for D and the `nimcac
 - **Nim**: `real	0m0.955s`
 
 It turns out that the DMD compiler is much quicker than the LDC compiler. Obviously all the optimisations that LLVM makes take a little while longer to complete.
-
 
 ## Conclusion
 
