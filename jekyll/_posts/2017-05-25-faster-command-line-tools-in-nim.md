@@ -24,7 +24,7 @@ This is quite a simple program. All that we need to do is read a file, parse it 
 Luckily, Nim's standard library has many useful modules to help with common tasks like these:
 
 - The [streams](https://nim-lang.org/docs/streams.html) module provides a `FileStream` type for reading from and writing to files.
-- The [parsecv](https://nim-lang.org/docs/parsecsv.html) module provides a simple high performance CSV parser.
+- The [parsecsv](https://nim-lang.org/docs/parsecsv.html) module provides a simple high performance CSV parser.
 - The [tables](https://nim-lang.org/docs/tables.html) module provides a `CountTable` type designed to map a key to its number of occurrences - precisely the task we're trying to accomplish!
 
 The code is pretty simple, so let's start by looking at it in its entirety:
@@ -48,8 +48,9 @@ proc main() =
   var
     sumByKey = newCountTable[string]()
     file = newFileStream(filename, fmRead)
+    
   if file == nil:
-    quit("cannot open the file" & filename)
+    quit("cannot open the file " & filename)
 
   defer: file.close()
 
@@ -57,7 +58,7 @@ proc main() =
   open(csv, file, filename, separator=Delim)
 
   while csv.readRow():
-    if len(csv.row) > maxFieldIndex - 1:
+    if len(csv.row) > maxFieldIndex:
       sumByKey.inc(csv.row[keyFieldIndex], parseInt(csv.row[valueFieldIndex]))
 
   if sumByKey.len() == 0:
@@ -252,12 +253,11 @@ Having come this far, I though I might as well benchmark how long compilation ti
 
 I cleared out all build artefacts (such as the `*.o` files for D and the `nimcache` folder for Nim) along with the built executables, then simply timed each build. Here are the results:
 
-- **DMD**: `real	0m0.947s`
-- **LDC**: `real	0m2.296s`
-- **Nim**: `real	0m0.955s`
+- **DMD**: `real 0m0.947s`
+- **LDC**: `real 0m2.296s`
+- **Nim**: `real 0m0.955s`
 
 It turns out that the DMD compiler is much quicker than the LDC compiler. Obviously all the optimisations that LLVM makes take a little while longer to complete.
-
 
 ## Conclusion
 
