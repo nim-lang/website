@@ -24,7 +24,7 @@ This is quite a simple program. All that we need to do is read a file, parse it 
 Luckily, Nim's standard library has many useful modules to help with common tasks like these:
 
 - The [streams](https://nim-lang.org/docs/streams.html) module provides a `FileStream` type for reading from and writing to files.
-- The [parsecv](https://nim-lang.org/docs/parsecsv.html) module provides a simple high performance CSV parser.
+- The [parsecsv](https://nim-lang.org/docs/parsecsv.html) module provides a simple high performance CSV parser.
 - The [tables](https://nim-lang.org/docs/tables.html) module provides a `CountTable` type designed to map a key to its number of occurrences - precisely the task we're trying to accomplish!
 
 The code is pretty simple, so let's start by looking at it in its entirety:
@@ -48,8 +48,9 @@ proc main() =
   var
     sumByKey = newCountTable[string]()
     file = newFileStream(filename, fmRead)
+
   if file == nil:
-    quit("cannot open the file" & filename)
+    quit("cannot open the file " & filename)
 
   defer: file.close()
 
@@ -57,7 +58,7 @@ proc main() =
   open(csv, file, filename, separator=Delim)
 
   while csv.readRow():
-    if len(csv.row) > maxFieldIndex - 1:
+    if len(csv.row) > maxFieldIndex:
       sumByKey.inc(csv.row[keyFieldIndex], parseInt(csv.row[valueFieldIndex]))
 
   if sumByKey.len() == 0:
@@ -100,151 +101,119 @@ I then ran all of these implementations against [the same ngram file from the Go
 max_key: 2006 sum: 22569013
 ```
 
-The benchmark was ran on my mid 2014 MacBook Pro with a 2.8GHz Intel Core i7 running macOS Sierra 10.12.4. I'll let the results speak for themselves:
+The benchmark was ran on my mid 2014 MacBook Pro with a 2.8GHz Intel Core i7 running macOS Sierra 10.12.4. The benchmark made use of the `repeat.rb` script from [Kostya's benchmarks project](https://github.com/kostya/benchmarks) to run each version 10 times and report the fastest run time. This script also provides the added bonus of providing the peak amount of memory used by each version. Here are the results:
 
 ```
 Python...
 max_key: 2006 sum: 22569013
+21.70s
+max_key: 2006 sum: 22569013
+32.06s
+max_key: 2006 sum: 22569013
+17.83s
+max_key: 2006 sum: 22569013
+18.29s
+max_key: 2006 sum: 22569013
+23.73s
+max_key: 2006 sum: 22569013
+18.09s
+max_key: 2006 sum: 22569013
+17.58s
+max_key: 2006 sum: 22569013
+17.86s
+max_key: 2006 sum: 22569013
+16.92s
+max_key: 2006 sum: 22569013
+15.98s
 
-real	0m14.769s
-user	0m14.627s
-sys	0m0.106s
-
-D (DMD)...
-max_key: 2006 sum: 22569013
-
-real	0m2.458s
-user	0m2.407s
-sys	0m0.049s
-
-D (LDC)...
-max_key: 2006 sum: 22569013
-
-real	0m1.329s
-user	0m1.279s
-sys	0m0.048s
-
-Nim...
-max_key: 2006 sum: 22569013
-
-real	0m1.182s
-user	0m1.140s
-sys	0m0.040s
-```
-
-Nim comes in first, beating D by `0.147` seconds! I had been planning to go back and see if I could further optimise the Nim implementation, fully expecting the tuned D implementation to beat the simple Nim one by a fair margin. At this point though, I kind of felt like [that kid from the Simpsons](https://www.youtube.com/watch?v=qQ6wSei-NJU).
-
-## Benchmarking with multiple runs
-
-I then decided to run the program multiple times, using the `repeat.rb` script from [Kostya's benchmarks project](https://github.com/kostya/benchmarks). This script also provides the added bonus of providing the peak amount of memory used by each version. Here's the results:
-
-```
-Python...
-max_key: 2006 sum: 22569013
-14.23s
-max_key: 2006 sum: 22569013
-13.89s
-max_key: 2006 sum: 22569013
-13.83s
-max_key: 2006 sum: 22569013
-13.80s
-max_key: 2006 sum: 22569013
-13.44s
-max_key: 2006 sum: 22569013
-13.52s
-max_key: 2006 sum: 22569013
-13.66s
-max_key: 2006 sum: 22569013
-14.04s
-max_key: 2006 sum: 22569013
-13.59s
-max_key: 2006 sum: 22569013
-13.56s
-
-MIN TIME: 13.44s
-PEAK MEM: 6.0Mb
+MIN TIME: 15.98s
+PEAK MEM: 7.9Mb
 
 D (DMD)...
 max_key: 2006 sum: 22569013
-2.43s
+2.45s
 max_key: 2006 sum: 22569013
-2.40s
+2.33s
 max_key: 2006 sum: 22569013
-2.42s
+2.24s
 max_key: 2006 sum: 22569013
-2.40s
+2.36s
 max_key: 2006 sum: 22569013
-2.42s
+2.28s
 max_key: 2006 sum: 22569013
-2.42s
+2.21s
 max_key: 2006 sum: 22569013
-2.43s
+2.28s
 max_key: 2006 sum: 22569013
-2.46s
+2.21s
 max_key: 2006 sum: 22569013
-2.52s
+2.28s
 max_key: 2006 sum: 22569013
-2.59s
+2.30s
 
-MIN TIME: 2.40s
-PEAK MEM: 1.3Mb
+MIN TIME: 2.21s
+PEAK MEM: 2.3Mb
 
 D (LDC)...
 max_key: 2006 sum: 22569013
-1.54s
+1.42s
 max_key: 2006 sum: 22569013
-1.53s
+1.34s
 max_key: 2006 sum: 22569013
-1.52s
+1.34s
 max_key: 2006 sum: 22569013
-1.50s
+1.33s
 max_key: 2006 sum: 22569013
-1.50s
+1.88s
 max_key: 2006 sum: 22569013
-1.43s
+1.31s
 max_key: 2006 sum: 22569013
-1.45s
+1.35s
 max_key: 2006 sum: 22569013
-1.40s
+1.36s
 max_key: 2006 sum: 22569013
-1.39s
+1.29s
 max_key: 2006 sum: 22569013
-1.50s
+1.26s
 
-MIN TIME: 1.39s
-PEAK MEM: 1.4Mb
+MIN TIME: 1.26s
+PEAK MEM: 2.4Mb
 
 Nim...
+max_key: 2006 sum: 22569013
+1.36s
 max_key: 2006 sum: 22569013
 1.30s
 max_key: 2006 sum: 22569013
-1.19s
+1.31s
 max_key: 2006 sum: 22569013
-1.20s
+1.35s
 max_key: 2006 sum: 22569013
-1.18s
+1.36s
 max_key: 2006 sum: 22569013
-1.18s
+1.45s
 max_key: 2006 sum: 22569013
-1.19s
+1.47s
 max_key: 2006 sum: 22569013
-1.20s
+1.50s
 max_key: 2006 sum: 22569013
-1.18s
+1.53s
 max_key: 2006 sum: 22569013
-1.17s
-max_key: 2006 sum: 22569013
-1.19s
+1.56s
 
-MIN TIME: 1.17s
-PEAK MEM: 0.9Mb
+MIN TIME: 1.30s
+PEAK MEM: 1.9Mb
 ```
 
-In repeated runs, Python is clearly the loser. At its peak, it uses 6 times as much memory as the Nim implementation and is around 11 times slower to run than the Nim implementation.
+D (compiled with LDC and using the fifth iteration of the code from the original blog post) comes in fastest at 1.26 seconds. Nim comes in second, at 1.30 seconds - only 0.04 seconds behind.
 
-This test also shows the gulf between the DMD and LDC compilers. The same code compiled with the DMD compiler takes a whole 1 second longer to execute than it does when compiled with LDC, though it does use 0.1Mb less memory at its peak.
+Nim does use 0.5Mb less memory than the D version built with LDC, and is doing slightly more work - the `parsecsv` module will handle escaped values, unlike the naive approach of simply splitting strings on the tab character.
 
-Nim still comes out ahead though. Even at its slowest (1.30 seconds), it still beats the LDC compiled D implementation at its fastest.
+Python is clearly the loser, taking 12 times as long to complete the processing as the Nim version does and using 4 times the memory to do so.
+
+This test also shows the gulf between the DMD and LDC compilers. The same code compiled with the DMD compiler takes almost a whole second longer to execute than it does when compiled with LDC, though it does use 0.1Mb less memory at its peak.
+
+I'm sure that with some tuning, I could get the Nim version to perform even quicker, but for a 0.04 second time difference, I decided not to put that effort in.
 
 ## Benchmarking compilation times
 
@@ -252,12 +221,11 @@ Having come this far, I though I might as well benchmark how long compilation ti
 
 I cleared out all build artefacts (such as the `*.o` files for D and the `nimcache` folder for Nim) along with the built executables, then simply timed each build. Here are the results:
 
-- **DMD**: `real	0m0.947s`
-- **LDC**: `real	0m2.296s`
-- **Nim**: `real	0m0.955s`
+- **DMD**: `real 0m0.947s`
+- **LDC**: `real 0m2.296s`
+- **Nim**: `real 0m0.955s`
 
 It turns out that the DMD compiler is much quicker than the LDC compiler. Obviously all the optimisations that LLVM makes take a little while longer to complete.
-
 
 ## Conclusion
 
