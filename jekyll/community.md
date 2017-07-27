@@ -94,7 +94,7 @@ As of right now, there don't appear to be any active meetups, although the
 following groups have been set up:
 
 * [São Paulo, Brazil](http://www.meetup.com/pt-BR/nim-br)
-* [Paris, France](https://www.meetup.com/nim-lang/)
+* [Berlin, Germany](https://www.meetup.com/The-Nim-Language-Meetup/)
 
 # Issues and RFCs
 
