@@ -88,13 +88,15 @@ proc modSupporters(supporters: JsonNode) =
       let findBy = elem["find_by"]
       let modification = elem["mod"]
       performMod(supporters, findBy, modification)
-    of "paypal", "bitcoin", "gittip":
+    of "paypal", "bitcoin", "gittip", "freebie":
       # Verify that it contains all the necessary fields.
       doAssert elem.hasKey("created_at"), "Mod needs created_at field"
       doAssert elem.hasKey("display_name"), "Mod needs display_name field"
       doAssert elem.hasKey("alltime_amount"), "Mod needs alltime_amount field"
       doAssert elem.hasKey("monthly_amount"), "Mod needs monthly_amount field"
       supporters.add(elem)
+    else:
+      doAssert false, "Unknown source type: " & elem["source"].getStr()
 
 
 proc processSupporters(supporters: JsonNode) =
@@ -134,7 +136,7 @@ proc getLevel(supporter: JsonNode): int =
 
 proc writeCsv(sponsors: seq[Sponsor], filename="sponsors.new.csv") =
   var csv = ""
-  csv.add "logo, name, url, this_month, all_time, since, level\n"
+  csv.add "logo,name,url,this_month,all_time,since,level\n"
   for sponsor in sponsors:
     csv.add "$#,$#,$#,$#,$#,$#,$#\n" % [
       sponsor.logo.quote, sponsor.name.quote,

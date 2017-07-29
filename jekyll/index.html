@@ -188,7 +188,7 @@ echo("Average line length: ",
           {% if sponsor.level == "250" %}
             <div class="sponsor-container">
               <a href="{{sponsor.url}}">
-                <img src="{{ site.baseurl }}/{{sponsor.logo}}"/>
+                <img src="{{ site.baseurl }}{{sponsor.logo}}"/>
                 <span class="green tag">+${{sponsor.this_month}}/month</span>
                 <p class="title">{{sponsor.name}}</p>
               </a>

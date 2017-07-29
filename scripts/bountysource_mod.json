@@ -5,7 +5,7 @@
       "created_at": "2016-05-05T01:38:03+00:00"
     },
     "mod": {
-      "image_url_large": "assets/bountysource/secondspectrum.png",
+      "image_url_large": "/assets/bountysource/secondspectrum.png",
       "display_name": "Second Spectrum"
     },
     "comments": "Second spectrum is anonymous for some reason."
@@ -16,7 +16,7 @@
       "slug": "xored"
     },
     "mod": {
-      "image_url_large": "assets/bountysource/xored.svg"
+      "image_url_large": "/assets/bountysource/xored.svg"
     }
   },
   {

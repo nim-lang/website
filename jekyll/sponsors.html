@@ -21,7 +21,7 @@ css_class: sponsors
           {% if sponsor.level == "250" %}
             <div class="sponsor-container">
               <a href="{{sponsor.url}}">
-                <img src="{{ site.baseurl }}/{{sponsor.logo}}"/>
+                <img src="{{ site.baseurl }}{{sponsor.logo}}"/>
                 <span class="green tag">+${{sponsor.this_month}}/month</span>
                 <br/>
                 <span class="tag">${{sponsor.all_time}} total</span>
@@ -51,7 +51,7 @@ css_class: sponsors
       {% if sponsor.level != "250" %}
         <tr>
           {% if sponsor.logo %}
-            <td><img src="/{{sponsor.logo}}"></img></td>
+            <td><img src="{{sponsor.logo}}"></img></td>
           {% else %}
             <td></td>
           {% endif %}
