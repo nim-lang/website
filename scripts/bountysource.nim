@@ -172,7 +172,7 @@ when isMainModule:
   var inactiveSponsors: seq[Sponsor] = @[]
   for supporter in supporters:
     let name = supporter["display_name"].getStr
-    var url = ""
+    var url = supporter{"url"}.getStr()
     let ghUser = waitFor getGithubUser(name, githubToken)
     if not ghUser.isNil:
       if ghUser["blog"].kind != JNull:

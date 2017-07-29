@@ -6,7 +6,8 @@
     },
     "mod": {
       "image_url_large": "/assets/bountysource/secondspectrum.png",
-      "display_name": "Second Spectrum"
+      "display_name": "Second Spectrum",
+      "url": "https://secondspectrum.com"
     },
     "comments": "Second spectrum is anonymous for some reason."
   },
@@ -16,7 +17,8 @@
       "slug": "xored"
     },
     "mod": {
-      "image_url_large": "/assets/bountysource/xored.svg"
+      "image_url_large": "/assets/bountysource/xored.svg",
+      "url": "http://www.xored.com"
     }
   },
   {
