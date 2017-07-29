@@ -11,6 +11,7 @@ type
     name, url, logo: string
     amount, allTime: float
     since: TimeInfo
+    level: int # TODO: Change to enum?
 
 const
   team = "nim"
@@ -33,19 +34,76 @@ proc getSupporters(self: BountySource): Future[JsonNode] {.async.} =
   let response = await self.client.get(apiUrl &
     "/supporters?order=monthly&per_page=200&team_slug=" & self.team)
   doAssert response.status.startsWith($Http200)
-  return parseJson(response.body)
+  return parseJson(await response.body)
 
-proc getGithubUser(username: string): Future[JsonNode] {.async.} =
+proc getGithubUser(username, githubToken: string): Future[JsonNode] {.async.} =
   let client = newAsyncHttpClient()
+  if githubToken != "":
+    client.headers["Authorization"] = "token " & githubToken
+
+  if ' ' in username:
+    echo("Skipping trying to query GitHub for username: ", username)
+    return nil
+
   let response = await client.get(githubApiUrl & "/users/" & username)
   if response.status.startsWith($Http200):
-    return parseJson(response.body)
+    return parseJson(await response.body)
   else:
     echo("Could not get Github user: ", username, ". ", response.status)
     return nil
 
+proc performMod(supporters, findBy, modification: JsonNode) =
+  ## Modifies the supporters JsonNode's children in-place based on
+  ## the modification and findBy criteria.
+
+  # First we find the supporter.
+  for supporter in supporters:
+    # Check if this is the one.
+    var found = true
+    for criteriaKey, criteriaVal in findBy:
+      found = found and supporter{criteriaKey} == criteriaVal
+
+    if found:
+      # Make the modifications.
+      for modKey, modVal in modification:
+        supporter[modKey] = modVal
+      break
+
+proc modSupporters(supporters: JsonNode) =
+  const bountysourceModFilename = "bountysource_mod.json"
+  if not fileExists(bountysourceModFilename):
+    quit("Could not find bountysource_mod.json file. Are you running me from" &
+         " the correct directory?")
+
+  let modJson = parseFile(bountysourceModFilename)
+
+  echo("Modifying sponsors based on ", bountysourceModFilename, " file")
+  for elem in modJson:
+    case elem["source"].getStr()
+    of "bountysource":
+      # Currently we expect all BountySource entries to modify an
+      # existing entry. So `find_by` and `mod` keys should exist.
+      assert elem.hasKey("find_by")
+      assert elem.hasKey("mod")
+      let findBy = elem["find_by"]
+      let modification = elem["mod"]
+      performMod(supporters, findBy, modification)
+    of "paypal", "bitcoin", "gittip":
+      # Verify that it contains all the necessary fields.
+      doAssert elem.hasKey("created_at"), "Mod needs created_at field"
+      doAssert elem.hasKey("display_name"), "Mod needs display_name field"
+      doAssert elem.hasKey("alltime_amount"), "Mod needs alltime_amount field"
+      doAssert elem.hasKey("monthly_amount"), "Mod needs monthly_amount field"
+      supporters.add(elem)
+
+
 proc processSupporters(supporters: JsonNode) =
   var before = supporters.elems.len
+  # Use bountysource_mod.json file to modify the data based on custom
+  # mod parameters.
+  modSupporters(supporters)
+
+  # Discard anon sponsors.
   supporters.elems.keepIf(
     item => item["display_name"].getStr != "Anonymous"
   )
@@ -63,9 +121,13 @@ proc quote(text: string): string =
   else:
     return text
 
-proc getLevel(amount: float): int =
-  result = 0
-  const levels = [250, 150, 75, 25, 10, 5, 1]
+proc getLevel(supporter: JsonNode): int =
+  if supporter.hasKey("level"):
+    return supporter["level"].getNum().int
+
+  let amount = supporter["monthly_amount"].getFNum()
+  const levels = [250, 150, 75, 25, 10, 5, 1, 0]
+  result = levels[0]
   for i in levels:
     if amount.int <= i:
       result = i
@@ -78,7 +140,7 @@ proc writeCsv(sponsors: seq[Sponsor], filename="sponsors.new.csv") =
       sponsor.logo.quote, sponsor.name.quote,
       sponsor.url.quote, $sponsor.amount.int,
       $sponsor.allTime.int, sponsor.since.format("MMM d, yyyy").quote,
-      $sponsor.amount.getLevel
+      $sponsor.level
     ]
   writeFile(filename, csv)
   echo("Written csv file to ", filename)
@@ -91,7 +153,13 @@ when isMainModule:
       "sent to api.bountysource.com")
 
   let token = paramStr(1)
+  let githubToken = if paramCount() == 2: paramStr(2) else: ""
   let bountysource = newBountySource(team, token)
+
+  if githubToken.len == 0:
+    echo("WARNING: GitHub API token not specified. GitHub queries may become " &
+         "rate limited :(. Grab a token from " &
+         "https://github.com/settings/tokens and paste as second cmd line arg.")
 
   echo("Getting sponsors...")
   let supporters = waitFor bountysource.getSupporters()
@@ -103,7 +171,7 @@ when isMainModule:
   for supporter in supporters:
     let name = supporter["display_name"].getStr
     var url = ""
-    let ghUser = waitFor getGithubUser(name)
+    let ghUser = waitFor getGithubUser(name, githubToken)
     if not ghUser.isNil:
       if ghUser["blog"].kind != JNull:
         url = ghUser["blog"].getStr
@@ -118,16 +186,14 @@ when isMainModule:
     if amount < 5:
       url = ""
 
-    #let supporter = getSupporter(supporters,
-    #                             supportLevel["owner"]["display_name"].getStr)
-    #if supporter.isNil: continue
     var logo = ""
     if amount >= 75:
-      discard # TODO
+      logo = supporter["image_url_large"].getStr()
 
     let sponsor = Sponsor(name: name, url: url, logo: logo, amount: amount,
         allTime: supporter["alltime_amount"].getFNum(),
-        since: parse(supporter["created_at"].getStr, "yyyy-MM-dd'T'hh:mm:ss")
+        since: parse(supporter["created_at"].getStr, "yyyy-MM-dd'T'hh:mm:ss"),
+        level: getLevel(supporter)
       )
     if supporter["monthly_amount"].getFNum > 0.0:
       activeSponsors.add(sponsor)
@@ -139,3 +205,6 @@ when isMainModule:
   writeCsv(activeSponsors)
   writeCsv(inactiveSponsors, "inactive_sponsors.new.csv")
 
+  echo("Make sure that the new csv files don't lose any data, then copy them " &
+       "into the _data directory. (Remember to rename them to remove the .new "&
+       "suffix.")
