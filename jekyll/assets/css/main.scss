@@ -569,6 +569,10 @@ span.tag {
   white-space: nowrap;
 }
 
+.project-container h2 {
+  margin: 0;
+}
+
 .project-container, .sponsor-container {
   width: 100px;
   display: inline-block;
@@ -576,7 +580,7 @@ span.tag {
   margin-top: 15pt;
   margin-bottom: 15pt;
 
-  h1, h2 {
+  h1 {
     margin: 0;
   }
 
