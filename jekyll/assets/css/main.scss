@@ -569,6 +569,10 @@ span.tag {
   white-space: nowrap;
 }
 
+.project-container h2 {
+  margin: 0;
+}
+
 .project-container, .sponsor-container {
   width: 100px;
   display: inline-block;
@@ -619,7 +623,7 @@ span.tag {
   background-image: url("https://www.gravatar.com/avatar/6275fdd9f48ec9184c5d6511d525c563?s=100&d=identicon");
 }
 
-#frag {
+#zengine {
   background-image: url("https://www.gravatar.com/avatar/6275fdd8f48ec9184c5d6511d525c563?s=100&d=identicon");
 }
 
