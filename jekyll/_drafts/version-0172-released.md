@@ -7,9 +7,12 @@ The Nim team is happy to announce that the latest release of Nim,
 version 0.17.2, is now available. Nim is a systems programming language that
 focuses on performance, portability and expressiveness.
 
-This is a bugfix release with no new features except ``.nimble-link`` files. This has been added in order to support the latest Nimble version with its "develop" feature. For more information, see [``nimble``](https://github.com/nim-lang/nimble#nimble-develop).
+The major new feature in this release is the support for ``.nimble-link`` files.
+This has been added in order to support the latest Nimble version with its "develop" feature. For more information, see [``nimble``](https://github.com/nim-lang/nimble#nimble-develop).
 
-The most important bugfixes are two long standing codegen bugs that triggered GC crashes. Updating is recommended!
+This is however primarily a bug fix release, with the most important bugfixes
+including the long standing codegen bugs that triggered GC crashes.
+Updating is recommended!
 
 Be sure to check out the changelog [below](#changelog) for
 a comprehensive list of changes.
@@ -27,8 +30,12 @@ then you can easily update to the latest version by running the following:
 $ choosenim update stable
 ```
 
-
 # Changelog
+
+## Changes affecting backwards compatibility
+
+- The changes made to the `do` notation parsing rules in v0.17.0 have been
+reverted.
 
 ## Bugfixes
 
