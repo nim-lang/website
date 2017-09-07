@@ -1,44 +1,38 @@
 logo,name,url,this_month,all_time,since,level
-/assets/bountysource/secondspectrum.png,"Second Spectrum",https://secondspectrum.com,250,3500,"May 5, 2016",250
-/assets/bountysource/xored.svg,"Xored Software, Inc.",http://www.xored.com,250,3250,"Jun 20, 2016",250
-"https://cloudinary-a.akamaihd.net/bountysource/image/gravatar/d_noaoqqwxegvmulwus0un.png,c_pad,w_400,h_400,b_white/2969bb7ed867ad934f35b1016d268ae1",Varriount,,251,2004,"Nov 18, 2016",0
-"https://cloudinary-a.akamaihd.net/bountysource/image/gravatar/d_noaoqqwxegvmulwus0un.png,c_pad,w_400,h_400,b_white/76f32887349c9663e8d764f814fafd72",zacharycarter,http://zacharycarter.github.io/,150,750,"Feb 26, 2017",150
-,flyx,http://flyx.org,35,525,"Apr 7, 2016",75
+/assets/bountysource/secondspectrum.png,"Second Spectrum",https://secondspectrum.com,250,4000,"May 5, 2016",250
+/assets/bountysource/xored.svg,"Xored Software, Inc.",http://www.xored.com,250,3750,"Jun 20, 2016",250
+"https://cloudinary-a.akamaihd.net/bountysource/image/gravatar/d_noaoqqwxegvmulwus0un.png,c_pad,w_400,h_400,b_white/2969bb7ed867ad934f35b1016d268ae1",Varriount,,251,2506,"Nov 18, 2016",0
+"https://cloudinary-a.akamaihd.net/bountysource/image/gravatar/d_noaoqqwxegvmulwus0un.png,c_pad,w_400,h_400,b_white/76f32887349c9663e8d764f814fafd72",zacharycarter,http://zacharycarter.github.io/,150,1050,"Feb 26, 2017",150
+,flyx,http://flyx.org,35,595,"Apr 7, 2016",75
 ,"Digital Ocean",,40,480,"Jan 11, 2017",75
-,endragor,,25,375,"Apr 7, 2016",25
-,FedericoCeratto,,25,375,"Apr 7, 2016",25
-,"Adrian Veith",,25,375,"Apr 20, 2016",25
-,euantorano,https://www.euantorano.co.uk,25,325,"Jun 7, 2016",25
-"https://cloudinary-a.akamaihd.net/bountysource/image/upload/d_noaoqqwxegvmulwus0un.png,c_pad,w_400,h_400,b_white/noaoqqwxegvmulwus0un.png",cooldome,,75,225,"Apr 11, 2017",75
-,jcosborn,,25,200,"Nov 21, 2016",25
-,opendragon,http://www.opendragon.com,25,150,"Jan 18, 2017",25
-,"pyloor ",,15,150,"May 16, 2016",25
-,niebaopeng,,10,140,"Apr 15, 2016",10
-,"Oskari Timperi",,10,130,"Jun 8, 2016",10
-,cpunion,,10,100,"Sep 9, 2016",10
-,enthus1ast,http://code0.xyz/,10,90,"Oct 28, 2016",10
-,moigagoo,http://sloth-ci.com,5,85,"May 13, 2016",5
-,"Handojo Goenadi",,5,80,"Apr 19, 2016",5
-,D-L,,5,75,"Apr 7, 2016",5
-,shomodj,https://ie.linkedin.com/in/boris-shomodjvarac-51970879,20,60,"May 22, 2017",25
-,RyanMarcus,https://rmarcus.info,5,60,"Jul 19, 2016",5
-,lenzenmi,,5,60,"Jul 28, 2016",5
-,pandada8,,5,55,"Aug 12, 2016",5
-,abeaumont,http://alfredobeaumont.org/blog,5,55,"Aug 12, 2016",5
-,"Andrey ",,5,45,"Oct 10, 2016",5
-,"Sloane Simmons",,10,40,"Mar 5, 2017",10
-,syrol,,5,35,"Dec 12, 2016",5
-,teroz,,10,30,"Apr 8, 2016",10
-,jrenner,,10,30,"Apr 27, 2017",10
-,georgelippert,,25,25,"Jul 19, 2017",25
-,Aldrog,,5,25,"Feb 11, 2017",5
-,fsmoreir,,5,25,"Feb 14, 2017",5
-,"Zicheng Huang",,20,20,"Jun 5, 2017",25
-,hhashimoto,,5,20,"Mar 16, 2017",5
-,"Rocket Wristbands",,5,20,"Mar 20, 2017",5
-,"Svend Knudsen",,1,15,"Apr 11, 2016",1
-,"Michael D. Sklaroff",,1,15,"Apr 27, 2016",1
-,nicck,,1,11,"Aug 9, 2016",1
-,ricardorego,http://www.metropolisapi.com,10,10,"Jun 17, 2017",10
-,campbellr,,1,10,"Sep 4, 2016",1
-,"Aleksey Leonov",,1,4,"Mar 16, 2017",1
+,endragor,,25,425,"Apr 7, 2016",25
+,FedericoCeratto,,25,425,"Apr 7, 2016",25
+,"Adrian Veith",,25,425,"Apr 20, 2016",25
+"https://cloudinary-a.akamaihd.net/bountysource/image/upload/d_noaoqqwxegvmulwus0un.png,c_pad,w_400,h_400,b_white/noaoqqwxegvmulwus0un.png",cooldome,,75,375,"Apr 11, 2017",75
+,euantorano,https://www.euantorano.co.uk,25,375,"Jun 7, 2016",25
+,jcosborn,,25,250,"Nov 21, 2016",25
+,opendragon,http://www.opendragon.com,25,200,"Jan 18, 2017",25
+,niebaopeng,,10,160,"Apr 15, 2016",10
+,"Oskari Timperi",,10,150,"Jun 8, 2016",10
+,cpunion,,10,120,"Sep 9, 2016",10
+,enthus1ast,http://code0.xyz/,10,110,"Oct 28, 2016",10
+,moigagoo,http://sloth-ci.com,5,95,"May 13, 2016",5
+,shomodj,https://ie.linkedin.com/in/boris-shomodjvarac-51970879,20,80,"May 22, 2017",25
+,RyanMarcus,https://rmarcus.info,5,70,"Jul 19, 2016",5
+,pandada8,,5,65,"Aug 12, 2016",5
+,abeaumont,https://abeaumont.me,5,65,"Aug 12, 2016",5
+,"Sloane Simmons",,10,60,"Mar 5, 2017",10
+,"Andrey ",,5,55,"Oct 10, 2016",5
+,"Zicheng Huang",,20,50,"Jun 5, 2017",25
+,teroz,,10,50,"Apr 8, 2016",10
+,jrenner,,10,50,"Apr 27, 2017",10
+,syrol,,5,45,"Dec 12, 2016",5
+,Aldrog,,5,35,"Feb 11, 2017",5
+,hhashimoto,,5,30,"Mar 16, 2017",5
+,"Svend Knudsen",,1,17,"Apr 11, 2016",1
+,"Michael D. Sklaroff",,1,17,"Apr 27, 2016",1
+,nicck,,1,13,"Aug 9, 2016",1
+,campbellr,,1,12,"Sep 4, 2016",1
+,"Aleksey Leonov",,1,6,"Mar 16, 2017",1
+,olanod,https://www.codementor.io/olanod,5,5,"Aug 1, 2017",5
+,"Claudio Canepa",,5,5,"Aug 10, 2017",5
