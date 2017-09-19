@@ -21,7 +21,8 @@ access it in multiple ways:
 
 <i class="fa fa-irc li" aria-hidden="true">#</i>
 Use an [IRC client](https://en.wikipedia.org/wiki/Internet_Relay_Chat#Clients)
-to connect to irc.freenode.net and join the #nim channel
+to connect to irc.freenode.net and join the #nim channel. You can also view
+the [IRC Logs](https://irclogs.nim-lang.org).
 
 <i class="fa fa-gitter black li" aria-hidden="true"></i>
 Join the Gitter chat room, which relays messages both ways between IRC and
