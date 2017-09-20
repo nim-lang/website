@@ -31,14 +31,10 @@ navigation:
     url: /install.html
   - title: Documentation
     url: /documentation.html
-  - title: Community
-    url: /community.html
-  - title: Sponsors
-    url: /sponsors.html
+  - title: Forum
+    url: https://forum.nim-lang.org
   - title: Donate
     url: /donate.html
-  - title: FAQ
-    url: /faq.html
 
 # Build settings
 markdown: kramdown
