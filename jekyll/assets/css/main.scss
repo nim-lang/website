@@ -574,7 +574,6 @@ span.tag {
 }
 
 .project-container, .sponsor-container {
-  width: 100px;
   display: inline-block;
   margin-right: 15pt;
   margin-top: 15pt;
@@ -608,7 +607,8 @@ span.tag {
   display: flex;
   justify-content: center;
   align-items: center;
-
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .project-box > h1 {
@@ -627,8 +627,8 @@ span.tag {
   background-image: url("https://www.gravatar.com/avatar/6275fdd8f48ec9184c5d6511d525c563?s=100&d=identicon");
 }
 
-#nimx {
-  background-image: url("https://www.gravatar.com/avatar/6275fdd7f48ec9184c5d6511d525c563?s=100&d=identicon");
+#reelvalley {
+  background-image: url("{{ site.baseurl }}/assets/img/reelvalley.jpg");
 }
 
 // Styles for the donate section.
