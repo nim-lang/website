@@ -46,4 +46,12 @@ exclude:
   - README.md
   - LICENSE.md
 
-  
+gems:
+  - jekyll-asciidoc
+
+asciidoc: {}
+asciidoctor:
+  attributes:
+    - imagesdir=/assets/news/images/asciidoc
+    - source-highlighter=pygments
+    - pygments-css=style
