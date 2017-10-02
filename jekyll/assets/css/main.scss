@@ -402,8 +402,39 @@ h1.post-title {
   }
 }
 
+/* AsciiDoc styles */
+
 .content img {
   max-width: 100%;
+}
+
+.listingblock .title {
+  padding: 2.8pt 10pt;
+  background-color: #73a3c4;
+  color: white;
+}
+
+.admonitionblock {
+  border-top: 2px solid #e9e9e9;
+}
+
+.imageblock {
+  margin-top: 15pt;
+}
+
+.imageblock .title, .tableblock .title {
+  font-weight: bold;
+  padding-left: 10pt;
+  color: #656565;
+}
+
+.sidebarblock {
+  background-color: #f8f7ea;
+  padding: 10pt 0;
+
+  .title {
+    font-weight: bold;
+  }
 }
 
 /* Community section */
