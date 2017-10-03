@@ -1,5 +1,6 @@
 ---
 author: Dominik Picheta
+excerpt: This guide discusses some of the useful tools for documenting, profiling and debugging Nim code.
 ---
 
 = A guide to documenting, profiling and debugging Nim code
