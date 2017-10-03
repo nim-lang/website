@@ -1024,6 +1024,12 @@ blockquote {
     // Compensate for the fixed header.
     padding-top: 70px;
   }
+
+  // Hacky
+
+  .hackytable tr>td:first-child {
+    display: none;
+  }
 }
 
 // IE 10 & 11
