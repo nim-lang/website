@@ -53,5 +53,6 @@ asciidoc: {}
 asciidoctor:
   attributes:
     - imagesdir=/assets/news/images/asciidoc
+    - icons=font
     - source-highlighter=pygments
     - pygments-css=style

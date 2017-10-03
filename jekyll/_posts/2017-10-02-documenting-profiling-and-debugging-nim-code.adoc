@@ -9,49 +9,89 @@ author: Dominik Picheta
 :numbered:
 :toc: left
 
+
+.Nim in Action
+****
++++
+<table class="hackytable">
+  <tr>
+  <td width="200px">
+  <img src="https://nim-lang.org/assets/img/nim_in_action_cover.jpg"/>
+  </td>
+  <td style="padding-left: 10pt;">
++++
+This small guide was originally written for
+https://book.picheta.me[Nim in Action]. It didn't end up in the book
+due to size constraints. Nim in Action is written in a similar
+style to this guide, check it out for more in-depth information about the
+Nim programming language.
+
+.Discount
+TIP: Get 37% off Nim in Action with code `fccpicheta`.
++++
+</td>
+</tr>
+</table>
++++
+****
+
+
+
+This guide will discuss some of the useful tools for documenting, profiling
+and debugging Nim code. Some of the things you will be introduced to include:
+
+* The reStructuredText language which is used in Nim's doc comments
+* The Nim performance and memory usage profiler
+* Using GDB/LLDB with Nim
+
+Be sure to have a Nim compiler ready and follow along with the instructions
+in this guide to get the most out of it.
+
 == Documenting your code
 
 Code documentation is important. It explains details about software which
-may not be immediately evident by looking at the API of libraries or even
+may not be immediately apparent when looking at the API of libraries or even
 the software's source code.
 
-There are many ways to document code. You will know from the previous chapter
-that,
+There are many ways to document code. You like already know that,
 like many programming languages, Nim supports comments. Comments act as
 an annotation for source code, a way to make code easier to understand.
 
 In Nim a single-line comment is delimited by a hash character `&#35;`.
-Multi-line comments are delimited by `discard """` and `"""`.
+Multi-line comments can be delimited by `&#35;[` and `]&#35;`.
 <<list_1_1,Listing 1.1>> shows an example of both.
 
 [[list_1_1]]
 .Comments in Nim
 ```nim
 var x = 5 # Assign 5 to x.
-discard """multi-
-line
-comment"""
+#[multi-
+  line      <1>
+  comment]#
 ```
-
-// TODO: Different multi-line comment syntax will be supported in Nim soon.
+<1> This syntax is still relatively new and so most syntax highlighters
+    are not aware of it.
 
 Nim also supports a special type of comment, called a documentation comment.
 This type of comment is processed by Nim's documentation generator. Any comment
 using two hash characters `&#35;&#35;` is a documentation comment.
 
+[[list_1_2]]
 .Example showing a simple documentation comment
 ```nim
 ## This is a *documentation comment* for module ``test``.
 ```
 
-_Listing 5.11_ shows a very simple documentation comment. The Nim compiler
+<<list_1_2,Listing 1.2>> shows a very simple documentation comment.
+The Nim compiler
 includes a command to generate documentation for a given module. Save the code
-in _Listing 5.11_ as `test.nim` somewhere on your file system then
+in <<list_1_2,Listing 1.2>> as `test.nim` somewhere on your file system then
 execute `nim doc test.nim`. A `test.html` file should be produced beside
 your `test.nim` file. Open it in your favourite web browser to see the
 generated HTML. You should see something similar to the screenshot in
-_Figure 5.10_.
+<<fig_1_1,figure 1.1>>.
 
+[[fig_1_1]]
 .HTML documentation for the `test.nim` module
 image::ch05_docgen.png[]
 
@@ -64,13 +104,15 @@ names.
 These special delimiters are part of the reStructuredText markup language
 which the documentation generator supports.
 The documentation generator reads the file you specify on the command-line,
-it find all the documentation comments and then goes through each of them.
+it finds all the documentation comments and then goes through each of them.
 Each documentation comment is parsed using a
 reStructuredText parser. The documentation generator then generates HTML
 based on the reStructuredText markup that it parses.
 
-_Table 5.1_ shows some example syntax of the reStructuredText markup language.
+<<table_1_1,Table 1.1>> shows some example syntax of the reStructuredText
+markup language.
 
+[[table_1_1]]
 .reStructuredText syntax examples
 [options="header"]
 |===
@@ -100,7 +142,11 @@ succession of headings.
 |
 `.. code-block:: nim` +
 
-{sp}{sp} ``  echo("Hello World")``
++++
+<pre>
+  echo("Hello World")
+</pre>
++++
 
 a|
 ``
@@ -112,15 +158,12 @@ specified.
 
 |===
 
-// TODO: Fix this table.
-// TODO: Wtf? Works with two backticks.
-// TODO: Broken in asciidoctor-pdf :( "Cells with source code listing" http://asciidoctor.org/docs/user-manual/#cell
-
 For a more comprehensive reference take a look at the following link:
 http://sphinx-doc.org/rest.html
 
 Let me show you another example.
 
+[[list_1_3]]
 .Different placements of doc comments
 ```nim
 ## This is the best module in the world.
@@ -146,24 +189,27 @@ proc add*(a, b: int): int =
   return a + b
 ```
 
-.The resulting documentation for _Listing 5.12_
+[[fig_1_2]]
+.The resulting documentation for <<list_1_3,listing 1.3>>
 image::ch05_math_docs.png[]
 
-As you can see from the example in _Listing 5.12_, documentation comments
+As you can see from the example in <<list_1_3,listing 1.3>>,
+documentation comments
 can be placed in many places. They can be in the global scope or locally under
 a procedure. Doc comments under a procedure document what that procedure does,
 the Nim documentation generator generates a listing of all procedures that
 are exported in a module, the ones that have documentation comments will display
-them underneath as shown in _Figure 5.11_.
+them underneath as shown in <<fig_1_2,figure 1.2>>.
 
 This is how the Nim standard library is documented. For more examples on how
-to document your code you can look at its source.
+to document your code you should take a look
+https://github.com/nim-lang/Nim/tree/devel/lib/pure[its source code].
 
 == Profiling your code
 
 Profiling an application is the act of analysing it at runtime to determine
 what it spends its time doing. For example, in which procedures it spends
-most of its time, or which procedures call which other procedures.
+most of its time, or how many times each procedure is called.
 These measurements help to find areas of code which need optimisation.
 Occasionally they can also help you find bugs in your application.
 
@@ -196,6 +242,7 @@ NOTE: As a result of the profiling your application will run slower, this is
 
 Consider the following code listing.
 
+[[listing_1_4]]
 .A simple profiler example
 ```nim
 import nimprof <1>
@@ -239,8 +286,9 @@ you should see a message similar to "writing profile_results.txt..." appear
 in your terminal window.
 The `main` program should create a `profile_results.txt` file in your current
 working directory. The file's contents should be similar to those in
-_Listing 5.14_.
+<<listing_1_5,listing 1.5>>.
 
+[[listing_1_5]]
 .The profiling results
 ```
 total executions of each stack trace:
@@ -264,19 +312,21 @@ line of code that is currently being executed. It notes the stack trace which
 tells it how the application ended up executing that piece of code. The most
 common code paths are then reported in `profile_results.txt`.
 
-In the report shown in _Listing 5.14_, the profiler has made 195 snapshots.
+In the report shown in <<listing_1_5,listing 1.5>>,
+the profiler has made 195 snapshots.
 It found that the line of code being executed was inside the `analyse`
 procedure in 45.64% of those snapshots. In 42.56% of those snapshots it was
-in the `ab` procedure, this makes sense because the string passed to the
+in the `ab` procedure, this makes sense because the string passed to
 `analyse` is mostly made up of letters. Numbers are less popular and so
 the execution of the `num` procedure only makes up 10.26% of those snapshots.
 The profiler did not pick up any calls to the `diff` procedure because there
 are no other characters in the `x` string. Try adding some punctuation to
 the string passed to the `analyse` procedure and you will find that the
-profiler results show the `diff` procedure.
+profiler results then show the `diff` procedure.
 
 It is easy to determine where the bulk of the processing takes place in
-_Listing 5.13_ without the use of a profiler. But for more complex modules
+<<listing_1_4,listing 1.4>> without the use of a profiler.
+But for more complex modules
 and applications the Nim profiler is great for determining which
 procedures are most used.
 
@@ -287,8 +337,9 @@ TIP: The Nim profiler can also be used for measuring memory usage, simply
 
 === Profiling with Valgrind
 
-In many cases profilers are not cross-platform. If you are a Windows user
-then I'm afraid you will not be able to use Valgrind.
+Unfortunately in some cases profilers are not cross-platform. Valgrind is
+one of those cases, if you are a Windows user
+then I'm afraid you will not be able to use it.
 
 Valgrind is not just a profiler, it is primarily a tool for memory debugging
 and memory leak detection. The profiler component is called Callgrind and it
@@ -303,27 +354,35 @@ NOTE: To follow along with the examples here you will need to install the
       On Mac OS X you can easily install them using Homebrew, just execute
       `brew install valgrind QCacheGrind`.
 
-Let's try Valgrind on the example application in _Listing 5.13_. Recompile the
-application without any flags: `nim c main` then execute the following
-command to run it under Valgrind: `valgrind --tool=callgrind -v ./main`.
+Let's try Valgrind on the example application in <<listing_1_4,listing 1.4>>.
+First recompile the
+application without any flags by running `nim c main`. You
+will need to comment out the `import nimprof` line in your `main.nim` file
+to do this successfully.
+
+You may then execute the following
+command to run this application under
+Valgrind: `valgrind --tool=callgrind -v ./main`
+
 The callgrind tool adds an even bigger overhead than the Nim profiler so you
 may need to terminate the application, you can safely do so by pressing
 the Control and C keys together.
 
-The textual output given by the callgrind tool is very large and so it is not
-practical looking at it all in a text editor. Thankfully a tool exists to
+The textual output given by the callgrind tool is very large and so looking
+at it all in a text editor is impractical. Thankfully a tool exists to
 allow us to explore it visually. This tool is called KCacheGrind (QCacheGrind
 on Mac OS X). You can execute it in the directory where you executed Valgrind
-to get something similar to the screenshot in _Figure 5.12_.
+to get something similar to the screenshot in <<figure_1_3,figure 1.3>>.
 
-.QCacheGrind showing the call graph of _Listing 5.13_
+[[figure_1_3]]
+.QCacheGrind showing the call graph of <<listing_1_4,listing 1.4>>
 image::ch05_qcachegrind.png[]
 
 The results of the Callgrind tool show many more calls during the lifetime of
-the example application in _Listing 5.13_. This is because many of the C
-functions which have been defined by Nim when translating the Nim code to C
+<<listing_1_4,listing 1.4>>. This is because many of the C
+functions, which have been defined by Nim, during the translation to C
 are now visible. These functions are necessary to implement the behaviour of
-the code in _Listing 5.13_.
+the code in <<listing_1_4,listing 1.4>>.
 
 The C function which is selected in the screenshots corresponds to the
 `analyse` Nim procedure. Procedures' names undergo a process called name
@@ -332,18 +391,19 @@ C functions. The name mangling process currently just adds an underscore
 followed by a number to the C function name. Thankfully figuring out which
 C functions correspond to which Nim procedures is still easy.
 
-The output from Callgrind gives you much more low-level details about the
-execution of your Nim applications. _Figure 5.12_ shows the number of times
+The output from Callgrind gives you more low-level details about the
+execution of your Nim applications. <<figure_1_3,Figure 1.3>> shows the
+number of times
 every single C function has been executed, it allows you to diagnose performance
 problems which may be outside your control. But with greater power comes
-greater complexity so Valgrind is a much more difficult to use tool than the
-Nim profiler.
+greater complexity so Valgrind has a higher learning curve than the Nim
+profiler.
 
 == Debugging Nim code
 
 Debugging is one of the most important activities in software development.
-Bugs in software occur inadvertantly. A user reports an issue that they
-are having with your software. So how do you fix this issue?
+Bugs in software occur inadvertantly. When a user reports an issue with
+your software, how do you fix it?
 
 The first step is to reproduce the issue. After that debugging tools help to
 diagnose the issue and to figure out its root cause.
@@ -351,8 +411,9 @@ diagnose the issue and to figure out its root cause.
 Nim does many things to make debugging as easy as possible. For example it
 ensures that detailed and easy to understand stack traces are reported
 whenever your application crashes. Consider the following code in
-_Listing 5.15_.
+<<listing_1_6,listing 1.6>>.
 
+[[listing_1_6]]
 .A simple calculator
 ```nim
 import strutils <1>
@@ -372,9 +433,10 @@ the result. Save this code as `adder.nim` and compile it by executing
 `nim c adder.nim`, then execute the resulting binary. The program will
 wait for your input, once you type in a number you will see the sum of 5
 and the number you typed in. But what happens when you don't type in a number?
-Type in some text and observer the results. You should see something similar
-to the output in _Listing 5.16_ below.
+Type in some text and observe the results. You should see something similar
+to the output in <<listing_1_7,listing 1.7>> below.
 
+[[listing_1_7]]
 .Stack trace for a `ValueError` exception
 ```
 Traceback (most recent call last)
@@ -385,15 +447,19 @@ Error: unhandled exception: invalid integer: some text [ValueError] <3>
 <1> The program was executing line 3 in the `adder` module...
 <2> ... followed by the `parseInt` procedure which raised the `ValueError`
 exception.
-<3> The exception message followed by the exception type in square brackets.
+<3> This is the exception message followed by the exception type in
+    square brackets.
 
 The program crashed because an exception was raised and it was not caught
-by any try statements. This resulted in a stack trace being displayed and
-the program exiting. The stack trace in _Listing 5.16_ is very informative,
-it leads directly to the line which caused the crash. Beside the `adder.nim`
-module name, the number `3` is a line number pointing to that line number
-in the `adder` module. This line is highlighted in _Listing 5.17_ below.
+by any `try` statements. This resulted in a stack trace being displayed and
+the program exiting. The stack trace in <<listing_1_7,listing 1.7>> is
+very informative,
+it leads directly to the line which caused the crash. After the `adder.nim`
+module name, the number `3` points to the line number
+in the `adder` module. This line is highlighted in
+<<listing_1_8,listing 1.8>> below.
 
+[[listing_1_8]]
 .A simple calculator
 [source,nim,subs="verbatim,quotes,attributes"]
 ----
@@ -413,17 +479,17 @@ You may not think it but program crashes are a good thing when it comes
 to debugging. The truly horrible bugs are the ones which produce no crashes,
 but instead result in your program producing incorrect results. In such cases
 advanced debugging techniques need to be used. Debugging also comes in handy
-when a stack trace does not give enough information about the issue, there
-may be multiple variables interacting with each other to produce the crash.
+when a stack trace does not give enough information about the issue.
 
-The primary purpose of debugging is to investigate the value of the data
+The primary purpose of debugging is to investigate the state of memory
 at a particular point in the execution of your program. You may for example
 want to find out what the value of the `line` variable is just before
 the `parseInt` procedure is called. This can be done in many ways.
 
 === Debugging using `echo`
 
-By far the simplest approach is to use the `echo` procedure. The `echo`
+By far the simplest and most common approach is to use the `echo`
+procedure. The `echo`
 procedure allows you to display the value of most variables, as long as the
 type of the variable implements the `$` procedure it can be displayed.
 For other variables the `repr` procedure can be used, you can pass any
@@ -433,6 +499,7 @@ variable's value.
 Using the `repr` procedure and `echo`, let's investigate the value of the
 `line` variable just before the call to `parseInt`.
 
+[[listing_1_9]]
 .Investigating the value of the `line` variable using `repr`.
 [source,nim,subs="verbatim,quotes,attributes"]
 ----
@@ -445,7 +512,7 @@ echo(line, " + 5 = ", result)
 
 The `repr` procedure is useful because it shows non-printable characters
 in their escaped form. It also shows extra information about many types of
-data. Running the example in _Listing 5.18_ and typing in 3 Tab
+data. Running the example in <<listing_1_9,listing 1.9>> and typing in 3 Tab
 characters results in the following output.
 
 ```
@@ -456,10 +523,10 @@ strutils.nim             parseInt
 Error: unhandled exception: invalid integer:       [ValueError]
 ```
 
-The exception message just shows some whitespace which is what Tab characters
-are shown as in normal text. But you have no way of distinguishing whether
+The exception message just shows some whitespace which is how Tab characters
+are shown in normal text. But you have no way of distinguishing whether
 that whitespace is just normal space characters or whether it is in fact a
-number of Tab characters. The `repr` procedure solves this ambiguity by showing
+multiple Tab characters. The `repr` procedure solves this ambiguity by showing
 `\9\9\9`, the number 9 is the ASCII number code for the tab character.
 The memory address of the `line` variable is also shown.
 
@@ -485,6 +552,7 @@ This creates a problem whenever you want to debug such procedures with the
 `echo` procedure. The `echo` procedure is not side effect free because it
 accesses a global `stdout` variable. So the following code will not compile.
 
+[[listing_1_11]]
 .`echo` cannot be used inside a side effect free procedure
 ```nim
 proc add(a, b: int): int {.noSideEffect.} =
@@ -492,10 +560,10 @@ proc add(a, b: int): int {.noSideEffect.} =
   return a + b
 ```
 
-Compiling the code in _Listing 5.20_ will fail with an error:
+Compiling the code in <<listing_1_11,listing 1.11>> will fail with an error:
 "'add' can have side effects". Thankfully the solution is simple. Nim provides
 a side effect free `echo` for this very purpose, it is called `debugEcho` so
-all you need to do use replace `echo` with `debugEcho` and the code will
+all you need to do is replace `echo` with `debugEcho` and the code will
 compile.
 ****
 
@@ -544,12 +612,12 @@ The GNU debugger should be included with your distribution of gcc which you
 should already have as part of your Nim installation. Unfortunately on the
 latest versions of
 Mac OS X installation of gdb is problematic, but you can use a similar debugger
-called LLDB. LLDB is a much newer debugger than GDB, but it functions in almost
-exactly the same way as GDB.
+called LLDB. LLDB is a much newer debugger, but it functions in almost
+exactly the same way.
 
 Let's try to use GDB (or LLDB if you're on Mac OS X) to debug the small
-`adder.nim` example introduced in _Listing 5.15_ above. I will repeat the
-example below.
+`adder.nim` example introduced in <<listing_1_8,listing 1.8>>.
+I will repeat the example below.
 
 .The `adder.nim` example
 ```nim
@@ -573,14 +641,21 @@ names and line numbers.
 Putting both of these together you should compile the `adder` module using the
 following command: `nim c --debuginfo --linedir:on adder.nim`.
 
+.The `--debugger:on` flag
+TIP: Newer versions of Nim support the `--debugger:on` flag which is
+     equivalent to specifying the `--linedir:on` and `--debuginfo` flags.
+
 The next step is to launch the debugging tool. The usage of both of these tools
 is very similar. To launch the `adder` executable in GDB execute `gdb adder`
 and to launch it in LLDB execute `lldb adder`. GDB or LLDB should launch
-and you should see something similar to _Figure 5.13_ or _Figure 5.14_.
+and you should see something similar to <<figure_1_4,figure 1.4>>
+or <<figure_1_5,figure 1.5>>.
 
+[[figure_1_4]]
 .GDB on Windows
 image::ch05_gdb_adder.png[]
 
+[[figure_1_5]]
 .LLDB on Mac OS X
 image::ch05_lldb_adder.png[]
 
@@ -611,18 +686,20 @@ read a line from standard input, so after you use the `run` command you will
 need to type something else into the terminal. This time the `adder` program
 will read it.
 
-The debugger will then stop the execution of the program at line 3. Figures
-_5.15_ and _5.16_ show what that will look like.
+The debugger will then stop the execution of the program at line 3.
+Figures <<figure_1_6,1.6>> and <<figure_1_7,1.7>> show what that will look like.
 
+[[figure_1_6]]
 .Execution paused at line 3 in GDB
 image::ch05_gdb_adder_2.png[]
 
+[[figure_1_7]]
 .Execution paused at line 3 in LLDB
 image::ch05_lldb_adder_2.png[]
 
 At this point in the execution of the program, we should be able to display the
-value of the `line` variable. Due to the fact that the `line` variable
-has been defined in line 2. Displaying the value of a variable is the same in
+value of the `line` variable.
+Displaying the value of a variable is the same in
 both GDB and LLDB.
 One can use the `p` (or `print`) command to display the value of any variable.
 Unfortunately you cannot simply type in `print line` and get the result.
@@ -646,8 +723,9 @@ a list of local variables by using the `fr v -a`
 (or `frame variable --no-args`) command, and a list of global variables
 by using the `ta v` (or `target variable`) command. The `line` variable is
 a global variable so type in `ta v` to get a list of the global variables.
-You should see something similar to the screenshot in _Figure 5.17_.
+You should see something similar to the screenshot in <<figure_1_8,figure 1.8>>.
 
+[[figure_1_8]]
 .The list of global variables in LLDB
 image::ch05_lldb_adder_3.png[]
 
@@ -655,12 +733,14 @@ You can see the `line` variable at the bottom of the list as `line_106004`.
 
 Now print the `line` variable by using the `print <var_name_here>` command,
 make sure to replace the `<var_name_here>` with the name of the `line` variable
-that you found from the previous step. Figures _5.18_ and _5.19_ show what
-you may see.
+that you found from the previous step. Figures <<figure_1_9,1.9>> and
+<<figure_1_10,1.10>> show what you may see.
 
+[[figure_1_9]]
 .Printing the value of the `line` variable in GDB
 image::ch05_gdb_adder_3.png[]
 
+[[figure_1_10]]
 .Printing the value of the `line` variable in LLDB
 image::ch05_lldb_adder_4.png[]
 
@@ -671,47 +751,31 @@ asterisk to the beginning of the variable name: `print *line_106004`.
 
 Doing this will show values of each of the fields in the `NimStringDesc`
 type. Unfortunately in LLDB this does not show the value of the `data` field,
-so we must explicitly access it: `print (char*)line_106004->data`. The
+so we must explicitly access it: `print (char*)line_106004-{gt}data`. The
 `(char*)` is required to cast the `data` field into something which LLDB
-can display. Figures _5.20_ and _5.21_ show what this looks like in GDB
-and LLDB respectively.
+can display. Figures <<figure_1_11,1.11>> and <<figure_1_12,1.12>>
+show what this looks like in GDB and LLDB respectively.
 
+[[figure_1_11]]
 .Displaying the value of the `line` variable in GDB
 image::ch05_gdb_adder_4.png[]
 
+[[figure_1_12]]
 .Displaying the value of the `line` variable in LLDB
 image::ch05_lldb_adder_5.png[]
 
-This is much more complicated than simply using the `echo` procedure. But you
-should now have an idea of how to compile your Nim program so that it can
-be debugged using GDB and LLDB. These debuggers are useful in certain
-circumstances, and there are many more features that
-these debuggers provide which are beyond the scope of this book. These
+This is much more complicated than simply using the `echo` procedure, but should
+be useful for more complicated debugging scenarios. Hopefully this gave you
+an idea of how to compile your Nim program so that it can
+be debugged using GDB and LLDB. There are many more features that
+these debuggers provide which are beyond the scope of this article. These
 features allow you to analyse the execution of your program in many other
 ways. You may wish
 to learn more by looking at the many resources available online for these
 debuggers and many others.
 
-== Summary
+== Conclusion
 
-This brings you to the end of another chapter. This chapter mainly focused on
-the Nimble package manager including example usage of the `nimble` command
-line application, the process involved in creating Nimble packages and how
-these packages can be published to Nimble's package repository. I hope that
-now you have a good idea of the purpose of Nimble and the ways in which it
-helps you develop Nim applications. This chapter also looked at other tools
-in the Nim ecosystem and it also explained how to use them.
-
-This chapter covered:
-
-  * The installation of the Nimble package manager.
-  * Instructions on how to use the Nimble command-line application.
-  * Creating, installing, publishing and developing Nimble packages.
-  * Documenting code using reStructuredText.
-  * Profiling code using the Nim profiler and Valgrind.
-  * Debugging Nim code using `echo`, stack traces, GDB and LLDB.
-
-In the next chapter you will find out how concurrency works in Nim. By looking
-at a number of examples and seeing how they can be made to utilize concurrency
-you will learn about concurrency features in Nim and in which circumstances
-those features should be used.
+Thank you for reading. If you require help with these topics or anything else
+related to Nim, be sure to get in touch with our
+https://nim-lang.org/community.html[community].
