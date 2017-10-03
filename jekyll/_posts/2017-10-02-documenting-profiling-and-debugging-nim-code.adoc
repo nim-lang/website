@@ -654,7 +654,7 @@ or <<figure_1_5,figure 1.5>>.
 
 [[figure_1_4]]
 .GDB on Windows
-image::ch05_gdb_adder.png[]
+image::ch05_gdb_adder.PNG[]
 
 [[figure_1_5]]
 .LLDB on Mac OS X
@@ -692,7 +692,7 @@ Figures <<figure_1_6,1.6>> and <<figure_1_7,1.7>> show what that will look like.
 
 [[figure_1_6]]
 .Execution paused at line 3 in GDB
-image::ch05_gdb_adder_2.png[]
+image::ch05_gdb_adder_2.PNG[]
 
 [[figure_1_7]]
 .Execution paused at line 3 in LLDB
@@ -739,7 +739,7 @@ that you found from the previous step. Figures <<figure_1_9,1.9>> and
 
 [[figure_1_9]]
 .Printing the value of the `line` variable in GDB
-image::ch05_gdb_adder_3.png[]
+image::ch05_gdb_adder_3.PNG[]
 
 [[figure_1_10]]
 .Printing the value of the `line` variable in LLDB
@@ -759,7 +759,7 @@ show what this looks like in GDB and LLDB respectively.
 
 [[figure_1_11]]
 .Displaying the value of the `line` variable in GDB
-image::ch05_gdb_adder_4.png[]
+image::ch05_gdb_adder_4.PNG[]
 
 [[figure_1_12]]
 .Displaying the value of the `line` variable in LLDB
