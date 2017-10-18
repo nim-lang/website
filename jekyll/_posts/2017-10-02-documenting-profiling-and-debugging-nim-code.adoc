@@ -642,8 +642,8 @@ names and line numbers.
 Putting both of these together you should compile the `adder` module using the
 following command: `nim c --debuginfo --linedir:on adder.nim`.
 
-.The `--debugger:on` flag
-TIP: Newer versions of Nim support the `--debugger:on` flag which is
+.The `--debugger:native` flag
+TIP: Newer versions of Nim support the `--debugger:native` flag which is
      equivalent to specifying the `--linedir:on` and `--debuginfo` flags.
 
 The next step is to launch the debugging tool. The usage of both of these tools
