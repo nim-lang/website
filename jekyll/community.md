@@ -123,3 +123,15 @@ including the use cases that you foresee for the feature and anything else
 that you think is relevant. RFCs are currently submitted to the
 issue tracker.
 
+# Wiki
+
+A good place for general user-submitted articles and content. For instance,
+things like random howtos, tutorials, notes, links to interesting content,
+and so on. Also a good place to post material or ideas that come up during
+forum or IRC chats, for instance.
+
+It's hosted on github, but also very easy for anyone to edit and share
+quickly, without needing to make pull requests.
+
+* [Nim wiki](https://github.com/nim-lang/Nim/wiki)
+
