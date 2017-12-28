@@ -63,13 +63,14 @@ implementation and is open to negotiation.
 Apart from BountySource you can also donate to Nim using one the following
 services.
 
-<i class="fa fa-paypal" aria-hidden="true"></i>
+
+<i class="fa fa-money-bill-alt" aria-hidden="true"></i>
+[Open Collective](https://opencollective.com/nim)
+
+<i class="fab fa-paypal" aria-hidden="true"></i>
 [PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=FLWX5V2PMAXAU)
 
-<i class="fa fa-btc" aria-hidden="true"></i>
+<i class="fab fa-btc" aria-hidden="true"></i>
 ``1BXfuKM2uvoD6mbx4g5xM3eQhLzkCK77tJ``
-
-<i class="fa fa-gratipay" aria-hidden="true"></i>
-[GratiPay](https://gratipay.com/nim/)
 
 </section>

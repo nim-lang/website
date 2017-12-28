@@ -293,7 +293,7 @@ a.pure-menu-link.pure-menu-heading {
 }
 
 .center-banner > .section-heading {
-  i.fa, img {
+  i.fa, i.fab, i.far, img {
     width: 100%;
   }
 }
@@ -492,25 +492,26 @@ span.icon>.fa {
 .fa-irc {
   font-family: Courier, monospace, Arial;
   color: black;
-}
 
-.fa-gitter {
-  background-image: url('{{ site.baseurl }}/assets/img/gitter.svg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  width: 14px;
-  height: 22px;
+  display: inline-block;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
 }
 
 .fa-gitter.black {
-  background-image: url('{{ site.baseurl }}/assets/img/gitter_black.svg');
+  color: black;
 }
 
 #community {
-  .fa {
+  .fa, .fc, .fab {
     margin-right: 5pt;
     font-size: 175%;
     vertical-align: middle;
+  }
+
+  .fa-gitter {
+    font-size: 150%;
+    margin-bottom: 5pt;
   }
 
   .fa-irc {
@@ -863,7 +864,7 @@ div.code-align {
 // Styles for community page.
 
 .community, .donate {
-  .fa {
+  .fa, .fab, .fc {
     font-size: 160%;
     vertical-align: middle;
     text-align: center;
@@ -872,7 +873,7 @@ div.code-align {
 
 }
 
-.fa.li {
+.fa.li, .fab.li, .fc.li {
   margin-left: 15pt;
 
 }

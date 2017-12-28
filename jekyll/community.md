@@ -19,25 +19,31 @@ by joining one of our chat rooms.
 Our official chat room is the #nim channel on irc.freenode.net. You can
 access it in multiple ways:
 
-<i class="fa fa-irc li" aria-hidden="true">#</i>
+<i class="fc fa-irc li" aria-hidden="true">#</i>
 Use an [IRC client](https://en.wikipedia.org/wiki/Internet_Relay_Chat#Clients)
 to connect to irc.freenode.net and join the #nim channel. You can also view
 the [IRC Logs](https://irclogs.nim-lang.org).
 
-<i class="fa fa-gitter black li" aria-hidden="true"></i>
+<i class="fab fa-gitter black li" aria-hidden="true"></i>
 Join the Gitter chat room, which relays messages both ways between IRC and
 Gitter, by clicking [here](https://gitter.im/nim-lang/Nim).
+
+<i class="fab fa-discord black li" aria-hidden="true"></i>
+Join the Discord chat room, which relays messages both ways between IRC and
+Discord, by clicking [here](https://discord.gg/ezDFDw2).
 
 You can join this chat room to ask a quick question, or engage in a discussion
 about features and projects that interest you. For formal feature requests and
 issue reporting consult the [Issues and RFCs](#issues-and-rfcs) section.
 
-Be aware that all messages in Gitter and IRC are logged.
+Be aware that all messages in Gitter, Discord, and IRC are logged.
 You can access the IRC logs of the #nim channel
 [here](https://irclogs.nim-lang.org).
 
 The #nim channel is primarily for on-topic discussion. There is also a
 semi-official #nim-offtopic channel for off-topic discussion.
+
+If you dislike being logged, there is also a #nim-nologs channel.
 
 # Forum
 
@@ -53,7 +59,7 @@ For announcements including news about releases, events and projects. Be sure
 to follow the official Twitter account and remember to mention
 the account when tweeting about Nim!
 
-<i class="fa fa-twitter" aria-hidden="true"></i>
+<i class="fab fa-twitter" aria-hidden="true"></i>
 [@nim_lang](https://twitter.com/nim_lang)
 
 # Blog
@@ -73,7 +79,7 @@ The Nim subreddit contains many user submitted announcements, blog posts,
 discussions. It is a good place to share your work with the Nim community and
 to get updates about the project so be sure to hit that subscribe button.
 
-<i class="fa fa-reddit" aria-hidden="true"></i>
+<i class="fab fa-reddit" aria-hidden="true"></i>
 [r/nim](https://reddit.com/r/nim)
 
 # StackOverflow
@@ -83,7 +89,7 @@ StackOverflow, you can be one of them. It is also a good place for newcomers to
 get help with their project. Be sure to use the ``nim`` tag when asking
 questions.
 
-<i class="fa fa-stack-overflow" aria-hidden="true"></i>
+<i class="fab fa-stack-overflow" aria-hidden="true"></i>
 [nim](https://stackoverflow.com/questions/tagged/nim)
 
 # Meetups
