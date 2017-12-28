@@ -96,3 +96,5 @@ As always, I'd like to invite
 you to join our community to give us feedback or just to chill out with us,
 all the information you need to do so is available on our
 [community](https://nim-lang.org/community.html) page.
+
+Thank you all for your incredible support so far, and have a happy new year!
