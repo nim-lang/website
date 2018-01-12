@@ -31,7 +31,7 @@ execute the following commands:
 
 ```bash
 sh build.sh
-bin/nim c koch
+bin/nim c koch.nim
 ./koch tools
 ```
 
