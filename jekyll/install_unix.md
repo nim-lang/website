@@ -5,6 +5,7 @@ css_class: install_unix
 current: Install
 ---
 
+# Installation from source
 
 <h1 class="text-centered page-title main-heading">Install Nim on Unix</h1>
 
@@ -20,8 +21,6 @@ current: Install
     SHA256
   </a>
 </div>
-
-# Notes about installation from source
 
 After downloading the compressed archive, extract its contents into the
 desired installation directory.
@@ -44,12 +43,12 @@ It is common for Nim developers to include two directories in their
 * the aforementioned ``bin`` directory
 * ``~/.nimble/bin`` (where ``~`` is the home directory)
 
-# Notes about compiler dependencies
+## Notes about compiler dependencies
 
 The Nim compiler needs a C compiler in order to compile software. You must
 install this separately and ensure that it is in your ``PATH``.
 
-## macOS
+### macOS
 
 Simply install the latest version of ``clang`` available on your system.
 You can do this by:
@@ -60,12 +59,12 @@ You can do this by:
 
 **Source:** [Quora](https://www.quora.com/How-do-I-successfully-set-up-LLVM-clang-on-Mac-OS-X-El-Capitan/answer/James-McInnes-1?srid=hq2O)
 
-## Linux
+### Linux
 
 You probably already have a compiler installed. If not, use your package
 manager to install either ``gcc`` or ``clang``.
 
-# Other dependencies
+## Other dependencies
 
 There are a number of other dependencies that you may need to install in order
 to use Nim. They include:
@@ -76,12 +75,18 @@ to use Nim. They include:
 You can use your package manager to install these dependencies when
 necessary.
 
-# Installation using a package manager
+# Installation using package managers
 
-## macOS
+## Arch Linux
 
 ```
-brew install nim
+pacman -S nim
+```
+
+## Debian / Ubuntu
+
+```
+apt-get install nim
 ```
 
 ## Docker
@@ -103,10 +108,16 @@ The latest development version:
 docker pull nimlang/nim:devel
 ```
 
-## Arch Linux
+## FreeBSD
 
 ```
-pacman -S nim
+pkg install nim
+```
+
+## macOS
+
+```
+brew install nim
 ```
 
 ## Void Linux
@@ -114,10 +125,3 @@ pacman -S nim
 ```
 xbps-install -S nim
 ```
-
-## FreeBSD
-
-```
-pkg install nim
-```
-
