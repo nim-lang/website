@@ -88,7 +88,7 @@ proc modSupporters(supporters: JsonNode) =
       let findBy = elem["find_by"]
       let modification = elem["mod"]
       performMod(supporters, findBy, modification)
-    of "paypal", "bitcoin", "gittip", "freebie":
+    of "paypal", "bitcoin", "gittip", "freebie", "opencollective":
       # Verify that it contains all the necessary fields.
       doAssert elem.hasKey("created_at"), "Mod needs created_at field"
       doAssert elem.hasKey("display_name"), "Mod needs display_name field"
