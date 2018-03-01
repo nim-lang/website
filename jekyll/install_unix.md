@@ -5,9 +5,23 @@ css_class: install_unix
 current: Install
 ---
 
-# Installation from source
-
 <h1 class="text-centered page-title main-heading">Install Nim on Unix</h1>
+
+# Installation using ``choosenim``
+
+[``choosenim``](https://github.com/dom96/choosenim#choosenim) is an
+installer for the Nim programming language. It allows you
+to easily switch between versions of Nim, whether that is the latest stable
+release or the latest development version.
+
+To install the latest stable release of Nim using ``choosenim``, just run the
+following in your terminal, then follow the onscreen instructions:
+
+```bash
+curl https://nim-lang.org/choosenim/init.sh -sSf | sh
+```
+
+# Manual installation from source
 
 <div class="center">
   <a href="{{ site.baseurl }}/download/nim-{{ site.nim_version }}.tar.xz"
@@ -34,7 +48,7 @@ bin/nim c koch
 ./koch tools
 ```
 
-## Configuring the ``PATH`` environment variable
+## Configuring the ``PATH`` environment variable for a manual installation
 
 The compiler and tool binaries live inside the ``bin`` directory.
 It is common for Nim developers to include two directories in their
@@ -43,12 +57,12 @@ It is common for Nim developers to include two directories in their
 * the aforementioned ``bin`` directory
 * ``~/.nimble/bin`` (where ``~`` is the home directory)
 
-## Notes about compiler dependencies
+# Notes about compiler dependencies
 
 The Nim compiler needs a C compiler in order to compile software. You must
 install this separately and ensure that it is in your ``PATH``.
 
-### macOS
+## macOS
 
 Simply install the latest version of ``clang`` available on your system.
 You can do this by:
@@ -59,7 +73,7 @@ You can do this by:
 
 **Source:** [Quora](https://www.quora.com/How-do-I-successfully-set-up-LLVM-clang-on-Mac-OS-X-El-Capitan/answer/James-McInnes-1?srid=hq2O)
 
-### Linux
+## Linux
 
 You probably already have a compiler installed. If not, use your package
 manager to install either ``gcc`` or ``clang``.
