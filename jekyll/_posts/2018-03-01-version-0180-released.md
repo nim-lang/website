@@ -234,8 +234,7 @@ without you!
     _deprecated: use ``glm``, ``arraymancer``, ``neo``, or another package instead_
   - [``gentabs``](https://github.com/lcrees/gentabs)
   - [``libuv``](https://github.com/lcrees/libuv)
-  - [``numeric``](https://github.com/lcrees/polynumeric)
-  - [``poly``](https://github.com/lcrees/polynumeric)
+  - [``polynumeric``](https://github.com/lcrees/polynumeric)
   - [``pdcurses``](https://github.com/lcrees/pdcurses)
   - [``romans``](https://github.com/lcrees/romans)
   - [``libsvm``](https://github.com/nim-lang/libsvm_legacy)
