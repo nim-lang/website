@@ -20,6 +20,9 @@ If you don't have it already, you can get ``choosenim`` by following
 [these instructions](https://github.com/dom96/choosenim) or you can install
 Nim manually by following the instructions on our
 [install](https://nim-lang.org/install.html) page.
+Note that Windows users might still have an easier time with the
+unzip+finish.exe method of installing Nim which is described on the
+[install](https://nim-lang.org/install.html) page.
 
 # What's new in 0.18.0
 
@@ -139,8 +142,8 @@ This is a new macro that allows you to easily create array and sequence literals
 ```nim
 import sequtils
 
-let x = mapLiterals([0.1, 1.2, 2.3, 3.4], int)
-doAssert x is array[4, int]
+let x = mapLiterals([12, 34, 15, 1], uint32)
+doAssert x is array[4, uint32]
 ```
 
 ## New memory manager algorithm
