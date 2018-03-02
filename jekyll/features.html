@@ -27,7 +27,7 @@ css_class: features
       </div>
       <div class="pure-u-1 pure-u-md-1-2 center">
         {% highlight nim %}
-import strutils
+import strformat
 type
   Person = object
     name*: string # Field is exported using `*`.
@@ -39,7 +39,8 @@ var people = [
 ]
 
 for person in people:
-  echo("$1 is $2 years old" % [person.name, $person.age]){% endhighlight %}
+  # Type-safe string interpolation.
+  echo(fmt"{person.name} is {person.age} years old"){% endhighlight %}
       </div>
     </div>
   </section>
