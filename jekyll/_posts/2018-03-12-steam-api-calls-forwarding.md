@@ -565,4 +565,4 @@ The working solution of the problem identified in the header is presented in the
 
 Some names of variables and functions in the original code differ from the examples given in the article. Links are given on the commit of each branch, which is the top at the time of publication, so as not to lose relevance with time.
 
-I hope the article will give additional interest to the Nim programming language and show readers that it is possible to write something more complicated than `echo" Hello, world! "`.
+I hope the article will give additional interest to the Nim programming language and show readers that it is possible to write something more complicated than `echo "Hello, world!"`.
