@@ -48,10 +48,14 @@ Judging by the log, our wrapper works (!) exactly until the function `SteamInter
 
 I think that those who are familiar with ABI C ++ already understand the crash origin. The root of the problem is the calling conventions. The C ++ standard does not imply the binary compatibility of programs compiled by different compilers, and in our case the Windows game is compiled by MSVC, while native Steam - by GCC. This problem is not observed for all calls to functions in `steam_api.dll` since they follow the calling conventions for the C language. Once a game receives an instance of the `SteamClient` class from the native Steam and tries to invoke its method (which follows the thiscall convention from C++), an error occurs. To fix the problem, we firstly need to identify key differences in the thiscall calling convention for both of compilers.
 
-MSVC | GCC
----------|--------
-Puts an object pointer to the ECX register. | Expects an object pointer on top of the stack.
-Expects the stack cleanup by callee. | Expects the stack cleanup by caller.
+<table style="width:100%;border:1px solid black; text-align:center;">
+<tr><th>MSVC</th><th>GCC</th></tr>
+<hline />
+<tr><td>Puts an object pointer to the ECX register</td>
+<td>Expects an object pointer on top of the stack</td></tr>
+<tr><td>Expects the stack cleanup by callee</td>
+<td>Expects the stack cleanup by caller</td></tr>
+</table>
 
 [[source](http://www.angelcode.com/dev/callconv/callconv.html#thiscall)]
 
@@ -248,12 +252,12 @@ It does not look very simple, but it's only because we swung a lot at once. Ther
 
 Now let's go to the most delicious part - to the code generation. Since we do not have complete information about method signatures, we will emulate instances of classes in C code, fortunately we only need to emulate the virtual method table. So, let's imagine that we have a file that describes the methods and classes of the Steam API as follows:
 
-<pre>
+```
 !CAdapterSteamYYY0XX
 [+]<the stack depth for the first method>
 [+]<the stack depth for the second method>
 ...
-</pre>
+```
 
 The `+` sign is optional and will serve as an indicator of the hidden argument for the in-memory return.
 Such a file can be obtained by parsing `steamclient.so`. We should get a table from it. The keys of the table are lines following the `CAdapterSteamYYYY0XX` pattern, and the values are arrays of functions that call corresponding methods in the object, which is the field of the wrapper structure implicitly passed to them via the `ECX` register. It is not very convenient to write all this methods in assembler, especially considering that it would be nice to add some kind of journaling, so let's find the minimum assembler fragment:
