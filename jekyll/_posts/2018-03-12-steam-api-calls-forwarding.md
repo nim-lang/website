@@ -3,7 +3,7 @@ title: "The Steam API calls forwarding from Wine to GNU/Linux and vice versa usi
 author: Dmitry Fomichev
 ---
 
-*This is an English version of the [Russian article](https://habrahabr.ru/post/349388/) originally posted on [habrahabr](https://habrahabr.ru/).*
+*This is an English version of the [Russian article](https://habrahabr.ru/post/349388/) about the SteamForwarder project written in Nim originally posted on [habrahabr](https://habrahabr.ru/).*
 
 Players on the GNU/Linux platform have a lot of problems. One of them is the necessity to install an another Steam client for each Wine prefix used for Windows Steam games. The situation is getting worse if we consider the necessity to install a native Steam client for ported and cross-platform games also.
 ![](https://habrastorage.org/webt/h6/ad/8m/h6ad8m2tfoak1abb7kayqozqb9s.png)
