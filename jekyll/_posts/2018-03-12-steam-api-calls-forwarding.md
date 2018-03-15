@@ -1,5 +1,5 @@
 ---
-title: "The Steam API calls forwarding from Wine to GNU/Linux and vice versa using Nim"
+title: "Using Nim to forward Steam calls between Linux and Wine"
 author: Dmitry Fomichev
 ---
 
