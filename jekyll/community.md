@@ -32,11 +32,15 @@ Gitter, by clicking [here](https://gitter.im/nim-lang/Nim).
 Join the Discord chat room, which relays messages both ways between IRC and
 Discord, by clicking [here](https://discord.gg/ezDFDw2).
 
+<i class="fab black li" aria-hidden="true">m</i>
+Join the Matrix chat room, which relays messages both ways between IRC and 
+Matrix, by clicking [here](https://matrix.to/#/#freenode_#nim:matrix.org).
+
 You can join this chat room to ask a quick question, or engage in a discussion
 about features and projects that interest you. For formal feature requests and
 issue reporting consult the [Issues and RFCs](#issues-and-rfcs) section.
 
-Be aware that all messages in Gitter, Discord, and IRC are logged.
+Be aware that all messages in Gitter, Discord, Matrix and IRC are logged.
 You can access the IRC logs of the #nim channel
 [here](https://irclogs.nim-lang.org).
 
