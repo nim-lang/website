@@ -145,3 +145,6 @@ quickly, without needing to make pull requests.
 
 * [Nim wiki](https://github.com/nim-lang/Nim/wiki)
 
+# Users and contributors map
+
+{% include {{ map.html }} %}
