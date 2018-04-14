@@ -147,4 +147,4 @@ quickly, without needing to make pull requests.
 
 # Users and contributors map
 
-{% include {{ map.html }} %}
+{% include map.html %}
