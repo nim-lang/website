@@ -241,7 +241,7 @@ without you!
   - [``joyent_http_parser``](https://github.com/nim-lang/joyent_http_parser)
 
 - Proc [toCountTable](https://nim-lang.org/docs/tables.html#toCountTable,openArray[A])
-  now produces a `CountTable` with values correspoding to the number of occurrences
+  now produces a `CountTable` with values corresponding to the number of occurrences
   of the key in the input. It used to produce a table with all values set to `1`.
 
   Counting occurrences in a sequence used to be:
@@ -601,8 +601,6 @@ without you!
   ([#6675](https://github.com/nim-lang/Nim/issues/6675))
 - Fixed "if expressions"
   ([#6609](https://github.com/nim-lang/Nim/issues/6609))
-- Fixed "BackwardsIndex: converter + `[]` + unrelated type[^1]: lib/system.nim(3536, 3) Error"
-  ([#6692](https://github.com/nim-lang/Nim/issues/6692))
 - Fixed "BackwardsIndex: converter + `[]` + unrelated type[^1]: lib/system.nim(3536, 3) Error"
   ([#6692](https://github.com/nim-lang/Nim/issues/6692))
 - Fixed "js backend 0.17.3: array bounds check for non zero based arrays is buggy"
