@@ -969,6 +969,10 @@ blockquote {
   .menu-separator {
     margin: 0 5px -12px 5px;
   }
+
+  .pure-menu-list {
+    padding-right: 110px;
+  }
 }
 
 // Styles that apply only to narrow screens (typically mobile devices)
@@ -1008,6 +1012,7 @@ blockquote {
 
   .pure-menu-list {
     float: none;
+    padding-right: 0px;
   }
 
   .menu-fade {
@@ -1031,6 +1036,10 @@ blockquote {
   .hackytable tr>td:first-child {
     display: none;
   }
+
+  .ribbon {
+    display: none;
+  }
 }
 
 // IE 10 & 11
@@ -1046,4 +1055,3 @@ blockquote {
     height: 100%;
   }
 }
-
