@@ -36,6 +36,10 @@ Discord, by clicking [here](https://discord.gg/ezDFDw2).
 Join the Matrix chat room, which relays messages both ways between IRC and 
 Matrix, by clicking [here](https://matrix.to/#/#freenode_#nim:matrix.org).
 
+<i class="fab fa-telegram black li" aria-hidden="true">m</i>
+Join the Telegram chat room (it doesn't relay any messages) 
+by clicking [here](https://t.me/nim_lang).
+
 You can join this chat room to ask a quick question, or engage in a discussion
 about features and projects that interest you. For formal feature requests and
 issue reporting consult the [Issues and RFCs](#issues-and-rfcs) section.
