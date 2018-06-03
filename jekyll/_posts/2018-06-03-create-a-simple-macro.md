@@ -85,7 +85,7 @@ macro edges(head, body: untyped): untyped =
       result.add getAst(adder(head, n[1], n[2]))
 ```
 
-What is important to understand now is that, while we are done, procedually
+What is important to understand now is that, while we are done, procedurally
 modifying an AST is not the correct solution. It is a tree after all. Also it
 will fail if we come up with more complicated syntax. Instead we implement
 recursion with the help of an anonymous procedure.
@@ -116,5 +116,5 @@ Finally our macro is declared:
 From making this simple macro we can take away how to structure procs that
 transform the Nim AST.
 
-> **Bonus excersise** In the ``buildCityGraph()`` example we see there is an undirected edge.
-> Can you add another operator (``"Boston" -- "Providence"``) that takes care of it?
+> **Bonus excersise** In the ``buildCityGraph`` proc we see there is an undirected edge.
+> Can you add another operator (i.e. ``"Boston" -- "Providence"``) that takes care of it?
