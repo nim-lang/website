@@ -1,13 +1,27 @@
 
 ---
-title: "Create a simple macro"
+title: "Creating a simple macro"
 author: Antonis Geralis
 ---
+
+<div class="sidebarblock">
+  <div class="content">
+    <div class="title">Guest post</div>
+    <div class="paragraph">
+      This is a guest post by Antonis Geralis. If you would like to publish 
+      articles as a guest author on nim-lang.org then get in touch with us via
+      <a href="https://twitter.com/nim_lang">Twitter</a> or
+      <a href="https://nim-lang.org/community.html">otherwise</a>.
+    </div>
+  </div>
+</div>
+
+# Creating a simple macro
 
 Hello, as you might know Nim is a powerful programming language that supports
 metaprogramming using macros. Though a lot of Nim programmers are unaware about
 the merits of them due to lack of learning resources. In the first part of
-this series we will discuss the use of macros to simplify the creation of
+this series will discuss the use of macros to simplify the creation of
 boilerplate code in Nim.
 
 Suppose we have code which builds a directed graph.
@@ -25,15 +39,21 @@ Suppose we have code which builds a directed graph.
 A template could be used to reduce the amount of typing. For example:
 
 ```nim
-   template adder(graph, src, dest): untyped =
-      graph.addEdge(initEdge(initNode(src), initNode(dest)))
+  template adder(graph, src, dest): untyped =
+    graph.addEdge(initEdge(initNode(src), initNode(dest)))
 ```
 
-However it needs to be called each time with all three arguments. This excludes
-the possibility of using an operator with a nice syntax. Although operators can
-have more than two parameters, we are limited into calling them like
-this: `` `->`(result, "Boston", "Providence") ``. A macro, however can be used
-to create a simpler and more appealling syntax.
+However I would like to use an operator with a nice syntax, like: ``"Boston" -> "Providence"``
+A template could do so too here, but I want to show how macros work.
+
+<div class="sidebarblock">
+  <div class="content">
+    <div class="paragraph">
+      <q>Macros can be used to implement domain specific languages.</q><br>
+      <i>From the Nim manual <a href="https://twitter.com/nim_lang">manual</a>.</i>
+    </div>
+  </div>
+</div>
 
 > Macros can be used to implement domain specific languages.
 [*From the Nim manual.*](https://nim-lang.org/docs/manual.html#macros)
@@ -85,10 +105,9 @@ macro edges(head, body: untyped): untyped =
       result.add getAst(adder(head, n[1], n[2]))
 ```
 
-What is important to understand now is that, while we are done, procedurally
-modifying an AST is not the correct solution. It is a tree after all. Also it
-will fail if we come up with more complicated syntax. Instead we implement
-recursion with the help of an anonymous procedure.
+This macro is incomplete however, it doesn't replace nested usages of ``->``. 
+We would like to replace -> anywhere in the passed body, so let's use recursion
+with the help of a helper called ``graphDslImpl``.
 
 ```nim
   proc graphDslImpl(head, body: NimNode): NimNode =
@@ -113,8 +132,23 @@ Finally our macro is declared:
     echo result.treeRepr # let us inspect the result
 ```
 
-From making this simple macro we can take away how to structure procs that
-transform the Nim AST.
+That's it for now. This first article shows how to structure procedures
+that transform the Nim AST and how to then use them in a macro. Later posts
+will look at more advanced macro usage.
 
-> **Bonus excersise** In the ``buildCityGraph`` proc we see there is an undirected edge.
-> Can you add another operator (i.e. ``"Boston" -- "Providence"``) that takes care of it?
+<div class="sidebarblock">
+  <table>
+  <tr>
+  <td class="icon">
+    <i class="fa fa-book-open" title="Exercise"></i>
+  </td>
+  <td class="content">
+    <div class="title">Exercise</div>
+    <div class="paragraph">
+      There is an undirected edge in the ``buildCityGraph`` proc. Can you
+      add another operator (i.e. ``"Boston" -- "Providence"``) that takes care of it?
+    </div>
+  </td>
+  </tr>
+  </table>
+</div>
