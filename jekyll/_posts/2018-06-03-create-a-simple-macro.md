@@ -20,7 +20,7 @@ author: Antonis Geralis
 
 Hello, as you might know Nim is a powerful programming language that supports
 metaprogramming using macros. Though a lot of Nim programmers are unaware about
-the merits of them due to lack of learning resources. In the first part of
+their merits due to lack of learning resources. In the first part of
 this series will discuss the use of macros to simplify the creation of
 boilerplate code in Nim.
 
@@ -50,13 +50,10 @@ A template could do so too here, but I want to show how macros work.
   <div class="content">
     <div class="paragraph">
       <q>Macros can be used to implement domain specific languages.</q><br>
-      <i>From the Nim manual <a href="https://twitter.com/nim_lang">manual</a>.</i>
+      <i>&mdash;From the Nim <a href="https://twitter.com/nim_lang">manual</a>.</i>
     </div>
   </div>
 </div>
-
-> Macros can be used to implement domain specific languages.
-[*From the Nim manual.*](https://nim-lang.org/docs/manual.html#macros)
 
 To begin, this is how calling our macro will look like:
 
@@ -145,8 +142,8 @@ will look at more advanced macro usage.
   <td class="content">
     <div class="title">Exercise</div>
     <div class="paragraph">
-      There is an undirected edge in the ``buildCityGraph`` proc. Can you
-      add another operator (i.e. ``"Boston" -- "Providence"``) that takes care of it?
+      There is an undirected edge in the <code>buildCityGraph</code> proc. Can you
+      add another operator (i.e. <code>"Boston" -- "Providence"</code>) that takes care of it?
     </div>
   </td>
   </tr>
