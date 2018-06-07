@@ -1,7 +1,11 @@
-
 ---
 title: "Creating a simple macro"
 author: Antonis Geralis
+excerpt: "Nim is a powerful programming language that supports
+metaprogramming using macros. Though a lot of Nim programmers are unaware of
+their merits due to lack of learning resources. The first part of
+this series will discuss the use of macros to simplify the creation of
+boilerplate code in Nim."
 ---
 
 <div class="sidebarblock">
@@ -12,15 +16,15 @@ author: Antonis Geralis
       articles as a guest author on nim-lang.org then get in touch with us via
       <a href="https://twitter.com/nim_lang">Twitter</a> or
       <a href="https://nim-lang.org/community.html">otherwise</a>.
+      You can also just create a PR like
+      <a href="https://github.com/nim-lang/website/pull/90">this author did</a>.
     </div>
   </div>
 </div>
 
-# Creating a simple macro
-
 Hello, as you might know Nim is a powerful programming language that supports
-metaprogramming using macros. Though a lot of Nim programmers are unaware about
-their merits due to lack of learning resources. In the first part of
+metaprogramming using macros. Though a lot of Nim programmers are unaware of
+their merits due to lack of learning resources. The first part of
 this series will discuss the use of macros to simplify the creation of
 boilerplate code in Nim.
 
