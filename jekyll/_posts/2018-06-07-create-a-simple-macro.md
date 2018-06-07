@@ -54,7 +54,7 @@ A template could do so too here, but I want to show how macros work.
   <div class="content">
     <div class="paragraph">
       <q>Macros can be used to implement domain specific languages.</q><br>
-      <i>&mdash;From the Nim <a href="https://twitter.com/nim_lang">manual</a>.</i>
+      <i>&mdash;From the Nim <a href="http://nim-lang.org/docs/manual.html">manual</a>.</i>
     </div>
   </div>
 </div>
