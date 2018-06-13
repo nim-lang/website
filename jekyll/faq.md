@@ -39,12 +39,13 @@ Nim.
 
 ## How stable is Nim?
 
-The compiler and stdlib are actively under development and have a large suite
-of test cases to verify ongoing stability. Regular releases are posted every
-three to six months that can be used as a base for projects requiring a stable
-foundation. Breaking changes are rare but are [documented](https://nim-lang.org/blog/2018/03/01/version-0180-released.html)
-in detail and can be typically managed with minimal effort. The compiler also
-highlights deprecated methods to help transition over time.
+The compiler and stdlib are actively under development and have a suite of test
+cases to ensure ongoing stability. Regular releases are posted every three to
+six months that can be used as a base for projects requiring a stable foundation.
+Breaking changes are rare but are [documented](https://nim-lang.org/blog/2018/03/01/version-0180-released.html)
+in detail and can typically be managed with minimal effort. The compiler also
+highlights deprecated methods to provide sufficient notice and transition time
+through changes.
 
 ## How fast is Nim?
 
