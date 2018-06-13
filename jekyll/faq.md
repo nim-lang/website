@@ -39,10 +39,12 @@ Nim.
 
 ## How stable is Nim?
 
-The compiler is in development and some important features are still missing.
-However, the compiler is quite stable already: It is able to compile itself
-and a substantial body of other code. Until version 1.0.0 is released,
-minor incompatibilities with older versions of the compiler will be introduced.
+The compiler and stdlib are actively under development and have a large suite
+of test cases to verify ongoing stability. Regular releases are posted every
+three to six months that can be used as a base for projects requiring a stable
+foundation. Breaking changes are rare but are [documented](https://nim-lang.org/blog/2018/03/01/version-0180-released.html)
+in detail and can be typically managed with minimal effort. The compiler also
+highlights deprecated methods to help transition over time.
 
 ## How fast is Nim?
 
