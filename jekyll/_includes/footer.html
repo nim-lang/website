@@ -42,7 +42,9 @@
 
       var a = document.getElementsByTagName("a");
       for (var i = 0; i < a.length; ++i) {
-        if (a[i].hostname != location.hostname) {
+        if (a[i].hostname != location.hostname &&
+            a[i].getAttribute("target") !== "_blank"
+        ) {
           setTracking(a[i])
         }
       }

@@ -10,6 +10,12 @@ we want to know your opinions.
 Your feedback will help the Nim project understand its strengths and
 weaknesses, and to determine development priorities for the future.
 
+<div style="text-align: center;">
+  <a class="pure-button pure-button-primary" style="font-size: 85%; display: inline-block;" href="https://goo.gl/forms/t2gWWBEDC1walw6s2" target="_blank">
+  Answer Survey
+  </a>
+</div>
+
 It shouldn't take you much longer than 5 to 10 minutes to complete this survey.
 Submissions will be accepted until around the 23rd of July, depending on the
 response rates. If you have any questions or feedback, please don't hesitate
