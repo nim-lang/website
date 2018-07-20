@@ -20,16 +20,35 @@ $banner-top-padding: 5px;
   &:active {
     background-color: darken($banner-background-color, 8%);
   }
+
+  .pure-button {
+    font-size: 70%;
+    padding: 4px 8px;
+    margin: 9px 10px 8px 10px;
+
+    &, &:hover, &:focus {
+      background-color: #fee860;
+    }
+  }
 }
 
 .banner-link {
-  &:hover, &:focus {
+  &, &:hover, &:focus {
+    vertical-align: middle;
+    display: inline-block;
     text-decoration: none;
+    color: $banner-color;
   }
+}
+
+.banner-grey {
+  color: rgba($banner-color, 0.7);
 }
 
 @media (max-width: 1370px) {
   .banner {
+    font-size: 80%;
+
     .content {
       padding-top: $banner-top-padding * 1.5;
     }
