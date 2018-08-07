@@ -82,4 +82,4 @@ We are extremely excited to continue developing Nim with renewed vigour and
 are very thankful for the generous support from the Status team.
 
 For more information and questions, join us on this forum thread:
-https://forum.nim-lang.org/t/4113.
+[https://forum.nim-lang.org/t/4113](https://forum.nim-lang.org/t/4113).
