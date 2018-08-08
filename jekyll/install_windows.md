@@ -38,7 +38,7 @@ current: Install
 
 The installation using the provided zip files should be fairly
 straightforward. Simply extract the files into the desired installation
-directory.
+directory, and run ``finish.exe``.
 
 ## Configuring the ``PATH`` environment variable
 
@@ -51,16 +51,13 @@ It is common for Nim developers to include two directories in their
 
 The zip file includes a simple application called ``finish.exe`` that can
 attempt to add the first directory into your ``PATH``.
-This tool also attempts to check for the
-presence of a C compiler. But because of differences between platforms,
-command shells and bugs in ``finish.exe``, the modifications to the ``PATH``
-variable may fail or you may see a false error message regarding your
-C compiler.
+This tool also checks for the presence of a C compiler and can install ``MingW``,
+the GNU C compiler collection for Windows.
 
 # Notes about compiler dependencies
 
-The Nim compiler needs a C compiler in order to compile software. You must
-install this separately and ensure that it is in your ``PATH``.
+The Nim compiler needs a C compiler in order to compile software. You can
+use ``finish.exe`` to install MingW.
 
 The following versions of MingW are known to work with the latest version of
 Nim.
