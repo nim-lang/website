@@ -88,7 +88,7 @@ proc modSupporters(supporters: JsonNode) =
       let findBy = elem["find_by"]
       let modification = elem["mod"]
       performMod(supporters, findBy, modification)
-    of "paypal", "bitcoin", "gittip", "freebie", "opencollective":
+    of "paypal", "bitcoin", "gittip", "freebie", "opencollective", "other":
       # Verify that it contains all the necessary fields.
       doAssert elem.hasKey("created_at"), "Mod needs created_at field"
       doAssert elem.hasKey("display_name"), "Mod needs display_name field"
@@ -194,7 +194,7 @@ when isMainModule:
 
     let sponsor = Sponsor(name: name, url: url, logo: logo, amount: amount,
         allTime: supporter["alltime_amount"].getFNum(),
-        since: parse(supporter["created_at"].getStr, "yyyy-MM-dd'T'hh:mm:ss"),
+        since: parse(supporter["created_at"].getStr[0 .. 18], "yyyy-MM-dd'T'hh:mm:ss"),
         level: getLevel(supporter)
       )
     if supporter["monthly_amount"].getFNum > 0.0:
