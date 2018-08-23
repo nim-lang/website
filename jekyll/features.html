@@ -15,7 +15,7 @@ css_class: features
         <h2>
           Taking inspiration from multiple languages, the Nim syntax is
           easily understood and results in code that can be modified very
-          efficiently.
+          effectively.
         </h2>
         <ul>
           <li>Indentation significant syntax</li>
@@ -305,25 +305,15 @@ type
   Event* {.importcpp: "sf::Event".} = object
 
 {.push cdecl, header: "<SFML/Graphics.hpp>".}
+{.push importcpp.}
 
 proc videoMode*(modeWidth, modeHeight: cuint,
                 modeBitsPerPixel: cuint = 32): VideoMode
-    {.importcpp: "sf::VideoMode(@)", constructor.}
-
 proc newRenderWindow*(mode: VideoMode, title: cstring): RenderWindow
-    {.importcpp: "new sf::RenderWindow(@)", constructor.}
-
 proc pollEvent*(window: RenderWindow, event: var Event): bool
-    {.importcpp: "#.pollEvent(@)".}
-
 proc newColor*(red, green, blue, alpha: uint8): Color
-    {.importcpp: "sf::Color(@)", constructor.}
-
 proc clear*(window: RenderWindow, color: Color)
-    {.importcpp: "#.clear(@)".}
-
 proc display*(window: RenderWindow)
-    {.importcpp: "#.display()".}{% endhighlight %}
         </div>
         <div class="pure-u-1 pure-u-md-1-2 center">
           <h3>

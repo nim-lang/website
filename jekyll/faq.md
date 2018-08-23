@@ -20,16 +20,6 @@ interpreter.
 The language borrows heavily from (in order of impact): Modula 3, Delphi,
 Ada, C++, Python, Lisp, Oberon.
 
-## What is Nim's take on concurrency?
-
-Nim primarily focusses on thread local (and garbage collected) heaps and
-message passing between threads. Each thread has its own GC, so no
-"stop the world" mechanism is necessary. An unsafe shared memory heap is also
-provided.
-
-Future versions will additionally include a GC "per thread group"
-and Nim's type system will be enhanced to accurately model this shared
-memory heap.
 
 ## How is Nim licensed?
 
@@ -44,15 +34,14 @@ cases to ensure ongoing stability. Regular releases are posted every three to
 six months that can be used as a base for projects requiring a stable foundation.
 Breaking changes are rare but are [documented](https://nim-lang.org/blog/2018/03/01/version-0180-released.html)
 in detail and can typically be managed with minimal effort. The compiler also
-highlights deprecated methods to provide sufficient notice and transition time
+highlights deprecated features to provide sufficient notice and transition time
 through changes.
 
 ## How fast is Nim?
 
-Benchmarks show it to be comparable to C. Some language features (methods,
-closures, message passing) are not yet as optimized as they could and will be.
-The only overhead Nim has over C is the GC which has been tuned
-for years but still needs some work.
+Benchmarks show it to be comparable to C or C++. Nim can be used as a high level
+language as well as a low level language -- always with excellent performance,
+but some language features are more expensive than others.
 
 
 ## What about JVM/CLR backends?
@@ -83,10 +72,10 @@ glue code thanks to powerful metaprogramming capabilities of Nim.
 ## Why is it named ``proc``?
 
 *Procedure* used to be the common term as opposed to a *function* which is a
-mathematical entity that has no side effects. It is planned to have ``func``
-as syntactic sugar for ``proc {.noSideEffect.}`` and ``func`` is already a
-keyword. Naming it ``def`` would not make sense because Nim also provides an
-``iterator`` and a ``method`` keyword, whereas ``def`` stands for ``define``.
+mathematical entity that has no side effects. And indeed in Nim ``func``
+is syntactic sugar for ``proc {.noSideEffect.}``. Naming it ``def`` would not
+make sense because Nim also provides an ``iterator`` and a ``method`` keyword,
+whereas ``def`` stands for ``define``.
 
 
 # Compilation FAQ
