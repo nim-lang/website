@@ -1,9 +1,11 @@
 ---
 title: "We're hiring!"
-author: The Nim Team
+author: Nim Team
+excerpt: "This is your chance to get to work with one of the leading experts in compiler
+development, meta programming and language design."
 ---
 
-# Become a Nim core developer
+## Become a Nim core developer
 
 Nim is proving to be an increasingly reliable workhorse for every day
 programming jobs since you can productively use it both client-side and
