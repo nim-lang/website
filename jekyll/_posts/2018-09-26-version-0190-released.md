@@ -236,7 +236,7 @@ without you!
 - ``func`` is now an alias for ``proc {.noSideEffect.}``.
 - In order to make ``for`` loops and iterators more flexible to use Nim now
   supports so called "for-loop macros". See
-  the [manual](docs/manual.html#macros-for-loop-macros) for more details.
+  the [manual](https://nim-lang.org/docs/manual.html#macros-for-loop-macros) for more details.
   This feature enables a Python-like generic ``enumerate`` implementation.
 
 - Case statements can now be rewritten via macros. See the [manual](docs/manual.html#macros-case-statement-macros) for more information.
