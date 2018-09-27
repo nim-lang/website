@@ -53,10 +53,10 @@ Other notable language additions:
 
 - In order to make ``for`` loops and iterators more flexible to use Nim now
   supports so called "for-loop macros". See
-  the [manual](docs/manual.html#macros-for-loop-macros) for more details.
+  the [manual](https://nim-lang.org/docs/manual.html#macros-for-loop-macros) for more details.
   This feature enables a Python-like generic ``enumerate`` implementation.
 
-- Case statements can now be rewritten via macros. See the [manual](docs/manual.html#macros-case-statement-macros) for more information.
+- Case statements can now be rewritten via macros. See the [manual](https://nim-lang.org/docs/manual.html#macros-case-statement-macros) for more information.
   This feature enables custom pattern matching.
 
 - The command syntax now supports keyword arguments after the first comma.
@@ -239,7 +239,7 @@ without you!
   the [manual](https://nim-lang.org/docs/manual.html#macros-for-loop-macros) for more details.
   This feature enables a Python-like generic ``enumerate`` implementation.
 
-- Case statements can now be rewritten via macros. See the [manual](docs/manual.html#macros-case-statement-macros) for more information.
+- Case statements can now be rewritten via macros. See the [manual](https://nim-lang.org/docs/manual.html#macros-case-statement-macros) for more information.
   This feature enables custom pattern matchers.
 
 - the `typedesc` special type has been renamed to just `type`.
