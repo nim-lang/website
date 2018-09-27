@@ -90,6 +90,16 @@ exception handling. Finally it is possible to use ``await`` in a ``try``
 statement!
 
 
+## Nimble 0.9.0
+
+This release includes a brand new version of Nimble. The new version
+contains a breaking change which you should read up on if you own
+hybrid packages. There are also the usual bug fixes and this release
+contains a lot of them.
+
+For more information, see the
+[Nimble v0.9.0 changelog](https://github.com/nim-lang/nimble/blob/master/changelog.markdown#090---19092018).
+
 ## Contributors to v0.19.0
 
 Our contributors are amazing, and there is
