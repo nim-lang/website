@@ -5,7 +5,7 @@ description: >
   compiles to C, C++ and JavaScript.
 baseurl: ""
 
-nim_version: 0.18.0
+nim_version: 0.19.0
 
 defaults:
   -
@@ -27,7 +27,7 @@ navigation:
     url: /blog.html
   - title: Features
     url: /features.html
-  - title: Install
+  - title: Download
     url: /install.html
   - title: Documentation
     url: /documentation.html
