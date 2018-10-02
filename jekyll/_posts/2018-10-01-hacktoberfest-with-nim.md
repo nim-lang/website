@@ -12,7 +12,7 @@ Nim would like to encourage you to participate in Hacktoberfest by contributing 
 
 
 
-## How can you help?
+# How can you help?
 
 * bug-fixing
 * improving documentation
@@ -20,7 +20,7 @@ Nim would like to encourage you to participate in Hacktoberfest by contributing 
 
 
 
-### Bug fixing
+## Bug fixing
 
 [Nim repo](https://github.com/nim-lang/nim) has more than 1400 open issues, which might be overwhelming to start.
 Here are some categories you might find interesting:
@@ -34,7 +34,7 @@ Here are some categories you might find interesting:
 
 
 
-### Improving documentation
+## Improving documentation
 
 Poor documentation is often mentioned when people discuss Nim.
 Let's make it better together!
@@ -85,7 +85,7 @@ If your example is more than 5 lines of code, then it's likely too long. Conside
 
 Nim's documentation generator uses reStructuredText, take a look at some references if you want to get more familiar with it.
 
-### Writing a library
+## Writing a library
 
 There is a [list of needed libraries](https://github.com/nim-lang/needed-libraries/issues), can you help us shorten it?
 
@@ -95,7 +95,7 @@ If writing a library seems like a too demanding task, you can help improve [one 
 
 
 
-## I want to help, but I've run into some problem
+# I want to help, but I've run into some problem
 
 If you need any help, the Nim community is very welcoming.
 Ask a question in [Nim's IRC Channel on Freenode](irc://freenode.net/nim), [Nim's room on Gitter](https://gitter.im/nim-lang/Nim) or the [Nim Telegram group](https://t.me/nim_lang) and somebody will help you. Other communication channels can be found on our [community page](https://nim-lang.org/community.html).
