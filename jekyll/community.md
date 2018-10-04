@@ -79,7 +79,7 @@ If you are an avid RSS user then it should be just for you.
 [Nim blog]({{ site.baseurl }}/blog.html)
 
 <i class="fa fa-rss" aria-hidden="true"></i>
-[Blog feed]({{ site.baseurl }}/feed.xml)
+[Blog feed]({{ '/feed.xml' | prepend: site.baseurl }})
 
 # Reddit
 
