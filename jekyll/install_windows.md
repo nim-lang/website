@@ -8,6 +8,19 @@ current: Install
 
 <h1 class="text-centered page-title main-heading">Install Nim on Windows</h1>
 
+# Installation using ``choosenim``
+
+[``choosenim``](https://github.com/dom96/choosenim#choosenim) is an
+installer for the Nim programming language. It allows you
+to easily switch between versions of Nim, whether that is the latest stable
+release or the latest development version.
+
+To install the latest stable release of Nim using ``choosenim``, 
+download the latest Windows version from the
+[``releases``](https://github.com/dom96/choosenim/releases) page.
+
+# Manual installation from source
+
 <div class="center">
   <a href="{{ site.baseurl }}/download/nim-{{ site.nim_version }}_x32.zip"
     class="pure-button pure-button-primary download-button">
