@@ -51,7 +51,7 @@ css_class: sponsors
       {% if sponsor.level != "250" %}
         <tr>
           {% if sponsor.logo %}
-            <td><img src="{{sponsor.logo}}"></img></td>
+            <td><img src="{{sponsor.logo}}" alt="{{sponsor.name}}"></td>
           {% else %}
             <td></td>
           {% endif %}
