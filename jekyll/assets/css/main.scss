@@ -4,6 +4,7 @@
 
 @import "variables"; // Global variables
 @import "banner";
+@import "typography";
 
 // Adjust anchor link location to not cover titles with header
 :target:before {
@@ -25,40 +26,11 @@ body {
   display: none; // Displayed only on small screens
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-weight: normal;
-}
-
 // Pure-friendly font-family setting
 // http://purecss.io/grids/#using-grids-with-custom-fonts
 html, button, input, select, textarea,
 .pure-g [class *= "pure-u"] {
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Titillium Web";
-}
-
-h1 {
-  margin-top: 50px;
-}
-
-h2 {
-  margin: 48px 0 16px 0;
-}
-
-a {
-  text-decoration: none;
-  color: $a-color;
-  &:hover, &:focus {
-    text-decoration: underline;
-    color: lighten($a-color, 10%);
-  }
-  &:active {
-    text-decoration: none;
-    color: darken($a-color, 10%);
-  }
 }
 
 figure.highlight {
@@ -74,7 +46,7 @@ figure.highlight {
   background-color: #f8f8f8;
   border-radius: 2px;
   margin: 0;
-  margin-bottom: 12pt;
+  margin-bottom: 16px;
   font-size: 120%;
   max-width: 100%;
 }
@@ -103,7 +75,7 @@ hr {
 }
 
 .text-large {
-  font-size: 135%;
+  font-size: 1.35rem;
 }
 
 footer {
@@ -193,7 +165,7 @@ footer {
 .content, .nav-content {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0pt 10pt;
+  padding: 0 13px;
 }
 
 .slim {
@@ -256,15 +228,15 @@ a.pure-menu-link.pure-menu-heading {
   color: $jumbotron-color;
 
   h1 {
-    font-size: 250%;
+    font-size: 2.5em;
     margin-bottom: 0;
-    margin-top: 16px;
+    margin-top: 1em;
     color: $highlight-color;
   }
 
   h2 {
-    margin-top: 16px;
-    font-size: 150%;
+    margin-top: 1em;
+    font-size: 1.5em;
   }
 
   li {
@@ -304,9 +276,9 @@ a.pure-menu-link.pure-menu-heading {
 }
 
 .version-button {
-  font-size: 80%;
+  font-size: 0.8rem;
   background-color: $index-code-bg;
-  padding: 5pt 10pt;
+  padding: 7px 13px;
   border-radius: 5px;
 
   &:hover, &:focus, &:active {
@@ -332,7 +304,7 @@ a.pure-menu-link.pure-menu-heading {
 
 // For the news list
 .post-meta {
-  margin: 5pt 0;
+  margin: 7px 0;
   color: #888;
 
   span {
@@ -346,11 +318,11 @@ h1.post-title {
 
 .post-page .post-meta {
   margin-top: 0;
-  margin-bottom: 20pt;
+  margin-bottom: 29px;
 
   span {
     display: inline;
-    margin-right: 10pt;
+    margin-right: 13px;
   }
 }
 
@@ -361,7 +333,7 @@ h1.post-title {
 
 .main-heading {
   text-align: center;
-  font-size: 250%;
+  font-size: 2.5rem;
   margin-top: 0;
 }
 
@@ -410,11 +382,11 @@ h1.post-title {
 }
 
 .listingblock {
-  margin-bottom: 5pt;
+  margin-bottom: 7px;
 }
 
 .listingblock .title {
-  padding: 2.8pt 10pt;
+  padding: 4px 13px;
   background-color: #73a3c4;
   color: white;
 }
@@ -422,22 +394,22 @@ h1.post-title {
 .admonitionblock {
   border-top: 2px solid #e9e9e9;
   border-bottom: 2px solid #e9e9e9;
-  padding: 10pt 0;
+  padding: 13px 0;
 }
 
 .imageblock {
-  margin-top: 15pt;
+  margin-top: 21px;
 }
 
 .imageblock .title, .tableblock .title {
   font-weight: bold;
-  padding-left: 10pt;
+  padding-left: 13px;
   color: #656565;
 }
 
 .sidebarblock {
   background-color: #f8f7ea;
-  padding: 10pt 0;
+  padding: 13px 0;
 
   .title {
     font-weight: bold;
@@ -445,8 +417,8 @@ h1.post-title {
 }
 
 i.conum {
-  margin-left: 10pt;
-  margin-right: 10pt;
+  margin-left: 13px;
+  margin-right: 13px;
 }
 
 // Taken from asciidoctor-default.css
@@ -505,13 +477,13 @@ span.icon>.fa {
 
 #community {
   .fa, .fc, .fab {
-    margin-right: 5pt;
-    font-size: 175%;
+    margin-right: 7px;
+    font-size: 1.75rem;
     vertical-align: middle;
   }
 
   .fa-gitter {
-    font-size: 150%;
+    font-size: 1.5rem;
     margin-bottom: 5pt;
   }
 
@@ -528,7 +500,7 @@ span.icon>.fa {
   }
 
   .pure-u-1 {
-    padding: 0 20pt;
+    padding: 0 26px;
   }
 }
 
@@ -603,7 +575,7 @@ span.disclaimer {
 }
 
 p.disclaimer {
-  font-size: 60%;
+  font-size: 0.6rem;
   color: $hr-color;
 }
 
@@ -615,7 +587,7 @@ section#donations {
 
   .fa-heart {
       color: #ea4c2a;
-      font-size: 70%;
+      font-size: 0.7rem;
       padding-right: 6pt;
   }
 
@@ -628,14 +600,14 @@ section#donations {
   }
 
   #sponsors-list a {
-    margin-right: 20pt;
+    margin-right: 26px;
     text-align: center;
   }
 
   #sponsors-list img {
       height: 100px;
       display: block;
-      margin-bottom: 10pt;
+      margin-bottom: 13px;
     }
 }
 
@@ -652,7 +624,7 @@ span.tag {
   background-color: $index-code-bg;
   color: white;
   border-radius: 2px;
-  padding: 2pt 5pt;
+  padding: 3px 7px;
   white-space: nowrap;
 }
 
@@ -662,9 +634,9 @@ span.tag {
 
 .project-container, .sponsor-container {
   display: inline-block;
-  margin-right: 15pt;
-  margin-top: 15pt;
-  margin-bottom: 15pt;
+  margin-right: 21px;
+  margin-top: 21px;
+  margin-bottom: 21px;
 
   h1 {
     margin: 0;
@@ -726,9 +698,9 @@ span.tag {
 }
 
 .sponsor-container {
-  width: 160pt;
-  font-size: 90%;
-  margin-right: 20pt;
+  width: 220px;
+  font-size: 0.9rem;
+  margin-right: 26px;
 
   img {
     width: 150px;
@@ -747,7 +719,7 @@ div.image {
   }
 
   p {
-    font-size: 9pt;
+    font-size: 12px;
   }
 }
 
@@ -771,7 +743,7 @@ div.code-align {
 
 .features {
   .fa-windows, .fa-linux, .fa-apple {
-    margin-right: 20pt;
+    margin-right: 26px;
   }
 }
 
@@ -782,7 +754,7 @@ div.code-align {
 
 .content.ffi {
   figure.highlight {
-    margin: 20pt 0;
+    margin: 26px 0;
   }
 }
 
@@ -806,7 +778,7 @@ div.code-align {
   text-align: center;
 
   h2 {
-    margin-top: 20pt;
+    margin-top: 26px;
   }
 
   a {
@@ -828,7 +800,7 @@ div.code-align {
 
   @media (max-width: 850px) {
     div {
-      margin-right: 5pt; // Fix for small resolutions.
+      margin-right: 7px; // Fix for small resolutions.
     }
   }
 }
@@ -836,13 +808,13 @@ div.code-align {
 .os-picker-box {
   background-color: $index-code-bg;
   color: white;
-  padding: 40pt;
+  padding: 52px;
 
   margin-left: auto;
   margin-right: auto;
 
-  height: 100pt;
-  width: 100pt;
+  height: 130px;
+  width: 130px;
 
   i {
     font-size: 500%;
@@ -853,13 +825,13 @@ div.code-align {
   }
 
   i.fa-apple {
-    margin-right: 15pt;
+    margin-right: 21px;
   }
 
 }
 
 .download-button {
-  width: 200pt;
+  width: 260px;
 }
 
 // Styles for community page.
@@ -869,13 +841,13 @@ div.code-align {
     font-size: 160%;
     vertical-align: middle;
     text-align: center;
-    margin-right: 5pt;
+    margin-right: 7px;
   }
 
 }
 
 .fa.li, .fab.li, .fc.li {
-  margin-left: 15pt;
+  margin-left: 21px;
 
 }
 
@@ -887,35 +859,34 @@ div.code-align {
   }
 
   span.tag {
-    font-size: 60%;
+    font-size: 0.6rem;
     width: 200px;
   }
 
   table {
-    font-size: 140%;
+    font-size: 1.4rem;
     width: 100%;
   }
 }
 
 table.tableblock, div.content > table {
-  font-size: 90%;
+  font-size: 0.9rem;
   thead > tr {
     background-color: $faded-background-color;
     border-bottom: 4px solid darken($faded-background-color, 30%);
   }
 
   th {
-    padding: 10pt;
+    padding: 13px;
     text-align: left;
   }
 
   td {
-    padding-top: 5pt;
-    padding-bottom: 5pt;
-    padding-left: 10pt;
-    padding-right: 10pt;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 13px;
+    padding-right: 13px;
     border-bottom: 2px solid $faded-background-color;
-
     height: 50px;
   }
 
@@ -932,7 +903,7 @@ table.tableblock, div.content > table {
 
 .documentation {
   div.pure-u-1 {
-    padding-right: 10pt;
+    padding-right: 13px;
   }
 }
 
@@ -940,7 +911,7 @@ table.tableblock, div.content > table {
 
 blockquote {
   background-color: #efefef;
-  padding: 1pt 6pt;
+  padding: 2px 8px;
   border-left: 2px solid #7d7d7d;
 }
 
