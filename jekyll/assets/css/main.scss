@@ -199,7 +199,6 @@ html {
 a.pure-menu-link {
   text-decoration: none;
   padding: 17px 15px;
-  margin-top: -7px;
   &:hover, &:focus, &.current {
     background-color: rgba(255, 255, 255, .15);
   }
@@ -527,7 +526,6 @@ span.icon>.fa {
 
 .pure-menu-list {
   float: right;
-  padding-top: 7px; // HACK: Move down menu items slightly, because `float: right` makes them go up
 }
 
 a.pure-button {
