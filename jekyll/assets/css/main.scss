@@ -5,6 +5,7 @@
 @import "variables"; // Global variables
 @import "banner";
 @import "typography";
+@import "page_section";
 
 // Adjust anchor link location to not cover titles with header
 :target:before {
@@ -172,10 +173,6 @@ footer {
   max-width: 800px;
 }
 
-.site-content > .content {
-  margin-bottom: 100px;
-}
-
 // Fix footer to stick to the bottom using flexbox.
 // Ref: https://css-tricks.com/couple-takes-sticky-footer/
 body.site {
@@ -190,10 +187,6 @@ html {
 
 .site-content {
   flex: 1;
-}
-
-.text-centered {
-  text-align: center;
 }
 
 a.pure-menu-link {
@@ -745,11 +738,6 @@ div.code-align {
   }
 }
 
-.call-to-action {
-  font-size: 125%;
-  padding: 20px 0 60px 0;
-}
-
 .content.ffi {
   figure.highlight {
     margin: 26px 0;
@@ -852,10 +840,6 @@ div.code-align {
 // Styles for the sponsors page.
 
 .sponsors, .donate {
-  .call-to-action {
-    margin-top: 0;
-  }
-
   span.tag {
     font-size: 0.6rem;
     width: 200px;
