@@ -1,0 +1,25 @@
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+  font-family: "Titillium Web";
+}
+
+h1 {
+  margin-top: 2.9rem;
+}
+
+h2 {
+  margin: 2.8rem 0 1rem 0;
+}
+
+a {
+  text-decoration: none;
+  color: $a-color;
+  &:hover, &:focus {
+    text-decoration: underline;
+    color: lighten($a-color, 10%);
+  }
+  &:active {
+    text-decoration: none;
+    color: darken($a-color, 10%);
+  }
+}
