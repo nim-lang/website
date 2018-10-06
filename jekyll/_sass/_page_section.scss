@@ -2,10 +2,12 @@
   section {
     padding-bottom: 100px;
     .section-heading {
-      text-align: center;
       font-size: 2.5rem;
-      padding: 40px 0  60px;
+      padding: 40px 0;
       margin: 0;
+    }
+    .section-subheading {
+      color: hotpink
     }
   }
 }
