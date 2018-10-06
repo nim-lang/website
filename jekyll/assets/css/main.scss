@@ -316,39 +316,6 @@ h1.post-title {
   margin: 0;
 }
 
-.section-subheading {
-  text-align: center;
-
-  line-height: 0;
-  margin: 52px 0 48px 0;
-
-  // https://css-tricks.com/line-on-sides-headers/
-  span {
-    display: inline-block;
-    position: relative;
-  }
-
-  span:before, span:after {
-    content: "";
-    position: absolute;
-    height: 2px;
-    border-bottom: 1px solid grey;
-    border-top: 1px solid grey;
-    top: 0;
-    width: 23em;
-  }
-
-  span:before {
-    right: 100%;
-    margin-right: 15px;
-  }
-
-  span:after {
-    left: 100%;
-    margin-left: 15px;
-  }
-}
-
 /* AsciiDoc styles */
 
 .content img {
