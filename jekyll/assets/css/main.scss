@@ -211,11 +211,11 @@ a.pure-menu-link.pure-menu-heading {
 
 // Differently colored sections on front page.
 .main.jumbotron {
+  padding: 50px 0 100px;
   background-color: $main-jumbotron-background-color;
 }
 
 .jumbotron {
-  padding: 50px 0;
   background-color: $jumbotron-background-color;
   color: $jumbotron-color;
 
