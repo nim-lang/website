@@ -4,18 +4,24 @@ title: Donate
 css_class: donate
 ---
 
-<h1 class="text-centered page-title main-heading">Donate</h1>
-<h2 class="page-subtitle">
-  Fund Nim to support its development or find out about the commercial
-  support that we offer.
-</h2>
+<section>
+<div class="pure-g center">
+      <div class="pure-u-1-2">
+  <h1 class="text-centered section-heading">Donate</h1>
+  <h2 class="text-centered section-subheading">
+    Fund Nim to support its development or find out about the commercial
+    support that we offer.
+  </h2>
+  </div>
+  </div>
+</section>
 
 <section class="background-faded call-to-action">
-  <section class="content text-centered">
-    <h2>BountySource</h2>
+  <div class="content text-centered">
+    <h2 class="section-heading">BountySource</h2>
     <div class="pure-g center">
       <div class="pure-u-1-2">
-        <p>
+        <p class="text-larger">
           Help us reach our next fundraiser goal by supporting our Salt
           campaign.
         </p>
@@ -23,7 +29,7 @@ css_class: donate
     </div>
     <a class="pure-button pure-button-primary" href="https://salt.bountysource.com/teams/nim">Learn more</a>
     <a class="pure-button" href="#other-ways-to-donate">Other ways to donate</a>
-  </section>
+  </div>
 </section>
 
 <section class="content slim" markdown="1">
