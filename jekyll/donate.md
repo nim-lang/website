@@ -5,7 +5,7 @@ css_class: donate
 ---
 
 <h1 class="text-centered page-title main-heading">Donate</h1>
-<h2 class="text-centered page-subtitle">
+<h2 class="page-subtitle">
   Fund Nim to support its development or find out about the commercial
   support that we offer.
 </h2>
