@@ -6,7 +6,7 @@ css_class: community
 
 <h1 class="text-centered page-title main-heading">Community</h1>
 
-<h2 class="text-centered page-subtitle">
+<h2 class="page-subtitle">
   No matter the communication medium, we hope that you will find a place in
   our community.
 </h2>
