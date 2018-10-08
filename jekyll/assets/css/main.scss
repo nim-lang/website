@@ -647,17 +647,24 @@ section#donations {
 
 /* Style for the featured projects section */
 
-span.tag {
-  font-size: 52%;
-  background-color: $index-code-bg;
-  color: white;
-  border-radius: 2px;
-  padding: 2pt 5pt;
-  white-space: nowrap;
+.feature-projects {
+  .pure-u-1-3, .pure-u-md-1-3 {
+    align-self: flex-start;
+  }  
 }
 
-.project-container h2 {
-  margin: 0;
+.project-container {
+  h2 {
+    margin: 0;
+  }
+  .tag {
+    font-size: 52%;
+    background-color: $index-code-bg;
+    color: white;
+    border-radius: 2px;
+    padding: 2pt 5pt;
+    white-space: nowrap;
+  }
 }
 
 .project-container, .sponsor-container {
@@ -666,13 +673,8 @@ span.tag {
   margin-top: 15pt;
   margin-bottom: 15pt;
 
-  h1 {
-    margin: 0;
-  }
-
   a {
-    text-decoration: none;
-    color: $default-color;
+    
     &:hover, &:focus {
       .title {
         text-decoration: underline;
