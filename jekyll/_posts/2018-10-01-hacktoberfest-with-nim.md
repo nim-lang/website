@@ -61,13 +61,13 @@ proc addBar*(a: string): string =
 For embedded code block documentation you can also use `.. code-block::`:
 ```
 proc foo*() =
-  ## Does something unexpected.
+  ## Beginning of comment.
   ##
   ## .. code-block::
   ##    :test:
   ##    foo()
   ##
-  ## Don't run it!
+  ## Rest of comment.
   raise newException(Exception, "boo!")
 ```
 The best examples are self-contained and specific. This means they show how to do one thing. You should use headings to make them as easy to understand as possible, for example:
