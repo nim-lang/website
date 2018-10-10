@@ -50,13 +50,12 @@ For example, in the [tables module](https://nim-lang.org/docs/tables.html) what 
 Open the [source file for tables module](https://github.com/nim-lang/Nim/blob/master/lib/pure/collections/tables.nim) and you'll see that the general documentation is at the top of the file, and to make an example, put it inside of a `runnableExamples` block like this, which will make sure the code snippet stays valid:
 
 ```
-proc isAbsolute*(path: string): bool =
-  ## Checks whether a given ``path`` is absolute.
+proc addBar*(a: string): string =
+  ## adds "Bar" to ``a``.
   runnableExamples:
-    doAssert(not "".isAbsolute)
-    doAssert(not ".".isAbsolute)
+    doAssert "baz".addBar == "bazBar"
    
-   proc implementation follows...
+   result = a & "Bar"
 ```
 
 For embedded code block documentation you can also use `.. code-block::`:
