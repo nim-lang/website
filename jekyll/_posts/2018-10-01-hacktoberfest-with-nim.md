@@ -51,7 +51,7 @@ Open the [source file for tables module](https://github.com/nim-lang/Nim/blob/ma
 
 ```
 proc addBar*(a: string): string =
-  ## adds "Bar" to ``a``.
+  ## Adds "Bar" to ``a``.
   runnableExamples:
     doAssert "baz".addBar == "bazBar"
    
