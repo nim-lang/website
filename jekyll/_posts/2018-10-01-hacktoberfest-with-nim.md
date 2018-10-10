@@ -47,15 +47,30 @@ For example, in the [tables module](https://nim-lang.org/docs/tables.html) what 
 
 **How to go about improving these?**
 
-Open the [source file for tables module](https://github.com/nim-lang/Nim/blob/master/lib/pure/collections/tables.nim) and you'll see that the general documentation is at the top of the file, and to make an example, put it inside of a indented `code-block` like this:
+Open the [source file for tables module](https://github.com/nim-lang/Nim/blob/master/lib/pure/collections/tables.nim) and you'll see that the general documentation is at the top of the file, and to make an example, put it inside of a `runnableExamples` block like this, which will make sure the code snippet stays valid:
 
 ```
-## .. code-block:: nim
-##
-##   import tables
-##   # my example here
+proc isAbsolute*(path: string): bool =
+  ## Checks whether a given ``path`` is absolute.
+  runnableExamples:
+    doAssert(not "".isAbsolute)
+    doAssert(not ".".isAbsolute)
+   
+   proc implementation follows...
 ```
 
+For embedded code block documentation you can also use `.. code-block::`:
+```
+proc foo*() =
+  ## Does something unexpected.
+  ##
+  ## .. code-block::
+  ##    :test:
+  ##    foo()
+  ##
+  ## Don't run it!
+  raise newException(Exception, "boo!")
+```
 The best examples are self-contained and specific. This means they show how to do one thing. You should use headings to make them as easy to understand as possible, for example:
 
 ```
@@ -68,7 +83,7 @@ The best examples are self-contained and specific. This means they show how to d
 ## ~~~~~~~~~~~~~~~~~~~~~
 ##
 ## .. code-block:: nim
-##
+##    :test:
 ##   import tables
 ##   var phonebook = initTable[string, string]()
 ##
@@ -76,7 +91,7 @@ The best examples are self-contained and specific. This means they show how to d
 ## ~~~~~~~~~~~~~~~~~~~~~
 ##
 ## .. code-block:: nim
-##
+##    :test:
 ##   import tables
 ##   var phonebook = newTable[string, string]()
 ```
