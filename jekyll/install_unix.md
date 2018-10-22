@@ -140,6 +140,12 @@ pkg install nim
 brew install nim
 ```
 
+## openSUSE
+
+```
+zypper in nim
+```
+
 ## Void Linux
 
 ```
