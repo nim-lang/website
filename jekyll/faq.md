@@ -10,22 +10,9 @@ css_class: faq
 
 ## Why yet another programming language?
 
-Nim is one of the very few _programmable_ statically typed languages, and one
-of the even fewer that produces native binaries that require no runtime or
-interpreter.
-
-
-## What have been the major influences in the language's design?
-
-The language borrows heavily from (in order of impact): Modula 3, Delphi,
-Ada, C++, Python, Lisp, Oberon.
-
-
-## How is Nim licensed?
-
-The Nim compiler and the library are MIT licensed.
-This means that you can use any license for your own programs developed with
-Nim.
+Nim is one of the very few _programmable_ statically typed languages, and
+combines the speed and memory efficency of C, an expressive syntax,
+memory safety and multiple target languages.
 
 ## How stable is Nim?
 
@@ -37,12 +24,18 @@ in detail and can typically be managed with minimal effort. The compiler also
 highlights deprecated features to provide sufficient notice and transition time
 through changes.
 
-## How fast is Nim?
 
-Benchmarks show it to be comparable to C or C++. Nim can be used as a high level
-language as well as a low level language -- always with excellent performance,
-but some language features are more expensive than others.
+## How about security and memory safety?
 
+Nim provides memory safety by not performing pointer arithmetic, with
+optional [checks](https://nim-lang.org/docs/manual.html#pragmas-compilation-option-pragmas), traced and untraced references and optional non-nullable types.
+It supports Valgrind through the koch tool, and taint analysis.
+
+## How is Nim licensed?
+
+The Nim compiler and the library are MIT licensed.
+This means that you can use any license for your own programs developed with
+Nim.
 
 ## What about JVM/CLR backends?
 
@@ -68,6 +61,10 @@ glue code thanks to powerful metaprogramming capabilities of Nim.
 - Micro: Included
 - Atom: [https://atom.io/packages/nim](https://atom.io/packages/nim)
 
+## What have been the major influences in the language's design?
+
+The language borrows heavily from (in order of impact): Modula 3, Delphi,
+Ada, C++, Python, Lisp, Oberon.
 
 ## Why is it named ``proc``?
 
