@@ -1,11 +1,7 @@
 ---
 title: Advent of Nim
 author: The Nim Team
-excerpt: "Saturday December 1st at 5 a.m. UTC will mark the start of the fourth incarnation of Advent of Code, popular programming contest started back in 2015."
 ---
-
-
-# Advent of Nim
 
 Saturday December 1st at 5 a.m. UTC will mark the start of the fourth incarnation of [Advent of Code](https://adventofcode.com/), popular programming contest started back in 2015.
 The author describes Advent of Code (AoC) as "*a series of small programming puzzles for a variety of skill sets and skill levels in any programming language you like*".
