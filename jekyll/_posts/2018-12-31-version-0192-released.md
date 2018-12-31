@@ -16,7 +16,7 @@ The most important bugfixes are:
 - async streaming of the httpclient has been fixed.
 
 
-# Installing 0.19.2
+## Installing 0.19.2
 
 If you have installed a previous version of Nim using ``choosenim``,
 getting Nim 0.19.2 is as easy as:
@@ -30,7 +30,7 @@ If you don't have it already, you can get ``choosenim`` by following
 Nim by following the instructions on our
 [install](https://nim-lang.org/install.html) page.
 
-## Bugfixes
+### Bugfixes
 
 - Fixed "Nim 0.19.0 docs have incorrect Source/Edit links"
   ([#9083](https://github.com/nim-lang/Nim/issues/9083))
