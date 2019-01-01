@@ -7,8 +7,9 @@ title: Nim programming language
   <div class="content">
     <div class="pure-g">
       <div class="pure-u-1 pure-u-md-3-5 main-block">
-      <h1 class="heading-primary">Efficient and expressive programming.</h1>
-        <h2>Nim is a systems and applications programming language. Statically typed and compiled, it provides unparalleled performance in an elegant package.</h2>
+        <h1 class="heading-primary">Efficient and expressive programming.</h1>
+        <h2>Nim is a systems and applications programming language. Statically typed and compiled, it provides
+          unparalleled performance in an elegant package.</h2>
         <ul>
           <li>High-performance garbage-collected language</li>
           <li>Compiles to C, C++ or JavaScript</li>
@@ -23,18 +24,18 @@ title: Nim programming language
       </div>
       <div class="pure-u-1 pure-u-md-2-5">
         {% highlight nim %}
-# Compute average line length
-var
-  sum = 0
-  count = 0
+        # Compute average line length
+        var
+        sum = 0
+        count = 0
 
-for line in stdin.lines:
-  sum += line.len
-  count += 1
+        for line in stdin.lines:
+        sum += line.len
+        count += 1
 
-echo("Average line length: ",
-     if count > 0: sum / count else: 0)
-{% endhighlight %}
+        echo("Average line length: ",
+        if count > 0: sum / count else: 0)
+        {% endhighlight %}
         <div class="text-centered">
           <a href="http://rosettacode.org/wiki/Category:Nim">More examples at RosettaCode…</a>
         </div>
@@ -44,132 +45,148 @@ echo("Average line length: ",
 </section>
 <section>
   <div class="content">
-      <h2 class="section-heading text-centered">Recent articles</h2>
-      <div class="pure-g">
-        {% for post in site.posts limit: 2 %}
-          <div class="news-item pure-u-1 pure-u-md-1-2">
-            <h2>
-                <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title | escape }}</a>
-            </h2>
-            <div class="post-meta">
-              <span>
-                <i class="far fa-calendar-alt" aria-hidden="true"></i>
-                {{ post.date | date_to_long_string }}
-              </span>
-            </div>
-            {{ post.excerpt }}
-          </div>
-        {% endfor %}
+    <h2 class="section-heading text-centered">Recent articles</h2>
+    <div class="pure-g">
+      {% for post in site.posts limit: 2 %}
+      <div class="news-item pure-u-1 pure-u-md-1-2">
+        <h2>
+          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title | escape }}</a>
+        </h2>
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            {{ post.date | date_to_long_string }}
+          </span>
+        </div>
+        {{ post.excerpt }}
       </div>
-      <p class="feed-rss">
-        <a href="{{ "/blog.html" | prepend: site.baseurl }}">All articles</a>
-      </p>
+      {% endfor %}
+    </div>
+    <p class="feed-rss">
+      <a href="{{ "/blog.html" | prepend: site.baseurl }}">All articles</a>
+    </p>
   </div>
 </section>
 
-<section class="background-faded call-to-action">
-  <div class="content text-centered">
-      <h2 class="section-heading">Featured projects</h2>
-      <div class="pure-g center">
-        <div class="pure-u-2-3">
-          <div class="project-container">
-            <a href="https://github.com/pragmagic/karax">
-              <div class="project-box" id="karax">
-                <h1>K</h1>
-              </div>
-              <span class="tag">SPA framework</span>
-              <h2 class="title">karax</h2>
-            </a>
-          </div>
-    
-          <div class="project-container">
-            <a href="https://onsetgame.com/?utm_source=nimsite">
-              <div class="project-box" id="reelvalley">
-              </div>
-              <span class="tag">Game</span>
-              <h2 class="title">Reel Valley</h2>
-            </a>
-          </div>
-    
-          <div class="project-container">
-            <a href="https://github.com/status-im/nimbus">
-              <div class="project-box" id="nimbus">
-                <h1>N</h1>
-              </div>
-              <span class="tag">Ethereum client</span>
-              <h2 class="title">nimbus</h2>
-            </a>
-          </div>
+<section class="background-faded call-to-action feature-projects">
+  <div class="content">
+    <h2 class="text-centered">Featured projects</h2>
+
+    <div class="pure-g center">
+
+      <div class="pure-u-1-1 pure-u-md-1-3">
+        <div class="project-container">
+          <h2>
+            <a href="https://github.com/pragmagic/karax">Karax</a>
+          </h2>
+          <span class="tag">SPA framework</span>
+          <p>
+            Karax is a framework for developing single page applications in Nim.
+            Leverage Nim's macro system to produce a framework that allows for the
+            development of applications that are boilerplate free.
+          </p>
+          </a>
         </div>
       </div>
-      <a class="pure-button" href="https://github.com/trending/nim">See more</a>
+
+      <div class="pure-u-1-1 pure-u-md-1-3">
+        <div class="project-container">
+          <h2>
+            <a href="https://onsetgame.com/?utm_source=nimsite">Reel Valley</a>
+          </h2>
+          <span class="tag">Game</span>
+          <p>
+            Reel Valley is a unique and highly entertaining game with gorgeous graphics.
+            It mixes Slots with a City Builder.
+          </p>
+        </div>
+      </div>
+
+      <div class="pure-u-1-1 pure-u-md-1-3">
+        <div class="project-container">
+          <h2>
+            <a href="https://github.com/status-im/nimbus">Nimbus</a>
+          </h2>
+          <span class="tag">Ethereum client</span>
+          <p>
+            Nimbus aims to be a sharding client for Ethereum 2.0 Blockchain.
+            Ethereum will potentially be on embedded systems, Nimbus will be
+            designed to perform well on IoT and personal mobile devices.
+          </p>
+        </div>
+      </div>
+
+    </div>
+    <div class="text-centered">
+      <a class="pure-button pure-button-primary" href="https://github.com/trending/nim">Find more projects</a>
+    </div>
   </div>
 </section>
 
 <section>
   <div class="content center-banner">
     <h2 class="section-heading">
-        <i class="fab fa-github fa-2x" aria-hidden="true"></i>
-        Looking for the GitHub repository?
-      </h2>
-      <div class="pure-g center">
-        <div class="pure-u-1-2">
-          <p>
-            The Nim compiler and tools are all written in Nim and licensed under the
-            MIT license, with most development taking place on GitHub.
-            Be sure to watch the repository to get updates on Nim's
-            development, or star it to give us some brownie points.
-          </p>
-        </div>
-        <div class="pure-u-1 center">
-          <a class="pure-button" href="https://github.com/nim-lang/Nim">Source code</a>
-        </div>
+      <i class="fab fa-github fa-2x" aria-hidden="true"></i>
+      Looking for the GitHub repository?
+    </h2>
+    <div class="pure-g center">
+      <div class="pure-u-1-2">
+        <p>
+          The Nim compiler and tools are all written in Nim and licensed under the
+          MIT license, with most development taking place on GitHub.
+          Be sure to watch the repository to get updates on Nim's
+          development, or star it to give us some brownie points.
+        </p>
       </div>
+      <div class="pure-u-1 center">
+        <a class="pure-button" href="https://github.com/nim-lang/Nim">Source code</a>
+      </div>
+    </div>
   </div>
 </section>
 
 <section class="jumbotron" id="book">
   <div class="content">
-      <div class="pure-g">
-          <div class="pure-u-1 pure-u-md-2-5">
-            <img class="pure-img" src="{{ site.baseurl }}/assets/img/nim_in_action_cover.jpg"/>
-          </div>
-          <div class="pure-u-1 pure-u-md-3-5 main-block">
-            <h2 class="section-heading heading-primary">Now available.</h2>
-            <p class="text-larger" style="margin: -12px 0 40px 0">
-              The first Nim book, Nim in Action, is now available for purchase as
-              an eBook or printed soft cover book.<span class="disclaimer">*</span>
-              Learn the basics such as Nim's
-              syntax and advanced features including macros, and gain practical
-              experience with the language by being led through multiple
-              application development examples.
-            </p>
-            <ul>
-              <li>Teaches the basics including the syntax of Nim.</li>
-              <li>Explains how to use the Nimble package manager.</li>
-              <li>
-                Includes step-by-step instructions and explanations of
-                how to develop various applications, including a chat program,
-                a Twitter clone and more.
-              </li>
-            </ul>
-            <p class="disclaimer">
-              * Printed soft cover book is out now!
-            </p>
-            <a class="pure-button pure-button-primary" href="https://book.picheta.me/">Learn more</a>
-          </div>
-        </div>
+    <div class="pure-g">
+      <div class="pure-u-1 pure-u-md-2-5">
+        <img class="pure-img" src="{{ site.baseurl }}/assets/img/nim_in_action_cover.jpg" />
+      </div>
+      <div class="pure-u-1 pure-u-md-3-5 main-block">
+        <h2 class="section-heading heading-primary">Now available.</h2>
+        <p class="text-larger" style="margin: -12px 0 40px 0">
+          The first Nim book, Nim in Action, is now available for purchase as
+          an eBook or printed soft cover book.<span class="disclaimer">*</span>
+          Learn the basics such as Nim's
+          syntax and advanced features including macros, and gain practical
+          experience with the language by being led through multiple
+          application development examples.
+        </p>
+        <ul>
+          <li>Teaches the basics including the syntax of Nim.</li>
+          <li>Explains how to use the Nimble package manager.</li>
+          <li>
+            Includes step-by-step instructions and explanations of
+            how to develop various applications, including a chat program,
+            a Twitter clone and more.
+          </li>
+        </ul>
+        <p class="disclaimer">
+          * Printed soft cover book is out now!
+        </p>
+        <a class="pure-button pure-button-primary" href="https://book.picheta.me/">Learn more</a>
+      </div>
+    </div>
   </div>
 </section>
 
 <section>
   <div class="content center-banner">
     <h2 class="section-heading">
-      <img height="100px" src="{{ site.baseurl }}/assets/img/piggy.svg"/>
+      <img height="100px" src="{{ site.baseurl }}/assets/img/piggy.svg" />
       Support Nim
     </h2>
     <h2 class="section-subheading">
-      Join the 100+ companies and individuals that support Nim        
+      Join the 100+ companies and individuals that support Nim
     </h2>
     <div class="pure-g center">
       <div class="pure-u-1-2">
@@ -182,7 +199,7 @@ echo("Average line length: ",
           <a class="pure-button pure-button-primary" href="{{ site.baseurl }}/donate.html">Donate</a>
         </div>
       </div>
-    </div>  
+    </div>
   </div>
 </section>
 
@@ -192,15 +209,15 @@ echo("Average line length: ",
     <div class="pure-g center">
       <div class="pure-u-2-3">
         {% for sponsor in site.data.sponsors %}
-          {% if sponsor.level == "250" %}
-            <div class="sponsor-container">
-              <a href="{{sponsor.url}}">
-                <img src="{{ site.baseurl }}{{sponsor.logo}}"/>
-                <span class="green tag">+${{sponsor.this_month}}/month</span>
-                <p class="title">{{sponsor.name}}</p>
-              </a>
-            </div>
-          {% endif %}
+        {% if sponsor.level == "250" %}
+        <div class="sponsor-container">
+          <a href="{{sponsor.url}}">
+            <img src="{{ site.baseurl }}{{sponsor.logo}}" />
+            <span class="green tag">+${{sponsor.this_month}}/month</span>
+            <p class="title">{{sponsor.name}}</p>
+          </a>
+        </div>
+        {% endif %}
         {% endfor %}
       </div>
     </div>
@@ -216,11 +233,11 @@ echo("Average line length: ",
       <div class="pure-u-1 pure-u-md-1-4">
         <h2>IRC/Gitter</h2>
         <h3>Real-time chat</h3>
-        <a href="irc://freenode.net/nim"><i class="fc fa-irc">#</i>FreeNode#nim</a><br/>
-        <a href="https://gitter.im/nim-lang/Nim"><i class="fab fa-gitter"></i>Gitter/Nim</a><br/>
-        <a href="https://discord.gg/ezDFDw2"><i class="fab fa-discord"></i>Discord/Nim</a><br/>
-        <a href="https://matrix.to/#/#freenode_#nim:matrix.org"><i class="fab i">m</i>#nim:matrix.org</a><br/>
-        <a href="https://irclogs.nim-lang.org"><i class="fc fa-irc">#</i>IRC Logs</a><br/>
+        <a href="irc://freenode.net/nim"><i class="fc fa-irc">#</i>FreeNode#nim</a><br />
+        <a href="https://gitter.im/nim-lang/Nim"><i class="fab fa-gitter"></i>Gitter/Nim</a><br />
+        <a href="https://discord.gg/ezDFDw2"><i class="fab fa-discord"></i>Discord/Nim</a><br />
+        <a href="https://matrix.to/#/#freenode_#nim:matrix.org"><i class="fab i">m</i>#nim:matrix.org</a><br />
+        <a href="https://irclogs.nim-lang.org"><i class="fc fa-irc">#</i>IRC Logs</a><br />
         <a href="https://t.me/nim_lang"><i class="fab fa-telegram"></i>Telegram/nim_lang</a>
       </div>
       <div class="pure-u-1 pure-u-md-1-4">
@@ -258,20 +275,20 @@ echo("Average line length: ",
 <section>
   <div class="content center-banner">
     <h2 class="section-heading">
-        <i class="fa fa-graduation-cap fa-2x" aria-hidden="true"></i>
-        Learn Nim today
-      </h2>
-      <div class="pure-g center">
-        <div class="pure-u-1-2">
-          <p>
-            Build command-line applications, games, web servers, kernels and everything
-            else in between. Nim has a low barrier to entry and offers powerful
-            features you won't find in many mainstream programming languages.
-          </p>
-        </div>
-        <div class="pure-u-1 center">
-          <a class="pure-button pure-button-primary" href="{{ site.baseurl }}/docs/tut1.html">Get started now</a>
-        </div>
+      <i class="fa fa-graduation-cap fa-2x" aria-hidden="true"></i>
+      Learn Nim today
+    </h2>
+    <div class="pure-g center">
+      <div class="pure-u-1-2">
+        <p>
+          Build command-line applications, games, web servers, kernels and everything
+          else in between. Nim has a low barrier to entry and offers powerful
+          features you won't find in many mainstream programming languages.
+        </p>
       </div>
+      <div class="pure-u-1 center">
+        <a class="pure-button pure-button-primary" href="{{ site.baseurl }}/docs/tut1.html">Get started now</a>
+      </div>
+    </div>
   </div>
 </section>
