@@ -7,7 +7,8 @@ The Nim team is happy to announce that the latest release of Nim,
 version 0.19.2, is now available. Nim is a systems programming language that
 focuses on performance, portability and expressiveness.
 
-This is a bugfix release of version 0.19.0. No new features or breaking changes.
+This is mostly a bugfix release of version 0.19.0.
+It adds RISC-V support and there are no breaking changes.
 The most important bugfixes are:
 
 - ``spawn`` can handle the empty seqs/strings that are internally
@@ -29,6 +30,11 @@ If you don't have it already, you can get ``choosenim`` by following
 [these instructions](https://github.com/dom96/choosenim) or you can install
 Nim by following the instructions on our
 [install](https://nim-lang.org/install.html) page.
+
+### Compiler changes
+
+- Added support for the RISC-V 64 bit architecture named riscv64
+(e.g. [HiFive](https://www.sifive.com/boards/hifive-unleashed))
 
 ### Bugfixes
 
