@@ -34,7 +34,7 @@ This allowed hiring two full-time developers, tasked with fixing bugs, respondin
 
 Version 0.19, [released in September](https://nim-lang.org/blog/2018/09/26/version-0190-released.html), took the crown from 0.18 as the biggest release yet, with more than new 1400 commits.
 
-The biggest change introduced is that the `nil` state for strings/seqs is gone -- the default value for these are `""` and `@[]` (an empty string, and an empty sequence, respectively).
+The biggest change introduced is that the `nil` state for strings and sequences is gone -- the default value for these are `""` and `@[]` (an empty string, and an empty sequence, respectively).
 This eliminates a large class of bugs that used to plague the average Nim code out there, including Nim’s standard library.
 
 Other notable additions include `func` as an alias for a procedure with no side effects, supporting `except` in the `export` statement, so called "for-loop macros", and so on.
@@ -48,7 +48,9 @@ These improvements will be part of 0.20 release, and some of them are already ba
 
 ## Nim in 2019
 
-The Nim team continues to work towards v1.0, which will mark the end of breaking changes to Nim.
+If you're interested into seeing and hearing what has been done in 2018 directly from the core developers, take a look at [Nim Development Blog 2018](https://www.youtube.com/watch?v=xUsAKstP-AQ) on Youtube.
+
+In 2019, the Nim team will continue to work towards v1.0, which will mark the end of breaking changes to Nim.
 We are focusing on the main areas shown in [Nim community survey 2018](https://nim-lang.org/blog/2018/10/27/community-survey-results-2018.html) as needed before Nim v1.0:
 * better documentation
 * better standard library
