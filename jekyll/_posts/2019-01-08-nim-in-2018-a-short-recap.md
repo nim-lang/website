@@ -14,10 +14,11 @@ The first week of February is reserved for FOSDEM, where members of Nim core dev
 
 ## Version 0.18
 
-In March 2018, [version 0.18 has been released](https://nim-lang.org/blog/2018/03/01/version-0180-released.html).
+In March 2018, [version 0.18](https://nim-lang.org/blog/2018/03/01/version-0180-released.html) has been released.
 With more than 1300 commits since the previous version, it was the biggest release of Nim so far.
 
-It introduced [`strformat` module](https://nim-lang.org/docs/strformat.html) with `fmt` and `&` operators for formatted string literals, and the ability to have testable documentation examples with `runnableExamples`.
+It introduced [`strformat` module](https://nim-lang.org/docs/strformat.html) with `fmt` and `&` operators for formatted string literals, the ability to have testable documentation examples with `runnableExamples`, and numerous `async` improvements.
+The new TLSF algorithm has been implemented to reduce memory fragmentation, which made `alloc` and `dealloc` O(1) operations.
 
 
 ## Partnership with Status.im
@@ -37,12 +38,13 @@ Version 0.19, [released in September](https://nim-lang.org/blog/2018/09/26/versi
 The biggest change introduced is that the `nil` state for strings and sequences is gone -- the default value for these are `""` and `@[]` (an empty string, and an empty sequence, respectively).
 This eliminates a major confusion-point for beginners, and make language more pleasant for everybody.
 
-Other notable additions include `func` as an alias for a procedure with no side effects, supporting `except` in the `export` statement, so called "for-loop macros", and more.
+It introduced `experimental` as a pragma and a command line switch that can enable specific language extensions (it is not an all-or-nothing switch, like before).
+Other notable additions include `func` as an alias for a procedure with no side effects, supporting `except` in the `export` statement, so called "for-loop macros", `async` working with exception handling (now it is possible to use await in a try statement), and more.
 
 
 ## Hacktoberfest
 
-In October our community participated in Hacktoberfest, resulting in impressive 275 closed issues and 160 merged pull requests.
+In October our community participated in Hacktoberfest, resulting in impressive 275 closed issues and 160 merged pull requests -- more detailed documentation, improved tests, general cleanup, and much more.
 These improvements will be part of 0.20 release, and some of them are already backported to the latest bugfix release -- [0.19.2](https://nim-lang.org/blog/2018/12/31/version-0192-released.html).
 
 
