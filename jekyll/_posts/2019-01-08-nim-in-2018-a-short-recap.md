@@ -3,7 +3,7 @@ title: "Nim in 2018: A short recap"
 author: The Nim Team
 ---
 
-There were several big news in the Nim world in 2018 -- two new major releases, partnership with Status, and so on.
+There were several big news in the Nim world in 2018 -- two new major releases, partnership with Status, and much more.
 But let us go chronologically.
 
 
@@ -37,7 +37,7 @@ Version 0.19, [released in September](https://nim-lang.org/blog/2018/09/26/versi
 The biggest change introduced is that the `nil` state for strings and sequences is gone -- the default value for these are `""` and `@[]` (an empty string, and an empty sequence, respectively).
 This eliminates a major confusion-point for beginners, and make language more pleasant for everybody.
 
-Other notable additions include `func` as an alias for a procedure with no side effects, supporting `except` in the `export` statement, so called "for-loop macros", and much more.
+Other notable additions include `func` as an alias for a procedure with no side effects, supporting `except` in the `export` statement, so called "for-loop macros", and more.
 
 
 ## Hacktoberfest
@@ -50,7 +50,9 @@ These improvements will be part of 0.20 release, and some of them are already ba
 
 If you're interested in seeing and hearing what has been done in 2018 directly from the core developers, take a look at [Nim Development Blog 2018](https://www.youtube.com/watch?v=xUsAKstP-AQ) on Youtube.
 
-In 2019, the Nim team will continue to work towards v1.0, which will mark the end of breaking changes to Nim.
+We have switched to a different release model, with a stable branch (currently that's v0.19.x) which receives bugfixes, it is aimed at daily usage, and Nimble package development should target this version; and a devel branch which will become a new major release -- v0.20, and serve as a release candidate for v1.0.
+
+In 2019, the Nim team will continue to work towards that goal, which will mark the end of breaking changes to Nim.
 We are focusing on the main areas shown in [Nim community survey 2018](https://nim-lang.org/blog/2018/10/27/community-survey-results-2018.html) as needed before Nim v1.0:
 * better documentation
 * better standard library
