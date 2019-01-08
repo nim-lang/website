@@ -18,7 +18,7 @@ In March 2018, [version 0.18](https://nim-lang.org/blog/2018/03/01/version-0180-
 With more than 1300 commits since the previous version, it was the biggest release of Nim so far.
 
 It introduced [`strformat` module](https://nim-lang.org/docs/strformat.html) with `fmt` and `&` operators for formatted string literals, the ability to have testable documentation examples with `runnableExamples`, and numerous `async` improvements.
-The new TLSF algorithm has been implemented to reduce memory fragmentation, which made `alloc` and `dealloc` O(1) operations.
+The TLSF algorithm has been implemented to reduce memory fragmentation, which made `alloc` and `dealloc` O(1) operations.
 
 
 ## Partnership with Status.im
@@ -59,7 +59,7 @@ We are focusing on the main areas shown in [Nim community survey 2018](https://n
 * better documentation
 * better standard library
 * stabilization
-* implementing destructors
+* implementing destructors and move semantics for a more flexible concurrency model and reduced memory usage
 
 Community help is, as always, welcome.
 Report [issues and bugs](https://github.com/nim-lang/nim/issues), make [pull requests](https://github.com/nim-lang/nim/pulls), consider [donating](https://nim-lang.org/donate.html) or becoming a [sponsor](https://nim-lang.org/sponsors.html).
