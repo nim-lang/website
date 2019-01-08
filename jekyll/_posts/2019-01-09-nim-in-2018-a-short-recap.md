@@ -36,10 +36,10 @@ This allowed hiring two full-time developers, tasked with fixing bugs, respondin
 Version 0.19, [released in September](https://nim-lang.org/blog/2018/09/26/version-0190-released.html), took the crown from 0.18 as the biggest release yet, with more than 1400 new commits.
 
 The biggest change introduced is that the `nil` state for strings and sequences is gone -- the default value for these are `""` and `@[]` (an empty string, and an empty sequence, respectively).
-This eliminates a major confusion-point for beginners, and make language more pleasant for everybody.
+This eliminates a major confusion-point for beginners, and makes Nim more pleasant for everybody.
 
-It introduced `experimental` as a pragma and a command line switch that can enable specific language extensions (it is not an all-or-nothing switch, like before).
-Other notable additions include `func` as an alias for a procedure with no side effects, supporting `except` in the `export` statement, so called "for-loop macros", `async` working with exception handling (now it is possible to use await in a try statement), and more.
+This version introduced `experimental` as a pragma and a command line switch that can enable specific language extensions (it is not an all-or-nothing switch, like before).
+Other notable additions include `func` as an alias for a procedure with no side effects, supporting `except` in the `export` statement, so called "for-loop macros", `async` working with exception handling (now it is possible to use `await` in a `try` statement), and more.
 
 
 ## Hacktoberfest
