@@ -29,8 +29,8 @@ navigation:
     url: /features.html
   - title: Download
     url: /install.html
-  - title: Learn
-    url: /learn.html
+  - title: Tutorials
+    url: /tutorials.html
   - title: Documentation
     url: /documentation.html
   - title: Forum
