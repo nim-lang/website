@@ -1,0 +1,1094 @@
+
+// Adjust anchor link location to not cover titles with header
+:target:before {
+  content: "";
+  display: block;
+  height: $menu-height;
+  margin: -$menu-height 0 0;
+}
+
+body {
+  background-color: $default-background-color;
+  color: $default-color;
+  font-size: $desktop-default-font-size;
+}
+
+// Gradient that will cause overflowing menu items to "fade"
+// See media query for actual declaration
+.menu-fade {
+  display: none; // Displayed only on small screens
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+}
+
+// Pure-friendly font-family setting
+// http://purecss.io/grids/#using-grids-with-custom-fonts
+html, button, input, select, textarea,
+.pure-g [class *= "pure-u"] {
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Titillium Web";
+}
+
+h1 {
+  margin-top: 50px;
+}
+
+h2 {
+  margin: 48px 0 16px 0;
+}
+
+a {
+  text-decoration: none;
+  color: $a-color;
+  &:hover, &:focus {
+    text-decoration: underline;
+    color: lighten($a-color, 10%);
+  }
+  &:active {
+    text-decoration: none;
+    color: darken($a-color, 10%);
+  }
+}
+
+figure.highlight {
+  code {
+    font-family: "Inconsolata", monospace;
+  }
+
+  pre {
+    padding: 10px;
+  }
+  /*background-color: #dfdfdf;*/
+  // background-color: #f6f9fa;
+  background-color: #f8f8f8;
+  border-radius: 2px;
+  margin: 0;
+  margin-bottom: 12pt;
+  font-size: 120%;
+  max-width: 100%;
+}
+
+.jumbotron {
+  figure.highlight {
+    padding: 25px;
+    margin-top: 4em;
+    background-color: $index-code-bg;
+  }
+}
+
+pre {
+  margin: 0;
+}
+
+.page-subtitle {
+  max-width: 600px;
+  margin: 0 auto;
+  padding-bottom: 10%;
+}
+
+hr {
+  border: 1px solid $hr-color;
+  margin: 25px 0;
+}
+
+.text-large {
+  font-size: 135%;
+}
+
+footer {
+  padding: 5px 0 5px 0;
+  margin-top: 75px;
+  font-size: 70%;
+  color: $footer-color;
+  border-top: 4px solid lighten($jumbotron-background-color, 30%);
+  background-color: $jumbotron-background-color;
+  a {
+    color: $a-footer-color;
+    &:hover, &:focus {
+      color: lighten($a-footer-color, 10%);
+    }
+    &:active {
+      color: darken($a-footer-color, 10%);
+    }
+  }
+
+  img {
+    height: 35px;
+  }
+
+  .right-center {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+}
+
+.background-faded {
+  background-color: $faded-background-color;
+}
+
+.copyright {
+  vertical-align: bottom;
+  color: #567;
+}
+
+// Styles that affect the whole menu
+.pure-menu.pure-menu-horizontal {
+  padding: 0;
+  z-index: 100;
+  line-height: 1;
+  background-color: $menu-background-color;
+
+  a {
+    color: $menu-color;
+  }
+
+  // Remove extraneous spacing between menu items
+  ul {
+    font-size: 0;
+  }
+
+  li {
+    font-size: $desktop-default-font-size;
+  }
+}
+
+.site-logo-container {
+  margin: 0 0 -2px 0 !important;
+}
+
+.pure-menu-heading {
+  text-transform: none;
+  font-weight: bold;
+}
+
+.menu-separator {
+  height: 30px;
+  margin: 0 10px -12px 10px;
+  display: inline-block;
+  width: 0;
+  border-left: 1px solid $menu-separator-color;
+}
+
+.news-item {
+  padding: 20px;
+  text-align: justify;
+
+  p {
+    margin: 0;
+  }
+}
+
+.content, .nav-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0pt 10pt;
+}
+
+.slim {
+  max-width: 800px;
+}
+
+.site-content > .content {
+  margin-bottom: 100px;
+}
+
+// Fix footer to stick to the bottom using flexbox.
+// Ref: https://css-tricks.com/couple-takes-sticky-footer/
+body.site {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+html {
+  height: 100%;
+}
+
+.site-content {
+  flex: 1;
+}
+
+.text-centered {
+  text-align: center;
+}
+
+a.pure-menu-link {
+  text-decoration: none;
+  padding: 17px 15px;
+  margin-top: -7px;
+  &:hover, &:focus, &.current {
+    background-color: rgba(255, 255, 255, .15);
+  }
+  &:active {
+    background-color: rgba(0, 0, 0, .15);
+  }
+}
+
+a.pure-menu-link.pure-menu-heading {
+  padding: 10px;
+  padding-left: 0;
+}
+
+.header-main {
+  margin: 0;
+}
+
+// Differently colored sections on front page.
+.main.jumbotron {
+  background-color: $main-jumbotron-background-color;
+}
+
+.jumbotron {
+  padding: 50px 0;
+  background-color: $jumbotron-background-color;
+  color: $jumbotron-color;
+
+  h1 {
+    font-size: 250%;
+    margin-bottom: 0;
+    margin-top: 16px;
+    color: $highlight-color;
+  }
+
+  h2 {
+    margin-top: 16px;
+    font-size: 150%;
+  }
+
+  li {
+    list-style-type: none;
+
+    &::before {
+      content: "» ";
+      font-weight: bold;
+      margin-right: 8px;
+      color: $highlight-color;
+    }
+  }
+
+  a {
+    color: $a-dark-color;
+    &:hover, &:focus {
+      color: lighten($a-dark-color, 10%);
+    }
+    &:active {
+      color: darken($a-dark-color, 10%);
+    }
+  }
+}
+
+.pure-g > div {
+  box-sizing: border-box;
+}
+
+.center-banner > .section-heading {
+  i.fa, i.fab, i.far, img {
+    width: 100%;
+  }
+}
+
+.center-banner {
+  text-align: center;
+}
+
+.version-button {
+  font-size: 80%;
+  background-color: $index-code-bg;
+  padding: 5pt 10pt;
+  border-radius: 5px;
+
+  &:hover, &:focus, &:active {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+// The left part of the main page jumbotron
+.main-block {
+  padding-right: 30px;
+}
+
+.hljs {
+  padding-left: 20px;
+}
+
+// For FAQ and news post content
+.width-reduced {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+// For the news list
+.post-meta {
+  margin: 5pt 0;
+  color: #888;
+
+  span {
+    display: block;
+  }
+}
+
+h1.post-title {
+  margin-bottom: 0;
+}
+
+.post-page .post-meta {
+  margin-top: 0;
+  margin-bottom: 20pt;
+
+  span {
+    display: inline;
+    margin-right: 10pt;
+  }
+}
+
+.news-item h2 {
+  font-size: 140%;
+  margin: 0;
+}
+
+/*doc
+---
+title: Main Heading
+name: .main-heading
+category: typography
+---
+```html_example
+    <h1 class='main-heading'>Main Heading</h1>
+```
+*/
+.main-heading {
+  text-align: center;
+  font-size: 250%;
+  margin-top: 0;
+}
+
+/*doc
+---
+title: Section Heading
+name: .section-heading
+category: typography
+---
+```html_example
+    <h1 class='section-heading'>Section Heading</h1>
+```
+*/
+.section-heading {
+  @extend .main-heading;
+  margin-top: 50px;
+}
+
+.section-subheading {
+  text-align: center;
+
+  line-height: 0;
+  margin: 52px 0 48px 0;
+
+  // https://css-tricks.com/line-on-sides-headers/
+  span {
+    display: inline-block;
+    position: relative;
+  }
+
+  span:before, span:after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    border-bottom: 1px solid grey;
+    border-top: 1px solid grey;
+    top: 0;
+    width: 23em;
+  }
+
+  span:before {
+    right: 100%;
+    margin-right: 15px;
+  }
+
+  span:after {
+    left: 100%;
+    margin-left: 15px;
+  }
+}
+
+/* AsciiDoc styles */
+
+.content img {
+  max-width: 100%;
+}
+
+.listingblock {
+  margin-bottom: 5pt;
+}
+
+.listingblock .title {
+  padding: 2.8pt 10pt;
+  background-color: #73a3c4;
+  color: white;
+}
+
+.admonitionblock {
+  border-top: 2px solid #e9e9e9;
+  border-bottom: 2px solid #e9e9e9;
+  padding: 10pt 0;
+}
+
+.imageblock {
+  margin-top: 15pt;
+}
+
+.imageblock .title, .tableblock .title {
+  font-weight: bold;
+  padding-left: 10pt;
+  color: #656565;
+}
+
+.sidebarblock {
+  background-color: #f8f7ea;
+  padding: 10pt 0;
+
+  .title {
+    font-weight: bold;
+  }
+}
+
+i.conum {
+  margin-left: 10pt;
+  margin-right: 10pt;
+}
+
+// Taken from asciidoctor-default.css
+.conum[data-value]{display:inline-block;color:#fff!important;background-color:rgba(0,0,0,.8);-webkit-border-radius:100px;border-radius:100px;text-align:center;font-size:.75em;width:1.67em;height:1.67em;line-height:1.67em;font-family:"Open Sans","DejaVu Sans",sans-serif;font-style:normal;font-weight:bold}
+.conum[data-value] *{color:#fff!important}
+.conum[data-value]+b{display:none}
+.conum[data-value]:after{content:attr(data-value)}
+
+span.icon>.fa {
+  cursor: default;
+}
+.admonitionblock td.icon {
+  text-align: center;
+  width: 80px;
+}
+.admonitionblock td.icon [class^="fa icon-"] {
+  font-size: 2.5em;
+  cursor: default;
+}
+.admonitionblock td.icon .icon-note:before {
+  content: "\f05a";
+  color: #19407c;
+}
+.admonitionblock td.icon .icon-tip:before {
+  content: "\f0eb";
+  //text-shadow: 1px 1px 2px rgba(155,155,0,.8);
+  color: #111;
+}
+.admonitionblock td.icon .icon-warning:before {
+  content: "\f071";
+  color: #bf6900;
+}
+.admonitionblock td.icon .icon-caution:before {
+  content: "\f06d";
+  color: #bf3400;
+}
+.admonitionblock td.icon .icon-important:before {
+  content: "\f06a";
+  color: #bf0000;
+}
+
+/* Community section */
+
+.fa-irc {
+  font-family: Courier, monospace, Arial;
+  color: black;
+
+  display: inline-block;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+}
+
+.fa-gitter.black {
+  color: black;
+}
+
+#community {
+  .fa, .fc, .fab {
+    margin-right: 5pt;
+    font-size: 175%;
+    vertical-align: middle;
+  }
+
+  .fa-gitter {
+    font-size: 150%;
+    margin-bottom: 5pt;
+  }
+
+  .fa-irc {
+    color: inherit;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  ul {
+    padding: 0;
+  }
+
+  .pure-u-1 {
+    padding: 0 20pt;
+  }
+}
+
+.page-title {
+  padding-top: 40px; // This needs to be a padding, else the whole menu is vertically offset
+}
+
+.post-date {
+  margin-top: -40px;
+  margin-bottom: 40px;
+}
+
+.feed-rss {
+  text-align: center;
+}
+
+.pure-button {
+  padding: 12px 24px;
+}
+
+.pure-menu-heading {
+  float: left; // Correct navbar/logo display on Firefox
+}
+
+.pure-menu-list {
+  float: right;
+  padding-top: 7px; // HACK: Move down menu items slightly, because `float: right` makes them go up
+}
+
+/*doc
+---
+title: Pure Button
+name: pure button
+category: base
+---
+```html_example
+    <a class='pure-button'>Click Me</a>
+```
+*/
+a.pure-button {
+  background-color: #ccc;
+  margin: 15px 10px;
+  color: $default-color;
+  text-decoration: none;
+  // Undo some Pure styles
+  &:hover, &:focus, &:active {
+    box-shadow: none;
+    background-image: none;
+  }
+  &:hover, &:focus {
+    background-color: darken(#ccc, 10%);
+    color: $default-color;
+  }
+  &:active {
+    background-color: darken(#ccc, 10%);
+    color: $default-color;
+  }
+}
+
+/*doc
+---
+title: Primary Button
+name: primary button
+category: base
+---
+```html_example
+    <a class='pure-button pure-button-primary'>Click Me</a>
+```
+*/
+a.pure-button.pure-button-primary {
+  background-color: $highlight-color;
+  color: $default-color;
+  &:hover, &:focus {
+    background-color: darken($highlight-color, 10%);
+    color: $default-color;
+  }
+  &:active {
+    background-color: darken($highlight-color, 10%);
+    color: $default-color;
+  }
+}
+
+section#book img {
+  border: 1px solid #272935;
+  max-width: 80%;
+  height: auto;
+  display: block;
+}
+
+span.disclaimer {
+  color: $highlight-color;
+}
+
+p.disclaimer {
+  font-size: 60%;
+  color: $hr-color;
+}
+
+// Styles for the donations section.
+section#donations {
+  .main-block h1 {
+      margin: 0;
+  }
+
+  .fa-heart {
+      color: #ea4c2a;
+      font-size: 70%;
+      padding-right: 6pt;
+  }
+
+  .pure-u-md-2-5 {
+      background: radial-gradient(50% 56%, #cceaff, #fff);
+  }
+
+  #sponsors-list {
+    margin-bottom: 48px;
+  }
+
+  #sponsors-list a {
+    margin-right: 20pt;
+    text-align: center;
+  }
+
+  #sponsors-list img {
+      height: 100px;
+      display: block;
+      margin-bottom: 10pt;
+    }
+}
+
+.center {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+/* Style for the featured projects section */
+
+.feature-projects {
+  .pure-u-1-3, .pure-u-md-1-3 {
+    align-self: flex-start;
+  }  
+}
+
+.project-container {
+  h2 {
+    margin: 0;
+  }
+  .tag {
+    font-size: 52%;
+    background-color: $index-code-bg;
+    color: white;
+    border-radius: 2px;
+    padding: 2pt 5pt;
+    white-space: nowrap;
+  }
+}
+
+.project-container, .sponsor-container {
+  display: inline-block;
+  margin-right: 15pt;
+  margin-top: 15pt;
+  margin-bottom: 15pt;
+
+  a {
+    
+    &:hover, &:focus {
+      .title {
+        text-decoration: underline;
+        color: $default-color;
+      }
+    }
+    &:active {
+      .title {
+        text-decoration: none;
+        color: $default-color;
+      }
+    }
+  }
+}
+
+.project-box {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.project-box > h1 {
+  background-color: #3d3d3d;
+  width: 50px;
+  height: 50px;
+  color: white;
+  line-height: 1.3;
+}
+
+#karax {
+  background-image: url("https://www.gravatar.com/avatar/6275fdd9f48ec9184c5d6511d525c563?s=100&d=identicon");
+}
+
+#nimbus {
+  background-image: url("https://www.gravatar.com/avatar/6275fdd8f48eew184c5c6511d525c563?s=100&d=identicon");
+}
+
+#reelvalley {
+  background-image: url("{{ site.baseurl }}/assets/img/reelvalley.jpg");
+}
+
+// Styles for the donate section.
+
+.green.tag {
+  background-color: #03ab1e;
+  font-size: 60%;
+}
+
+.sponsor-container {
+  width: 160pt;
+  font-size: 90%;
+  margin-right: 20pt;
+
+  img {
+    width: 150px;
+  }
+}
+
+// Styles for the features page.
+
+div.image {
+  margin-top: 80px;
+
+  img {
+    height: auto;
+    max-width: 90%;
+    display: block;
+  }
+
+  p {
+    font-size: 9pt;
+  }
+}
+
+div.image.right {
+  text-align: right;
+
+  img {
+    margin-left: auto;
+  }
+}
+
+div.code-align {
+  h1:first-child, h2:first-child, h3:first-child {
+    margin-top: 0;
+  }
+}
+
+.pure-u-1.center > img {
+    margin-bottom: 50px;
+}
+
+.features {
+  .fa-windows, .fa-linux, .fa-apple {
+    margin-right: 20pt;
+  }
+}
+
+.call-to-action {
+  font-size: 125%;
+  padding: 20px 0 60px 0;
+}
+
+.content.ffi {
+  figure.highlight {
+    margin: 20pt 0;
+  }
+}
+
+// Styles for the install page.
+
+.os-box {
+  i {
+    float: left;
+  }
+  .links {
+    display: inline;
+
+    span {
+      display: block;
+    }
+  }
+
+}
+
+.os-pickers {
+  text-align: center;
+
+  h2 {
+    margin-top: 20pt;
+  }
+
+  a {
+    text-decoration: none;
+    color: $default-color;
+    &:hover, &:focus {
+      h2 {
+        text-decoration: underline;
+        color: $default-color;
+      }
+    }
+    &:active {
+      h2 {
+        text-decoration: none;
+        color: $default-color;
+      }
+    }
+  }
+
+  @media (max-width: 850px) {
+    div {
+      margin-right: 5pt; // Fix for small resolutions.
+    }
+  }
+}
+
+.os-picker-box {
+  background-color: $index-code-bg;
+  color: white;
+  padding: 40pt;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  height: 100pt;
+  width: 100pt;
+
+  i {
+    font-size: 500%;
+  }
+
+  i.fa-windows {
+    font-size: 800%;
+  }
+
+  i.fa-apple {
+    margin-right: 15pt;
+  }
+
+}
+
+.download-button {
+  width: 200pt;
+}
+
+// Styles for community page.
+
+.community, .donate {
+  .fa, .fab, .fc {
+    font-size: 160%;
+    vertical-align: middle;
+    text-align: center;
+    margin-right: 5pt;
+  }
+
+}
+
+.fa.li, .fab.li, .fc.li {
+  margin-left: 15pt;
+
+}
+
+// Styles for the sponsors page.
+
+.sponsors, .donate {
+  .call-to-action {
+    margin-top: 0;
+  }
+
+  span.tag {
+    font-size: 60%;
+    width: 200px;
+  }
+
+  table {
+    font-size: 140%;
+    width: 100%;
+  }
+}
+
+table.tableblock, div.content > table {
+  font-size: 90%;
+  thead > tr {
+    background-color: $faded-background-color;
+    border-bottom: 4px solid darken($faded-background-color, 30%);
+  }
+
+  th {
+    padding: 10pt;
+    text-align: left;
+  }
+
+  td {
+    padding-top: 5pt;
+    padding-bottom: 5pt;
+    padding-left: 10pt;
+    padding-right: 10pt;
+    border-bottom: 2px solid $faded-background-color;
+
+    height: 50px;
+  }
+
+  td.name, th.name {
+    width: 250px;
+  }
+
+  td img {
+    height: 50px;
+  }
+}
+
+// Styles for documentation page.
+
+.documentation {
+  div.pure-u-1 {
+    padding-right: 10pt;
+  }
+}
+
+// Misc.
+
+blockquote {
+  background-color: #efefef;
+  padding: 1pt 6pt;
+  border-left: 2px solid #7d7d7d;
+}
+
+// Styles that apply only to medium-sized screens (small laptops for example)
+@media (max-width: 1370px) {
+  body {
+    font-size: $mobile-default-font-size;
+    //margin-top: $menu-height * $mobile-default-font-size / $desktop-default-font-size;
+  }
+
+  .pure-menu.pure-menu-horizontal {
+
+    li {
+      font-size: $mobile-default-font-size;
+    }
+  }
+
+  a.pure-menu-link {
+    margin-top: -7px;
+  }
+
+  .site-logo {
+    height: 25px;
+    padding-left: 4px;
+  }
+
+  .menu-separator {
+    margin: 0 5px -12px 5px;
+  }
+
+  .pure-menu-list {
+    padding-right: 110px;
+  }
+}
+
+// Styles that apply only to narrow screens (typically mobile devices)
+@media (max-width: 1023px) {
+  .jumbotron .pure-u-1 {
+    margin-bottom: 50px;
+  }
+
+  .jumbotron h1 {
+    margin-top: 0;
+  }
+
+  .post-meta {
+    margin-bottom: -5px;
+  }
+}
+
+// Styles that apply only to very narrow screens (usually smartphones)
+@media (max-width: 767px) {
+  .content {
+    margin: 0 2.5%;
+  }
+
+  footer img {
+    height: 25px;
+  }
+
+  section#book img {
+    max-width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .pure-menu.pure-menu-horizontal {
+    position: fixed;
+  }
+
+  .pure-menu-list {
+    float: none;
+    padding-right: 0px;
+  }
+
+  .menu-fade {
+    display: block; // Restore display
+    height: $menu-height * $mobile-default-font-size / $desktop-default-font-size + 2px;
+    width: $menu-fade-width;
+    position: fixed;
+    pointer-events: none;
+    right: 0;
+    top: 0;
+    background: linear-gradient(to right, transparent, $menu-background-color);
+  }
+
+  .page-title {
+    // Compensate for the fixed header.
+    padding-top: 70px;
+  }
+
+  // Hacky
+
+  .hackytable tr>td:first-child {
+    display: none;
+  }
+
+  .ribbon {
+    display: none;
+  }
+}
+
+// IE 10 & 11
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  // Fix the footer.
+  body {
+    height: 100%;
+    display: block;
+    min-height: auto;
+  }
+
+  .site-content {
+    height: 100%;
+  }
+}
