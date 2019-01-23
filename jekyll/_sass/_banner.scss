@@ -3,6 +3,16 @@ $banner-color: #fff;
 $banner-min-height: 35px;
 $banner-top-padding: 5px;
 
+/*doc
+---
+title: Banner
+name: banner
+category: component
+---
+```html_example
+    <section class='banner'></section>
+```
+*/
 .banner {
   transition: .15s background-color;
   background-color: $banner-background-color;

@@ -6,6 +6,16 @@
   text-align: justify;
 }
 
+/*doc
+---
+title: Call To Action
+name: .call-to-action
+category: base
+---
+```html_example
+    <button class='call-to-action'>Click Me</button>
+```
+*/
 .call-to-action {
   font-size: 125%;
   padding: 20px 0 60px 0;
