@@ -8,6 +8,9 @@ GEM
     colorator (1.1.0)
     ffi (1.9.18)
     forwardable-extended (2.6.0)
+    hologram (1.4.0)
+      redcarpet (>= 2.2, < 4.0)
+      rouge (>= 1.5)
     jekyll (3.4.3)
       addressable (~> 2.4)
       colorator (~> 1.0)
@@ -41,6 +44,7 @@ GEM
     rb-fsevent (0.9.8)
     rb-inotify (0.9.8)
       ffi (>= 0.5.0)
+    redcarpet (3.4.0)
     rouge (1.11.1)
     safe_yaml (1.0.4)
     sass (3.4.24)
@@ -50,9 +54,10 @@ PLATFORMS
 
 DEPENDENCIES
   coderay (~> 1.1.0)
+  hologram
   jekyll (~> 3.3, >= 3.3.1)
   jekyll-asciidoc
   pygments.rb
 
 BUNDLED WITH
-   1.15.0
+   1.16.5
