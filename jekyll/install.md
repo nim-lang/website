@@ -38,13 +38,12 @@ css_class: install
     <div class="pure-g center">
       <div class="pure-u-1-2">
         <p>
-          We currently don't offer nightly builds, but you can easily build the
-          latest development version of Nim yourself. Just follow the
-          instructions in Nim's GitHub readme.
+          We offer nightly builds both for the cutting-edge devel branch and
+          for backports to our stable branch.
         </p>
       </div>
       <div class="pure-u-1 center">
-        <a class="pure-button" href="https://github.com/nim-lang/Nim#compiling">See instructions</a>
+        <a class="pure-button" href="https://github.com/nim-lang/nightlies/releases">Get nightlies</a>
       </div>
     </div>
   </section>
