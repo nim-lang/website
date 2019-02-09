@@ -76,4 +76,5 @@ to use Nim. They include:
 * OpenSSL
 
 Windows users can download the DLLs for these
-[here]({{ site.baseurl }}/download/dlls.zip).
+[here]({{ site.baseurl }}/download/dlls.zip).  Place the DLLs in the same
+directory as `nim.exe`.
