@@ -28,23 +28,3 @@ css_class: install
     </div>
   </div>
 </div>
-
-<section class="background-faded call-to-action">
-  <section class="content text-centered center-banner">
-    <h1 class="section-heading">
-      <i class="far fa-moon fa-2x" aria-hidden="true"></i>
-      Want a nightly build?
-    </h1>
-    <div class="pure-g center">
-      <div class="pure-u-1-2">
-        <p>
-          We offer nightly builds both for the cutting-edge devel branch and
-          for backports to our stable branch.
-        </p>
-      </div>
-      <div class="pure-u-1 center">
-        <a class="pure-button" href="https://github.com/nim-lang/nightlies/releases">Get nightlies</a>
-      </div>
-    </div>
-  </section>
-</section>
