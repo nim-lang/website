@@ -34,6 +34,14 @@ current: Install
   </a>
 </div>
 
+<div class="center">
+  <a class="pure-button" 
+      href="https://github.com/nim-lang/nightlies/releases">
+  Browse Nightly Sources
+  </a>
+</div>
+
+
 # Notes about binary installation
 
 The installation using the provided zip files should be fairly
