@@ -126,7 +126,7 @@ or download a tarball:
   </a>
   <a class="pure-button" 
       href="https://github.com/nim-lang/nightlies/releases">
-  Browse Nightly Sources
+  Browse Compiled Nightlies
   </a>
 </div>
 
