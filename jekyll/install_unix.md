@@ -10,18 +10,45 @@ current: Install
 There are several ways to install Nim on Unix-like systems, depending on
 your needs:
 
-* If you just want to use the stable version of Nim, you may find it simplest
-  to use your system's package manager.
+* [Installing with ``choosenim``](#installing-with-choosenim) is the best choice
+  for most Nim programmers on Unix. It provides the latest stable or nightly
+  version of Nim and makes it easy to upgrade or switch versions.
 
-* If you want to easily switch between versions of Nim,
-  including switching between the stable version and the development
-  nightlies, you may prefer ``choosenim``.
+* [Installing with your system's package
+  manager](#installing-with-your-systems-package-manager) may be simplest if you
+  just want to use a stable version of Nim. However, Nim is still pre-1.0 and
+  Nim development is moving fast, so make sure your package manager provides the
+  latest stable version.
 
-* If you want to contribute to the Nim project, or if you are using Nim on
-  a less well supported platform, you may want a manual installation from
-  source.
+* [Building from source](#building-from-source) is best if you want to
+  contribute to the Nim project, or if you are using Nim on a less well
+  supported platform.
 
-# Installation using package managers
+# Installing with ``choosenim``
+
+[``choosenim``](https://github.com/dom96/choosenim#choosenim) is an
+installer for the Nim programming language. It allows you
+to easily switch between versions of Nim, including the latest stable
+release or the latest development version.
+
+Run the following in your terminal, then follow the onscreen instructions:
+
+```bash
+curl https://nim-lang.org/choosenim/init.sh -sSf | sh
+```
+
+Then you can easily switch between different versions of Nim:
+
+```
+$ choosenim stable
+   Switched to Nim 0.19.2
+$ choosenim devel
+   Switched to Nim #devel
+```
+
+For more information, see ``choosenim --help``.
+
+# Installing with your system's package manager
 
 ## Arch Linux
 
@@ -84,33 +111,9 @@ zypper in nim
 xbps-install -S nim
 ```
 
-# Installation using ``choosenim``
+# Building from source
 
-[``choosenim``](https://github.com/dom96/choosenim#choosenim) is an
-installer for the Nim programming language. It allows you
-to easily switch between versions of Nim, whether that is the latest stable
-release or the latest development version.
-
-Run the following in your terminal, then follow the onscreen instructions:
-
-```bash
-curl https://nim-lang.org/choosenim/init.sh -sSf | sh
-```
-
-Then you can easily switch between different versions of Nim:
-
-```
-$ choosenim stable
-   Switched to Nim 0.19.2
-$ choosenim devel
-   Switched to Nim #devel
-```
-
-For more information, see ``choosenim --help``.
-
-# Manual installation from source
-
-You can check out Nim's source [from GitHub](https://github.com/nim-lang/Nim) 
+You can check out Nim's source [from GitHub](https://github.com/nim-lang/Nim)
 or download a tarball:
 
 <div class="center">

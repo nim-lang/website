@@ -788,7 +788,13 @@ div.code-align {
   }
 }
 
-// Styles for the install page.
+// Styles for the download page.
+
+.download {
+  .content {
+    font-size: 125%;
+  }
+}
 
 .os-box {
   i {
@@ -806,6 +812,7 @@ div.code-align {
 
 .os-pickers {
   text-align: center;
+  margin-top: 30pt;
 
   h2 {
     margin-top: 20pt;
