@@ -8,6 +8,30 @@ current: Install
 
 <h1 class="text-centered page-title main-heading">Install Nim on Windows</h1>
 
+# Installation using ``choosenim``
+
+[``choosenim``](https://github.com/dom96/choosenim#choosenim) is an
+installer for the Nim programming language. It allows you
+to easily switch between versions of Nim, whether that is the latest stable
+release or the latest development version.
+
+# Install Nim using Scoop
+[Scoop](https://scoop.sh/) is a command-line installer for Windows.
+It can install Nim with following command line that also automatically install gcc and set PATH.
+
+```
+scoop install nim
+```
+
+Update Nim:
+
+```
+scoop update
+scoop update nim
+```
+
+# Manual installation
+
 <div class="center">
   <a href="{{ site.baseurl }}/download/nim-{{ site.nim_version }}_x32.zip"
     class="pure-button pure-button-primary download-button">
