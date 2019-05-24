@@ -9,22 +9,55 @@ title: Nim programming language
       <div class="pure-u-1 pure-u-md-3-5 main-block">
         <h1>Efficient and expressive programming.</h1>
         <h2>
-            Nim is a systems and applications programming language.
-            Statically typed and compiled, it provides unparalleled performance
-            in an elegant package.
+          Nim is a statically typed, compiled, garbage-collected systems programming language
+          with a design that focuses on efficiency, expressiveness,
+          and elegance, providing unparalleled
+          performance in an elegant package.
         </h2>
-        <ul>
-          <li>High-performance garbage-collected language</li>
-          <li>Compiles to C, C++ or JavaScript</li>
-          <li>Produces dependency-free binaries</li>
-          <li>Runs on Windows, macOS, Linux, and more</li>
-        </ul>
+          <h3>
+            Nim is ...
+          </h3>
+          <ul>
+            <h3>Efficient</h3>
+            <li>Native code generation, not dependent on a virtual machine:
+                Nim produces <b>small executables without dependencies</b> for easy redistribution.</li>
+            <li>The Nim Compiler runs on Windows, Linux, BSD and Mac OS X. Porting to other platforms is easy.</li>
+            <li>Compiles to C, C++ or JavaScript.</li>
+            <li>Offers hot code reloading.</li>
+            <li>A fast non-tracing garbage collector that supports soft real-time systems (like games).</li>
+            <li>Ability to manage your own memory and access the hardware directly.</li>
+            <li>Pointers to garbage collected memory are distinguished from pointers to manually managed memory.</li>
+            <li>Zero-overhead iterators.</li>
+            <li>Cross-module inlining.</li>
+            <li>Compile time evaluation of user-defined functions.</li>
+            <li>Whole program dead code elimination: Only used functions are included in the executable.</li>
+            <li>Value-based datatypes: For instance, objects and arrays are allocated on the stack.</li>
+          </ul>
+          <ul>
+            <h3>Expressive</h3>
+            <li>The Nim compiler and all of the standard library are <b>implemented in Nim.</b></li>
+            <li>Built-in high level datatypes: strings, sets, sequences, etc.</li>
+            <li>Modern type system with local type inference, tuples, variants, generics, etc.</li>
+            <li>User-defineable operators; code with new operators is often easier to read
+                than code which overloads built-in operators.</li>
+          </ul>
+          <ul>
+            <h3>Elegant</h3>
+            <li>Powerful AST-based hygienic macro system.</li>
+            <li>Macros can use the imperative paradigm to construct parse trees.</li>
+            <li>Nim does not require a different coding style for meta programming.</li>
+            <li>Macros cannot change Nim's syntax because there is no need for it.
+                Nim's syntax is flexible enough.</li>
+            <li>Statements are grouped by indentation but can span multiple lines.</li>
+            <li>Indentation must not contain tabulators so the compiler always sees the code the same way as you do.</li>
+          </ul>
+
         <div class="text-centered">
-          <!--<a class="version-button" href="#todo">v0.17.0</a>-->
           <a class="pure-button pure-button-primary" href="{{ site.baseurl }}/install.html">Install</a>
-          <a class="pure-button" href="{{ site.baseurl }}/features.html">Learn more</a>
+          <a class="pure-button" href="{{ site.baseurl }}/learn.html">Learn Nim</a>
         </div>
       </div>
+
       <div class="pure-u-1 pure-u-md-2-5">
         {% highlight nim %}
 # Compute average line length
@@ -39,13 +72,47 @@ for line in stdin.lines:
 echo("Average line length: ",
      if count > 0: sum / count else: 0)
 {% endhighlight %}
+
+        {% highlight nim %}
+import strformat
+
+type
+  Person = object
+    name: string
+    age: Natural # ensures the age is positive
+
+let people = [
+  Person(name: "John", age: 45),
+  Person(name: "Kate", age: 30)
+]
+
+for person in people:
+  # Type-safe string interpolation.
+  echo(fmt"{person.name} is {person.age} years old")
+{% endhighlight %}
+
+          {% highlight nim %}
+import macros, strutils
+
+macro toEnum(words: static[string]): untyped =
+  result = newTree(nnkEnumTy, newEmptyNode())
+  for w in words.splitWhitespace:
+    result.add ident(w)
+
+type
+  Color = toEnum"Red Green Blue Indigo"
+
+var color = Indigo
+{% endhighlight %}
+
         <div class="text-centered">
           <a href="http://rosettacode.org/wiki/Category:Nim">More examples at RosettaCode…</a>
         </div>
-      </div>
+
     </div>
   </section>
 </section>
+
 <section class="content">
   <h1 class="section-heading">Recent articles</h1>
   <div class="pure-g">
@@ -71,9 +138,9 @@ echo("Average line length: ",
 
 <section class="background-faded call-to-action feature-projects">
   <section class="content">
-    <h1 class="text-centered">Featured projects</h1>
+    <h1 class="section-heading">Featured projects</h1>
     <div class="pure-g center">
-      <div class="pure-u-1-1 pure-u-md-1-3">
+      <div class="pure-u-1-1 pure-u-md-1-2">
         <div class="project-container">
           <h2>
             <a href="https://github.com/pragmagic/karax">Karax</a>
@@ -88,7 +155,7 @@ echo("Average line length: ",
         </div>
       </div>
 
-      <div class="pure-u-1-1 pure-u-md-1-3">
+      <div class="pure-u-1-1 pure-u-md-1-2">
         <div class="project-container">
           <h2>
             <a href="https://github.com/status-im/nimbus">Nimbus</a>
@@ -116,11 +183,11 @@ echo("Average line length: ",
   </h1>
   <div class="pure-g center">
     <div class="pure-u-1-2">
-      <p>
+      <h3>
         Build command-line applications, games, web servers, kernels and everything
         else in between. Nim has a low barrier to entry and offers powerful
         features you won't find in many mainstream programming languages.
-      </p>
+      </h3>
     </div>
     <div class="pure-u-1 center">
       <a class="pure-button" href="{{ site.baseurl }}/learn.html">Get started now</a>
@@ -135,15 +202,15 @@ echo("Average line length: ",
         <img height="470px" class="pure-img" src="{{ site.baseurl }}/assets/img/nim_in_action_cover.jpg"/>
       </div>
       <div class="pure-u-1 pure-u-md-3-5 main-block">
-        <h1>Now available.</h1>
-        <h2>
+        <h1>Nim in Action</h1>
+        <h3>
           The first Nim book, Nim in Action, is now available for purchase as
-          an eBook or printed soft cover book.<span class="disclaimer">*</span>
+          an eBook or printed soft cover book.
           Learn the basics such as Nim's
           syntax and advanced features including macros, and gain practical
           experience with the language by being led through multiple
           application development examples.
-        </h2>
+        </h3>
         <ul>
           <li>Teaches the basics including the syntax of Nim.</li>
           <li>Explains how to use the Nimble package manager.</li>
@@ -153,9 +220,6 @@ echo("Average line length: ",
             a Twitter clone and more.
           </li>
         </ul>
-        <p class="disclaimer">
-          * Printed soft cover book is out now!
-        </p>
         <a class="pure-button pure-button-primary" href="https://book.picheta.me/">Learn more</a>
       </div>
     </div>
@@ -170,11 +234,11 @@ echo("Average line length: ",
   <div class="pure-g center">
     <div class="pure-u-1-2">
       <h1>Join the 100+ companies and individuals that support Nim</h1>
-      <h2>
+      <h3>
         The Nim project is developed globally by a group of
         volunteers. We welcome recurring donations, which enable us to spend more
         time working on Nim.
-      </h2>
+      </h3>
     </div>
     <div class="pure-u-1 center">
       <a class="pure-button pure-button-primary" href="{{ site.baseurl }}/donate.html">Donate</a>
@@ -184,9 +248,9 @@ echo("Average line length: ",
 
 <section class="background-faded call-to-action">
   <section class="content text-centered">
-    <h2>Top sponsors</h2>
+    <h1>Top sponsors</h1>
     <div class="pure-g center">
-      <div class="pure-u-2-3">
+      <div class="pure-u-1-2">
         {% for sponsor in site.data.sponsors %}
           {% if sponsor.level == "250" %}
             <div class="sponsor-container">
@@ -258,12 +322,12 @@ echo("Average line length: ",
   </h1>
   <div class="pure-g center">
     <div class="pure-u-1-2">
-      <p>
+      <h3>
         The Nim compiler and tools are all written in Nim and licensed under the
         MIT license, with most development taking place on GitHub.
         Be sure to watch the repository to get updates on Nim's
         development, or star it to give us some brownie points.
-      </p>
+      </h3>
     </div>
     <div class="pure-u-1 center">
       <a class="pure-button" href="https://github.com/nim-lang/Nim">Source code</a>

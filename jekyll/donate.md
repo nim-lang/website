@@ -12,7 +12,7 @@ css_class: donate
 
 <section class="background-faded call-to-action">
   <section class="content text-centered">
-    <h2>BountySource</h2>
+    <h1>BountySource</h1>
     <div class="pure-g center">
       <div class="pure-u-1-2">
         <p>
