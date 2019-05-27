@@ -65,11 +65,11 @@ a {
 figure.highlight {
   code {
     font-family: "Inconsolata", monospace;
-    font-size: 0.8em;
+    font-size: 0.9em;
   }
 
   pre {
-    padding: 10px;
+    padding: 8px;
   }
   /*background-color: #dfdfdf;*/
   // background-color: #f6f9fa;
@@ -81,16 +81,12 @@ figure.highlight {
   max-width: 100%;
 }
 
-.jumbotron {
-  figure.highlight {
-    padding: 5px;
-    margin-top: 1.5em;
-    background-color: $index-code-bg;
-  }
-}
-
 pre {
   margin: 0;
+}
+
+ul {
+  padding-inline-start: 20px;
 }
 
 .page-subtitle {
@@ -261,17 +257,18 @@ a.pure-menu-link.pure-menu-heading {
   h1 {
     font-size: 225%;
     margin-bottom: 0;
-    margin-top: 16px;
+    margin-top: 0;
     color: $highlight-color;
   }
 
   h2 {
     font-size: 150%;
+    margin-top: 20px;
   }
 
   h3 {
     font-size: 133%;
-    margin-top: 2em;
+    margin-top: 1.5em;
   }
 
   li {
@@ -296,6 +293,14 @@ a.pure-menu-link.pure-menu-heading {
       color: darken($a-dark-color, 10%);
     }
   }
+
+  figure.highlight {
+    padding: 5px;
+    margin: 1.2em 0em 2.0em;
+    font-size: 1.0em;
+    background-color: $index-code-bg;
+  }
+
 }
 
 .pure-g > div {
@@ -949,14 +954,13 @@ blockquote {
 }
 
 // Styles that apply only to medium-sized screens (small laptops for example)
-@media (max-width: 1280px) {
+@media (max-width: 1200px) {
   body {
     font-size: $mobile-default-font-size;
     //margin-top: $menu-height * $mobile-default-font-size / $desktop-default-font-size;
   }
 
   .pure-menu.pure-menu-horizontal {
-
     li {
       font-size: $mobile-default-font-size;
     }
@@ -975,13 +979,10 @@ blockquote {
     margin: 0 5px -12px 5px;
   }
 
-  .pure-menu-list {
-    padding-right: 110px;
-  }
 }
 
 // Styles that apply only to narrow screens (typically mobile devices)
-@media (max-width: 1023px) {
+@media (max-width: 1000px) {
   .jumbotron .pure-u-1 {
     margin-bottom: 50px;
   }
@@ -993,6 +994,18 @@ blockquote {
   .post-meta {
     margin-bottom: -5px;
   }
+
+  a.pure-menu-link {
+    padding: 17px 10px;
+  }
+
+  .pure-menu.pure-menu-horizontal {
+    position: fixed;
+    li {
+      font-size: $mobile-default-font-size - 2px;
+    }
+  }
+
 }
 
 // Styles that apply only to very narrow screens (usually smartphones)
@@ -1009,15 +1022,6 @@ blockquote {
     max-width: 50%;
     margin-left: auto;
     margin-right: auto;
-  }
-
-  .pure-menu.pure-menu-horizontal {
-    position: fixed;
-  }
-
-  .pure-menu-list {
-    float: none;
-    padding-right: 0px;
   }
 
   .menu-fade {
