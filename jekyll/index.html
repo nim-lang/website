@@ -7,50 +7,43 @@ title: Nim programming language
   <section class="content">
     <div class="pure-g">
       <div class="pure-u-1 pure-u-md-3-5 main-block">
-        <h1>Efficient and expressive programming.</h1>
+        <h1>Efficient and expressive programming</h1>
         <h2>
-          Nim is a statically typed, compiled, garbage-collected systems programming language
-          with a design that focuses on efficiency, expressiveness,
-          and elegance, providing unparalleled
-          performance in an elegant package.
+          Nim is a statically typed compiled systems programming language
+          with a design that focuses on efficiency, expressiveness, and elegance.
         </h2>
-          <h3>
-            Nim is ...
-          </h3>
-          <ul>
-            <h3>Efficient</h3>
-            <li>Native code generation, not dependent on a virtual machine:
-                Nim produces <b>small executables without dependencies</b> for easy redistribution.</li>
-            <li>The Nim Compiler runs on Windows, Linux, BSD and Mac OS X. Porting to other platforms is easy.</li>
-            <li>Compiles to C, C++ or JavaScript.</li>
-            <li>Offers hot code reloading.</li>
-            <li>A fast non-tracing garbage collector that supports soft real-time systems (like games).</li>
-            <li>Ability to manage your own memory and access the hardware directly.</li>
-            <li>Pointers to garbage collected memory are distinguished from pointers to manually managed memory.</li>
-            <li>Zero-overhead iterators.</li>
-            <li>Cross-module inlining.</li>
-            <li>Compile time evaluation of user-defined functions.</li>
-            <li>Whole program dead code elimination: Only used functions are included in the executable.</li>
-            <li>Value-based datatypes: For instance, objects and arrays are allocated on the stack.</li>
-          </ul>
-          <ul>
-            <h3>Expressive</h3>
-            <li>The Nim compiler and all of the standard library are <b>implemented in Nim.</b></li>
-            <li>Built-in high level datatypes: strings, sets, sequences, etc.</li>
-            <li>Modern type system with local type inference, tuples, variants, generics, etc.</li>
-            <li>User-defineable operators; code with new operators is often easier to read
-                than code which overloads built-in operators.</li>
-          </ul>
-          <ul>
-            <h3>Elegant</h3>
-            <li>Powerful AST-based hygienic macro system.</li>
-            <li>Macros can use the imperative paradigm to construct parse trees.</li>
-            <li>Nim does not require a different coding style for meta programming.</li>
-            <li>Macros cannot change Nim's syntax because there is no need for it.
-                Nim's syntax is flexible enough.</li>
-            <li>Statements are grouped by indentation but can span multiple lines.</li>
-            <li>Indentation must not contain tabulators so the compiler always sees the code the same way as you do.</li>
-          </ul>
+        <h3>Efficient</h3>
+        <ul>
+          <li>Native code generation, not dependent on a virtual machine:
+              Nim produces <b>small executables without dependencies</b> for easy redistribution.</li>
+          <li>The Nim Compiler runs on Windows, Linux, BSD and Mac OS X. Porting to other platforms is easy.</li>
+          <li>Compiles to C, C++ or JavaScript.</li>
+          <li>A fast deferred reference counting memory management that supports soft real-time systems (like games).</li>
+          <li>Ability to manage your own memory and access the hardware directly.</li>
+          <li>Pointers to garbage collected memory are distinguished from pointers to manually managed memory.</li>
+          <li>Zero-overhead iterators.</li>
+          <li>Cross-module inlining.</li>
+          <li>Compile time evaluation of user-defined functions.</li>
+          <li>Whole program dead code elimination: Only used functions are included in the executable.</li>
+          <li>Value-based datatypes: For instance, objects and arrays are allocated on the stack.</li>
+        </ul>
+        <h3>Expressive</h3>
+        <ul>
+          <li>The Nim compiler and all of the standard library are <b>implemented in Nim.</b></li>
+          <li>Powerful AST-based hygienic macro system.</li>
+          <li>Macros can use the imperative paradigm to construct parse trees.</li>
+          <li>Macros cannot change Nim's syntax because there is no need for it.
+              Nim's syntax is flexible enough.</li>
+          <li>User-definable operators: code with new operators is often easier to read
+              than code which overloads built-in operators.</li>
+        </ul>
+        <h3>Elegant</h3>
+        <ul>
+          <li>Built-in high level datatypes: strings, sets, sequences, etc.</li>
+          <li>Nim does not require a different coding style for meta programming.</li>
+          <li>Modern type system with local type inference, tuples, variants, generics, etc.</li>
+          <li>Statements are grouped by indentation but can span multiple lines.</li>
+        </ul>
 
         <div class="text-centered">
           <a class="pure-button pure-button-primary" href="{{ site.baseurl }}/install.html">Install</a>
@@ -73,6 +66,22 @@ echo("Average line length: ",
      if count > 0: sum / count else: 0)
 {% endhighlight %}
 
+
+        {% highlight nim %}
+# Thanks to Nim's 'iterator' and 'yield' constructs,
+# iterators are as easy to write as ordinary
+# functions. They are compiled to inline loops.
+iterator oddElements[Idx, T](a: array[Idx, T]): T =
+  var i = 1
+  while i < a.len:
+    yield a[i]
+    i += 2
+
+for x in oddElements([10, 20, 30, 40, 50, 60]):
+  echo x
+{% endhighlight %}
+
+
         {% highlight nim %}
 import strformat
 
@@ -87,28 +96,36 @@ let people = [
 ]
 
 for person in people:
-  # Type-safe string interpolation.
+  # Type-safe string interpolation,
+  # evaluated at compile time.
   echo(fmt"{person.name} is {person.age} years old")
 {% endhighlight %}
 
           {% highlight nim %}
+# Use Nim's macro system to tranform a dense
+# data-centric description of x86 instructions
+# into lookup tables that are used by
+# assemblers and JITs.
 import macros, strutils
 
-macro toEnum(words: static[string]): untyped =
-  result = newTree(nnkEnumTy, newEmptyNode())
-  for w in words.splitWhitespace:
-    result.add ident(w)
+macro toLookupTable(data: static[string]): untyped =
+  result = newTree(nnkBracket)
+  for w in data.split(';'):
+    result.add newLit(w)
 
-type
-  Color = toEnum"Red Green Blue Indigo"
+const
+  data = "mov;btc;cli;xor"
+  opcodes = toLookupTable(data)
 
-var color = Indigo
+for o in opcodes:
+  echo o
 {% endhighlight %}
 
         <div class="text-centered">
           <a href="http://rosettacode.org/wiki/Category:Nim">More examples at RosettaCode…</a>
         </div>
 
+      </div>
     </div>
   </section>
 </section>
@@ -117,29 +134,30 @@ var color = Indigo
   <h1 class="section-heading">Recent articles</h1>
   <div class="pure-g">
     {% for post in site.posts limit: 2 %}
-      <div class="news-item pure-u-1 pure-u-md-1-2">
-        <div class="post-meta">
-          <span>
-            <i class="far fa-calendar-alt" aria-hidden="true"></i>
-            {{ post.date | date_to_long_string }}
-          </span>
-        </div>
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title | escape }}</a>
-        </h2>
-        {{ post.excerpt }}
+    <div class="news-item pure-u-1 pure-u-md-1-2">
+      <div class="post-meta">
+        <span>
+          <i class="far fa-calendar-alt" aria-hidden="true"></i>
+          {{ post.date | date_to_long_string }}
+        </span>
       </div>
+      <h2>
+        <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title | escape }}</a>
+      </h2>
+      {{ post.excerpt }}
+    </div>
     {% endfor %}
   </div>
-  <p class="feed-rss">
-    <a href="{{ "/blog.html" | prepend: site.baseurl }}">All articles</a>
-  </p>
+  <div class="text-centered">
+  <a class="pure-button" href="{{ "/blog.html" | prepend: site.baseurl }}">All articles</a>
+  </div>
 </section>
 
 <section class="background-faded call-to-action feature-projects">
   <section class="content">
     <h1 class="section-heading">Featured projects</h1>
     <div class="pure-g center">
+
       <div class="pure-u-1-1 pure-u-md-1-2">
         <div class="project-container">
           <h2>
@@ -151,7 +169,6 @@ var color = Indigo
             Leverage Nim's macro system to produce a framework that allows for the
             development of applications that are boilerplate free.
           </p>
-          </a>
         </div>
       </div>
 
@@ -220,6 +237,8 @@ var color = Indigo
             a Twitter clone and more.
           </li>
         </ul>
+      </div>
+      <div class="pure-u-1 center">
         <a class="pure-button pure-button-primary" href="https://book.picheta.me/">Learn more</a>
       </div>
     </div>
@@ -233,7 +252,7 @@ var color = Indigo
   </h1>
   <div class="pure-g center">
     <div class="pure-u-1-2">
-      <h1>Join the 100+ companies and individuals that support Nim</h1>
+      <h2>Join the 100+ companies and individuals that support Nim</h2>
       <h3>
         The Nim project is developed globally by a group of
         volunteers. We welcome recurring donations, which enable us to spend more
@@ -271,44 +290,42 @@ var color = Indigo
 <section class="jumbotron" id="community">
   <section class="content">
     <h1>Community</h1>
-
     <div class="pure-g">
       <div class="pure-u-1 pure-u-md-1-4">
-        <h2>IRC/Gitter</h2>
-        <h3>Real-time chat</h3>
-        <a href="irc://freenode.net/nim"><i class="fc fa-irc">#</i>FreeNode#nim</a><br/>
-        <a href="https://gitter.im/nim-lang/Nim"><i class="fab fa-gitter"></i>Gitter/Nim</a><br/>
-        <a href="https://discord.gg/ezDFDw2"><i class="fab fa-discord"></i>Discord/Nim</a><br/>
-        <a href="https://matrix.to/#/#freenode_#nim:matrix.org"><i class="fab i">m</i>#nim:matrix.org</a><br/>
-        <a href="https://irclogs.nim-lang.org"><i class="fc fa-irc">#</i>IRC Logs</a><br/>
-        <a href="https://t.me/nim_lang"><i class="fab fa-telegram"></i>Telegram/nim_lang</a>
+        <h2>Real-time chat</h2>
+        <p><a href="irc://freenode.net/nim"><i class="fc fa-irc">#</i>FreeNode#nim</a></p>
+        <p><a href="https://gitter.im/nim-lang/Nim"><i class="fab fa-gitter"></i>Gitter/Nim</a></p>
+        <p><a href="https://discord.gg/ezDFDw2"><i class="fab fa-discord"></i>Discord/Nim</a></p>
+        <p><a href="https://matrix.to/#/#freenode_#nim:matrix.org"><i class="fab i">m</i>#nim:matrix.org</a></p>
+        <p><a href="https://irclogs.nim-lang.org"><i class="fc fa-irc">#</i>IRC Logs</a></p>
+        <p><a href="https://t.me/nim_lang"><i class="fab fa-telegram"></i>Telegram/nim_lang</a></p>
       </div>
+
       <div class="pure-u-1 pure-u-md-1-4">
         <h2>Forum</h2>
-        <h3>Threaded communication</h3>
-        <a href="https://forum.nim-lang.org">
-          <i class="fa fa-comments" aria-hidden="true"></i><span style="white-space: nowrap">forum.nim-lang.org</span>
-        </a>
-
+        <p><a href="https://forum.nim-lang.org">
+          <i class="fa fa-comments" aria-hidden="true"></i>forum.nim-lang.org</a></p>
+        <p><a href="https://reddit.com/r/nim">
+          <i class="fab fa-reddit" aria-hidden="true"></i>r/nim</a></p>
+        <p><a href="https://stackoverflow.com/questions/tagged/nim">
+          <i class="fab fa-stack-overflow" aria-hidden="true"></i>StackOverflow</a></p>
       </div>
+
       <div class="pure-u-1 pure-u-md-1-4">
-        <h2>GitHub issues</h2>
-        <h3>Bug reports</h3>
-        <a href="https://github.com/nim-lang/Nim/issues">
-          <i class="fab fa-github" aria-hidden="true"></i>nim-lang/Nim
-        </a>
-
+        <h2>Bug reports</h2>
+        <p><a href="https://github.com/nim-lang/Nim/issues">
+          <i class="fab fa-github" aria-hidden="true"></i>nim-lang/Nim</a></p>
       </div>
+
       <div class="pure-u-1 pure-u-md-1-4">
         <h2>Twitter</h2>
-        <h3>Announcements</h3>
-
-        <a href="https://twitter.com/nim_lang">
+        <p><a href="https://twitter.com/nim_lang">
           <i class="fab fa-twitter" aria-hidden="true"></i>@nim_lang
-        </a>
+        </a></p>
       </div>
+
       <div class="pure-u-1 center">
-        <a class="pure-button" href="{{ site.baseurl }}/community.html">Join the community</a>
+        <p><a class="pure-button" href="{{ site.baseurl }}/community.html">Join the community</a></p>
       </div>
     </div>
 

@@ -84,8 +84,7 @@ figure.highlight {
 .jumbotron {
   figure.highlight {
     padding: 5px;
-    margin-top: 5em;
-    margin-bottom: 3em;
+    margin-top: 1.5em;
     background-color: $index-code-bg;
   }
 }
@@ -185,7 +184,7 @@ footer {
 }
 
 .news-item {
-  padding-right: 50pt;
+  padding: 15pt 25pt;
   text-align: justify;
   margin-bottom: 25pt;
 
@@ -267,13 +266,18 @@ a.pure-menu-link.pure-menu-heading {
   }
 
   h2 {
-    margin-top: 16px;
     font-size: 150%;
+  }
+
+  h3 {
+    font-size: 133%;
+    margin-top: 2em;
   }
 
   li {
     list-style-type: none;
-    margin-bottom: 0.5em;
+    line-height: 1.5;
+    margin-bottom: 0.6em;
 
     &::before {
       content: "» ";
@@ -322,7 +326,7 @@ a.pure-menu-link.pure-menu-heading {
 
 // The left part of the main page jumbotron
 .main-block {
-  padding-right: 50px;
+  padding-right: 25pt;
 }
 
 .hljs {
@@ -674,9 +678,7 @@ section#donations {
 
 .project-container, .sponsor-container {
   display: inline-block;
-  margin-right: 50pt;
-  margin-top: 15pt;
-  margin-bottom: 15pt;
+  margin: 15pt 25pt;
   text-align: justify;
 
   a {
