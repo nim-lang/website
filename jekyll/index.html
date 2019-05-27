@@ -18,7 +18,7 @@ title: Nim programming language
               Nim produces <b>small executables without dependencies</b> for easy redistribution.</li>
           <li>The Nim Compiler runs on Windows, Linux, BSD and Mac OS X. Porting to other platforms is easy.</li>
           <li>Compiles to C, C++ or JavaScript.</li>
-          <li>A fast deferred reference counting memory management that supports soft real-time systems (like games).</li>
+          <li>Fast deferred reference counting memory management that supports soft real-time systems (like games).</li>
           <li>Ability to manage your own memory and access the hardware directly.</li>
           <li>Pointers to garbage collected memory are distinguished from pointers to manually managed memory.</li>
           <li>Zero-overhead iterators.</li>
@@ -30,15 +30,15 @@ title: Nim programming language
         <h3>Expressive</h3>
         <ul>
           <li>The Nim compiler and all of the standard library are <b>implemented in Nim.</b></li>
-          <li>Powerful AST-based hygienic macro system.</li>
-          <li>Macros can use the imperative paradigm to construct parse trees.</li>
-          <li>Macros cannot change Nim's syntax because there is no need for it.
-              Nim's syntax is flexible enough.</li>
           <li>User-definable operators: code with new operators is often easier to read
               than code which overloads built-in operators.</li>
+          <li>Powerful AST-based hygienic macro system.</li>
+          <li>Macros can use the imperative paradigm to construct parse trees.</li>
         </ul>
         <h3>Elegant</h3>
         <ul>
+          <li>Macros cannot change Nim's syntax because there is no need for it.
+              Nim's syntax is flexible enough.</li>
           <li>Built-in high level datatypes: strings, sets, sequences, etc.</li>
           <li>Nim does not require a different coding style for meta programming.</li>
           <li>Modern type system with local type inference, tuples, variants, generics, etc.</li>
@@ -269,7 +269,7 @@ for o in opcodes:
   <section class="content text-centered">
     <h1>Top sponsors</h1>
     <div class="pure-g center">
-      <div class="pure-u-1-2">
+      <div class="pure-u-2-3">
         {% for sponsor in site.data.sponsors %}
           {% if sponsor.level == "250" %}
             <div class="sponsor-container">
