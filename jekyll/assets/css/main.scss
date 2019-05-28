@@ -250,7 +250,7 @@ a.pure-menu-link.pure-menu-heading {
 }
 
 .jumbotron {
-  padding: 50px 0;
+  padding: 40px 0;
   background-color: $jumbotron-background-color;
   color: $jumbotron-color;
 
@@ -263,7 +263,7 @@ a.pure-menu-link.pure-menu-heading {
 
   h2 {
     font-size: 150%;
-    margin-top: 20px;
+    margin-top: 0.7em;
   }
 
   h3 {
@@ -296,7 +296,7 @@ a.pure-menu-link.pure-menu-heading {
 
   figure.highlight {
     padding: 5px;
-    margin: 1.2em 0em 2.0em;
+    margin: 1.0em 0em;
     font-size: 1.0em;
     background-color: $index-code-bg;
   }
@@ -331,7 +331,7 @@ a.pure-menu-link.pure-menu-heading {
 
 // The left part of the main page jumbotron
 .main-block {
-  padding-right: 25pt;
+  padding-right: 15pt;
 }
 
 .hljs {

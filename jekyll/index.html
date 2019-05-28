@@ -6,41 +6,39 @@ title: Nim programming language
 <section class="main jumbotron">
   <section class="content">
     <div class="pure-g">
+      <div class="pure-u-1 main-block">
+        <h1>Efficient, expressive, elegant</h1>
+      </div>
       <div class="pure-u-1 pure-u-md-3-5 main-block">
-        <h1>Efficient and expressive programming</h1>
         <h2>
-          Nim is a statically typed compiled systems programming language
-          with a design that focuses on efficiency, expressiveness, and elegance.
+          Nim is a statically typed compiled systems programming language.
+          It combines successful concepts from mature languages like Python,
+          Ada and Modula.
         </h2>
         <h3>Efficient</h3>
         <ul>
-          <li>Native code generation, not dependent on a virtual machine:
-              Nim produces <b>small executables without dependencies</b> for easy redistribution.</li>
-          <li>The Nim Compiler runs on Windows, Linux, BSD and Mac OS X. Porting to other platforms is easy.</li>
-          <li>Compiles to C, C++ or JavaScript.</li>
-          <li>Fast deferred reference counting memory management that supports soft real-time systems (like games).</li>
-          <li>Ability to manage your own memory and access the hardware directly.</li>
-          <li>Pointers to garbage collected memory are distinguished from pointers to manually managed memory.</li>
-          <li>Zero-overhead iterators.</li>
-          <li>Cross-module inlining.</li>
-          <li>Compile time evaluation of user-defined functions.</li>
-          <li>Whole program dead code elimination: Only used functions are included in the executable.</li>
-          <li>Value-based datatypes: For instance, objects and arrays are allocated on the stack.</li>
+          <li>Nim generates native dependency-free executables, not dependent on a virtual machine,
+              which are small and allow easy redistribution.</li>
+          <li>The Nim compiler and the generated executables support all major platforms like
+              Windows, Linux, BSD and Mac OS X.</li>
+          <li>Nim supports a number of memory management strategies to best fit your application:
+              garbage collection, reference counting, or full manual control.</li>
+          <li>Modern concepts like zero-overhead iterators and compile time evaluation
+              of user-defined functions, in combination with the preference of value-based
+              datatypes allocated on the stack, lead to extremely performant code.</li>
+          <li>Support for various backends: it compiles to C, C++ or JavaScript so that Nim
+              can be used for all backend and frontend needs.</li>
         </ul>
         <h3>Expressive</h3>
         <ul>
-          <li>The Nim compiler and all of the standard library are <b>implemented in Nim.</b></li>
-          <li>User-definable operators: code with new operators is often easier to read
-              than code which overloads built-in operators.</li>
-          <li>Powerful AST-based hygienic macro system.</li>
-          <li>Macros can use the imperative paradigm to construct parse trees.</li>
+          <li>Nim is self contained: the compiler and all of the standard library are implemented in Nim.</li>
+          <li>Nim has a powerful macro system which allows direct manipulation of the AST,
+              offering nearly unlimited opportunities.</li>
         </ul>
         <h3>Elegant</h3>
         <ul>
-          <li>Macros cannot change Nim's syntax because there is no need for it.
-              Nim's syntax is flexible enough.</li>
-          <li>Built-in high level datatypes: strings, sets, sequences, etc.</li>
-          <li>Nim does not require a different coding style for meta programming.</li>
+          <li>Macros cannot change Nim's syntax because there is no need for it —
+              the syntax is flexible enough.</li>
           <li>Modern type system with local type inference, tuples, variants, generics, etc.</li>
           <li>Statements are grouped by indentation but can span multiple lines.</li>
         </ul>
@@ -52,36 +50,6 @@ title: Nim programming language
       </div>
 
       <div class="pure-u-1 pure-u-md-2-5">
-        {% highlight nim %}
-# Compute average line length
-var
-  sum = 0
-  count = 0
-
-for line in stdin.lines:
-  sum += line.len
-  count += 1
-
-echo("Average line length: ",
-     if count > 0: sum / count else: 0)
-{% endhighlight %}
-
-
-        {% highlight nim %}
-# Thanks to Nim's 'iterator' and 'yield' constructs,
-# iterators are as easy to write as ordinary
-# functions. They are compiled to inline loops.
-iterator oddElements[Idx, T](a: array[Idx, T]): T =
-  var i = 1
-  while i < a.len:
-    yield a[i]
-    i += 2
-
-for x in oddElements([10, 20, 30, 40, 50, 60]):
-  echo x
-{% endhighlight %}
-
-
         {% highlight nim %}
 import strformat
 
@@ -100,6 +68,21 @@ for person in people:
   # evaluated at compile time.
   echo(fmt"{person.name} is {person.age} years old")
 {% endhighlight %}
+
+        {% highlight nim %}
+# Thanks to Nim's 'iterator' and 'yield' constructs,
+# iterators are as easy to write as ordinary
+# functions. They are compiled to inline loops.
+iterator oddElements[Idx, T](a: array[Idx, T]): T =
+  var i = 1
+  while i < a.len:
+    yield a[i]
+    i += 2
+
+for x in oddElements([10, 20, 30, 40, 50, 60]):
+  echo x
+{% endhighlight %}
+
 
           {% highlight nim %}
 # Use Nim's macro system to tranform a dense
