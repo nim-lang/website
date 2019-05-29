@@ -146,6 +146,7 @@ footer {
   padding: 0;
   z-index: 100;
   line-height: 1;
+  position: fixed;
   background-color: $menu-background-color;
 
   a {
@@ -250,14 +251,13 @@ a.pure-menu-link.pure-menu-heading {
 }
 
 .jumbotron {
-  padding: 40px 0;
+  padding: 20pt 0;
   background-color: $jumbotron-background-color;
   color: $jumbotron-color;
 
   h1 {
     font-size: 225%;
-    margin-bottom: 0;
-    margin-top: 0;
+    margin: 0;
     color: $highlight-color;
   }
 
@@ -982,14 +982,6 @@ blockquote {
 
 // Styles that apply only to narrow screens (typically mobile devices)
 @media (max-width: 1000px) {
-  .jumbotron .pure-u-1 {
-    margin-bottom: 50px;
-  }
-
-  .jumbotron h1 {
-    margin-top: 0;
-  }
-
   .post-meta {
     margin-bottom: -5px;
   }
