@@ -34,12 +34,14 @@
 
   </script>
 
-  <meta name="twitter:title" content="{{ page.title }}">
+  <meta name="twitter:title" content="{{ page.title | default: site.title  }}">
 
   {% if page.is_post %}
   <meta name="twitter:description" content="{{ page.excerpt | strip_html | normalize_whitespace }}">
+  <meta property="og:description" content="{{ page.excerpt | strip_html | normalize_whitespace }}">
   {% else %}
   <meta name="twitter:description" content="{{ site.description | normalize_whitespace }}">
+  <meta property="og:description" content="{{ site.description | normalize_whitespace }}">
   {% endif %}
 
   <meta name="twitter:site" content="@nim_lang">
