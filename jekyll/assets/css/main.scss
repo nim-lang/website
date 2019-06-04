@@ -77,7 +77,7 @@ figure.highlight {
   border-radius: 2px;
   margin: 0;
   margin-bottom: 12pt;
-  font-size: 120%;
+  font-size: 110%;
   max-width: 100%;
 }
 
@@ -331,7 +331,7 @@ a.pure-menu-link.pure-menu-heading {
 
 // The left part of the main page jumbotron
 .main-block {
-  padding-right: 15pt;
+  padding-right: 25pt;
 }
 
 .hljs {
@@ -770,6 +770,7 @@ div.image.right {
 }
 
 div.code-align {
+  padding-right: 15pt;
   h1:first-child, h2:first-child, h3:first-child {
     margin-top: 0;
   }

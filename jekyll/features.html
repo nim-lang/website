@@ -9,7 +9,7 @@ css_class: features
   <section class="content">
     <div class="pure-g">
       <div class="pure-u-1">
-        <h1>Intuitive and clean syntax.</h1>
+        <h1>Intuitive and clean syntax</h1>
       </div>
       <div class="pure-u-1 pure-u-md-1-2 code-align">
         <h2>
@@ -69,13 +69,13 @@ for person in people:
   <section class="content">
     <div class="pure-g">
       <div class="pure-u-1 pure-u-md-1-2">
-        <h1 id="many-garbage-collector-options">Many garbage collector options.</h1>
-        <h2>
-          Choose from a deferred RC'ing garbage collector that is fast,
-          incremental and pauseless; or a soft real-time garbage collector that
-          is deterministic allowing you to specify its max pause time; and
-          many others.
-        </h2>
+        <h1 id="many-garbage-collector-options">Many garbage collector options</h1>
+        <p>
+        Choose from a deferred RC'ing garbage collector that is fast,
+        incremental and pauseless; or a soft real-time garbage collector that
+        is deterministic allowing you to specify its max pause time; and
+        many others.
+        </p>
       </div>
       <div class="pure-u-1 pure-u-md-1-2">
         <div class="image right">
@@ -103,18 +103,18 @@ for person in people:
         </div>
         <div class="pure-u-1 pure-u-md-1-2">
           <h2 id="native-performance-with-optimisations">Native performance with state of the art optimisations</h2>
-          <h4>
-            By compiling to C, Nim is able to take advantage of many
-            features offered by modern C compilers. The primary benefits
-            gained by this compilation model include incredible portability and
-            optimisations, which have been implemented over more than 40 years
-            by various individuals and influential companies.
-          </h4>
-          <h4>
-            The binaries produced by Nim have zero dependencies and are
-            typically very small. This makes their distribution easy
-            and keeps your users happy.
-          </h4>
+          <p>
+          By compiling to C, Nim is able to take advantage of many
+          features offered by modern C compilers. The primary benefits
+          gained by this compilation model include incredible portability and
+          optimisations, which have been implemented over more than 40 years
+          by various individuals and influential companies.
+          </p>
+          <p>
+          The binaries produced by Nim have zero dependencies and are
+          typically very small. This makes their distribution easy
+          and keeps your users happy.
+          </p>
         </div>
       </div>
     </section>
@@ -123,7 +123,7 @@ for person in people:
   <section class="content">
     <div class="pure-g">
       <div class="pure-u-1">
-        <h1 id="javascript-compilation">JavaScript compilation.</h1>
+        <h1 id="javascript-compilation">JavaScript compilation</h1>
       </div>
       <div class="pure-u-1 pure-u-md-1-2 code-align">
         <h2>
@@ -196,22 +196,22 @@ window.onload = onLoad{% endhighlight %}
     <section class="content metaprogramming">
       <div class="pure-g">
         <div class="pure-u-1">
-          <h1 id="small-core-with-extensibility">Small core with a rich prospect for extensibility</h1>
+          <h2 id="small-core-with-extensibility">Small core with a rich prospect for extensibility</h2>
         </div>
         <div class="pure-u-1 pure-u-md-1-2">
-          <h3>
-            Nim implements a small core language with a powerful
-            set of metaprogramming features.
-          </h3>
-          <h3>
-            The metaprogramming features in Nim include support for generics,
-            templates, and macros. This allows Nim to be extended with support
-            for various programming paradigms and allows developers to avoid
-            boilerplate. The standard library
-            implements async await using these metaprogramming features and
-            the Nim community has developed various packages implementing
-            different programming paradigms.
-          </h3>
+          <p>
+          Nim implements a small core language with a powerful
+          set of metaprogramming features.
+          </p>
+          <p>
+          The metaprogramming features in Nim include support for generics,
+          templates, and macros. This allows Nim to be extended with support
+          for various programming paradigms and allows developers to avoid
+          boilerplate. The standard library
+          implements async await using these metaprogramming features and
+          the Nim community has developed various packages implementing
+          different programming paradigms.
+          </p>
         </div>
         <div class="pure-u-1 pure-u-md-1-2 center">
           {% highlight nim %}
@@ -235,7 +235,7 @@ var color = Indigo{% endhighlight %}
   <section class="content nimble">
     <div class="pure-g">
       <div class="pure-u-1 center">
-        <h1 id="decentralised-package-management">Decentralised package management.</h1>
+        <h1 id="decentralised-package-management">Decentralised package management</h1>
       </div>
       <div class="pure-u-1 center">
         <img height="150px" src="{{ site.baseurl }}/assets/img/nimble.svg"/>
@@ -246,18 +246,18 @@ var color = Indigo{% endhighlight %}
           are distributed via Git and Mercurial repositories, and tags are
           queried remotely to determine version information.
         </h2>
-        <h3>
-          A mapping between package names and repository URLs is defined in a
-          <code>packages.json</code> file that is stored on
-          <a href="https://github.com/nim-lang/packages">GitHub</a>.
-        </h3>
-        <h2>
-          Packages are defined using a
-          specially formatted <code>.nimble</code> file that is evaluated by the
-          Nim compiler. This means that it supports a large subset of the
-          Nim programming language, allowing various powerful features including
-          the ability to determine the OS and specify external dependencies.
-        </h2>
+        <p>
+        A mapping between package names and repository URLs is defined in a
+        <code>packages.json</code> file that is stored on
+        <a href="https://github.com/nim-lang/packages">GitHub</a>.
+        </p>
+        <p>
+        Packages are defined using a
+        specially formatted <code>.nimble</code> file that is evaluated by the
+        Nim compiler. This means that it supports a large subset of the
+        Nim programming language, allowing various powerful features including
+        the ability to determine the OS and specify external dependencies.
+        </p>
       </div>
       <div class="pure-u-1 pure-u-md-1-2 center">
         {% highlight nim %}
@@ -317,11 +317,11 @@ proc display*(window: RenderWindow)
 {% endhighlight %}
         </div>
         <div class="pure-u-1 pure-u-md-1-2 center">
-          <h3>
-            Nim makes it easy to bind to C, C++ and Objective C libraries.
-            This allows developers to easily access a large ecosystem of
-            mature and powerful libraries.
-          </h3>
+          <p>
+          Nim makes it easy to bind to C, C++ and Objective C libraries.
+          This allows developers to easily access a large ecosystem of
+          mature and powerful libraries.
+          </p>
         </div>
         <div class="pure-u-1 center">
           <a class="pure-button pure-button-primary" href="https://nim-lang.org/docs/manual.html#implementation-specific-pragmas-importcpp-pragma">Learn more</a>
@@ -333,15 +333,18 @@ proc display*(window: RenderWindow)
   <section class="content">
     <div class="pure-g">
       <div class="pure-u-1">
-        <h1 id="helpful-tracebacks">Helpful tracebacks.</h1>
+        <h1 id="helpful-tracebacks">Helpful tracebacks</h1>
       </div>
       <div class="pure-u-1 pure-u-md-1-2 code-align">
         <h2>
-          Inspired by Python. When a Nim application crashes with an exception,
-          it will output a stack trace before terminating. The format of this
-          stack trace is very easy to grasp and contains all the required
-          information to debug the exception.
+          Inspired by Python.
         </h2>
+        <p>
+        When a Nim application crashes with an exception,
+        it will output a stack trace before terminating. The format of this
+        stack trace is very easy to grasp and contains all the required
+        information to debug the exception.
+        </p>
       </div>
       <div class="pure-u-1 pure-u-md-1-2 center">
         {% highlight plain %}
