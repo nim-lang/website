@@ -4,15 +4,20 @@
   <meta name="description" content="{{ site.description | normalize_whitespace }}">
   <meta charset="utf-8">
   <link rel="icon" type="image/png" href="{{ site.baseurl }}/assets/img/logo_bw.png" />
-  <title>{{ page.title }} | {{ site.title }}</title>
+
+  {% if page.title %}
+  <title>{{ page.title }} - {{ layout.title | default: site.title }}</title>
+  {% else %}
+  <title>{{ layout.title | default: site.title }}</title>
+  {% endif %}
   <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/pure.min.css">
   <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/pure-grids-responsive.min.css">
   <link href="https://use.fontawesome.com/releases/v5.0.2/css/all.css" rel="stylesheet">
   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
-  {% if page.title != "Nim programming language" %}
-  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/highlight/github.css">
-  {% else %}
+  {% if page.use_dark_highlighting %}
   <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/highlight/dracula.css">
+  {% else %}
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/highlight/github.css">
   {% endif %}
 
   <link href="https://fonts.googleapis.com/css?family=Inconsolata|Open+Sans|Titillium+Web" rel="stylesheet">
@@ -29,18 +34,24 @@
 
   </script>
 
-  <meta name="twitter:title" content="Nim Programming Language">
-  <meta name="twitter:description" content="A systems programming language that is statically typed and compiled to incredibly efficient dependency free binaries.">
+  <meta name="twitter:title" content="{{ page.title }}">
+
+  {% if page.is_post %}
+  <meta name="twitter:description" content="{{ page.excerpt | strip_html | normalize_whitespace }}">
+  {% else %}
+  <meta name="twitter:description" content="{{ site.description | normalize_whitespace }}">
+  {% endif %}
+
   <meta name="twitter:site" content="@nim_lang">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://nim-lang.org/assets/img/twitter_banner.png">
 
-  <meta property="og:title" content="Nim Programming Language" />
+  <meta property="og:title" content="{{ page.title | default: site.title }}" />
+  <meta property="og:site_name" content="{{ site.title }}" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://nim-lang.org/assets/img/twitter_banner.png" />
   <meta property="og:image:type" content="image/png" />
   <meta property="og:image:width" content="1000" />
   <meta property="og:image:height" content="500" />
   <meta property="og:image:alt" content="Nim Programming Language" />
-
 </head>

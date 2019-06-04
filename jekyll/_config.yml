@@ -1,5 +1,5 @@
 # Site settings
-title: Nim
+title: "Nim Programming Language"
 description: >
   The Nim programming language is a concise, fast programming language that
   compiles to C, C++ and JavaScript.
@@ -21,6 +21,7 @@ defaults:
     values:
       layout: post
       is_post: true
+      title: "Nim Blog"
 
 navigation:
   - title: Blog
