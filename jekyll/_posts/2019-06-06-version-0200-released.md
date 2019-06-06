@@ -66,7 +66,7 @@ Nim by following the instructions on our
 ## Nimble 0.10.2
 
 This release includes a brand new version of Nimble.
-See [Nimble changelog](https://github.com/nim-lang/nimble/blob/master/changelog.markdown#0100---27052019).
+See [Nimble changelog](https://github.com/nim-lang/nimble/blob/master/changelog.markdown#0102---03062019).
 
 
 ## Contributors to v0.20
