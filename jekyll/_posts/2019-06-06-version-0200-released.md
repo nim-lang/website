@@ -1,9 +1,11 @@
 ---
 title: "Version 0.20.0 released"
 author: The Nim Team
+excerpt: "We are very proud to announce Nim version 0.20. This is a massive release, both literally and figuratively. It contains more than 1,000 commits and it marks our release candidate for version 1.0!"
 ---
 
 We are very proud to announce Nim version 0.20.
+
 This is a massive release, both literally and figuratively.
 It contains more than 1,000 commits *and* it marks our release candidate for version 1.0!
 
@@ -32,7 +34,8 @@ Our goal is to make sure that code which compiled under Nim 1.0 continues to com
 
 Backwards compatibility covers only the stable fragment of the language, as defined by the manual.
 
-The compiler still implements experimental features which are documented in the newly written “experimental manual”, these features are subject to changes which may be backwards incompatible, some of the features included under this umbrella are concepts, the do notation and a few others.
+The compiler still implements experimental features which are documented in the newly written
+[“experimental manual”](https://nim-lang.org/docs/manual_experimental.html), these features are subject to changes which may be backwards incompatible, some of the features included under this umbrella are concepts, the do notation and a few others.
 Be wary of using these features in production, but do get in touch with us if you want to learn more about our plans regarding them.
 
 The standard library is also covered, we will continue to deprecate procedures if we must, but they will remain supported throughout the 1.x version series.
@@ -68,7 +71,7 @@ See [Nimble changelog](https://github.com/nim-lang/nimble/blob/master/changelog.
 
 ## Contributors to v0.20
 
-Our contributors are amazing, and there is [far too many](https://github.com/nim-lang/Nim/graphs/contributors?from=2018-09-26&to=2019-06-03&type=c) to list here.
+Our contributors are amazing, and there is [far too many](https://github.com/nim-lang/Nim/graphs/contributors?from=2018-09-26&to=2019-06-06&type=c) to list here.
 Big thanks to all of you, we couldn’t have pulled off this release without you!
 
 
@@ -102,7 +105,7 @@ echo b # 65535
 
 # v0.20:
 const b = uint16(-1)
-# Error: -1 can't be converted to uint8
+# Error: -1 can't be converted to uint16
 const c = not uint16(0)
 echo c # 65535
 ```
@@ -385,9 +388,6 @@ proc enumToString*(enums: openArray[enum]): string =
 
 - Added the parameter ``isSorted`` for the ``sequtils.deduplicate`` proc.
 
-- There is a new stdlib module `std/diff` to compute the famous "diff"
-  of two texts by line.
-
 - Added `os.relativePath`.
 
 - Added `parseopt.remainingArgs`.
@@ -418,8 +418,7 @@ proc enumToString*(enums: openArray[enum]): string =
 - Added `macros.signatureHash` that returns a stable identifier
   derived from the signature of a symbol.
 
-- In `strutils` empty strings now no longer matched as substrings
-  anymore.
+- In `strutils` empty strings now no longer match as substrings.
 
 - The `Complex` type is now a generic object and not a tuple anymore.
 

@@ -26,12 +26,12 @@ curl https://nim-lang.org/choosenim/init.sh -sSf | sh
 ## Pre-built binaries for Linux
 
 <div class="center">
-  <a href="{{ site.baseurl }}/download/nim-{{ site.nim_version }}_x32.tar.xz"
+  <a href="{{ site.baseurl }}/download/nim-{{ site.nim_version }}-linux_x32.tar.xz"
     class="pure-button pure-button-primary download-button">
     <i class="fa fa-file-archive-o" aria-hidden="true"></i>
     Download x86 tarball
   </a>
-  <a href="{{ site.baseurl }}/download/nim-{{ site.nim_version }}_x32.tar.xz.sha256"
+  <a href="{{ site.baseurl }}/download/nim-{{ site.nim_version }}-linux_x32.tar.xz.sha256"
     class="pure-button">
     <i class="fa fa-file-text-o" aria-hidden="true"></i>
     SHA256
@@ -39,12 +39,12 @@ curl https://nim-lang.org/choosenim/init.sh -sSf | sh
 </div>
 
 <div class="center">
-  <a href="{{ site.baseurl }}/download/nim-{{ site.nim_version }}_x64.tar.xz"
+  <a href="{{ site.baseurl }}/download/nim-{{ site.nim_version }}-linux_x64.tar.xz"
     class="pure-button pure-button-primary download-button">
     <i class="fa fa-file-archive-o" aria-hidden="true"></i>
     Download x86_64 tarball
   </a>
-  <a href="{{ site.baseurl }}/download/nim-{{ site.nim_version }}_x64.tar.xz.sha256"
+  <a href="{{ site.baseurl }}/download/nim-{{ site.nim_version }}-linux_x64.tar.xz.sha256"
     class="pure-button">
     <i class="fa fa-file-text-o" aria-hidden="true"></i>
     SHA256
