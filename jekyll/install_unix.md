@@ -21,7 +21,37 @@ following in your terminal, then follow the onscreen instructions:
 curl https://nim-lang.org/choosenim/init.sh -sSf | sh
 ```
 
-# Manual installation from source
+# Manual installation
+
+## Pre-built binaries for Linux
+
+<div class="center">
+  <a href="{{ site.baseurl }}/download/nim-{{ site.nim_version }}_x32.tar.xz"
+    class="pure-button pure-button-primary download-button">
+    <i class="fa fa-file-archive-o" aria-hidden="true"></i>
+    Download x86 tarball
+  </a>
+  <a href="{{ site.baseurl }}/download/nim-{{ site.nim_version }}_x32.tar.xz.sha256"
+    class="pure-button">
+    <i class="fa fa-file-text-o" aria-hidden="true"></i>
+    SHA256
+  </a>
+</div>
+
+<div class="center">
+  <a href="{{ site.baseurl }}/download/nim-{{ site.nim_version }}_x64.tar.xz"
+    class="pure-button pure-button-primary download-button">
+    <i class="fa fa-file-archive-o" aria-hidden="true"></i>
+    Download x86_64 tarball
+  </a>
+  <a href="{{ site.baseurl }}/download/nim-{{ site.nim_version }}_x64.tar.xz.sha256"
+    class="pure-button">
+    <i class="fa fa-file-text-o" aria-hidden="true"></i>
+    SHA256
+  </a>
+</div>
+
+## Source archive
 
 <div class="center">
   <a href="{{ site.baseurl }}/download/nim-{{ site.nim_version }}.tar.xz"
@@ -37,10 +67,11 @@ curl https://nim-lang.org/choosenim/init.sh -sSf | sh
 </div>
 
 After downloading the compressed archive, extract its contents into the
-desired installation directory.
+desired installation directory. Pre-built binaries are provided in the
+binary distribution.
 
-Open a new terminal window, ``cd`` into the extracted directory, and
-execute the following commands:
+For the source distribution, open a new terminal window, ``cd`` into the
+extracted directory, and execute the following commands:
 
 ```bash
 sh build.sh
