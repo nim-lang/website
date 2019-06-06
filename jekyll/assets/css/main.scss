@@ -63,11 +63,6 @@ a {
 }
 
 figure.highlight {
-  code {
-    font-family: "Inconsolata", monospace;
-    font-size: 0.9em;
-  }
-
   pre {
     padding: 8px;
   }
@@ -83,6 +78,10 @@ figure.highlight {
 
 pre {
   margin: 0;
+  code {
+    font-family: "Inconsolata", monospace;
+    font-size: 0.9em;
+  }
 }
 
 ul {
@@ -341,7 +340,7 @@ a.pure-menu-link.pure-menu-heading {
 // For FAQ and news post content
 .width-reduced {
   max-width: 800px;
-  margin: 0 auto;
+  margin: 60pt auto;
 }
 
 // For the news list

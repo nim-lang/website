@@ -5,7 +5,7 @@ description: >
   compiles to C, C++ and JavaScript.
 baseurl: ""
 
-nim_version: 0.19.6
+nim_version: 0.20.0
 
 defaults:
   -
