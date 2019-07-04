@@ -1,5 +1,5 @@
 # Based on bountysource.cr located at https://github.com/crystal-lang/crystal-website/blob/master/scripts/bountysource.cr
-import httpclient, asyncdispatch, json, strutils, os, strtabs, sequtils, future,
+import httpclient, asyncdispatch, json, strutils, os, strtabs, sequtils, sugar,
   algorithm, times
 
 type
@@ -10,7 +10,7 @@ type
   Sponsor = object
     name, url, logo: string
     amount, allTime: float
-    since: TimeInfo
+    since: DateTime
     level: int # TODO: Change to enum?
 
 const
@@ -113,7 +113,7 @@ proc processSupporters(supporters: JsonNode) =
   echo("Found ", supporters.elems.len, " named sponsors.")
 
   supporters.elems.sort(
-    (x, y) => cmp(y["alltime_amount"].getFNum, x["alltime_amount"].getFNum)
+    (x, y) => cmp(y["alltime_amount"].getFloat, x["alltime_amount"].getFloat)
   )
 
 
@@ -125,9 +125,9 @@ proc quote(text: string): string =
 
 proc getLevel(supporter: JsonNode): int =
   if supporter.hasKey("level"):
-    return supporter["level"].getNum().int
+    return supporter["level"].getInt().int
 
-  let amount = supporter["monthly_amount"].getFNum()
+  let amount = supporter["monthly_amount"].getFloat()
   const levels = [250, 150, 75, 25, 10, 5, 1, 0]
   result = levels[0]
   for i in levels:
@@ -183,7 +183,7 @@ when isMainModule:
     if url.len > 0 and not url.startsWith("http"):
       url = "http://" & url
 
-    let amount = supporter["monthly_amount"].getFNum()
+    let amount = supporter["monthly_amount"].getFloat()
     # Only show URL when user donated at least $5.
     if amount < 5:
       url = ""
@@ -193,11 +193,11 @@ when isMainModule:
       logo = supporter["image_url_large"].getStr()
 
     let sponsor = Sponsor(name: name, url: url, logo: logo, amount: amount,
-        allTime: supporter["alltime_amount"].getFNum(),
+        allTime: supporter["alltime_amount"].getFloat(),
         since: parse(supporter["created_at"].getStr[0 .. 18], "yyyy-MM-dd'T'hh:mm:ss"),
         level: getLevel(supporter)
       )
-    if supporter["monthly_amount"].getFNum > 0.0:
+    if supporter["monthly_amount"].getFloat > 0.0:
       activeSponsors.add(sponsor)
     else:
       inactiveSponsors.add(sponsor)
