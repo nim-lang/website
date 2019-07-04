@@ -1,10 +1,13 @@
 logo,name,url,this_month,all_time,since,level
 /assets/bountysource/secondspectrum.png,"Second Spectrum",https://secondspectrum.com,250,6500,"May 5, 2016",0
 ,zacharycarter,,0,2400,"Feb 26, 2017",0
+,skunkiferous,,0,1120,"Oct 2, 2016",0
 ,bogen,,0,1010,"Jul 23, 2016",0
 ,"Yuriy Glukhov",,0,1000,"Apr 6, 2016",0
+,endragor,,0,775,"Apr 7, 2016",0
 ,cooldome,,0,600,"Apr 11, 2017",0
 ,flyx,,0,595,"Apr 7, 2016",0
+,jcosborn,,0,525,"Nov 21, 2016",0
 ,euantorano,,0,500,"Jun 7, 2016",0
 ,TechAspirer,,0,425,"Nov 17, 2017",0
 ,mikra,,0,400,"Apr 28, 2016",0
@@ -15,30 +18,38 @@ logo,name,url,this_month,all_time,since,level
 ,"Luke Parker",,0,225,"Mar 11, 2018",0
 ,"Chris Heller",,0,190,"Sep 7, 2017",0
 ,niebaopeng,,0,180,"Jun 1, 2016",0
+,moigagoo,,0,170,"May 13, 2016",0
 ,xxlabaza,,0,170,"Jun 17, 2016",0
 ,"pyloor ",,0,165,"May 16, 2016",0
 ,"Yuriy Glukhov",,0,165,"Jan 13, 2018",0
+,abeaumont,,0,160,"Aug 12, 2016",0
 ,WilRubin,,0,150,"Aug 11, 2015",0
 ,teroz,,0,150,"Apr 8, 2016",0
 ,devted,,0,150,"Oct 19, 2016",0
 ,stdev,,0,150,"Apr 25, 2018",0
 ,"Jennifer Becker",,0,140,"Nov 9, 2017",0
+,GULPF,,0,130,"Sep 12, 2017",0
 ,RyanMarcus,,0,120,"Jul 19, 2016",0
 ,zolern,,0,110,"Apr 15, 2016",0
 ,avsej,,0,110,"Jun 10, 2016",0
+,rustomax,,0,110,"Jan 7, 2018",0
 ,"Benny Luypaert",,0,100,"Apr 10, 2016",0
 ,barcharcraz,,0,100,"Jun 2, 2016",0
 ,PhilipWitte,,0,100,"Aug 5, 2016",0
 ,shomodj,,0,100,"May 22, 2017",0
+,amscotti,,0,100,"Jan 13, 2018",0
+,"Eddy Lazzarin",,0,100,"Sep 20, 2018",0
 ,"Jonathan Arnett",,0,90,"May 20, 2016",0
 ,jrenner,,0,90,"Apr 27, 2017",0
 ,"Handojo Goenadi",,0,85,"Apr 19, 2016",0
+,olanod,,0,85,"Aug 1, 2017",0
 ,D-L,,0,80,"Apr 7, 2016",0
 ,Boxifier,,0,75,"Apr 12, 2016",0
 ,iolloyd,,0,75,"Apr 29, 2016",0
 ,swalf,,0,75,"May 9, 2016",0
 ,lenzenmi,,0,70,"Jul 28, 2016",0
 ,"Christian Bagley",,0,70,"Nov 3, 2016",0
+,mancifbier,,0,70,"Nov 23, 2017",0
 ,"Kevin Golding",,0,70,"Jan 10, 2018",0
 ,tekknolagi,,0,55,"Feb 15, 2017",0
 ,rb01,,0,50,"May 4, 2016",0
@@ -47,9 +58,11 @@ logo,name,url,this_month,all_time,since,level
 ,iboB,,0,50,"Jan 28, 2017",0
 ,Rodrigo-O,,0,50,"May 28, 2017",0
 ,hackspanner,,0,50,"May 26, 2018",0
+,kritoke,,0,50,"Apr 30, 2019",0
 ,TedSinger,,0,45,"Apr 9, 2016",0
 ,johnnovak,,0,45,"Apr 30, 2016",0
 ,"Matthew Baulch",,0,40,"Jun 7, 2016",0
+,Johan,,0,40,"May 29, 2018",0
 ,"Sergiy Epatov",,0,40,"Nov 16, 2017",0
 ,"Matthew Newton",,0,35,"Apr 20, 2016",0
 ,martinbbjerregaard,,0,35,"Jun 9, 2016",0
@@ -57,6 +70,7 @@ logo,name,url,this_month,all_time,since,level
 ,opqx,,0,35,"Feb 23, 2017",0
 ,"Ray Imber",,0,35,"Feb 1, 2018",0
 ,misolietavec,,0,35,"Jul 1, 2018",0
+,"Michael D. Sklaroff",,0,33,"Apr 27, 2016",0
 ,RationalG,,0,30,"Jun 17, 2016",0
 ,benbve,,0,30,"Jul 12, 2016",0
 ,multikatt,,0,30,"Nov 2, 2016",0
@@ -69,11 +83,15 @@ logo,name,url,this_month,all_time,since,level
 ,"Landon Bass",,0,25,"Jun 7, 2016",0
 ,jimrichards,,0,25,"Jun 8, 2016",0
 ,jjzazuet,,0,25,"Jul 10, 2016",0
+,nicck,,0,25,"Aug 9, 2016",0
 ,"Rocket Wristbands",,0,25,"Mar 20, 2017",0
 ,georgelippert,,0,25,"Jul 19, 2017",0
 ,stonean,,0,25,"Jun 22, 2018",0
+,citycide,,0,25,"Aug 20, 2018",0
 ,Hardesty-Ingraham,,0,22,"Jun 29, 2017",0
+,"vindarel ",,0,21,"Oct 18, 2017",0
 ,kteza1,,0,20,"Jun 10, 2016",0
+,Badoo,,0,20,"Jul 30, 2016",0
 ,tomkeus,,0,20,"Sep 4, 2016",0
 ,csoriano89,,0,20,"Sep 7, 2016",0
 ,juanjux,,0,20,"Oct 29, 2016",0
@@ -85,9 +103,9 @@ logo,name,url,this_month,all_time,since,level
 ,OldhamMade,,0,20,"Apr 11, 2018",0
 ,"Jonathan Kienzle",,0,19,"Mar 3, 2018",0
 ,mirek,,0,15,"Apr 9, 2016",0
-,Badoo,,0,15,"Jul 30, 2016",0
 ,rickc,,0,15,"Jul 31, 2016",0
 ,TechPriest,,0,15,"Mar 18, 2017",0
+,"Buy Youtube Views",,0,15,"May 28, 2017",0
 ,"Luís Figueiredo",,0,15,"Oct 28, 2017",0
 ,jpkx1984,,0,13,"Jul 11, 2016",0
 ,"Andrei Skorokhod",,0,13,"Sep 25, 2017",0
@@ -110,6 +128,7 @@ logo,name,url,this_month,all_time,since,level
 ,"Jimmie Houchin",,0,10,"Feb 22, 2017",0
 ,pnuzhdin,,0,10,"Jun 13, 2017",0
 ,ruslux,,0,10,"Jul 20, 2017",0
+,KTakahiro1729,,0,10,"Aug 24, 2018",0
 ,yuttie,,0,8,"Jun 7, 2016",0
 ,"Rameez Nooruddin",,0,6,"Aug 8, 2018",0
 ,niv,,0,5,"Apr 6, 2016",0
@@ -122,5 +141,8 @@ logo,name,url,this_month,all_time,since,level
 ,laszlowaty,,0,5,"Jun 17, 2016",0
 ,mpachecofaulk55,,0,5,"Feb 11, 2017",0
 ,"Dan Beste",,0,5,"Oct 26, 2017",0
+,mcintyrechris,,0,5,"Jun 10, 2018",0
+,imbsky,,0,5,"Oct 15, 2018",0
+,"Ryuko Posting",,0,5,"Jan 11, 2019",0
 ,"Kobi Lurie",,0,3,"Nov 5, 2017",0
 ,"邬 博宇",,0,1,"Jun 27, 2017",0
