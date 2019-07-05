@@ -50,19 +50,6 @@ In certain serious cases, like for example when a security vulnerability is disc
 
 # Installing 0.20.0
 
-<div class="sidebarblock">
-  <div class="content">
-    <div class="title">NOTE</div>
-    <div class="paragraph">
-      As of 21:02 GMT, we have updated the 0.20.0 release tarballs to
-fix a critical issue where Nimble would crash with
-an exception. This means that you might have a broken Nimble build on your
-system if you updated before this time, the easiest way to fix this is to
-run <code>choosenim #v0.20.0</code>.
-    </div>
-  </div>
-</div>
-
 If you have installed a previous version of Nim using ``choosenim``,
 getting Nim 0.20.0 is as easy as:
 
