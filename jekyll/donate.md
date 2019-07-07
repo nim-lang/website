@@ -45,13 +45,13 @@ EU VAT-IN: DE297783450<br/>
 
 ## Priority bug fixes
 
-File a bug report and we will address them with the highest priority.
+File a bug report; we will address it with the highest priority.
 Once fixed, you will be able to access either the current Git build or
 at your request a custom build against the latest release with your bug fixed.
 
 ## Feature requests
 
-Suggest to us any feature that you might need, we will examine your request
+Suggest to us any feature that you might need. We will examine your request
 with care and provide a proper answer about its potential for inclusion.
 
 Communication happens via email or for a slightly higher fee via Skype.
@@ -60,7 +60,7 @@ implementation and is open to negotiation.
 
 # Other ways to donate
 
-Apart from BountySource you can also donate to Nim using one the following
+Apart from BountySource, you can also donate to Nim using one the following
 services.
 
 

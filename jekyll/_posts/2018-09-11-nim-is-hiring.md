@@ -42,10 +42,10 @@ development, meta programming and language design. Here are our requirements:
   We are not just looking for programmers, Nim's specification also needs to
   be improved and extended.
 - Experience in IDE development, there is no reason Nim's tooling can't rival
-  the state of the art when it comes to error messages, auto-completion and
+  the state-of-the-art when it comes to error messages, auto-completion and
   automatic refactorings.
 
-Note that you don't have to fullfill *every* one of these criteria; Nim is a
+Note that you don't have to fulfill *every* one of these criteria; Nim is a
 large project with plenty of work covering diverse topics and our requirements
 reflect this.
 

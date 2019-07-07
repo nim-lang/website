@@ -91,7 +91,7 @@ Changes affecting backwards compatibility
   to ``pegs.!*\`` as ``@`` operators now have different precedence.
 - The type ``proc`` (without any params or return type) is now considered a
   type class matching all proc types. Use ``proc ()`` to get the old meaning
-  denoting a proc expecing no arguments and returing no value.
+  denoting a proc expecing no arguments and returning no value.
 - Deprecated ``system.GC_setStrategy``.
 - ``re.findAll`` and ``pegs.findAll`` don't return *captures* anymore but
   matching *substrings*.
