@@ -33,11 +33,11 @@ Join the Discord chat room, which relays messages both ways between IRC and
 Discord, by clicking [here](https://discord.gg/ezDFDw2).
 
 <i class="fab black li" aria-hidden="true">m</i>
-Join the Matrix chat room, which relays messages both ways between IRC and 
+Join the Matrix chat room, which relays messages both ways between IRC and
 Matrix, by clicking [here](https://matrix.to/#/#freenode_#nim:matrix.org).
 
 <i class="fab fa-telegram black li" aria-hidden="true"></i>
-Join the Telegram chat room (it doesn't relay any messages) 
+Join the Telegram chat room (it doesn't relay any messages)
 by clicking [here](https://t.me/nim_lang).
 
 You can join this chat room to ask a quick question, or engage in a discussion
@@ -83,7 +83,7 @@ If you are an avid RSS user then it should be just for you.
 
 # Reddit
 
-The Nim subreddit contains many user submitted announcements, blog posts,
+The Nim subreddit contains many user-submitted announcements, blog posts,
 discussions. It is a good place to share your work with the Nim community and
 to get updates about the project so be sure to hit that subscribe button.
 
@@ -131,8 +131,8 @@ If you have found an issue in the compiler, the standard library or any of
 the tools then please create an issue in the relevant repository. If
 appropriate include a minimal example reproducing the issue.
 
-If you have a feature request then consider creating a formal RFC
-(Request for comments). In it you should describe the feature clearly,
+If you have a feature request, then consider creating a formal RFC
+(Request For Comments). In it you should describe the feature clearly,
 including the use cases that you foresee for the feature and anything else
 that you think is relevant. RFCs are currently submitted to the
 issue tracker.
@@ -141,10 +141,10 @@ issue tracker.
 
 A good place for general user-submitted articles and content. For instance,
 things like random howtos, tutorials, notes, links to interesting content,
-and so on. Also a good place to post material or ideas that come up during
-forum or IRC chats, for instance.
+and so on. It's also a good place to post material or ideas that come up
+during forum or IRC chats, for instance.
 
-It's hosted on github, but also very easy for anyone to edit and share
+It's hosted on GitHub, but also very easy for anyone to edit and share
 quickly, without needing to make pull requests.
 
 * [Nim wiki](https://github.com/nim-lang/Nim/wiki)

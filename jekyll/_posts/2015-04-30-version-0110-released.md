@@ -365,7 +365,7 @@ Bugfixes
   ([#2247](https://github.com/Araq/Nim/issues/2247))
 - Fixed "Two different type names generated for a single type (C backend)"
   ([#2250](https://github.com/Araq/Nim/issues/2250))
-- Fixed "Ambigous call when it should not be"
+- Fixed "Ambiguous call when it should not be"
   ([#2229](https://github.com/Araq/Nim/issues/2229))
 - Fixed "Make sure we can load root urls"
   ([#2227](https://github.com/Araq/Nim/issues/2227))

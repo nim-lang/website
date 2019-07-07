@@ -102,7 +102,7 @@ macro edges(head, body: untyped): untyped =
     # we look to implement.
     if n.kind == nnkInfix and $n[0] == "->":
       # we pass the template to getAst to avoid constructing
-      # the AST manualy
+      # the AST manually
       result.add getAst(adder(head, n[1], n[2]))
 ```
 

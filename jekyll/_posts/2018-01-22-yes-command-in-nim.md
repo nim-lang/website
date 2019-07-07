@@ -85,7 +85,7 @@ $ ./yes | pv > /dev/null
 ... [7.16GiB/s] ...
 ```
 
-That's it! Nim has succesfully achieved the same efficiency as the `yes` written in native C.
+That's it! Nim has successfully achieved the same efficiency as the `yes` written in native C.
 
 Although we managed to match the write speed, we also made our code less expressive. Luckily this is Nim, so a simple template will help cleaning this up while keeping the performance unimpacted!
 

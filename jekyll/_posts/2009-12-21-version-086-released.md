@@ -25,7 +25,7 @@ Additions
 - Added ``system.contains`` for open arrays.
 - The PEG module now supports the *search loop operator* ``@``.
 - Grammar/parser: ``SAD|IND`` is allowed before any kind of closing bracket.
-  This allows for more flexible source code formating.
+  This allows for more flexible source code formatting.
 - The compiler now uses a *bind* table for symbol lookup within a ``bind``
   context. (See [manual.html#templates](https://nim-lang.org/docs/manual.html#templates) for details.)
 - ``discard """my long comment"""`` is now optimized away.

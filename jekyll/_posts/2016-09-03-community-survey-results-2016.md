@@ -34,7 +34,7 @@ With these general facts in mind, let's begin looking at specific questions.
 
 The rationale for the first question was simple, we wanted to know where our
 respondents found out about Nim. This is an interesting question for us, as
-we do occassionally get users asking us why it took so long for them to hear
+we do occasionally get users asking us why it took so long for them to hear
 about Nim. It allows us to see how effective each website is at spreading the
 word about Nim.
 

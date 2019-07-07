@@ -140,8 +140,8 @@ simply provide a summary:
 * Linux is still the most popular development platform, with Windows second and
   macOS third.
 * The same is true for the target platform. But in addition to this, a large
-  19% of respondents are targetting Android, 16.7% are targetting JavaScript,
-  10.5% are targetting iOS and 10.1% are targetting embedded platforms.
+  19% of respondents are targeting Android, 16.7% are targeting JavaScript,
+  10.5% are targeting iOS and 10.1% are targeting embedded platforms.
 * The current release of Nim (0.17.0) is the most used at 68.8%, with Git HEAD
   second at 33.1%.
 * 52.2% of respondent's code was never broken by a Nim upgrade.

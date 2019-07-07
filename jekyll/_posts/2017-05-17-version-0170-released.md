@@ -65,7 +65,7 @@ for a list of changes since its last release.
   to ``sa_sigaction*: proc (x: cint, y: ptr SigInfo, z: pointer) {.noconv.}``.
 - The compiler doesn't infer effects for ``.base`` methods anymore. This means
   you need to annotate them with ``.gcsafe`` or similar to clearly declare
-  upfront every implementation needs to fullfill these contracts.
+  upfront every implementation needs to fulfill these contracts.
 - ``system.getAst templateCall(x, y)`` now typechecks the ``templateCall``
   properly. You need to patch your code accordingly.
 - ``macros.getType`` and ``macros.getTypeImpl`` for an enum will now return an
@@ -85,7 +85,7 @@ for a list of changes since its last release.
   of Nim will also require you to initialize all the fields of the type during
   object construction. For now, only a warning will be produced.
 - The Object construction syntax now performs a number of additional safety
-  checks. When fields within case objects are initialiazed, the compiler will
+  checks. When fields within case objects are initialized, the compiler will
   now demand that the respective discriminator field has a matching known
   compile-time value.
 - On posix, the results of `waitForExit`, `peekExitCode`, `execCmd` will return

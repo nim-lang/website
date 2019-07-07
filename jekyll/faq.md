@@ -11,7 +11,7 @@ css_class: faq
 ## Why yet another programming language?
 
 Nim is one of the very few _programmable_ statically typed languages, and
-combines the speed and memory efficency of C, an expressive syntax,
+combines the speed and memory efficiency of C, an expressive syntax,
 memory safety and multiple target languages.
 
 ## How stable is Nim?
