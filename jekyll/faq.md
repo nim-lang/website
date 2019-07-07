@@ -80,10 +80,14 @@ whereas ``def`` stands for ``define``.
 ## Which option to use for the fastest executable?
 
 For the standard configuration file, ``-d:release`` does the trick.
+If supported by your compiler, you can also enable link-time optimization
+for an even faster executable: ``--passc:-flto``
 
 ## Which option to use for the smallest executable?
 
 For the standard configuration file, ``-d:quick --opt:size`` does the trick.
+If supported by your compiler, you can also enable link-time optimization
+for an even smaller executable: ``--passc:-flto``
 
 ## How do I use a different C compiler than the default one?
 
@@ -93,7 +97,7 @@ Change the value of the ``cc`` variable to one of the following:
 | Abbreviation | C/C++ Compiler                          |
 | ---------------- | --------------------------------------------|
 |``vcc``           | Microsoft's Visual C++                      |
-|``gcc``           | Gnu C                                       |
+|``gcc``           | GNU C compiler                              |
 |``llvm_gcc``      | LLVM-GCC compiler                           |
 |``icc``           | Intel C compiler                            |
 |``clang``         | Clang compiler                              |
