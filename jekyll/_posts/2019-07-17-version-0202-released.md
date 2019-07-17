@@ -13,16 +13,24 @@ This is mostly a bugfix release of version 0.20.0 (1.0 RC1).
 The only new feature is that `toOpenArray`, our slicing operator,
 is now available for the JavaScript backend.
 
-Nim now bootstraps with `--styleCheck:error` flag, meaning that the compiler
-and the standard library are now style checked and they won't compile if
-different styles (e.g. `fooBar` and `foo_bar`) are used.
-If you would like to style check your own nimble package, but not its
-dependencies, you can use `--styleCheck:hint`, making your package consistent
-while still retaining perfect interoperability with all other Nim code in the wild.
-
 Although this release comes only one month after a previous release,
 it has over 200 new commits, fixing over 70 reported issues and bringing
 lots of improvements which should make Nim even more stable.
+
+
+### Style checks
+
+Since version 0.20.0 we improved our style checker to the point that
+Nim now bootstraps with `--styleCheck:error` flag, meaning that the compiler
+and the standard library are now style checked and they won't compile if
+different styles (e.g. `fooBar` and `foo_bar`) are used.
+
+If you would like to only style check your own nimble package, but not its
+dependencies, you can use `--styleCheck:hint`, making your package consistent
+while still retaining perfect interoperability with all other Nim code in the wild.
+
+
+### Nimpretty
 
 One of the areas which we focused on for this release is our `nimpretty` tool --
 it is a Nim source code beautifier, to format code according to the official
