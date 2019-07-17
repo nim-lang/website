@@ -32,6 +32,14 @@ to make it more robust for real-world scenarios.
 Nimpretty version 0.2 ships with Nim, and we invite you to give it a try.
 
 
+### New runtime
+
+The new runtime is progressing nicely but it is off the critical path for
+version 1.0 as it's an opt-in feature.
+The next significant milestone is to make the new runtime work with `async`.
+Only after this is accomplished we can push for more adoption of it.
+
+
 
 ## Installing 0.20.2
 
