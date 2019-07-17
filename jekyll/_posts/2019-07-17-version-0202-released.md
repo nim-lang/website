@@ -11,7 +11,7 @@ check the [previous release notes](https://nim-lang.org/blog/2019/06/06/version-
 This is mostly a bugfix release of version 0.20.0 (1.0 RC1).
 
 The only new feature is that `toOpenArray`, our slicing operator,
-is now available for JavaScript backend.
+is now available for the JavaScript backend.
 
 Nim now bootstraps with `--styleCheck:error` flag, meaning that the compiler
 and the standard library are now style checked and they won't compile if
