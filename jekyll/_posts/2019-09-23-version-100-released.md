@@ -103,5 +103,4 @@ new and exciting packages.
 
 If you would like to help Nim grow and ensure that it remains 100% free
 for everybody, consider donating via
-[Open Collective](https://opencollective.com/nim) or our newly-created
-[Patreon account](https://www.patreon.com/araq).
+[Open Collective](https://opencollective.com/nim).
