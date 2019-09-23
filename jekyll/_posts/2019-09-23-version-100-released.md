@@ -101,6 +101,5 @@ broke the 1000 package milestone!
 We are optimistic that with this release we will see even bigger growth of
 new and exciting packages.
 
-If you would like to help Nim grow and ensure that it remains 100% free
-for everybody, consider donating via
-[Open Collective](https://opencollective.com/nim).
+If you would like to help Nim grow consider donating via
+[Open Collective](https://opencollective.com/nim) or [other services](https://nim-lang.org/donate.html).
