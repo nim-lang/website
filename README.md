@@ -4,7 +4,7 @@ The Nim website hosted on https://nim-lang.org.
 
 ## Developing
 
-Install Jekyll, then ``cd jekyll`` and use `bundle exec jekyll serve`
+Install Jekyll, then `cd jekyll` and use `bundle exec jekyll serve`
 to serve to a local Web server with automatic refresh on changes.
 
 ## License
