@@ -22,6 +22,11 @@ If you are one of the new users, check out our
 [learning resources](https://nim-lang.org/learn.html) and try Nim in
 [our playground](https://play.nim-lang.org/).
 
+This release includes many changes, including bug fixes and some
+language additions. All changes are documented in the v1.0.0 changelog
+available [here](https://github.com/nim-lang/Nim/blob/devel/changelogs/changelog_1_0_0.md).
+Included as well is the latest release of Nimble, v0.11.0, the changelog for which is available
+[here](https://github.com/nim-lang/nimble/blob/master/changelog.markdown#0110---22092019).
 
 
 # The stability guarantee
