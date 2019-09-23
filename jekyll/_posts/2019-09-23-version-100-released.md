@@ -1,14 +1,14 @@
 ---
 title: "Version 1.0 released"
 author: The Nim Team
-excerpt: "The Nim Team is very proud and happy to announce the much anticipated version 1.0 of the language."
+excerpt: "The Nim Team is very proud and happy to announce the much-anticipated version 1.0 of the language."
 ---
 
 
-Today is the day, the Nim Team is very proud
-and happy to announce the much anticipated version 1.0 of the language.
+Today is the day. The Nim Team is very proud
+and happy to announce the much-anticipated version 1.0 of the language.
 
-Nim was always focused on providing a compiled statically typed language
+Nim has always been focused on providing a compiled statically typed language
 focusing on efficiency, readability and flexibility.
 
 Version 1.0 marks the beginning of a stable base which
@@ -44,11 +44,11 @@ Backwards compatibility covers only the stable fragment of the language,
 as defined by the [manual](https://nim-lang.org/docs/manual.html).
 
 The compiler still implements experimental features which are documented in the
-["experimental manual"](https://nim-lang.org/docs/manual_experimental.html),
-these features are subject to changes which may be backwards incompatible,
+["experimental manual"](https://nim-lang.org/docs/manual_experimental.html).
+These features are subject to changes which may be backwards incompatible;
 some of the features included under this umbrella are concepts,
 the `do` notation and a few others. There are also modules in the stdlib
-which are still considered unstable, these have been marked with an
+which are still considered unstable - these have been marked with an
 "Unstable API" in their docs.
 
 You can use experimental features, even in production, but be aware that
@@ -61,7 +61,7 @@ is clearly marked with a v1.0 tag in its documentation.
 ## Exceptions to the rule
 
 We of course have to concede that there are exceptions.
-In certain serious cases, like for example when a security vulnerability is
+In certain serious cases, for example if a security vulnerability is
 discovered in the standard library, we reserve the right to break code which
 uses it.
 
@@ -96,7 +96,7 @@ what it is today.
 
 We would also want to thank all people who have created Nimble packages,
 extending what is possible to do with Nim.
-The number of nimble packages has been steadily growing, and in August 2019 we
+The number of Nimble packages has been steadily growing, and in August 2019 we
 broke the 1000 package milestone!
 We are optimistic that with this release we will see even bigger growth of
 new and exciting packages.
