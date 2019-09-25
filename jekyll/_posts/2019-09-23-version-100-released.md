@@ -59,9 +59,6 @@ which are still considered unstable - these have been marked with an
 You can use experimental features, even in production, but be aware that
 these are not as fleshed out as we would like them to be.
 
-The standard library is also covered, as long as the module in question
-is clearly marked with a v1.0 tag in its documentation.
-
 
 ## Exceptions to the rule
 
