@@ -177,6 +177,12 @@ brew install nim
 zypper in nim
 ```
 
+## Snap
+
+```
+snap install nim-lang
+```
+
 ## Void Linux
 
 ```
