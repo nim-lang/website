@@ -79,8 +79,8 @@ uses it.
       It contains more than 50 fixes since 1.0.0 release.
     </div>
     <div class="paragraph">
-      The list of changes can be seen
-      <a href="https://github.com/nim-lang/Nim/compare/v1.0.0...v1.0.2">here</a>.
+      The v1.0.2 changelog is available
+      <a href="https://github.com/nim-lang/Nim/blob/version-1-0/changelogs/changelog_1_0_2.md">here</a>.
     </div>
   </div>
 </div>
