@@ -71,6 +71,21 @@ uses it.
 
 # Installing Nim 1.0
 
+<div class="sidebarblock">
+  <div class="content">
+    <div class="title">Version 1.0.2</div>
+    <div class="paragraph">
+      On October 23th 2019 the first patch version, Nim 1.0.2, was released.
+      It contains more than 50 fixes since 1.0.0 release.
+    </div>
+    <div class="paragraph">
+      The list of changes can be seen
+      <a href="https://github.com/nim-lang/Nim/compare/v1.0.0...v1.0.2">here</a>.
+    </div>
+  </div>
+</div>
+
+
 ## New users
 
 Check out if the package manager of your OS already ships version 1.0 or
