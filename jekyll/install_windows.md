@@ -64,8 +64,8 @@ Nim.
 
 <!-- TODO: Instructions on what to do with these 7z files? -->
 
-* 32 bit - [mingw32-6.3.0.7z]({{ site.baseurl }}/download/mingw32-6.3.0.7z)
-* 64 bit - [mingw64-6.3.0.7z]({{ site.baseurl }}/download/mingw64-6.3.0.7z)
+* 32 bit - [mingw32.7z]({{ site.baseurl }}/download/mingw32.7z)
+* 64 bit - [mingw64.7z]({{ site.baseurl }}/download/mingw64.7z)
 
 # Other dependencies
 
