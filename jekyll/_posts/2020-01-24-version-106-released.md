@@ -9,7 +9,7 @@ Nim 1.0.0.
 To read more about version 1.0.0, take a look at our
 [v1.0 release article](https://nim-lang.org/blog/2019/09/23/version-100-released.html).
 
-This release comes two month after a previous release,
+This release comes two months after a previous release,
 and it has almost [60 new commits](https://github.com/nim-lang/Nim/compare/v1.0.4...v1.0.6),
 containing fixes for another 15 reported issues, several other bug fixes and documentation
 improvements, making our 1.0 release even better.
