@@ -14,6 +14,9 @@ and it has almost [60 new commits](https://github.com/nim-lang/Nim/compare/v1.0.
 containing fixes for another 15 reported issues, several other bug fixes and documentation
 improvements, making our 1.0 release even better.
 
+There were no security-related problems, but we are trying to release 1.0.x versions
+on a regular bi-monthly basis.
+
 
 <div class="sidebarblock">
   <div class="content">
