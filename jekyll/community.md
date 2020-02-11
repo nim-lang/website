@@ -40,6 +40,9 @@ Matrix, by clicking [here](https://matrix.to/#/#freenode_#nim:matrix.org).
 Join the Telegram chat room (it doesn't relay any messages)
 by clicking [here](https://t.me/nim_lang).
 
+<i class="fab fa-telegram black li" aria-hidden="true"></i>
+Join the Telegram chat room (in Italian) by clicking [here](https://t.me/nimitalia).
+
 You can join this chat room to ask a quick question, or engage in a discussion
 about features and projects that interest you. For formal feature requests and
 issue reporting consult the [Issues and RFCs](#issues-and-rfcs) section.
