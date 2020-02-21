@@ -71,13 +71,14 @@ desired installation directory. Pre-built binaries are provided in the
 binary distribution.
 
 For the source distribution, open a new terminal window, ``cd`` into the
-extracted directory, and execute the following commands:
+extracted directory, and execute the following command:
 
 ```bash
-sh build.sh
-bin/nim c koch
-./koch tools
+sh build_all.sh
 ```
+
+Note: The `build_all.sh` script is not fully offline, it will start by
+downloading bootstrap-phase C sources of Nim compiler from the Internet.
 
 ## Configuring the ``PATH`` environment variable for a manual installation
 
