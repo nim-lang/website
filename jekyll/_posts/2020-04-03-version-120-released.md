@@ -3,14 +3,13 @@ title: "Version 1.2.0 released"
 author: The Nim Team
 ---
 
-We are very proud to announce Nim version 1.2 after six months of the continuous development!
+We are very proud to announce Nim version 1.2 after six months of continuous development!
 
-This release contains around 600 new commits since the release of 1.0 which were
-not already backported to our 1.0.x versions.
+This release contains around 600 new commits which have not already been backported to our 1.0.x versions.
 There are several new features and standard library additions compared to 1.0.
 We tried to keep breaking changes to a minimum, but some bugfixes weren't possible
 without making those necessary changes, and we feel that our users will benefit
-from those changes.
+from them.
 
 We would recommend to all of our users to upgrade and use version 1.2.
 
@@ -19,7 +18,7 @@ We would recommend to all of our users to upgrade and use version 1.2.
 
 ### `useVersion`
 
-If you would like to upgrade to version v1.2, but you are relying on a v1.0 behaviour,
+If you would like to upgrade to version v1.2, but you are relying on v1.0 behaviour,
 there is a command line switch `--useVersion`, which you can use with the newest
 Nim to simulate previous versions.
 
@@ -43,7 +42,7 @@ for v1.0 and v1.2 users, but you are relying on some new features introduced in
 v1.2 which are not available in v1.0 release, you can use `when declared` to
 your advantage.
 
-For example, `sequtils` module now has `unzip` proc.
+For example, `sequtils` module now has the `unzip` proc.
 You can write your code like this:
 
 ```nim
@@ -99,7 +98,7 @@ Big thanks to all of you, we couldn't have pulled off this release without you!
 
 `--gc:arc` is our main new feature for this release!
 
-Instead of going into a lots of details and hijacking this release article,
+Instead of going into lots of details and hijacking this release article,
 we would like to point you to
 [this video from FOSDEM](https://www.youtube.com/watch?v=yA32Wxl59wo)
 where Araq explains details behind ARC and shows some benchmarks which show
