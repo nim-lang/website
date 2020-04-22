@@ -22,7 +22,6 @@ use_dark_highlighting: true
               which are small and allow easy redistribution.</li>
           <li>The Nim compiler and the generated executables support all major platforms like
               Windows, Linux, BSD and macOS.</li>
-          <li>Fast deferred reference counting memory management that supports real-time systems.</li>
           <li>Modern concepts like zero-overhead iterators and compile-time evaluation
               of user-defined functions, in combination with the preference of value-based
               datatypes allocated on the stack, lead to extremely performant code.</li>
@@ -135,65 +134,6 @@ for o in opcodes:
   </div>
 </section>
 
-<section class="background-faded call-to-action feature-projects">
-  <section class="content">
-    <h1 class="section-heading">Featured projects</h1>
-    <div class="pure-g center">
-
-      <div class="pure-u-1-1 pure-u-md-1-2">
-        <div class="project-container">
-          <h2>
-            <a href="https://github.com/pragmagic/karax">Karax</a>
-          </h2>
-          <span class="tag">SPA framework</span>
-          <p>
-            Karax is a framework for developing single page applications in Nim.
-            Leverage Nim's macro system to produce a framework that allows for the
-            development of applications that are boilerplate free.
-          </p>
-        </div>
-      </div>
-
-      <div class="pure-u-1-1 pure-u-md-1-2">
-        <div class="project-container">
-          <h2>
-            <a href="https://github.com/status-im/nimbus">Nimbus</a>
-          </h2>
-          <span class="tag">Ethereum client</span>
-          <p>
-            Nimbus aims to be a sharding client for Ethereum 2.0 Blockchain.
-            Ethereum will potentially be on embedded systems, Nimbus will be
-            designed to perform well on IoT and personal mobile devices.
-          </p>
-        </div>
-      </div>
-
-    </div>
-    <div class="text-centered">
-      <a class="pure-button pure-button-primary" href="https://github.com/trending/nim">Find more projects</a>
-    </div>
-  </section>
-</section>
-
-<section class="content center-banner">
-  <h1 class="section-heading">
-    <i class="fa fa-graduation-cap fa-2x" aria-hidden="true"></i>
-    Learn Nim today
-  </h1>
-  <div class="pure-g center">
-    <div class="pure-u-1-2">
-      <h3>
-        Build command-line applications, games, web servers, kernels and everything
-        else in between. Nim has a low barrier to entry and offers powerful
-        features you won't find in many mainstream programming languages.
-      </h3>
-    </div>
-    <div class="pure-u-1 center">
-      <a class="pure-button" href="{{ site.baseurl }}/learn.html">Get started now</a>
-    </div>
-  </div>
-</section>
-
 <section class="jumbotron" id="book">
   <section class="content">
     <div class="pure-g">
@@ -247,28 +187,6 @@ for o in opcodes:
   </div>
 </section>
 
-<section class="background-faded call-to-action">
-  <section class="content text-centered">
-    <h1>Top sponsors</h1>
-    <div class="pure-g center">
-      <div class="pure-u-2-3">
-        {% for sponsor in site.data.sponsors %}
-          {% if sponsor.level == "250" %}
-            <div class="sponsor-container">
-              <a href="{{sponsor.url}}">
-                <img src="{{ site.baseurl }}{{sponsor.logo}}"/>
-                <span class="green tag">+${{sponsor.this_month}}/month</span>
-                <p class="title">{{sponsor.name}}</p>
-              </a>
-            </div>
-          {% endif %}
-        {% endfor %}
-      </div>
-    </div>
-    <a class="pure-button" href="{{ site.baseurl }}/sponsors.html">See more</a>
-  </section>
-</section>
-
 <section class="jumbotron" id="community">
   <section class="content">
     <h1>Community</h1>
@@ -312,24 +230,4 @@ for o in opcodes:
     </div>
 
   </section>
-</section>
-
-<section class="content center-banner">
-  <h1 class="section-heading">
-    <i class="fab fa-github fa-2x" aria-hidden="true"></i>
-    Looking for the GitHub repository?
-  </h1>
-  <div class="pure-g center">
-    <div class="pure-u-1-2">
-      <h3>
-        The Nim compiler and tools are all written in Nim and licensed under the
-        MIT license, with most development taking place on GitHub.
-        Be sure to watch the repository to get updates on Nim's
-        development, or star it to give us some brownie points.
-      </h3>
-    </div>
-    <div class="pure-u-1 center">
-      <a class="pure-button" href="https://github.com/nim-lang/Nim">Source code</a>
-    </div>
-  </div>
 </section>
