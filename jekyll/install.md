@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Install
+title: Download
 css_class: install
 ---
 
