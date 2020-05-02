@@ -171,6 +171,12 @@ pkg install nim
 brew install nim
 ```
 
+## OpenBSD
+
+```
+pkg_add nim
+```
+
 ## openSUSE
 
 ```
