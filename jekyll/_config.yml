@@ -41,7 +41,11 @@ navigation:
 
 # Build settings
 markdown: kramdown
+strict_front_matter: true
 permalink: /blog/:year/:month/:day/:title.html
+liquid:
+  error_mode: strict
+  strict_filters: true
 sass:
   style: compressed
 exclude:
