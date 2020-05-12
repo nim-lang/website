@@ -7,20 +7,6 @@ current: Install
 
 <h1 class="text-centered page-title main-heading">Install Nim on Unix</h1>
 
-# Installation using ``choosenim``
-
-[``choosenim``](https://github.com/dom96/choosenim#choosenim) is an
-installer for the Nim programming language. It allows you
-to easily switch between versions of Nim, whether that is the latest stable
-release or the latest development version.
-
-To install the latest stable release of Nim using ``choosenim``, just run the
-following in your terminal, then follow the onscreen instructions:
-
-```bash
-curl https://nim-lang.org/choosenim/init.sh -sSf | sh
-```
-
 # Manual installation
 
 ## Pre-built binaries for Linux
@@ -120,6 +106,20 @@ to use Nim. They include:
 You can use your package manager to install these dependencies when
 necessary.
 
+# Installation using ``choosenim``
+
+[``choosenim``](https://github.com/dom96/choosenim#choosenim) is an
+installer for the Nim programming language. It allows you
+to easily switch between versions of Nim, whether that is the latest stable
+release or the latest development version.
+
+To install the latest stable release of Nim using ``choosenim``, just run the
+following in your terminal, then follow the onscreen instructions:
+
+```bash
+curl https://nim-lang.org/choosenim/init.sh -sSf | sh
+```
+
 # Installation using package managers
 
 ## Arch Linux
@@ -202,7 +202,6 @@ Get the latest nightly build:
 ```
 snap install nim-lang-nightly --classic
 ```
-
 
 ## Void Linux
 
