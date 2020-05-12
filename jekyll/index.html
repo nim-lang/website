@@ -28,7 +28,7 @@ use_dark_highlighting: true
           <li>Modern concepts like zero-overhead iterators and compile-time evaluation
               of user-defined functions, in combination with the preference of value-based
               datatypes allocated on the stack, lead to extremely performant code.</li>
-          <li>Support for various backends: it compiles to C, C++ or JavaScript so that Nim
+          <li>Support for various backends: it generates fast native binaries or JavaScript so that Nim
               can be used for all backend and frontend needs.</li>
         </ul>
         <h3>Expressive</h3>
@@ -44,14 +44,14 @@ use_dark_highlighting: true
           <li>Modern type system with local type inference, tuples, generics and sum types.</li>
           <li>Statements are grouped by indentation but can span multiple lines.</li>
         </ul>
-
-        <div class="text-centered">
-          <a class="pure-button pure-button-primary" href="{{ site.baseurl }}/install.html">Install</a>
-          <a class="pure-button" href="{{ site.baseurl }}/learn.html">Learn Nim</a>
-        </div>
       </div>
 
       <div class="pure-u-1 pure-u-md-2-5">
+        <div class="text-centered">
+          <a class="pure-button pure-button-primary" href="{{ site.baseurl }}/install.html">Install Nim {{ site.nim_version }}</a>
+          <a class="pure-button" href="https://play.nim-lang.org/#ix=2lK1">Try it online</a>
+        </div>
+
         {% highlight nim %}
 import strformat
 
