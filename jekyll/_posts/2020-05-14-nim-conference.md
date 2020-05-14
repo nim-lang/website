@@ -23,7 +23,7 @@ Your talk can take anywhere between 15 and 60 minutes.
 
 All you need to do is to come up with the title of your talk and [fill the
 registration form](https://docs.google.com/forms/d/e/1FAIpQLSeLeVBRETQW-iHiegW7xs52AKYH0g3xoxM7xPdtgTjPBs9Txg/viewform)
-before the **deadline -- May 24th**.
+before the **deadline -- May 31st**.
 
 If you wish to give multiple talks, all you have to do is fill the form once for
 each talk.
