@@ -61,7 +61,7 @@ Why?
 Because we must differentiate between a compiler writer and a developer or, in other words, between the question "is the code per se correct?" and "is the code logically correct?".
 From a compilers perspective the following code:
 ```nim
-let foo: uint32 = 0 # init var
+var foo: uint32 = 0 # init var
 var myArray : array[0 .. 511, uint32] # our array
 # ...
 foo = myArray[100] # assign some element to foo
@@ -114,7 +114,7 @@ Our goal is of a *mathematical* nature and what we really mean to achieve is som
 
 Now, assume that our `min` function came with the following specification:
 ```nim
-func min(a: int, b: int): int
+func min(a: int, b: int): int =
   require((INT_MIN <= a < INT_MAX) and (INT_MIN <= b < INT_MAX))
   ensure((INT_MIN <= result < INT_MAX) and ((result == a and result < b) or (result == b and result < a)))
 ```
@@ -126,7 +126,7 @@ This might look like a decent and sensible specification -- but it isn't, mainly
 
 Here is a better spec:
 ```nim
-func min(a: int16, b: int16): int16
+func min(a: int16, b: int16): int16 =
   ensure((result == a and result <= b) or (result == b and result <= a))
 ```
 
@@ -176,7 +176,7 @@ Imagine that we wanted a function that only works on potential prime numbers, ma
 The definition and preconditions might look like this:
 
 ```nim
-func someSieve(const num: uint64): bool # primes aren't negative and can get big
+func someSieve(num: uint64): bool = # primes aren't negative and can get big
   where precondition(lastDigit(num) not in['0','5']) and (num > 2) and (num % 2 == 1))
   # body
 ```
@@ -195,7 +195,7 @@ They specify state related conditions that the function guarantees to hold.
 
 For example, if we stated that a given function never returns a negative value or a value greater than 42 we could express that like this
 ```nim
-func someFunc(a: int32): uint32 # ...
+func someFunc(a: int32): uint32 =
   where postcondition(0 <= result <= 42)
 ```
 
