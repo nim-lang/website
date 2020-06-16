@@ -64,7 +64,16 @@ Compiled in x86-64 mode (SSE2 only), 384x216 image, 100 rays per pixel:
 | 38.577s | 42.303s |
 
 The Nim sources for this benchmark can be retrieved from the
-[first release](https://github.com/mratsim/trace-of-radiance/tree/v0.1.0).
+[first release](https://github.com/mratsim/trace-of-radiance/tree/v0.1.0):
+
+```bash
+git clone https://github.com/mratsim/trace-of-radiance
+cd trace-of-radiance
+git checkout v0.1.0
+nim c -d:danger --outdir:build trace_of_radiance.nim
+./build/trace_of_radiance > image.ppm
+```
+
 
 
 ### 2. SmallPT
@@ -314,3 +323,6 @@ Not all is ponies and rainbows, Nim main issue is that it is a very young langua
 with a small ecosystem of supported libraries.
 That said, you can reuse the C and C++ ecosystem (and Javascript as well, since
 Nim can also compile to it).
+As an example, Trace of Radiance supports video output via MP4 since v0.2.0 via a
+[simple 60 lines wrapper](https://github.com/mratsim/trace-of-radiance/blob/v0.2.0/trace_of_radiance/io/mp4.nim#L1-L60)
+of an header-only C library.
