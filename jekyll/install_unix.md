@@ -62,6 +62,7 @@ extracted directory, and execute the following commands:
 ```bash
 sh build.sh
 bin/nim c koch
+./koch boot -d:release
 ./koch tools
 ```
 
