@@ -1,6 +1,7 @@
 ---
 title: "Version 0.9.4 released"
 author: Dominik Picheta
+use_dark_highlighting: true
 ---
 
 The Nimrod development community is proud to announce the release of version

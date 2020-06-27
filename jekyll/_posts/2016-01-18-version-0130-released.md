@@ -1,6 +1,7 @@
 ---
 title: "Version 0.13.0 released"
 author: Dominik Picheta
+use_dark_highlighting: true
 ---
 
 Once again we are proud to announce the latest release of the Nim compiler

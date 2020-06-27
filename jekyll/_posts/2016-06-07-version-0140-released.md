@@ -1,6 +1,7 @@
 ---
 title: "Version 0.14.0 released"
 author: Dominik Picheta
+use_dark_highlighting: true
 ---
 
 It's been a while since the last release, but we've been very busy in the

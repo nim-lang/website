@@ -1,6 +1,7 @@
 ---
 title: "Version 0.15.0 released"
 author: [Dominik Picheta, Andreas Rumpf]
+use_dark_highlighting: true
 ---
 
 We're happy to announce that the latest release of Nim, version 0.15.0, is now

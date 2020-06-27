@@ -1,6 +1,7 @@
 ---
 title: "Version 1.2.0 released"
 author: The Nim Team
+use_dark_highlighting: true
 ---
 
 We are very proud to announce Nim version 1.2 after six months of continuous development!

@@ -1,6 +1,7 @@
 ---
 title: "Version 0.16.0 released"
 author: The Nim Team
+use_dark_highlighting: true
 ---
 
 We're happy to announce that the latest release of Nim, version 0.16.0, is now

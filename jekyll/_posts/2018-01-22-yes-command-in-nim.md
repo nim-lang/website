@@ -2,6 +2,7 @@
 title: "yes command in Nim"
 author: Valts Liepiņš
 excerpt: "Recently I stumbled upon a post which takes a closer look at the `yes` command line tool. The main purpose of it is to write endless stream of a single letter `y` at a ridiculous speed."
+use_dark_highlighting: true
 ---
 
 <div class="sidebarblock">

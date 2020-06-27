@@ -1,6 +1,7 @@
 ---
 title: "Version 0.12.0 released"
 author: Dominik Picheta
+use_dark_highlighting: true
 ---
 
 The Nim community of developers is proud to announce the new version of the

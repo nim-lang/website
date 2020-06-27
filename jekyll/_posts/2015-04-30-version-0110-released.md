@@ -1,6 +1,7 @@
 ---
 title: "Version 0.11.0 released"
 author: Dominik Picheta
+use_dark_highlighting: true
 ---
 
 With this release we are one step closer to reaching version 1.0 and by

@@ -1,6 +1,7 @@
 ---
 title: "Faster Command Line Tools in Nim"
 author: Euan Torano
+use_dark_highlighting: true
 ---
 
 *This is a guest post by Euan Torano cross-posted from [Faster Command Line Tools in Nim](https://www.euantorano.co.uk/posts/faster-command-line-tools-in-nim/). If you would like to publish articles as a guest author on nim-lang.org then get in touch with us via [Twitter](https://twitter.com/nim_lang) or [otherwise](https://github.com/nim-lang/website/issues).*
