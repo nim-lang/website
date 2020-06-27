@@ -1,6 +1,7 @@
 ---
 title: "Version 0.9.0 released"
 author: Andreas Rumpf
+use_dark_highlighting: true
 ---
 
 Summary

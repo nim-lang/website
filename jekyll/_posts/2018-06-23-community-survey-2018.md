@@ -1,6 +1,7 @@
 ---
 title: "Launching the 2018 Nim Community Survey"
 author: Dominik Picheta
+use_dark_highlighting: true
 ---
 
 We are proud to announce the launch of the official

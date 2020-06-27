@@ -3,6 +3,7 @@ title: "We're hiring!"
 author: Nim Team
 excerpt: "This is your chance to get to work with one of the leading experts in compiler
 development, meta programming and language design."
+use_dark_highlighting: true
 ---
 
 ## Become a Nim core developer

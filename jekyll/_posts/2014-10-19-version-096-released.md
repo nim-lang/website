@@ -1,6 +1,7 @@
 ---
 title: "Version 0.9.6 released"
 author: Andreas Rumpf
+use_dark_highlighting: true
 ---
 
 **Note: 0.9.6 is the last release of Nimrod. The language is being renamed to

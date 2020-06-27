@@ -1,6 +1,7 @@
 ---
 title: "Version 0.14.2 released"
 author: Andreas Rumpf
+use_dark_highlighting: true
 ---
 
 Version 0.14.2 is just a bugfix release that fixes the most pressing

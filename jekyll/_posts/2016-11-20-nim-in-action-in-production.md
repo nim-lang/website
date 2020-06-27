@@ -5,6 +5,7 @@ on Nim in Action. The final manuscript has been submitted to Manning (the book's
 publisher), and the printed version is expected to start shipping in March
 2017 (give or take 1 month)."
 author: Dominik Picheta
+use_dark_highlighting: true
 ---
 
 <div class="center">

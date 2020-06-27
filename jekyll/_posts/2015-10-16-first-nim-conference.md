@@ -2,6 +2,7 @@
 title: "First Nim conference"
 excerpt: "Learn about the first Nim workshop in Kyiv."
 author: Dominik Picheta
+use_dark_highlighting: true
 ---
 
 <div class="center">

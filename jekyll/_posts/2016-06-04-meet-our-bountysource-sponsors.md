@@ -3,6 +3,7 @@ title: "Meet our BountySource sponsors"
 excerpt: "It has now been two months since we began our fundraiser. Time to meet
           our current sponsors."
 author: Dominik Picheta
+use_dark_highlighting: true
 ---
 
 <a href="{{site.baseurl}}/sponsors.html">

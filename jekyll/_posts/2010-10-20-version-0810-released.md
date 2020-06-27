@@ -1,6 +1,7 @@
 ---
 title: "Version 0.8.10 released"
 author: Andreas Rumpf
+use_dark_highlighting: true
 ---
 
 Bugfixes

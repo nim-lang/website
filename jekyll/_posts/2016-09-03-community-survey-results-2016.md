@@ -1,6 +1,7 @@
 ---
 title: "Nim Community Survey Results"
 author: Dominik Picheta
+use_dark_highlighting: true
 ---
 
 We have recently closed the 2016 Nim Community Survey. I am happy to

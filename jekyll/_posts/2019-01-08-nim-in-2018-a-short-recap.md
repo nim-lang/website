@@ -1,6 +1,7 @@
 ---
 title: "Nim in 2018: A short recap"
 author: The Nim Team
+use_dark_highlighting: true
 ---
 
 There were several big news in the Nim world in 2018 -- two new major releases, partnership with Status, and much more.

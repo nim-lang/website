@@ -1,6 +1,7 @@
 ---
 title: Advent of Nim
 author: The Nim Team
+use_dark_highlighting: true
 ---
 
 Saturday December 1st at 5 a.m. UTC will mark the start of the fourth incarnation of [Advent of Code](https://adventofcode.com/), popular programming contest started back in 2015.

@@ -1,6 +1,7 @@
 ---
 title: "BountySource Update: The Road to v1.0"
 author: Dominik Picheta
+use_dark_highlighting: true
 ---
 
 *This was cross-posted from [update #4](https://salt.bountysource.com/teams/nim/updates/4-the-road-to-v1-0) on BountySource.*

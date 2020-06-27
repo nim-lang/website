@@ -1,6 +1,7 @@
 ---
 title: "New website design!"
 author: Andreas Rumpf
+use_dark_highlighting: true
 ---
 
 A brand new website including an improved forum is now live.
