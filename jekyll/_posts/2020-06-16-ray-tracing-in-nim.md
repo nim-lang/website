@@ -27,18 +27,18 @@ in the Nim programming language.
 </p>
 
 The goals are:
-- Learn more about raytracing
+- Learn more about ray tracing
 - Have fun
-- Serve as a testbed for own multithreading runtime, [Weave](https://github.com/mratsim/weave)
+- Serve as a testbed for my own multithreading runtime, [Weave](https://github.com/mratsim/weave)
 - Showcase Nim capabilities
 
 In particular, I am convinced (and obviously biased) that if you want to start
-a rendering project (raytracing or otherwise) from scratch, Nim is the best
-language to use, in particular if you are focused on:
+a rendering project (ray tracing or otherwise) from scratch, Nim is the best
+language to use, especially if you are focused on:
 - speed
 - correctness
-- compilation times and compile-time compute
-- approachability & development agility
+- compilation times and compile-time computation
+- approachability and development agility
 
 
 ## Speed
@@ -49,19 +49,19 @@ Nim is fast, very fast, even faster than C++ from time to time.
 Here are two benchmarks:
 
 
-### 1. Raytracing in one Weekend
+### 1. Ray Tracing in One Weekend
 
-From the "RayTracing in One Weekend" first book, using:
+From the "Ray Tracing in One Weekend" first book, using:
 
-- Nim 1.2 (GCC 10.1), flag `-d:danger`
+- Nim 1.2.0 (GCC 10.1), flag `-d:danger`
 - C++ with GCC 10.1, flag `-O3`
 
-On Intel Skylake-X i9-9980XE, overclocked at 4.1GHz all-core turbo.
-Compiled in x86-64 mode (SSE2 only), 384x216 image, 100 rays per pixel:
+On Intel Skylake-X i9-9980XE, overclocked at 4.1 GHz all-core turbo.
+Compiled in x86-64 mode (SSE2 only); 384x216 image; 100 rays per pixel:
 
-| Nim     | C++     |
-| ------- | ------- |
-| 38.577s | 42.303s |
+| Nim      | C++      |
+| -------: | -------: |
+| 38.577 s | 42.303 s |
 
 The Nim sources for this benchmark can be retrieved from the
 [first release](https://github.com/mratsim/trace-of-radiance/tree/v0.1.0):
@@ -78,14 +78,14 @@ nim c -d:danger --outdir:build trace_of_radiance.nim
 
 ### 2. SmallPT
 
-[SmallPT](https://www.kevinbeason.com/smallpt/) is an even smaller raytracing project.
+[SmallPT](https://www.kevinbeason.com/smallpt/) is an even smaller ray tracing project.
 
 <p style="text-align: center;">
   <img width="640" height="480" src="{{ site.baseurl }}/assets/news/images/mratsim-raytracing/smallpt.jpg">
 </p>
 
 Benchmark from Weave multithreading runtime
-[raytracing demo](https://github.com/mratsim/weave/tree/master/demos/raytracing).
+[ray tracing demo](https://github.com/mratsim/weave/tree/master/demos/raytracing).
 
 |      Bench       |    Nim    | Clang OpenMP | GCC 10 OpenMP | GCC 8 OpenMP |
 | ---------------- | --------: | -----------: | ------------: | -----------: |
@@ -94,8 +94,8 @@ Benchmark from Weave multithreading runtime
 | Nested-parallel  |   12.981s |              |               |              |
 | Parallel speedup |    21.83x |       20.17x |         2.16x |       23.74x |
 
-Single-threaded Nim is 2.7% faster than Clang C++.  
-Multithreaded Nim via Weave is 11.1% faster Clang C++.
+Single-threaded Nim is 2.7 % faster than Clang C++.  
+Multithreaded Nim via Weave is 11.1 % faster Clang C++.
 
 Note: GCC 10 has a significant OpenMP regression!
 
@@ -107,7 +107,7 @@ slightly vary from the ones posted above.
 ```bash
 git clone https://github.com/mratsim/weave
 cd weave
-nimble install -y # install Weave dependencies, here synthesis, overwriting if asked.
+nimble install -y # install Weave dependencies, here Synthesis, overwriting if asked.
 
 nim -v # Ensure you have nim 1.2.0 or more recent
 
@@ -136,9 +136,9 @@ build/ray_clang_omp 300
 
 ## Correctness
 
-### Distinct types and modeling physics units
+### Distinct types and modeling physical units
 
-Nim is one of the few languages that can properly model physics units
+Nim is one of the few languages that can properly model physical units
 and enforce proper usage of those units at compile-time.
 For example, a vector and a unit vector have the same representation but are
 distinct types.
@@ -176,8 +176,7 @@ Also:
 
 ```Nim
 func `-`*(a, b: Point3): Vec3 {.inline.}=
-  ## Subtracting points from one point to the other
-  ## gives a vector
+  ## Subtracting one point from another gives a vector
   result.x = a.x - b.x
   result.y = a.y - b.y
   result.z = a.z - b.z
@@ -193,7 +192,7 @@ func `-`*(p: Point3, v: Vec3): Point3 {.inline.}=
 func `+`*(a, b: Point3): Point3 {.error: "Adding 2 Point3 doesn't make physical sense".}
 ```
 
-I also have two types for colors and their attenuations (in percentage), so you
+I also have two types for colors and their attenuations (as a percentage), so you
 cannot multiply colors:
 
 ```Nim
@@ -222,7 +221,7 @@ func `*=`*(a: var Color, b: Attenuation) {.inline.} =
   a.z *= b.z
 ```
 
-Last but not the least, ensure you don't mix and match degrees and radians,
+Last but not least, ensure you don't mix and match degrees and radians,
 with auto-conversion of radians to float (and degree would stay at a higher level):
 
 ```Nim
@@ -264,7 +263,7 @@ uncluttered from performance (and performance is great, as proven by the benchma
 
 Nim functions can be declared `proc` or `func`.
 
-A `func` enforces the absence of side-effect or the code will not compile.
+A `func` enforces the absence of side-effects or the code will not compile.
 Some examples of side-effects:
 - (non-deterministic) random functions
 - accessing a global variable
@@ -274,7 +273,7 @@ Some examples of side-effects:
 If you have a Heisenbug, it's likely not in a side-effect free function
 (unless you corrupt memory).
 
-This is particularly suited to physics and raytracing computational kernels
+This is particularly suited to physics and ray tracing computational kernels
 as physics equations are side-effect free.
 
 
@@ -300,7 +299,7 @@ compile-time and is used for:
 
 ## C and C++ interop
 
-Nim can compile to both C and C++ and seamlessly call libraries written in either languages.
+Nim can compile to both C and C++ and seamlessly call libraries written in either language.
 It can even use CUDA with a bit of configuration to call `nvcc`.
 
 For example, bindings to SFML, from the Nim website features:
@@ -319,10 +318,10 @@ Actually many have reported that Nim felt like a compiled scripting language.
 
 ## Caveats
 
-Not all is ponies and rainbows, Nim main issue is that it is a very young language
+Not all is ponies and rainbows. Nim's main issue is that it is a very young language
 with a small ecosystem of supported libraries.
 That said, you can reuse the C and C++ ecosystem (and Javascript as well, since
 Nim can also compile to it).
 As an example, Trace of Radiance supports video output via MP4 since v0.2.0 via a
-[simple 60 lines wrapper](https://github.com/mratsim/trace-of-radiance/blob/v0.2.0/trace_of_radiance/io/mp4.nim#L1-L60)
-of an header-only C library.
+[simple 60-line wrapper](https://github.com/mratsim/trace-of-radiance/blob/v0.2.0/trace_of_radiance/io/mp4.nim#L1-L60)
+of a header-only C library.
