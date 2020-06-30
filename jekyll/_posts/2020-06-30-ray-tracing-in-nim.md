@@ -18,7 +18,7 @@ excerpt: "I am convinced that if you want to start a rendering project from scra
 
 ## Trace of Radiance
 
-Trace of Radiance is an implementation
+[Trace of Radiance](https://github.com/mratsim/trace-of-radiance) is an implementation
 of [Ray Tracing in One Weekend](https://github.com/RayTracing/raytracing.github.io)
 in the Nim programming language.
 
