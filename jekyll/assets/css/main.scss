@@ -906,6 +906,10 @@ div.code-align {
   }
 }
 
+tr > th, tr > td {
+  padding-right: 15pt;
+}
+
 table.tableblock, div.content > table {
   font-size: 90%;
   thead > tr {
