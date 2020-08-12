@@ -36,7 +36,7 @@ current: Install
   </a>
 </div>
 
-# Notes about binary installation
+# Binary installation
 
 The installation using the provided zip files should be fairly
 straightforward. Simply extract the files into the desired installation
@@ -56,7 +56,7 @@ attempt to add the first directory into your ``PATH``.
 This tool also checks for the presence of a C compiler and can install ``MingW``,
 the GNU C compiler collection for Windows.
 
-# Notes about compiler dependencies
+# Compiler dependencies
 
 The Nim compiler needs a C compiler in order to compile software. You can
 use ``finish.exe`` to install MingW.
