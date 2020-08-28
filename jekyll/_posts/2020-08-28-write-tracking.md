@@ -1,5 +1,5 @@
 ---
-title: "Write tracking for Nim - part 2"
+title: "Write Tracking for Nim (Part 2)"
 author: Araq
 ---
 
