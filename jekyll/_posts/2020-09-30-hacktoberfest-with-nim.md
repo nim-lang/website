@@ -23,7 +23,7 @@ Nim would like to encourage you to participate in Hacktoberfest by contributing 
 Here are some categories you might find interesting:
 
 * Why don't you start with some of the [easy issues](https://github.com/nim-lang/nim/issues?q=is%3Aopen+is%3Aissue+label%3AEasy)?
-* Everybody uses standard library. How about fixing one of the more than 150 issues in the [stdlib](https://github.com/nim-lang/nim/issues?q=is%3Aopen+is%3Aissue+label%3AStdlib)?
+* Everybody uses the standard library. How about fixing one of the more than 150 issues in the [stdlib](https://github.com/nim-lang/nim/issues?q=is%3Aopen+is%3Aissue+label%3AStdlib)?
 * What are our priorities? Take a look at [high priority issues](https://github.com/nim-lang/nim/issues?q=is%3Aopen+is%3Aissue+label%3A"High+Priority").
 
 
