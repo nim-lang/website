@@ -1,4 +1,4 @@
-# Nim website development
+# Nim website development - AN AMAZING PROJECT!
 
 The Nim website hosted on https://nim-lang.org.
 
