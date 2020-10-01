@@ -6,7 +6,7 @@ author: The Nim Team
 [Hacktoberfest](https://hacktoberfest.digitalocean.com/) is an annual event happening in October which celebrates open source software and encourages meaningful contributions to the open source ecosystem.
 To win a T-shirt, you must sign up on the [Hacktoberfest site](https://hacktoberfest.digitalocean.com/) and make four pull requests to any repo on Github by the end of October.
 
-Nim would like to encourage you to participate in Hacktoberfest by contributing to the [Nim repo](https://github.com/nim-lang/nim) or any other Nim-related repos and libraries.
+Nim would like to encourage you to participate in Hacktoberfest by contributing to the [Nim repo](https://github.com/nim-lang/nim) or any other Nim-related repos and libraries (to name a few: [Nimble repo](https://github.com/nim-lang/nimble), [Nim website repo](https://github.com/nim-lang/website)).
 
 
 
@@ -43,7 +43,7 @@ Just fixing some typos also counts!
 
 There is a [list of needed libraries](https://github.com/nim-lang/needed-libraries/issues), can you help us shorten it?
 
-Once you have written a library, you can send a PR to [nimble package repo](https://github.com/nim-lang/nimble) to include your package in the official list of packages!
+Once you have written a library, you can send a PR to [nimble package repo](https://github.com/nim-lang/packages) to include your package in the official list of packages!
 
 If writing a library seems like a too demanding task, you can help improve [one of the existing Nim packages](https://nimble.directory/) by adding a feature, fixing a bug, or writing more informative documentation.
 
