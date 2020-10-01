@@ -4,7 +4,7 @@ author: The Nim Team
 ---
 
 [Hacktoberfest](https://hacktoberfest.digitalocean.com/) is an annual event happening in October which celebrates open source software and encourages meaningful contributions to the open source ecosystem.
-To win a T-shirt, you must sign up on the [Hacktoberfest site](https://hacktoberfest.digitalocean.com/) and make four pull requests to any repo on Github by the end of October.
+To win a T-shirt or plant a tree, you must sign up on the [Hacktoberfest site](https://hacktoberfest.digitalocean.com/) and make four pull requests to any repo on Github by the end of October.
 
 Nim would like to encourage you to participate in Hacktoberfest by contributing to the [Nim repo](https://github.com/nim-lang/nim) or any other Nim-related repos and libraries (to name a few: [Nimble repo](https://github.com/nim-lang/nimble), [Nim website repo](https://github.com/nim-lang/website)).
 
