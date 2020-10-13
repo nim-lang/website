@@ -45,7 +45,6 @@ glue code thanks to powerful metaprogramming capabilities of Nim.
 
 ## What about editor support?
 
-- Aporia (native Nim editor): [https://github.com/nim-lang/Aporia](https://github.com/nim-lang/Aporia)
 - Visual Studio Code: [https://marketplace.visualstudio.com/items?itemName=kosz78.nim](https://marketplace.visualstudio.com/items?itemName=kosz78.nim)
 - Emacs: [https://github.com/nim-lang/nim-mode](https://github.com/nim-lang/nim-mode)
 - Vim: [https://github.com/zah/nimrod.vim/](https://github.com/zah/nimrod.vim)
@@ -63,6 +62,8 @@ glue code thanks to powerful metaprogramming capabilities of Nim.
 - Micro: Included
 - Atom: [https://atom.io/packages/nim](https://atom.io/packages/nim)
 - JetBrains IDEs: [https://plugins.jetbrains.com/plugin/15128-nim](https://plugins.jetbrains.com/plugin/15128-nim)
+- Kakoune: Included
+- For editors with LSP (Language Server Protocol) support (requires a separate syntax/indenting plugin): [https://github.com/PMunch/nimlsp](https://github.com/PMunch/nimlsp)
 
 ## What have been the major influences in the language's design?
 
