@@ -49,6 +49,7 @@ glue code thanks to powerful metaprogramming capabilities of Nim.
 - Visual Studio Code: [https://marketplace.visualstudio.com/items?itemName=kosz78.nim](https://marketplace.visualstudio.com/items?itemName=kosz78.nim)
 - Emacs: [https://github.com/nim-lang/nim-mode](https://github.com/nim-lang/nim-mode)
 - Vim: [https://github.com/zah/nimrod.vim/](https://github.com/zah/nimrod.vim)
+- NeoVim: [https://github.com/alaviss/nim.nvim](https://github.com/alaviss/nim.nvim)
 - QtCreator (4.1+): Included as experimental plugin.
 - Scite: Included
 - Gedit: The [Aporia .lang file](https://github.com/nim-lang/Aporia/blob/master/share/gtksourceview-2.0/language-specs/nim.lang).
@@ -61,7 +62,7 @@ glue code thanks to powerful metaprogramming capabilities of Nim.
 - Notepad++: [https://github.com/jangko/nppnim/releases](https://github.com/jangko/nppnim/releases)
 - Micro: Included
 - Atom: [https://atom.io/packages/nim](https://atom.io/packages/nim)
-- JetBrain IDEs: [https://plugins.jetbrains.com/plugin/15128-nim](https://plugins.jetbrains.com/plugin/15128-nim)
+- JetBrains IDEs: [https://plugins.jetbrains.com/plugin/15128-nim](https://plugins.jetbrains.com/plugin/15128-nim)
 
 ## What have been the major influences in the language's design?
 
