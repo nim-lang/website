@@ -61,6 +61,7 @@ glue code thanks to powerful metaprogramming capabilities of Nim.
 - Notepad++: [https://github.com/jangko/nppnim/releases](https://github.com/jangko/nppnim/releases)
 - Micro: Included
 - Atom: [https://atom.io/packages/nim](https://atom.io/packages/nim)
+- JetBrain IDEs: [https://plugins.jetbrains.com/plugin/15128-nim](https://plugins.jetbrains.com/plugin/15128-nim)
 
 ## What have been the major influences in the language's design?
 
@@ -80,15 +81,15 @@ whereas ``def`` stands for ``define``.
 
 ## Which option to use for the fastest executable?
 
-For the standard configuration file, ``-d:release`` does the trick.
+For the standard configuration file, ``-d:danger`` does the trick.
 If supported by your compiler, you can also enable link-time optimization
-for an even faster executable: ``--passc:-flto``
+for an even faster executable: ``-d:lto``
 
 ## Which option to use for the smallest executable?
 
-For the standard configuration file, ``-d:quick --opt:size`` does the trick.
+For the standard configuration file, ``-d:danger -d:strip --opt:size`` does the trick.
 If supported by your compiler, you can also enable link-time optimization
-for an even smaller executable: ``--passc:-flto``
+for an even smaller executable: ``-d:lto``
 
 ## How do I use a different C compiler than the default one?
 
