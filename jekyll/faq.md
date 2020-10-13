@@ -84,7 +84,8 @@ whereas ``def`` stands for ``define``.
 ## Which option to use for the fastest executable?
 
 For the standard configuration file, ``-d:danger`` makes the fastest binary possible
-while disabling **all** runtime safety checks, so for most cases ``-d:release`` should
+while disabling **all** runtime safety checks including bound checks, overflow checks, 
+nil checks and more; for most cases ``-d:release`` should
 be enough. If supported by your compiler, you can also enable link-time optimization 
 for an even faster executable: ``--passc:-flto`` or ``-d:lto`` on Nim 1.4+
 
