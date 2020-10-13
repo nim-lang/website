@@ -83,15 +83,16 @@ whereas ``def`` stands for ``define``.
 
 ## Which option to use for the fastest executable?
 
-For the standard configuration file, ``-d:danger`` does the trick.
-If supported by your compiler, you can also enable link-time optimization
-for an even faster executable: ``-d:lto``
+For the standard configuration file, ``-d:danger`` makes the fastest binary possible
+while disabling **all** runtime safety checks, so for most cases ``-d:release`` should
+be enough. If supported by your compiler, you can also enable link-time optimization 
+for an even faster executable: ``--passc:-flto`` or ``-d:lto`` on Nim 1.4+
 
 ## Which option to use for the smallest executable?
 
 For the standard configuration file, ``-d:danger -d:strip --opt:size`` does the trick.
 If supported by your compiler, you can also enable link-time optimization
-for an even smaller executable: ``-d:lto``
+the same way as described in the previous answer.
 
 ## How do I use a different C compiler than the default one?
 
@@ -100,16 +101,18 @@ Change the value of the ``cc`` variable to one of the following:
 
 | Abbreviation | C/C++ Compiler                          |
 | ---------------- | --------------------------------------------|
-|``vcc``           | Microsoft's Visual C++                      |
 |``gcc``           | GNU C compiler                              |
-|``llvm_gcc``      | LLVM-GCC compiler                           |
-|``icc``           | Intel C compiler                            |
 |``clang``         | Clang compiler                              |
-|``ucc``           | Generic UNIX C compiler                     |
+|``vcc``           | Microsoft's Visual C++                      |
+|``icc``           | Intel C compiler                            |
+|``llvm_gcc``      | LLVM-GCC compiler                           |
+|``tcc``           | Tiny C compiler                             |
+|``bcc``           | Borland C compiler                          |
+|``envcc``         | Your environment's default C compiler       |
 
 
 Other C compilers are not officially supported, but might work too.
 
 If your C compiler is not in the above list, try using the
-*generic UNIX C compiler* (``ucc``). If the C compiler needs
+*environment's default C compiler* (``envcc``). If the C compiler needs
 different command line arguments try the ``--passc`` and ``--passl`` switches.
