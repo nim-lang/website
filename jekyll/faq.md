@@ -45,10 +45,10 @@ glue code thanks to powerful metaprogramming capabilities of Nim.
 
 ## What about editor support?
 
-- Aporia (native Nim editor): [https://github.com/nim-lang/Aporia](https://github.com/nim-lang/Aporia)
 - Visual Studio Code: [https://marketplace.visualstudio.com/items?itemName=kosz78.nim](https://marketplace.visualstudio.com/items?itemName=kosz78.nim)
 - Emacs: [https://github.com/nim-lang/nim-mode](https://github.com/nim-lang/nim-mode)
 - Vim: [https://github.com/zah/nimrod.vim/](https://github.com/zah/nimrod.vim)
+- NeoVim: [https://github.com/alaviss/nim.nvim](https://github.com/alaviss/nim.nvim)
 - QtCreator (4.1+): Included as experimental plugin.
 - Scite: Included
 - Gedit: The [Aporia .lang file](https://github.com/nim-lang/Aporia/blob/master/share/gtksourceview-2.0/language-specs/nim.lang).
@@ -61,6 +61,9 @@ glue code thanks to powerful metaprogramming capabilities of Nim.
 - Notepad++: [https://github.com/jangko/nppnim/releases](https://github.com/jangko/nppnim/releases)
 - Micro: Included
 - Atom: [https://atom.io/packages/nim](https://atom.io/packages/nim)
+- JetBrains IDEs: [https://plugins.jetbrains.com/plugin/15128-nim](https://plugins.jetbrains.com/plugin/15128-nim)
+- Kakoune: Included
+- For editors with LSP (Language Server Protocol) support (requires a separate syntax/indenting plugin): [https://github.com/PMunch/nimlsp](https://github.com/PMunch/nimlsp)
 
 ## What have been the major influences in the language's design?
 
@@ -80,15 +83,17 @@ whereas ``def`` stands for ``define``.
 
 ## Which option to use for the fastest executable?
 
-For the standard configuration file, ``-d:release`` does the trick.
-If supported by your compiler, you can also enable link-time optimization
-for an even faster executable: ``--passc:-flto``
+For the standard configuration file, ``-d:danger`` makes the fastest binary possible
+while disabling **all** runtime safety checks including bound checks, overflow checks, 
+nil checks and more; for most cases ``-d:release`` should
+be enough. If supported by your compiler, you can also enable link-time optimization 
+for an even faster executable: ``--passc:-flto`` or ``-d:lto`` on Nim 1.4+
 
 ## Which option to use for the smallest executable?
 
-For the standard configuration file, ``-d:quick --opt:size`` does the trick.
+For the standard configuration file, ``-d:danger -d:strip --opt:size`` does the trick.
 If supported by your compiler, you can also enable link-time optimization
-for an even smaller executable: ``--passc:-flto``
+the same way as described in the previous answer.
 
 ## How do I use a different C compiler than the default one?
 
@@ -97,16 +102,18 @@ Change the value of the ``cc`` variable to one of the following:
 
 | Abbreviation | C/C++ Compiler                          |
 | ---------------- | --------------------------------------------|
-|``vcc``           | Microsoft's Visual C++                      |
 |``gcc``           | GNU C compiler                              |
-|``llvm_gcc``      | LLVM-GCC compiler                           |
-|``icc``           | Intel C compiler                            |
 |``clang``         | Clang compiler                              |
-|``ucc``           | Generic UNIX C compiler                     |
+|``vcc``           | Microsoft's Visual C++                      |
+|``icc``           | Intel C compiler                            |
+|``llvm_gcc``      | LLVM-GCC compiler                           |
+|``tcc``           | Tiny C compiler                             |
+|``bcc``           | Borland C compiler                          |
+|``envcc``         | Your environment's default C compiler       |
 
 
 Other C compilers are not officially supported, but might work too.
 
 If your C compiler is not in the above list, try using the
-*generic UNIX C compiler* (``ucc``). If the C compiler needs
+*environment's default C compiler* (``envcc``). If the C compiler needs
 different command line arguments try the ``--passc`` and ``--passl`` switches.
