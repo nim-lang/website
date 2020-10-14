@@ -41,7 +41,7 @@ with destructors and move semantics. Some people mistake Nim's ARC for Swift's A
 there is one big difference: ARC in Nim doesn't use atomic RC.
 
 Reference counting is one of the most popular algorithms for freeing unused
-resources of the program. **Reference count** for any managed (controlled by the runtime)
+resources of the program. The **reference count** for any managed (controlled by the runtime)
 reference is how many times that reference is used in other places.
 When that count becomes zero -> the reference and all of its underlying data is destroyed.
 
