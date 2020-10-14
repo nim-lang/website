@@ -180,4 +180,4 @@ Sources / further information:
 - [FOSDEM 2020 - Move semantics for Nim](https://www.youtube.com/watch?v=yA32Wxl59wo)
 - [NimConf 2020 - Nim ARC/ORC](https://www.youtube.com/watch?v=aUJcYTnPWCg)
 - [Nim community](https://nim-lang.org/community.html)
-- [Nim GitHub repository](https://github.com/nim-lang/nim) issues/pull requests
+- [RFC: Unify Nim's GC/memory management options](https://github.com/nim-lang/RFCs/issues/177)
