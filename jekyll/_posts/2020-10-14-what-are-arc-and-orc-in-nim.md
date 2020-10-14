@@ -37,8 +37,8 @@ Some of these different ideas have emerged into ARC.
 
 ## What is ARC?
 At its core ARC is a memory management model based on Automatic Reference Counting
-(some people mistake Nim's ARC for Swift's ARC; however they have one big difference -
-ARC in Nim doesn't use atomic RC like in Swift) with destructors and move semantics.
+with destructors and move semantics. Some people mistake Nim's ARC for Swift's ARC, but
+there is one big difference: ARC in Nim doesn't use atomic RC.
 
 Reference counting is one of the most popular algorithms for freeing unused
 resources of the program. **Reference count** for any managed (controlled by the runtime)
