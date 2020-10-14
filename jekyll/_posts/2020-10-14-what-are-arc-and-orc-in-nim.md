@@ -31,7 +31,7 @@ But over the last few years there were new ideas for Nim, related to destructors
 - [https://nim-lang.org/araq/destructors.html](https://nim-lang.org/araq/destructors.html)
 - [https://nim-lang.org/araq/ownedrefs.html](https://nim-lang.org/araq/ownedrefs.html)
 
-A lot of these different ideas have emerged into ARC.
+Some of these different ideas have emerged into ARC.
 
 
 
