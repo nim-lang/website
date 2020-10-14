@@ -12,16 +12,15 @@ css_class: donate
 
 <section class="background-faded call-to-action">
   <section class="content text-centered">
-    <h1>BountySource</h1>
+    <h1>Open Collective</h1>
     <div class="pure-g center">
       <div class="pure-u-1-2">
         <p>
-          Help us reach our next fundraiser goal by supporting our Salt
-          campaign.
+          Help us with the Nim development by contributing on Open Collective.
         </p>
       </div>
     </div>
-    <a class="pure-button pure-button-primary" href="https://salt.bountysource.com/teams/nim">Learn more</a>
+    <a class="pure-button pure-button-primary" href="https://opencollective.com/nim">Learn more</a>
     <a class="pure-button" href="#other-ways-to-donate">Other ways to donate</a>
   </section>
 </section>
@@ -60,12 +59,12 @@ implementation and is open to negotiation.
 
 # Other ways to donate
 
-Apart from BountySource, you can also donate to Nim using one the following
+Apart from Open Collective, you can also donate to Nim using one the following
 services.
 
 
 <i class="fa fa-money-bill-alt" aria-hidden="true"></i>
-[Open Collective](https://opencollective.com/nim)
+[Salt - BountrySource](https://salt.bountysource.com/teams/nim)
 
 <i class="fab fa-paypal" aria-hidden="true"></i>
 [PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=FLWX5V2PMAXAU)
