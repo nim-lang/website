@@ -164,8 +164,8 @@ but ORC will probably become Nim's default GC in the future.
 
 ## I'm excited! How do I test them out?
 
-ARC is available in Nim 1.2.x releases but it has a lot of bugs in that version.
-It's better to wait for the **Nim 1.4** release (it should be out soon) which will
+ARC is available in Nim 1.2.x releases, but due to some fixed bugs it's better to
+wait for the **Nim 1.4** release (it should be out soon) which will
 have ARC and ORC available for wide testing.
 But if you're eager to try them out, you can try a 
 [1.4 release candidate](https://github.com/nim-lang/nightlies/releases/tag/2020-10-07-version-1-4-3b901d1e361f49d48fb64d115e42c04a4a37100c)
