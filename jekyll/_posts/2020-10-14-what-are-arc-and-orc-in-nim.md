@@ -19,7 +19,7 @@ and see how they will change the way memory works in Nim."
 
 
 ## Intro
-Let's start a bit far - Nim has traditionally been garbage collected (GC) language.
+Let's start with some history: Nim has traditionally been a garbage collected (GC) language.
 Most of the standard library relies on the GC to work.
 Of course, you can disable the GC and do manual memory management, but then you
 lose access to most of the stdlib (which is [quite big by the way](https://nim-lang.org/docs/lib.html)).
