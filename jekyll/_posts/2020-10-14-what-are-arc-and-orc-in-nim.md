@@ -151,10 +151,13 @@ but it's better to use ARC as the foundation to make something better. That brin
 ORC is Nim's all-new cycle collector based on ARC.
 It can be considered a full-blown GC since it includes a local tracing phase
 (contrary to most other tracing GCs which do global tracing).
-I don't have much to say about ORC, but it retains most of ARC's advantages
+ORC is what you should use when working with Nim's async because it contains cycles
+that need to be dealt with.
+
+ORC retains most of ARC's advantages
 except **determinism** (partially) - by default ORC has an adaptive threshold
 for collecting cycles, and **hard realtime** (partially), for the same reason.
-To enable ORC you would need to compile your program with ``--gc:orc``,
+To enable ORC you need to compile your program with ``--gc:orc``,
 but ORC will probably become Nim's default GC in the future.
 
 
