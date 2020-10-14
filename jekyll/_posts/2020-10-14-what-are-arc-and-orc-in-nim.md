@@ -25,7 +25,7 @@ Of course, you can disable the GC and do manual memory management, but then you
 lose access to most of the stdlib (which is [quite big by the way](https://nim-lang.org/docs/lib.html)).
 
 The default GC in Nim has been `refc` (deferred reference counting with a mark & sweep phase for cycle collection)
-for a long time, with other options available, such as `markAndSweep`, `boehm`, `go`.
+for a long time, with other options available, such as `markAndSweep`, `boehm`, and `go`.
 
 But over the last few years there were new ideas about destructors, owned refs (newruntime), and other similar stuff for Nim:
 - [https://nim-lang.org/araq/destructors.html](https://nim-lang.org/araq/destructors.html)
