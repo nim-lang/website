@@ -1,5 +1,5 @@
 ---
-title: "Introduction to ARC/ORC in Nim."
+title: "Introduction to ARC/ORC in Nim"
 author: Danil Yarantsev (Yardanico)
 excerpt: "Nim is advancing towards more efficient 
 memory management models. Let's talk about ARC/ORC 
