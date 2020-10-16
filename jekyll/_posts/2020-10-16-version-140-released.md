@@ -199,6 +199,7 @@ func mut(n: Node) =
   # an object reachable from 'n' is potentially mutated
 ```
 
+For more details, please see [Araq's blog post](https://nim-lang.org/blog/2020/09/01/write-tracking.html).
 
 
 # Changelog
@@ -1073,4 +1074,3 @@ func mut(n: Node) =
   ([#15547](https://github.com/nim-lang/Nim/issues/15547))
 - Fixed "dbQuote additional escape regression"
   ([#15560](https://github.com/nim-lang/Nim/issues/15560))
-
