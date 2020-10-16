@@ -4,7 +4,7 @@ author: The Nim Team
 ---
 
 We are very proud to announce Nim version 1.4 after six months of continuous development!
-Other than version 1.0, this is probably the biggest Nim release yet and we're very excited to have it released!
+Other than version 1.0, this is probably the biggest Nim release yet and we're very excited to release it!
 
 It contains exactly 900 new commits which have not already been backported to our previous versions.
 There are several new features and standard library additions compared to 1.2.
@@ -40,7 +40,7 @@ If you don't have `choosenim`, you can follow the same
 
 # Contributors to v1.4
 
-Our contributors are amazing, and there is
+Our contributors are amazing, and there are
 [far too many](https://github.com/nim-lang/Nim/graphs/contributors?from=2020-04-03&to=2020-10-16&type=c)
 to list here.
 Big thanks to all of you, we couldn't have pulled off this release without you!
@@ -54,11 +54,12 @@ Big thanks to all of you, we couldn't have pulled off this release without you!
 A new reference counting algorithm called ARC was first shipped with Nim 1.2.
 If you haven't watched it already, we recommend
 [this video from FOSDEM](https://www.youtube.com/watch?v=yA32Wxl59wo)
-where Araq explains details behind ARC and shows some benchmarks which show
-the benefits of it.
+where Araq explains details behind ARC and shows some benchmarks that
+illustrate the benefits.
 
 As far as we know, ARC works with the complete standard library except for
-the current implementation of `async`.
+the current implementation of `async`, because that introduces cycles that
+ARC doesn't deal with.
 There are other `async` implementations in development that don't introduce cycles.
 
 ORC is the existing ARC algorithm plus a cycle collector, and `--gc:orc` is our
@@ -103,7 +104,7 @@ If you use `system.deepCopy` in your code, you need to enable it via
 This is a band-aid and a better solution for this will arrive in the future.
 
 The reason for this opt-in switch is that ARC and ORC do not use the old runtime
-type information (RTTI), whereas `system.deepCopy` is built upon the old RTTI.
+type information (RTTI) that `system.deepCopy` is built upon.
 We've built ARC and ORC with embedded devices in mind where the overhead of the
 old RTTI has been reported to be unacceptable.
 
@@ -169,7 +170,7 @@ This is a current limitation that will be improved in future versions of the com
 This is an experimental feature available via `{.experimental: "strictFuncs".}` pragma in
 your code or via the `--experimental:strictFuncs` switch.
 
-It introduces a stricter definition of what "side effect" is:
+It introduces a stricter definition of a "side effect":
 If an object is reachable via a parameter that is not declared as a `var` parameter,
 any mutation to that object counts as a side effect.
 
@@ -1072,5 +1073,4 @@ func mut(n: Node) =
   ([#15547](https://github.com/nim-lang/Nim/issues/15547))
 - Fixed "dbQuote additional escape regression"
   ([#15560](https://github.com/nim-lang/Nim/issues/15560))
-
 
