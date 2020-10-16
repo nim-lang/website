@@ -14,6 +14,9 @@ from them.
 
 We would recommend to all of our users to upgrade and use version 1.4.
 
+This release also includes the latest version of Nim's package manager Nimble, v0.12.0,
+the changelog for which is available [here](https://github.com/nim-lang/nimble/blob/master/changelog.markdown#0120).
+
 
 
 # Installing Nim 1.4
