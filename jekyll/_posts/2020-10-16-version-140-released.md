@@ -488,10 +488,10 @@ For more details, please see [Araq's blog post](https://nim-lang.org/blog/2020/0
 - Removed `sharedlists.initSharedList`, was deprecated and produces undefined behaviour.
 
 - There is a new experimental feature called "strictFuncs" which makes the definition of
-  `.noSideEffect` stricter. [See here](manual_experimental.html#stricts-funcs)
+  `.noSideEffect` stricter. [See here](https://nim-lang.org/docs/manual_experimental.html#stricts-funcs)
   for more information.
 
-- "for-loop macros" (see [the manual](manual.html#macros-for-loop-macros)) are no longer
+- "for-loop macros" (see [the manual](https://nim-lang.org/docs/manual.html#macros-for-loop-macros)) are no longer
   an experimental feature. In other words, you don't have to write pragma
   `{.experimental: "forLoopMacros".}` if you want to use them.
 
@@ -543,7 +543,7 @@ For more details, please see [Araq's blog post](https://nim-lang.org/blog/2020/0
 - `nim doc` now outputs under `$projectPath/htmldocs` when `--outdir` is unspecified
   (with or without `--project`); passing `--project` now automatically generates
   an index and enables search.
-  See [docgen](docgen.html#introduction-quick-start) for details.
+  See [docgen](https://nim-lang.org/docs/docgen.html#introduction-quick-start) for details.
 - Removed the `--oldNewlines` switch.
 - Removed the `--laxStrings` switch for mutating the internal zero terminator on strings.
 - Removed the `--oldast` switch.
