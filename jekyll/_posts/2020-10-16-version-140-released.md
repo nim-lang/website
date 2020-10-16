@@ -54,7 +54,7 @@ Big thanks to all of you, we couldn't have pulled off this release without you!
 
 A new reference counting algorithm called ARC was first shipped with Nim 1.2.
 If you haven't watched it already, we recommend
-[this video](https://www.youtube.com/watch?v=aUJcYTnPWCg) from [NimConf 2020](https://www.youtube.com/playlist?list=PLxLdEZg8DRwTIEzUpfaIcBqhsj09mLWHx).
+[this video](https://www.youtube.com/watch?v=aUJcYTnPWCg) from [NimConf 2020](https://www.youtube.com/playlist?list=PLxLdEZg8DRwTIEzUpfaIcBqhsj09mLWHx)
 where Araq explains details behind ARC and shows some benchmarks that
 illustrate the benefits.
 
