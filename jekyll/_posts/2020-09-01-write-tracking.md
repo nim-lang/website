@@ -174,7 +174,7 @@ func count(n: Node): int =
 
 As usual, the devil is in the details.
 Any algorithm that we use should be smart enough to detect hidden mutations 
-ia local aliases:
+via local aliases:
 
 ```nim
 {.experimental: "strictFuncs".}
@@ -215,7 +215,7 @@ func p(n: Node) =
 Internally the compiler constructs an abstract graph and looks for
 subgraphs that are both mutated and "connected" to an input parameter.
 The analysis does not depend on the control flow, two locations
-`a` are connected if there is a pattern like `a = f(b)` in the source code.
+`a` and `b` are connected if there is a pattern like `a = f(b)` in the source code.
 
 
 Mutability via var
