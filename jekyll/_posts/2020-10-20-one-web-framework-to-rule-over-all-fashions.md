@@ -73,13 +73,13 @@ import prologue
 proc hello(ctx: Context) {.async.} =
   resp "Hello World!"
 
-let urlPatterns* = @[
+let urlPatterns = @[
   pattern("/hello", hello)
 ]
 
 var app = newApp()
 
-app.addRoute(urls.urlPatterns, "")
+app.addRoute(urlPatterns, "")
 app.run()
 ```
 
@@ -129,7 +129,7 @@ macro get*(app: Prologue, route: string, body: untyped) =
 var app = newApp()
 
 with app:
-  get "/":
+  get "/hello":
     resp "<h1>Hello, Prologue!</h1>"
 
 app.run()
