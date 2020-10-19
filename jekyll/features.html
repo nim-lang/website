@@ -9,19 +9,32 @@ css_class: features
   <section class="content">
     <div class="pure-g">
       <div class="pure-u-1">
-        <h1>Intuitive and clean syntax</h1>
+        <h1>One language to rule them all</h1>
       </div>
       <div class="pure-u-1 pure-u-md-1-2 code-align">
-        <h2>
-          Taking inspiration from multiple languages, the Nim syntax is
-          easily understood and results in code that can be modified very
-          effectively.
-        </h2>
+        <h2>Good for everything, from shell scripting to web front and backend,
+          to machine learning, high-performance computing (HPC), and embedded.</h2>
         <ul>
-          <li>Indentation significant syntax</li>
-          <li>Multiple constructs inspired by Python</li>
-          <li>Multi-line lambdas</li>
-          <li>It combines successful concepts from Ada and Modula.</li>
+          <li>Productivity: human readable and expressive like Python</li>
+          <li>Type system: strong static typing, nice generics, concepts, and type classes</li>
+          <li>Performance: matches C and C++, always gives control to the programmer</li>
+          <li>Portability: compiles to C, C++, and Javascript
+            <ul>
+              <li>Native use of all libraries in target languages (no ABI issues) + really nice FFI</li>
+              <li>Single (tiny) executable with no dependencies</li>
+              <li>Write server/client in the same language and share code between front/back end</li>
+              <li>Linux, Windows, and Mac</li>
+            </ul>
+          </li>
+          <li>Iterating: Very fast compile speed</li>
+          <li>Top tier metaprogramming
+            <ul>
+              <li>Hygienic AST Macros a core part of the language, very flexible syntax</li>
+              <li>Runs a VM of Nim at compile time giving you most of the language (bar pointers) to generate code or run procedures and store them as const</li>
+              <li>e.g. async implemented just with macros, doesn't need special language support</li>
+              <li>e.g. can automate building types and code from file data at compile time</li>
+            </ul>
+          </li>
         </ul>
       </div>
       <div class="pure-u-1 pure-u-md-1-2 center">
