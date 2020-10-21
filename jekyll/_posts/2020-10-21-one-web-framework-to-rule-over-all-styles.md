@@ -1,7 +1,7 @@
 ---
-title: "One web framework to rule over all fashions"
+title: "One web framework to rule over all styles"
 author: Zeshen Xing (xflywind)
-excerpt: "Nim language is an elegant and expressive programming language. The article talks about how to extend the routing fashion without invading inside the web framework."
+excerpt: "Nim language is an elegant and expressive programming language. The article talks about how to extend the routing style without invading inside the web framework."
 ---
 
 <div class="sidebarblock">
@@ -31,7 +31,7 @@ nimble install prologue@0.4.0
 
 ## Background
 
-[Prologue](https://github.com/planety/prologue) is a great web framework in the Nim world. However, `Prologue` framework tries to avoid using `macros`. It is intended to `reduce magic and reduce surprise`. Macros could save you from redundant codebases. At the mean time, it could bring surprise. This article talks about how to extend the routing fashion outside `Prologue` without invading inside the web framework.
+[Prologue](https://github.com/planety/prologue) is a great web framework in the Nim world. However, `Prologue` framework tries to avoid using `macros`. It is intended to `reduce magic and reduce surprise`. Macros could save you from redundant codebases. At the mean time, it could bring surprise. This article talks about how to extend the routing style outside `Prologue` without invading inside the web framework.
 
 There are three ways to register routing out of box using `Prologue`. 
 
@@ -50,7 +50,7 @@ app.get("/hello", hello)
 app.run()
 ```
 
-If you love `Express.js` or `Koa` web framework, you may prefer the fashion below which uses anonymous function.
+If you love `Express.js` or `Koa` web framework, you may prefer the style below which uses anonymous function.
 
 Visit `localhost:8080/hello` and "Hello World!" will be displayed on the screen.
 
@@ -63,7 +63,7 @@ app.get("/hello", proc(ctx: Context) {.async.} =
 app.run()
 ```
 
-If you love `Django` web framework, you may prefer the fashion below which uses URL patterns.
+If you love `Django` web framework, you may prefer the style below which uses URL patterns.
 
 Visit `localhost:8080/hello` and "Hello World!" will be displayed on the screen.
 
@@ -87,7 +87,7 @@ app.run()
 
 The topic of today is to extend `Prologue` with the powerful macros outside the web framework.
 
-If you love `Flask` web framework, you may prefer the fashion below which uses pragmas to simulate decorators.
+If you love `Flask` web framework, you may prefer the style below which uses pragmas to simulate decorators.
 
 The core codebase is **just 4 lines**:
 
@@ -111,7 +111,7 @@ proc hello(ctx: Context) {.async, get(app, "/hello").} =
 app.run()
 ```
 
-If you love `Jester` or `Sinatra` web framework,  you may prefer the fashion below.
+If you love `Jester` or `Sinatra` web framework,  you may prefer the style below.
 
 The core codebase is **just 4 lines** too:
 
@@ -137,12 +137,12 @@ app.run()
 
 ## Automation
 
-The powerful macros system could transform `Prologue` framework into the DSL fashion completely(Thanks to @`exelotl` and @`Vindaar`). It could be used to generate codebases using templates. Redundant codes will be simplified. The less is more.
+The powerful macros system could transform `Prologue` framework into the DSL style completely(Thanks to @`exelotl` and @`Vindaar`). It could be used to generate codebases using templates. Redundant codes will be simplified. The less is more.
 
 The full codebase is **less than 40 lines**. `defineRouteSugar` and `defineGroup` are the templates to generate all the DSL routing functions. It makes codebases simple and hard to go wrong.
 
 ```nim
-# dsl_fashion.nim
+# dsl_style.nim
 import prologue except head, get, post, put, delete, options
 import std/macros
 
@@ -184,7 +184,7 @@ Test code:
 
 ```nim
 # app.nim
-include dsl_fashion
+include dsl_style
 import std/with
 
 
