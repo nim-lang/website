@@ -87,7 +87,7 @@ app.run()
 
 The topic of today is to extend `Prologue` with the powerful macros outside the web framework.
 
-If you love `Flask` web framework, you may prefer the fashion below which uses `pragmas` to simulate decorator.
+If you love `Flask` web framework, you may prefer the fashion below which uses pragmas to simulate decorators.
 
 The core codebase is **just 4 lines**:
 
