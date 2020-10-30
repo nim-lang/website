@@ -28,6 +28,8 @@ navigation:
     url: /blog.html
   - title: Features
     url: /features.html
+  - title: Packages
+    url: https://nimble.directory
   - title: Download
     url: /install.html
   - title: Learn
