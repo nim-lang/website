@@ -1,0 +1,415 @@
+<script>
+  /* Apply a style on all elements of a class except 1 with an specific id */
+  const showcodesample = (number) => {
+    "use strict";
+    const sampleCount = document.querySelectorAll("code.sample").length;
+    for (var i = 0 ; i < sampleCount ; i++) {
+      if (i === number) {
+        document.querySelector("code#sample" + i).style.display = "block";
+      } else {
+        document.querySelector("code#sample" + i).style.display = "none";
+      };
+    };
+  };
+</script>
+
+
+<select class="pure-button" onchange="showcodesample(this.selectedIndex)">
+  <optgroup label="Basic">
+    <option>Simple example</option>
+    <option>Functions</option>
+    <option>If…elif…else</option>
+    <option>Case switch</option>
+    <option>Tables</option>
+    <option>Primitive types</option>
+    <option>Basic math</option>
+    <option>UFCS example</option>
+    <option>OOP inheritance</option>
+    <option>String operations 1</option>
+    <option>String operations 2</option>
+    <option>Literal String Formatting</option>
+    <option>Fibonacci example</option>
+    <option>Pointers example</option>
+    <option>Arrow functions</option>
+    <option>Comprehensions</option>
+    <option>Templates</option>
+    <option>Stropping</option>
+    <option>Async</option>
+    <option>Inlined C</option>
+    <option>Critical Bit Trees</option>
+    <!-- Add more examples by adding an option here -->
+  </optgroup>
+</select>
+
+
+<code id="sample0" class="sample">
+{% highlight nim %}
+import strformat
+
+type
+  Person = object
+    name: string
+    age: Natural # Ensures the age is positive
+
+let people = [
+  Person(name: "John", age: 45),
+  Person(name: "Kate", age: 30)
+]
+
+for person in people:
+  # Type-safe string interpolation,
+  # evaluated at compile time.
+  echo(fmt"{person.name} is {person.age} years old")
+{% endhighlight %}
+</code>
+
+
+<code id="sample1" class="sample">
+{% highlight nim %}
+func sum2integers(a, b: int): int =
+  # Side effects free function.
+  a + b
+
+proc substract2integers(a, b: int): int =
+  ## Documentation here (Markdown or RST).
+  echo a # Side effect (Mutates stdout).
+  a - b
+
+assert sum2integers(1, 2) == 3
+assert substract2integers(2, 1) == 1
+{% endhighlight %}
+</code>
+
+
+<code id="sample2" class="sample">
+{% highlight nim %}
+var conditional = 42
+
+if conditional < 0:
+  echo "conditional < 0"
+elif conditional > 0:
+  echo "conditional > 0"
+else:
+  echo "conditional == 0"
+{% endhighlight %}
+</code>
+
+
+<code id="sample3" class="sample">
+{% highlight nim %}
+var letter = 'c'
+
+case letter
+of 'a':
+  echo "letter is 'a'"
+of 'b', 'c':
+  echo "letter is 'b' or 'c'"
+of 'd'..'h':
+  echo "letter is between 'd' and 'h'"
+else:
+  echo "letter is between 'i' and 'z'"
+{% endhighlight %}
+</code>
+
+
+<code id="sample4" class="sample">
+{% highlight nim %}
+import tables
+
+var dictionary = {"hi": 1, "there": 2}.toTable
+
+assert dictionary["hi"] == 1
+dictionary["hi"] = 42
+assert dictionary["hi"] == 42
+assert len(dictionary) == 2
+
+for key, value in dictionary: echo key, value
+{% endhighlight %}
+</code>
+
+
+<code id="sample5" class="sample">
+{% highlight nim %}
+assert "hello" is string
+assert true is bool
+assert 42 is int
+assert 3.14 is float
+assert 'x' is char
+assert (1, 'x') is tuple
+assert [1, 9] is array
+assert @[1, 9] is seq
+assert {1, 9} is set
+{% endhighlight %}
+</code>
+
+
+<code id="sample6" class="sample">
+{% highlight nim %}
+assert 1 + 2 == 3   # Sum
+assert 4 - 1 == 3   # Substraction
+assert 2 * 2 == 4   # Multiplication
+assert 4 / 2 == 2.0 # Division
+assert 4 div 2 == 2 # Integer Division
+assert 4 mod 2 == 0 # Modulo
+assert (2 xor 4) == 6 # XOR
+assert (4 shr 2) == 1 # Shift Right
+assert clamp(1.4, 0.0, 1.0) == 1.0 # Clamp
+{% endhighlight %}
+</code>
+
+
+<code id="sample7" class="sample">
+{% highlight nim %}
+# Each line does the same echo call,
+# just with different syntax.
+echo "hello world"
+echo("hello world")
+echo"hello world"
+"hello world".echo()
+"hello world".echo
+"hello".echo(" world")
+"hello".echo " world"
+{% endhighlight %}
+</code>
+
+
+<code id="sample8" class="sample">
+{% highlight nim %}
+type
+  Animal = object of RootObj # Animal base object.
+    age: int # Attributes of base object.
+    name: string
+  Cat = object of Animal # Cat inherited object.
+    playfulness: float
+
+func increaseAge(self: var Cat) =
+  self.age.inc() # Cat object function, modifies object.
+
+var kitten = Cat(name: "Tom") # Cat object instance.
+kitten.increaseAge() # Cat object function used.
+assert kitten.name == "Tom" # Assert on Cat object.
+{% endhighlight %}
+</code>
+
+
+<code id="sample9" class="sample">
+{% highlight nim %}
+import strutils
+
+echo "abc".toUpperAscii
+echo "ABC".toLowerAscii
+echo "    a    ".strip
+echo "con" & "cat" & "!"
+echo "abc".capitalizeAscii
+echo "A__B__C".normalize
+echo "1 line".countLines
+echo "1 line".splitLines
+echo "a,b,c".split(",")
+echo " a B C ".strip.split.join("-")
+for word in tokenize("This is an example"):
+  echo word
+{% endhighlight %}
+</code>
+
+
+<code id="sample10" class="sample">
+{% highlight nim %}
+import strutils
+
+echo "42".parseInt
+echo "3.14".parseFloat
+echo "0x666".parseHexInt
+echo "TrUe".parseBool
+echo "0o666".parseOctInt
+echo "a".repeat(9)
+echo "a".align(9)
+echo "a".alignLeft(9)
+echo "a".indent(9)
+echo "   a".unindent(1)
+echo "abc".startsWith("ab")
+echo "abc".endsWith("bc")
+echo ["a", "b", "c"].join
+echo "abcd".find("c")
+echo "a".center(9)
+echo "a x a y a z".count("a")
+{% endhighlight %}
+</code>
+
+
+<code id="sample11" class="sample">
+{% highlight nim %}
+import strformat
+
+let
+  a ="can"
+  b ="it"
+  c ="this"
+
+echo fmt"You {a} use {b} like {c}"
+{% endhighlight %}
+</code>
+
+
+<code id="sample12" class="sample">
+{% highlight nim %}
+func fibonacci(n: int): int =
+  if n <= 2:
+    1
+  else:
+    fibonacci(n - 1) + fibonacci(n - 2)
+
+echo fibonacci(6)
+{% endhighlight %}
+</code>
+
+
+<code id="sample13" class="sample">
+{% highlight nim %}
+# Creates
+var number = create(int)
+# Autoinitialized to 0
+assert number[] == 0
+# Pointer to integer
+assert number is ptr int
+# Assign
+number[] = 42
+assert number[] == 42
+# Zeroes the memory
+zeroMem number, sizeOf number.type
+assert number[] == 0
+# Deallocates the memory
+dealloc number
+{% endhighlight %}
+</code>
+
+
+<code id="sample14" class="sample">
+{% highlight nim %}
+import sugar
+
+# Arrow functions without arguments
+let hello = () => echo "Hello World"
+
+# Arrow functions with names
+functionName(a, b: int) => a + b
+another_name(a, b: int) => a + b
+
+# Arrow functions with pragmas
+let functionName = () {.inline.} => 42
+let another_name = () {.inline.} => 42
+
+# Arrow functions with names and pragmas
+function_name(a, b: int) {.noSideEffect.} => a + b
+let variab = (a, b: int) {.noSideEffect.} => a + b
+{% endhighlight %}
+</code>
+
+
+<code id="sample15" class="sample">
+{% highlight nim %}
+import sugar, tables, sets
+
+let variable0 = collect(newSeq):
+  for item in @[-9, 1, 42, 0, -1, 9]: item * 2
+assert variable0 == @[-18, 2, 84, 0, -2, 18]
+
+let variable1 = collect(initTable(4)):
+  for key, value in @[0, 5, 9]: {key: value div 2}
+assert variable1 == {0: 0, 1: 2, 2: 4}.toTable
+
+let variable2 = collect(initHashSet):
+  for item in @[-9, 1, 42, 0, -1, 9]: {item + item}
+assert variable2 == [2, 18, 84, 0, -18, -2].toSet
+{% endhighlight %}
+</code>
+
+
+<code id="sample16" class="sample">
+{% highlight nim %}
+template optimizeMult{`*`(a, 2)}(a: int): int =
+  a + a # Rewrite a * 2 by a + a
+
+template `:=`(name, value): untyped =
+  (var name = value; name) # Walrus operator
+
+template pwnEcho{echo(x)}(x: typed) =
+  stdout.write x # Rewrite echo by stdout.write
+
+echo (variable := 4) * 2 == 8
+{% endhighlight %}
+</code>
+
+
+<code id="sample17" class="sample">
+{% highlight nim %}
+type Type = object
+  `int`: int
+
+let `object` = Type(`int`: 9)
+assert `object` is Type
+assert `object`.`int` == 9
+
+var `var` = 42
+let `let` = 8
+assert `var` + `let` == 50
+
+const `assert` = true
+assert `assert`
+{% endhighlight %}
+</code>
+
+
+<code id="sample18" class="sample">
+{% highlight nim %}
+import asyncdispatch
+
+proc main() {.async.} =
+  echo "Hello ..."
+  await sleepAsync(1000)
+  echo "... World!"
+
+waitFor main()
+{% endhighlight %}
+</code>
+
+
+<code id="sample19" class="sample">
+{% highlight nim %}
+{.emit: """
+  void hello(char* name) {
+    printf("Hello %s\n", name);
+  }
+""".}  # Inlined C.
+
+proc hello(name: cstring) {.importc.}
+
+hello "World"
+{% endhighlight %}
+</code>
+
+
+<code id="sample20" class="sample">
+{% highlight nim %}
+import critbits
+
+var cbtdict = {"a": "0", "b": "1", "c": "2"}.toCritBitTree
+assert cbtdict is CritBitTree[string]
+assert cbtdict["b"] == "1"
+cbtdict["key"] = "value"
+assert cbtdict["key"] == "value"
+echo cbtdict.len
+
+var cbtset = [1, 2, 3, 4, 5].toCritBitTree
+assert cbtset is CritBitTree[void]
+cbtset.incl 42
+assert 42 in cbtset
+cbtset.excl 42
+echo cbtset.len
+{% endhighlight %}
+</code>
+
+
+
+
+
+<!-- Add more examples by adding a code block here -->
