@@ -1061,3 +1061,9 @@ blockquote {
     height: 100%;
   }
 }
+
+
+/* "Code Carrousel"; Apply a style on all elements of a class except 1 with an specific id */
+code.sample:not(#sample0) {
+  display: none;
+}
