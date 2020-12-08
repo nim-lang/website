@@ -59,12 +59,14 @@ implementation and is open to negotiation.
 
 # Other ways to donate
 
-Apart from Open Collective, you can also donate to Nim using one the following
-services.
+Apart from [Open Collective](https://opencollective.com/nim), you can also donate
+to Nim using one the following services:
 
+<i class="fa fa-credit-card" aria-hidden="true"></i>
+[Patreon](https://www.patreon.com/araq)
 
 <i class="fa fa-money-bill-alt" aria-hidden="true"></i>
-[Salt - BountrySource](https://salt.bountysource.com/teams/nim)
+[Salt - BountySource](https://salt.bountysource.com/teams/nim)
 
 <i class="fab fa-paypal" aria-hidden="true"></i>
 [PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=FLWX5V2PMAXAU)
