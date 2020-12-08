@@ -1,7 +1,7 @@
 ---
-title: "Introducing ORC"
+title: "ORC - Vorsprung durch Algorithmen"
 author: Araq
-excerpt: "ORC - Vorsprung durch Algorithmen"
+excerpt: "ORC -  Algorithmic Advantages"
 ---
 
 
