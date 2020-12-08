@@ -1,7 +1,7 @@
 ---
 title: "Introducing ORC"
 author: Araq
-excerpt: "What is ORC and why you should use it in your projects?"
+excerpt: "ORC - Vorsprung durch Algorithmen"
 ---
 
 
