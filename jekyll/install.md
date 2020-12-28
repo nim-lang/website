@@ -68,6 +68,10 @@ css_class: install
     </ul>
     Nim 1.2:
     <ul>
+      <li>Nim 1.2.8:
+      <a href="{{ site.baseurl }}/download/nim-1.2.8_x64.zip">64-bit</a>,
+      <a href="{{ site.baseurl }}/download/nim-1.2.8_x32.zip">32-bit</a>
+      </li>
       <li>Nim 1.2.6:
       <a href="{{ site.baseurl }}/download/nim-1.2.6_x64.zip">64-bit</a>,
       <a href="{{ site.baseurl }}/download/nim-1.2.6_x32.zip">32-bit</a>
@@ -87,6 +91,10 @@ css_class: install
     </ul>
     Nim 1.0:
     <ul>
+      <li>Nim 1.0.10:
+      <a href="{{ site.baseurl }}/download/nim-1.0.10_x64.zip">64-bit</a>,
+      <a href="{{ site.baseurl }}/download/nim-1.0.10_x32.zip">32-bit</a>
+      </li>
       <li>Nim 1.0.8:
       <a href="{{ site.baseurl }}/download/nim-1.0.8_x64.zip">64-bit</a>,
       <a href="{{ site.baseurl }}/download/nim-1.0.8_x32.zip">32-bit</a>
@@ -129,6 +137,11 @@ css_class: install
     </ul>
     Nim 1.2:
     <ul>
+      <li>Nim 1.2.8:
+      <a href="{{ site.baseurl }}/download/nim-1.2.8-linux_x64.tar.xz">64-bit</a>,
+      <a href="{{ site.baseurl }}/download/nim-1.2.8-linux_x32.tar.xz">32-bit</a>,
+      <a href="{{ site.baseurl }}/download/nim-1.2.8.tar.xz">source</a>
+      </li>
       <li>Nim 1.2.6:
       <a href="{{ site.baseurl }}/download/nim-1.2.6-linux_x64.tar.xz">64-bit</a>,
       <a href="{{ site.baseurl }}/download/nim-1.2.6-linux_x32.tar.xz">32-bit</a>,
@@ -152,6 +165,11 @@ css_class: install
     </ul>
     Nim 1.0:
     <ul>
+      <li>Nim 1.0.10:
+      <a href="{{ site.baseurl }}/download/nim-1.0.10-linux_x64.tar.xz">64-bit</a>,
+      <a href="{{ site.baseurl }}/download/nim-1.0.10-linux_x32.tar.xz">32-bit</a>,
+      <a href="{{ site.baseurl }}/download/nim-1.0.10.tar.xz">source</a>
+      </li>
       <li>Nim 1.0.8:
       <a href="{{ site.baseurl }}/download/nim-1.0.8-linux_x64.tar.xz">64-bit</a>,
       <a href="{{ site.baseurl }}/download/nim-1.0.8-linux_x32.tar.xz">32-bit</a>,
