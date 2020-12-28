@@ -4,7 +4,7 @@ author: The Nim Team
 ---
 
 A lot has happened in the Nim world in 2020: two new major releases, two new
-memory managements (ARC and ORC), the first Nim conference, and much more.
+memory managements strategies (ARC and ORC), the first Nim conference, and much more.
 
 We'll try to cover the most important bits chronologically in the following
 sections.
@@ -15,7 +15,7 @@ sections.
 
 Nim version 1.2.0 was [released in April](https://nim-lang.org/blog/2020/04/03/version-120-released.html).
 It contained around 600 new commits which had not already been backported to our
-1.0.x versions and, among other things, introduced the **ARC memory management** and
+1.0.x versions and, among other things, introduced **ARC memory management** and
 several useful macros in the [sugar module](https://nim-lang.org/docs/sugar.html):
 - `collect` (for creating list/set/table-comprehensions)
 - `dup` (turning an in-place function into one that returns a result without modifying its input)
@@ -59,7 +59,7 @@ which in our opinion is the largest release since 1.0.0, bringing 900 new commit
 (not counting all the bugfixes backported to 1.0.x and 1.2.x) and a new
 major version of [Nimble](https://github.com/nim-lang/nimble), v0.12.0.
 
-The main feature of the 1.4 release is the **ORC memory management**, together with
+The main feature of the 1.4 release is **ORC memory management**, together with
 many bugfixes for `--gc:arc` introduced in version 1.2.
 
 If you want to know more about ARC and ORC, we recommend reading
@@ -75,7 +75,8 @@ projects.
 ## Version 1.0 LTS and backports
 
 Releasing new versions of Nim, we didn't forget the promise we made when
-[Nim 1.0.0 was released](https://nim-lang.org/blog/2019/09/23/version-100-released.html): version 1.0 is our long-term supported release and it will continue
+[Nim 1.0.0 was released](https://nim-lang.org/blog/2019/09/23/version-100-released.html):
+version 1.0 is our long-term supported release and it will continue
 to receive bug fixes for as long as there is demand for them.
 
 Currently we are at version 1.0.10, and even though less than 5% of our users are
@@ -108,8 +109,8 @@ so we can better understand what our users really want and their main pain point
 
 Fixing [bugs](https://github.com/nim-lang/Nim/issues) is an always-appreciated
 way of directly helping us make Nim better.
-In 2020 we had 49 contributors whose more than 1930 commits and pull requests
-got merged into our `devel` branch. (More than 5 per day)
+In 2020 we merged more than 1900 commits into  our `devel` branch (averaging more
+than 5 per day) from 49 contributors.
 Thank you very much for your contributions!
 
 We would also like to encourage you to
