@@ -67,7 +67,7 @@ If you want to know more about ARC and ORC, we recommend reading
 which explains the benefits of ARC/ORC compared to Nim's current default
 `refc` GC, and contains links to other useful resources.
 [This article](https://nim-lang.org/blog/2020/12/08/introducing-orc.html) shows
-some benchmark numbers and the reasons why you should switch to ORC in your
+some benchmark numbers and reasons to switch to ORC in your
 projects.
 
 
