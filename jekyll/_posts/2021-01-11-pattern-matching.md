@@ -1,3 +1,11 @@
+---
+title: "Pattern matching in nim"
+author: haxscramper
+excerpt: "Brief introduction to using pattern matching for writing nim macros"
+---
+
+
+
 # Introduction
 
 New pattern matcing library introduces support for two very useful concepts: **pattern matching** and **object destructuring**.
