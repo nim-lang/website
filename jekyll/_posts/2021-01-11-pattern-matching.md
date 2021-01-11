@@ -42,18 +42,18 @@ let (val1, val2) = ("some", 12)
 And with pattern matching you can now unpack sequences, tables and custom objects.
 
 ```nim
-[(@first, @second), all @trail] := [(12, 3), (33, 4)]
+[(@first, @second), all @trail] := [(12, 3), (33, 4), (12, 33)]
 echo first, ", ", second, ", ", trail
 ```
 
-    12, 3, @[(33, 4)]
+```
+    12, 3, @[(33, 4), (12, 33)]
+```
 
-
-<a id="orgccf24df"></a>
 
 # Using pattern matching in regular code
 
-Main purpose of pattern matching is simplification of conditions, and consecutive checks. It is especially useful when paired with [object variants](https://nim-lang.org/docs/tut2.html#object-oriented-programming-object-variants), but can also be used to do a lot of other things, such as [key-value pairs matching](https://nim-lang.github.io/fusion/src/fusion/matching.html#matching-different-things-kvminuspairs-matching), extensive support for [sequence matching](https://nim-lang.github.io/fusion/src/fusion/matching.html#matching-different-things-sequence-matching). Special syntactic sugar is provided for very common use cases, such as `Option[T]` checking (similar to `if let` in rust):
+Main purpose of pattern matching is simplification of conditions, and consecutive checks. It is especially useful when paired with [object variants](https://nim-lang.org/docs/tut2.html#object-oriented-programming-object-variants), but can also be used to do a lot of other things, such as [key-value pairs matching](https://nim-lang.github.io/fusion/src/fusion/matching.html#matching-different-things-kvminuspairs-matching), extensive support for [sequence matching](https://nim-lang.github.io/fusion/src/fusion/matching.html#matching-different-things-sequence-matching). Special syntactic sugar is provided for very common use cases, such as `Option[T]` checking (similar to `if let` in Rust):
 
 ```nim
 import std/options
@@ -180,7 +180,7 @@ it directly maps on the input DSL. `map:` should create `fskMap` stage, `filter`
 
 ## Pattern matching
 
-Now, after we have good understanding of what exactly we want to do - the question is 'how?'. That's where `fusion/matching` comes particularly handy - we already identifier all patterns, and now it is only matter of writing this down in code.
+Now, after we have good understanding of what exactly we want to do - the question is 'how?'. That's where [`fusion/matching`](https://nim-lang.github.io/fusion/src/fusion/matching.html) comes particularly handy - we already identifier all patterns, and now it is only matter of writing this down in code.
 
 Without pattern matching you'd be left with long series of repeating `[0][0][0]` and `if kind == nnkBracketExpr` in order to retrieve parts from DSL and validate input.
 
