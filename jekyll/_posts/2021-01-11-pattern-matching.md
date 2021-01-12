@@ -282,6 +282,22 @@ body.matches:
 
 This brings one important change `typeParam` capture is no longer `NimNode` - type has changed to `Option[NimNode]`, because not all alternatives have this variable. `head` is still a `NimNode` just as before - all possible alternatives contain this variable, so it would be set if input matches.
 
+-------------------------------------------------------------
+
+This example shows really well how pattern matching can help handling different alternative syntaxes. Another very powerful feature is sequence matching - sadly in this particular example we had no need for it, but I decided to still showcase it. Consider [procedure declaration](https://nim-lang.org/docs/macros.html#statements-procedure-declaration) ast - suppose we need to match name, arguments, and return type. Usually part of case statement would look similarly to this:
+
+```nim
+  let name = arg[0]
+  let returnType = arg[3][0]
+  let arguments = arg[3][1 .. ^1]
+```
+
+This is not particularly complicated, but with pattern matching it all transforms to
+
+```nim
+ProcDef[@name, _, _, [@returnType, all @arguments], .._]
+```
+
 
 ## Flow macro implementation
 
@@ -596,4 +612,3 @@ let res = flow lines("/etc/passwd"):
 -   Full flow macro implementation can be seen [here](https://github.com/nim-lang/fusion/blob/ea18f8559c514b227b148300a2900b3e2a282b0d/tests/tmatching.nim#L1878) - it is a part of test suite for the library, but a lot of comments from the article are still present.
 -   I tried to write test suite in a way that would make it easier to use as an example as well.
 -   This library is still being developed - some minor bugs and inconsistencies could expected, as well as ergonomics improvements.
-
