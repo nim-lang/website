@@ -11,7 +11,9 @@ author: Jason Beetham
     </div>
   </div>
 </div>
-I will be starting a monthly blog post for community showcase entitled "This Month with Nim". This will be a method for developers in the Nim community to publish a small part of a blog post showing off what Nim is capable of and what people are working on. A brief example of what a post might look like is below.
+I will be starting a monthly blog post for community showcase entitled "This Month with Nim". 
+
+This will be a method for developers in the Nim community to publish a small part of a blog post showing off what Nim is capable of and what people are working on. A brief example of what a post might look like is below.
 
 # January's Month With Nim
 
