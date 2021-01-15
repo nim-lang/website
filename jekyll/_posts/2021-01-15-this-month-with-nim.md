@@ -2,6 +2,15 @@
 title: "This Month with Nim"
 author: Jason Beetham
 ---
+<div class="sidebarblock">
+  <div class="content">
+    <div class="title">Guest post</div>
+    <div class="paragraph">
+      This is a guest post by Jason Beetham. If you would like to publish articles as a guest author on nim-lang.org then get in touch with us via
+      <a href="https://twitter.com/nim_lang">Twitter</a> or <a href="https://nim-lang.org/community.html">otherwise</a>.
+    </div>
+  </div>
+</div>
 I will be starting a monthly blog post for community showcase entitled "This Month with Nim". This will be a method for developers in the Nim community to publish a small part of a blog post showing off what Nim is capable of and what people are working on. A brief example of what a post might look like is below.
 
 # January's Month With Nim
