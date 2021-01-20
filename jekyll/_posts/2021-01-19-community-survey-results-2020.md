@@ -3,7 +3,7 @@ title: "Nim Community Survey 2020 Results"
 author: The Nim Team
 ---
 
-Nim community survey 2020 has been open for one month, and we have received 769 responses, which we think it is large enough sample to draw the conclusions about our users and their habits.
+Nim community survey 2020 has been open for one month, and we have received 769 responses, which we think is large enough sample to draw the conclusions about our users and their habits.
 Before we go into details, we would like to thank all the people who took the time to respond.
 We really appreciate the feedback!
 
@@ -13,7 +13,7 @@ The goal of this survey was primarily to determine how our community is using Ni
 
 ## Do you use Nim?
 
-Based on the answer to this question, the respondents were divided in two groups and they've received separate set of questions.
+Based on the answer to this question, the respondents were divided in two groups and they've received separate sets of questions.
 
 <img src="{{site.baseurl}}/assets/news/images/survey2020/01.png" alt="Do you use Nim?" style="width:100%"/>
 
@@ -21,7 +21,7 @@ Approximately 3/4 of the respondents use Nim (31% frequently, 41% occasionally),
 
 Of those people who *don't* use Nim, the most frequent reasons are: "Nim seems immature, not ready for production" (36%), "Nim doesn't have libraries I need" (33%), "Nim seems too risky for production" (25%), and "Nim doesn't have enough learning materials" (24%).
 
-For people who have used Nim previously but stopped the most frequent reasons were (free-form question): lack of libraries (small and not mature ecosystem), incomplete documentation, bad editor support, compiler crashes, coworkers don't use it, etc.
+For people who have used Nim previously but stopped, the most frequent reasons were (free-form question): lack of libraries (small and not mature ecosystem), incomplete documentation, bad editor support, compiler crashes, coworkers don't use it, etc.
 
 
 
@@ -52,7 +52,7 @@ Things that people like about Nim the most are: performance/speed (86%), ease of
 
 <img src="{{site.baseurl}}/assets/news/images/survey2020/08.png" alt="What editor(s) do you use when writing Nim?" style="width:100%"/>
 
-The most used editor, expectedly, is VS Code, which is used by 62% of Nim users.
+It's no surprise that the most used editor is VS Code, with 62% of Nim users choosing it in the survey.
 In the second place is Vim/Neovim (37% combined), followed by Sublime Text and Emacs (10% each).
 
 
@@ -76,7 +76,7 @@ We can partially attribute this to the mostly painless upgrade process:
 <img src="{{site.baseurl}}/assets/news/images/survey2020/11.png" alt="Roughly, what percentage of the programming work you do is in Nim?" style="width:100%"/>
 
 The situation is slightly better than in 2019, but far from what we would like to see.
-We hope the we'll see even larger improvements in the future.
+We hope that we'll see even larger improvements in the future.
 The majority of users use Nim only sporadically (25% of time or less).
 
 <img src="{{site.baseurl}}/assets/news/images/survey2020/36.png" alt="What types of software are you developing using Nim?" style="width:100%"/>
@@ -114,7 +114,7 @@ People mention stability, better tooling, more 3rd party libraries, having to ma
 
 <img src="{{site.baseurl}}/assets/news/images/survey2020/17.png" alt="What learning resources, if any, did you use to learn Nim?" style="width:100%"/>
 
-Almost all of our users have read [the official tutorials](https://nim-lang.org/docs/tut1.html), about half of them have read ["Nim by Example"](https://nim-by-example.github.io/getting_started/) and/or ["Nim in Action"](https://book.picheta.me) book.
+Almost all of our users have read [the official tutorials](https://nim-lang.org/docs/tut1.html), about half of them have read ["Nim by Example"](https://nim-by-example.github.io/getting_started/) and/or the ["Nim in Action"](https://book.picheta.me) book.
 [Rosetta code examples](http://rosettacode.org/wiki/Category:Nim) are also a popular choice as a learning resource, followed by ["Nim Basics"](https://narimiran.github.io/nim-basics/), ["Nim Days"](https://xmonader.github.io/nimdays/) and ["Nim Notes"](https://scripter.co/notes/nim).
 
 
@@ -176,7 +176,7 @@ We will continue to work on it, and we appreciate any community effort on this: 
 
 <img src="{{site.baseurl}}/assets/news/images/survey2020/22.png" alt="What should be our priorities in improving Nim, that would bring the largest quality-of-life improvements? [improve tooling]" style="width:100%"/>
 
-Improving the tooling is very high on a priority list for our users (higher than in 2019), and especially for those users who use Nim professionally.
+Improving the tooling is very high on the priority list for our users (higher than in 2019), and especially for those users who use Nim professionally.
 We're happy to announce that, thanks to our partnership with [Status](https://status.im), improving the developer tooling is [one of the goals for 2021](https://github.com/nim-lang/RFCs/issues/300).
 
 
