@@ -1,7 +1,9 @@
 ---
 title: "This Month with Nim"
 author: Jason Beetham
+excerpt: "I will be starting a monthly blog post for community showcase entitled 'This Month with Nim'."
 ---
+
 <div class="sidebarblock">
   <div class="content">
     <div class="title">Guest post</div>
@@ -11,13 +13,16 @@ author: Jason Beetham
     </div>
   </div>
 </div>
-I will be starting a monthly blog post for community showcase entitled "This Month with Nim". 
+
+I will be starting a monthly blog post for community showcase entitled "This Month with Nim".
 
 This will be a method for developers in the Nim community to publish a small part of a blog post showing off what Nim is capable of and what people are working on. A brief example of what a post might look like is below.
+
 
 # January's Month With Nim
 
 ## Discord Bot
+
 Author: Jason Beetham
 
 Hello everyone, my current project is a Discord bot that utilizes a DSL to create an easily extendible bot. This DSL generates an `async` procedure so you only have to write the body, reducing the repetitive task of matching a procedure signature. To add a command users just have to make a Nim file in the `command` folder then replicate the following code.
