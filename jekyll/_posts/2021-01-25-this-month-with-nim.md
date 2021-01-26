@@ -19,9 +19,9 @@ I will be starting a monthly blog post for community showcase entitled "This Mon
 This will be a method for developers in the Nim community to publish a small part of a blog post showing off what Nim is capable of and what people are working on. A brief example of what a post might look like is below.
 
 
-# January's Month With Nim
+## January's Month With Nim
 
-## Discord Bot
+### Discord Bot
 
 Author: Jason Beetham
 
@@ -38,6 +38,6 @@ This automatically subscribes the command, and thanks to a macro all files in th
 If you care to check it out you can look [here.](https://github.com/GaryM-exkage/GDGW-Maverick-Bot)
 
 
-### Want to see your project here next month?
+## Want to see your project here next month?
 
-[Follow this](https://github.com/beef331/website) to add your project to the next month's blog post.
+[Follow these instructions](https://github.com/beef331/website) to add your project to the next month's blog post.
