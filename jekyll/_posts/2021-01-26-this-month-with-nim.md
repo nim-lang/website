@@ -40,4 +40,4 @@ If you care to check it out you can look [here.](https://github.com/GaryM-exkage
 
 ## Want to see your project here next month?
 
-[Follow these instructions](https://github.com/beef331/website) to add your project to the next month's blog post.
+[Follow these instructions](https://github.com/beef331/website#adding-your-project-to-month-with-nim) to add your project to the next month's blog post.
