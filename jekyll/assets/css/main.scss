@@ -84,6 +84,10 @@ pre {
   }
 }
 
+code, pre.highlight {
+  background-color: #eee;
+}
+
 ul {
   padding-inline-start: 20px;
 }
@@ -298,6 +302,9 @@ a.pure-menu-link.pure-menu-heading {
     margin: 1.0em 0em;
     font-size: 1.0em;
     background-color: $index-code-bg;
+    pre > code {
+      background-color: $index-code-bg;
+    }
   }
 
 }
