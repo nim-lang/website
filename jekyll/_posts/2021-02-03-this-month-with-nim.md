@@ -1,5 +1,5 @@
 ---
-title: "This Month with Nim: January 2020"
+title: "This Month with Nim: January 2021"
 author: The Nim Community
 excerpt: "Seven interesting packages our users worked on in January"
 ---
