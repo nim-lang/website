@@ -38,6 +38,8 @@ html, button, input, select, textarea,
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Titillium Web";
+  text-align: left;
+  line-height: 1.2;
 }
 
 h1 {
@@ -46,8 +48,20 @@ h1 {
 }
 
 h2 {
-  margin: 48px 0 16px 0;
+  margin-top: 36px;
+  font-size: 175%;
 }
+
+h3 {
+  margin-top: 36px;
+  font-size: 120%;
+  font-weight: bold;
+}
+
+h4 {
+  font-weight: bold;
+}
+
 
 a {
   text-decoration: none;
@@ -78,14 +92,17 @@ figure.highlight {
 
 pre {
   margin: 0;
+  background-color: #eee;
   code {
     font-family: "Inconsolata", monospace;
     font-size: 0.9em;
   }
 }
 
-code, pre.highlight {
+p > code {
   background-color: #eee;
+  padding: 1px 4px;
+  font-size: 0.9em;
 }
 
 ul {
@@ -248,6 +265,10 @@ a.pure-menu-link.pure-menu-heading {
   margin: 0;
 }
 
+.pure-u-1-2 > h3, .pure-u-md-1-2 > h3 {
+  font-weight: normal;
+}
+
 // Differently colored sections on front page.
 .main.jumbotron {
   background-color: $main-jumbotron-background-color;
@@ -272,6 +293,7 @@ a.pure-menu-link.pure-menu-heading {
   h3 {
     font-size: 133%;
     margin-top: 1.5em;
+    font-weight: normal;
   }
 
   li {
@@ -302,7 +324,7 @@ a.pure-menu-link.pure-menu-heading {
     margin: 1.0em 0em;
     font-size: 1.0em;
     background-color: $index-code-bg;
-    pre > code {
+    pre {
       background-color: $index-code-bg;
     }
   }
@@ -355,6 +377,7 @@ a.pure-menu-link.pure-menu-heading {
   margin: 5pt 0;
   color: #888;
   text-align: left;
+  font-weight: normal;
 
   span {
     display: block;
