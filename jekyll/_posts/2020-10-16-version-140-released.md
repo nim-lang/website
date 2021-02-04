@@ -224,16 +224,24 @@ For more details, please see [Araq's blog post](https://nim-lang.org/blog/2020/0
       not required to have a field for every JSON key.
     - If `allowMissingKeys` is `true` Nim's object to which JSON is parsed is
       allowed to have fields without corresponding JSON keys.
+
 - Added `bindParams`, `bindParam` to `db_sqlite` for binding parameters into a `SqlPrepared` statement.
+
 - Added `tryInsert`,`insert` procs to `db_*` libs which accept primary key column name.
+
 - Added `xmltree.newVerbatimText` support create `style`'s,`script`'s text.
+
 - `uri` module now implements RFC-2397.
+
 - Added [DOM Parser](https://developer.mozilla.org/en-US/docs/Web/API/DOMParser)
   to the `dom` module for the JavaScript target.
+
 - The default hash for `Ordinal` has changed to something more bit-scrambling.
   `import hashes; proc hash(x: myInt): Hash = hashIdentity(x)` recovers the old
   one in an instantiation context while `-d:nimIntHash1` recovers it globally.
+
 - `deques.peekFirst` and `deques.peekLast` now have `var Deque[T] -> var T` overloads.
+
 - File handles created from high-level abstractions in the stdlib will no longer
   be inherited by child processes. In particular, these modules are affected:
   `asyncdispatch`, `asyncnet`, `system`, `nativesockets`, `net` and `selectors`.
@@ -316,6 +324,7 @@ For more details, please see [Araq's blog post](https://nim-lang.org/blog/2020/0
   hangs if a process had both reads from stdin and writes (e.g. to stdout).
 
 - The callback that is passed to `system.onThreadDestruction` must now be `.raises: []`.
+
 - The callback that is assigned to `system.onUnhandledException` must now be `.gcsafe`.
 
 - `osproc.execCmdEx` now takes an optional `input` for stdin, `workingDir` and `env`
@@ -335,32 +344,46 @@ For more details, please see [Araq's blog post](https://nim-lang.org/blog/2020/0
 
 - A new proc `heapqueue.find[T](heap: HeapQueue[T], x: T): int` to get index of element ``x``
   was added.
+
 - Added `rstgen.rstToLatex` a convenience proc for `renderRstToOut` and `initRstGenerator`.
+
 - Added `os.normalizeExe`.
+
 - `macros.newLit` now preserves named vs unnamed tuples.
+
 - Added `random.gauss`, that uses the ratio of uniforms method of sampling from a Gaussian distribution.
+
 - Added `typetraits.elementType` to get the element type of an iterable.
+
 - `typetraits.$` changes: `$(int,)` is now `"(int,)"` instead of `"(int)"`;
   `$tuple[]` is now `"tuple[]"` instead of `"tuple"`;
   `$((int, float), int)` is now `"((int, float), int)"` instead of `"(tuple of (int, float), int)"`
+
 - Added `macros.extractDocCommentsAndRunnables` helper.
 
 - `strformat.fmt` and `strformat.&` support `specifier =`. `fmt"{expr=}"` now
   expands to `fmt"expr={expr}"`.
+
 - Deprecations: instead of `os.existsDir` use `dirExists`, instead of `os.existsFile` use `fileExists`.
 
 - Added the `jsre` module, [Regular Expressions for the JavaScript target.](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions).
+
 - Made `maxLines` argument `Positive` in `logging.newRollingFileLogger`,
   because negative values will result in a new file being created for each logged
   line which doesn't make sense.
+
 - Changed `log` in `logging` to use proper log level for JavaScript,
   e.g. `debug` uses `console.debug`, `info` uses `console.info`, `warn` uses `console.warn`, etc.
+
 - Tables, HashSets, SharedTables and deques don't require anymore that the passed
   initial size must be a power of two - this is done internally.
   Proc `rightSize` for Tables and HashSets is deprecated, as it is not needed anymore.
   `CountTable.inc` takes `val: int` again not `val: Positive`; i.e. it can "count down" again.
+
 - Removed deprecated symbols from `macros` module, some of which were deprecated already in `0.15`.
+
 - Removed `sugar.distinctBase`, deprecated since `0.19`. Use `typetraits.distinctBase`.
+
 - `asyncdispatch.PDispatcher.handles` is exported so that an external low-level libraries can access it.
 
 - `std/with`, `sugar.dup` now support object field assignment expressions:
@@ -457,12 +480,16 @@ For more details, please see [Araq's blog post](https://nim-lang.org/blog/2020/0
 - `getImpl` on enum type symbols now returns field syms instead of idents. This helps
   with writing typed macros. The old behavior for backwards compatibility can be restored
   with `--useVersion:1.0`.
+
 - The typed AST for proc headers will now have the arguments be syms instead of idents.
   This helps with writing typed macros. The old behaviour for backwards compatibility can
   be restored with `--useVersion:1.0`.
+
 - ``let`` statements can now be used without a value if declared with
   ``importc``/``importcpp``/``importjs``/``importobjc``.
+
 - The keyword `from` is now usable as an operator.
+
 - Exceptions inheriting from `system.Defect` are no longer tracked with
   the `.raises: []` exception tracking mechanism. This is more consistent with the
   built-in operations. The following always used to compile (and still does):
@@ -482,10 +509,15 @@ For more details, please see [Araq's blog post](https://nim-lang.org/blog/2020/0
   with `--panics:on` `Defects` become unrecoverable errors.
 
 - Added the `thiscall` calling convention as specified by Microsoft, mostly for hooking purposes.
+
 - Deprecated the `{.unroll.}` pragma, because it was always ignored by the compiler anyway.
+
 - Removed the deprecated `strutils.isNilOrWhitespace`.
+
 - Removed the deprecated `sharedtables.initSharedTable`.
+
 - Removed the deprecated `asyncdispatch.newAsyncNativeSocket`.
+
 - Removed the deprecated `dom.releaseEvents` and `dom.captureEvents`.
 
 - Removed `sharedlists.initSharedList`, was deprecated and produces undefined behaviour.
@@ -502,12 +534,14 @@ For more details, please see [Araq's blog post](https://nim-lang.org/blog/2020/0
   performance this keyword can enable.
 
 - `items` no longer compiles with enums with holes as its behavior was error prone, see #14004.
+
 - `system.deepcopy` has to be enabled explicitly for `--gc:arc` and `--gc:orc` via
   `--deepcopy:on`.
 
 - Added the `std/effecttraits` module for introspection of the inferred effects.
   We hope this enables `async` macros that are precise about the possible exceptions that
   can be raised.
+
 - The pragma blocks `{.gcsafe.}: ...` and `{.noSideEffect.}: ...` can now also be
   written as `{.cast(gcsafe).}: ...` and `{.cast(noSideEffect).}: ...`. This is the new
   preferred way of writing these, emphasizing their unsafe nature.
@@ -516,7 +550,9 @@ For more details, please see [Araq's blog post](https://nim-lang.org/blog/2020/0
 ## Compiler changes
 
 - Specific warnings can now be turned into errors via `--warningAsError[X]:on|off`.
+
 - The `define` and `undef` pragmas have been de-deprecated.
+
 - New command: `nim r main.nim [args...]` which compiles and runs main.nim, and implies `--usenimcache`
   so that the output is saved to $nimcache/main$exeExt, using the same logic as `nim c -r` to
   avoid recompilations when sources don't change.
@@ -527,32 +563,46 @@ For more details, please see [Araq's blog post](https://nim-lang.org/blog/2020/0
   nim r compiler/nim.nim --fullhelp # no recompilation
   nim r --nimcache:/tmp main # binary saved to /tmp/main
   ```
+
 - `--hint:processing` is now supported and means `--hint:processing:on`
   (likewise with other hints and warnings), which is consistent with all other bool flags.
   (since 1.3.3).
+
 - `nim doc -r main` and `nim rst2html -r main` now call `openDefaultBrowser`.
+
 - Added the new hint `--hint:msgOrigin` will show where a compiler msg (hint|warning|error)
   was generated; this helps in particular when it's non obvious where it came from
   either because multiple locations generate the same message, or because the
   message involves runtime formatting.
+
 - Added the new flag `--backend:js|c|cpp|objc` (or -b:js etc), to change the backend; can be
   used with any command (e.g. nim r, doc, check etc); safe to re-assign.
+
 - Added the new flag `--doccmd:cmd` to pass additional flags for runnableExamples,
   e.g.: `--doccmd:-d:foo --threads`
   use `--doccmd:skip` to skip runnableExamples and rst test snippets.
+
 - Added the new flag `--usenimcache` to output binary files to nimcache.
+
 - `runnableExamples "-b:cpp -r:off": code` is now supported, allowing to override
   how an example is compiled and run, for example to change the backend.
+
 - `nim doc` now outputs under `$projectPath/htmldocs` when `--outdir` is unspecified
   (with or without `--project`); passing `--project` now automatically generates
   an index and enables search.
   See [docgen](https://nim-lang.org/docs/docgen.html) for details.
+
 - Removed the `--oldNewlines` switch.
+
 - Removed the `--laxStrings` switch for mutating the internal zero terminator on strings.
+
 - Removed the `--oldast` switch.
+
 - Removed the `--oldgensym` switch.
+
 - `$getType(untyped)` is now "untyped" instead of "expr", `$getType(typed)` is
   now "typed" instead of "stmt".
+
 - Sink inference is now disabled per default and has to enabled explicitly via
   `--sinkInference:on`. *Note*: For the standard library sink inference remains
   enabled. This change is most relevant for the `--gc:arc`, `--gc:orc` memory
