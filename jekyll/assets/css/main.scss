@@ -38,7 +38,6 @@ html, button, input, select, textarea,
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Titillium Web";
-  text-align: left;
   line-height: 1.2;
 }
 
@@ -401,6 +400,7 @@ h1.post-title {
 .news-item h2 {
   font-size: 140%;
   margin: 0;
+  text-align: left;
 }
 
 .main-heading {
