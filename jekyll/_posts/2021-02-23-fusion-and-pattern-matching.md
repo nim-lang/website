@@ -6,7 +6,8 @@ excerpt: "Nim fusion and pattern matching"
 
 # Nim fusion
 
-Currently, the following modules are present:
+Fusion contains Nim modules that are ment to be treated as an extension to
+stdlib. Currently, the following modules are present:
 
 - `fusion/smartptrs` - C++-like unique/shared pointers
 - `fusion/btreetables` - sorted associative containers
@@ -16,6 +17,8 @@ Currently, the following modules are present:
 - `fusion/filepermissions` - convenience functions for working with file permissions.
 
 Documentation index can be found [here](https://nim-lang.github.io/fusion/theindex.html), project repository: [link](https://github.com/nim-lang/fusion).
+
+To install fusion simply run ``nimble install fusion``
 
 # Pattern matching introduction
 
