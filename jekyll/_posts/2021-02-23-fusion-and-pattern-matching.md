@@ -6,8 +6,6 @@ excerpt: "Nim fusion and pattern matching"
 
 # Nim fusion
 
-Starting from this version you can run `nim fusion` to install or update the `fusion` package - an extension to the nim stdlib with some additional modules.
-
 Currently, the following modules are present:
 
 - `fusion/smartptrs` - C++-like unique/shared pointers
