@@ -1,12 +1,25 @@
 ---
 title: "Pattern matching in nim"
 author: haxscramper
-excerpt: "Brief introduction to using pattern matching for writing nim macros"
+excerpt: "Nim fusion and pattern matching"
 ---
 
+# Nim fusion
 
+Starting from this version you can run `nim fusion` to install or update the `fusion` package - an extension to the nim stdlib with some additional modules.
 
-# Introduction
+Currently, the following modules are present:
+
+- `fusion/smartptrs` - C++-like unique/shared pointers
+- `fusion/btreetables` - sorted associative containers
+- `fusion/matching` - pattern matching implementation using nim macros - main focus of this article
+- `fusion/htmlparser` - HTML parser
+- `fusion/astdsl` - karax-style DSL for constructing an AST
+- `fusion/filepermissions` - convenience functions for working with file permissions.
+
+Documentation index can be found [here](https://nim-lang.github.io/fusion/theindex.html), project repository: [link](https://github.com/nim-lang/fusion).
+
+# Pattern matching introduction
 
 New pattern matcing library introduces support for two very useful concepts: **pattern matching** and **object destructuring**.
 
