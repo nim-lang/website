@@ -5,10 +5,15 @@ author: The Nim Team
 
 The Nim team is happy to announce the double patch release of versions 1.2.10 and 1.4.4.
 
+The crucial bugfix that demanded these releases is the rework of the SSL certificate handling;
+it is now performed correctly and also enabled on Windows.
+The 1.0.x line is not affected simply because 1.0 does not check SSL certificates at all.
+**Please upgrade to either 1.2.10 or 1.4.4 immediately.**
+
 Version 1.4.4 is our main release, which brings several improvements over
 1.4.2, released two months ago.
 As our [Community Survey](https://nim-lang.org/blog/2021/01/20/community-survey-results-2020.html)
-has shown, the most of our users use 1.4.x version, and this release is for them
+has shown, most of our users use 1.4.x version, and this release is for them
 and for all newcomers: we recommend you to install version 1.4.4.
 
 We didn't forget the users who are still on the older versions and cannot
@@ -75,7 +80,7 @@ Alternatively, you can download Nim 1.4.4 from
   ([#16897](https://github.com/nim-lang/Nim/issues/16897))
 - Fixed "{.push exportc.} interacts with anonymous functions"
   ([#16967](https://github.com/nim-lang/Nim/issues/16967))
-- Fixed "Overloading resolution chooses a generic template instead of a method for an inherited type"
+- Fixed "ARC exports a dangerous 'dispose' proc"
   ([#17003](https://github.com/nim-lang/Nim/issues/17003))
 - Fixed "Cursor inference leading to corrupt memory with a tuple"
   ([#17033](https://github.com/nim-lang/Nim/issues/17033))
