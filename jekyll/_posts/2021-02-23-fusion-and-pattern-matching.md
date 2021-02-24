@@ -18,7 +18,21 @@ stdlib. Currently, the following modules are present:
 
 Documentation index can be found [here](https://nim-lang.github.io/fusion/theindex.html), project repository: [link](https://github.com/nim-lang/fusion).
 
-To install fusion simply run ``nimble install fusion``
+To install fusion simply run ``nimble install fusion``. To try out without installing use [nim playground](https://play.nim-lang.org/#ix=2Qzc)
+
+
+```nim
+import fusion/matching
+
+{.experimental: "caseStmtMacros".}
+
+case [(1, 3), (3, 4)]:
+  of [(1, @a), _]:
+    echo a
+
+  else:
+    echo "Match failed"
+```
 
 # Pattern matching introduction
 
