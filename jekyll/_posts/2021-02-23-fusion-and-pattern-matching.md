@@ -523,12 +523,27 @@ func typeExprFromStages(stages: seq[FlowStage], arg: NimNode): NimNode =
   result = quote do:
     block:
       (
-        proc(): auto =
+        proc(): auto = # `auto` annotation allows to derive type
+                       # of the proc from any assingment withing
+                       # proc body - we take advantage of this,
+                       # and avoid building type expression
+                       # manually.
           for it0 {.inject.} in `arg`:
             `evalExpr`
             result = `resTuple`
+#           ^^^^^^^^^^^^^^^^^^^
+#           |
+#           Type of the return will be derived from this assinment.
+#           Even though it is placed within loop body, it will still
+#           derive necessary return type
       )()[`lastId`]
+#      ^^^^^^^^^^^^
+#      | |
+#      | Get last element from proc return type
+#      |
+#      After proc is declared we call it immediatey
 ```
+
 
 
 ### Final `flow` implementation
@@ -589,7 +604,7 @@ let res = flow lines("/etc/passwd"):
     shell
 ```
 
-Generated ast:
+Generated code:
 
 ```nim
 let res = block:
