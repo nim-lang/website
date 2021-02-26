@@ -181,10 +181,12 @@ dumpTree:
 20              StrLit ":"
 ```
 
-This load of text might seem a little confusing at first, but in the end it can be taken apart quite easily (and that is exactly what we will be doing). First, on line 3 we see the `flow` identifier (`Ident "flow"`) - this is a start of our macro. Then, on the next line is a `lines("/etc/passwd")` argument.
+This load of text might seem a little confusing at first, but in the end it can be taken apart quite easily (and that is exactly what we will be doing). First, on line 3 we see the `flow` identifier (`Ident "flow"`) - this is a start of our macro. Then, on the next line is a `lines("/etc/passwd")` argument. `StmtList` onlines `7-20` is the actual body of the `flow` macro - `map` section etc. We will get into their internal structure a little later.
 
 
 ## Intermediate representation
+
+After we a have rough outline of the input AST, it is time to decide on how this particular macro can be implemented.
 
 I usually try to introduce some kind of intermediate representation for DSL in order to make things more organized and decouple parsing stage from code generation. This might make implementation a little longer, but more extensible and robust. You can, without a doubt, just go directly to code generation, but for more complex DSL I would still recommend using some kind of IR.
 
@@ -203,7 +205,7 @@ type
     body: NimNode # Stage body
 ```
 
-it directly maps on the input DSL. `map:` should create `fskMap` stage, `filter` creates `fskFilter` and so on. Optionally you can specify output type like this `map [ExpectedOutput]`.
+it directly maps on the input DSL. `map:` should create `fskMap` stage, `filter` creates `fskFilter` and so on. Optionally you can specify output type like this `map [ExpectedOutput]`. Macro will work in two stages - first convert input representation into intermediate representation, and generate resulting AST.
 
 
 ## Pattern matching
@@ -226,7 +228,9 @@ dumpTree:
         StmtList
           Ident "body"
 
-But single stage with type parameter can be written using two different ways - both are **syntactically correct**, but have comparatively different parse trees:
+But single stage with type parameter can be written using two different ways - both are **syntactically correct**, but have different parse trees:
+
+With space between `map` and `[a]`:
 
 ```nim
 dumpTree:
@@ -234,13 +238,17 @@ dumpTree:
     body
 ```
 
+```
+StmtList
+  Command
+    Ident "map"
+    Bracket
+      Ident "a"
     StmtList
-      Command
-        Ident "map"
-        Bracket
-          Ident "a"
-        StmtList
-          Ident "body"
+      Ident "body"
+```
+
+Without spaces between `map` and `[a]`:
 
 ```nim
 dumpTree:
@@ -248,20 +256,23 @@ dumpTree:
     body
 ```
 
+```
+StmtList
+  Call
+    BracketExpr
+      Ident "map"
+      Ident "a"
     StmtList
-      Call
-        BracketExpr
-          Ident "map"
-          Ident "a"
-        StmtList
-          Ident "body"
+```
 
+The difference is due to [method call syntax](https://nim-lang.org/docs/manual.html#procedures-method-call-syntax) -
+`map[a]` is treated as bracket expression (like array subscript), but `map [a]` is parsed as a procedure `map` call, with argument `[a]` (pass array to function call).
 
 ## `fusion/matching`
 
 Let's make a small digression in order to better understand how new pattern matching library can help us here.
 
-We will be focusing on parts that are relevant to our task - for more details you can read <link to documentation>.
+We will be focusing on parts that are relevant to our task - for more details you can read [documentation](https://nim-lang.github.io/fusion/src/fusion/matching.html).
 
 When writing nim macros you are mostly dealing with [NimNode](https://nim-lang.org/docs/macros.html#the-ast-in-nim) objects - first to process input AST, and then generate new code back. AST is comprised of [case objects](https://nim-lang.org/docs/manual.html#types-object-variants). Usually, first part of the macro involves lots of checks for correct node kind, followed by iteration over subnodes to extract input data. Pattern matching simplifies this, allowing to directly write expected patterns for ast, with syntax closely matching that of `dumpTree`.
 
@@ -288,7 +299,7 @@ body.assertMatch:
 
 Notice similarity between AST and pattern for matching - each node has `kind` field, which describes what kind of node this is. In this case we are interested in first and second subnodes of the `BracketExpr` node - flow stage kind and type parameter respectively.
 
-As we have alreay seed earlier, `map [string]` and `map[string]` are parsed differently - first one is handled as one-element array passed to `map` function argument, and second is bracket expression (like accessing element of the array). This difference is caused by [method call syntax](https://nim-lang.org/docs/manual.html#procedures-method-call-syntax) and usually makes programming DSL a little harder - you need to check for both alternatives, remember which index each capture should be in etc.
+As we have alreay seed earlier, `map [string]` and `map[string]` are parsed differently - first one is handled as one-element array passed to `map` function argument, and second is bracket expression. [Method call syntax](https://nim-lang.org/docs/manual.html#procedures-method-call-syntax) and usually makes programming DSL a little harder - you need to check for both alternatives, remember which index each capture should be in etc.
 
 With pattern matching though it becomes quite easy to do - adding second alternative to match will be enough.
 
@@ -350,7 +361,7 @@ macro flow(arg, body: untyped): untyped =
         )
 ```
 
-After that, we have all necessary information for generating result code. If last stage is not `each` - e.g. there is a return value after each iteration, we need to determine type of the result sequence and then append to it on each iteration.
+After that, we have all necessary information for generating result code. If last stage is not `each` - i.e. there is a return value after each iteration, we need to determine type of the result sequence and then append to it on each iteration.
 
 ```nim
 if stages[^1].kind notin {fskEach}:
