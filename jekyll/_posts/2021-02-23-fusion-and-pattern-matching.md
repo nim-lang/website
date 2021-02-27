@@ -36,7 +36,7 @@ case [(1, 3), (3, 4)]:
 
 # Pattern matching introduction
 
-New pattern matcing library introduces support for two very useful concepts: **pattern matching** and **object destructuring**.
+New pattern matching library introduces support for two very useful concepts: **pattern matching** and **object destructuring**.
 
 Pattern matching is a mechanism that allows you to check particular object against the pattern - you could think of it mainly as a way to reduce boilerplate code when comparing objects for equality, checking if value is within range, particular key is present in table and so on.
 
@@ -61,7 +61,7 @@ case parseJson("""{ "key" : "value" }"""):
 
     value
 
-Second - object destructuring - allows you to extract values from particular fields in object. It is very common in dynamic programming languages such as python. Simplest form of destructuring is already supported by nim - tuple unpacking:
+Second - object destructuring - allows you to extract values from particular fields in object. It is very common in dynamic programming languages such as python. The simplest form of destructuring is already supported by nim - tuple unpacking:
 
 ```nim
 let (val1, val2) = ("some", 12)
@@ -92,7 +92,7 @@ if Some(@val) ?= some("hello"):
 
     hello. Is string? true
 
-And matching tree structures of case objects (such as AST). For enum conforming to [nep1 style guide](https://nim-lang.org/docs/nep1.html#introduction-naming-conventions) naming conventions, you can omit prefix entirely leading to code that looks roughtly like this:
+And matching tree structures of case objects (such as AST). For `enum` conforming to [nep1 style guide](https://nim-lang.org/docs/nep1.html#introduction-naming-conventions) naming conventions, you can omit prefix entirely leading to code that looks roughly like this:
 
 ```nim
 case <some AST node>:
@@ -118,12 +118,12 @@ Nim macros are one of the most powerful and parts of the language, but they migh
 
 This article gives an example on how one can easily create relatively complex macro using new pattern matching library.
 
-We will be creating macro for dataflow programming, with support for some operatings in the `std/sequtils` module (map/filter/each). The macro won't be covering all possible combinations and use cases as it would make implementation significantly more complicated.
+We will be creating macro for dataflow programming, with support for some operations in the `std/sequtils` module (map/filter/each). The macro won't be covering all possible combinations and use cases as it would make implementation significantly more complicated.
 
 
 ## First step - design DSL
 
-When writing macro, it is very useful to just write DSL code (as if you already had macro) and what you expect it to generate. Decide out *what you want to do* and *how it should look*. In our case input could looks roughly like this:
+When writing macro, it is very useful to just write DSL code (as if you already had macro) and what you expect it to generate. Decide out *what you want to do* and *how it should look*. In our case input could look roughly like this:
 
 ```nim
 flow lines("/etc/passwd"):
@@ -205,7 +205,7 @@ type
     body: NimNode # Stage body
 ```
 
-it directly maps on the input DSL. `map:` should create `fskMap` stage, `filter` creates `fskFilter` and so on. Optionally you can specify output type like this `map [ExpectedOutput]`. Macro will work in two stages - first convert input representation into intermediate representation, and generate resulting AST.
+It directly maps on the input DSL. `map:` should create `fskMap` stage, `filter` creates `fskFilter` and so on. Optionally you can specify output type like this `map [ExpectedOutput]`. Macro will work in two stages - first convert input representation into intermediate representation, and generate resulting AST.
 
 
 ## Pattern matching
@@ -214,7 +214,7 @@ Now, after we have good understanding of what exactly we want to do - the questi
 
 Without pattern matching you'd be left with long series of repeating `[0][0][0]` and `if kind == nnkBracketExpr` in order to retrieve parts from DSL and validate input.
 
-Before we proceed to writing paterns for whole DSL it is important to consider three possible cases of writing a stage. First once is very simple - no type specified, only stage identifier.
+Before we proceed to writing patterns for whole DSL it is important to consider three possible cases of writing a stage. First once is very simple - no type specified, only stage identifier.
 
 ```nim
 dumpTree:
@@ -299,7 +299,7 @@ body.assertMatch:
 
 Notice similarity between AST and pattern for matching - each node has `kind` field, which describes what kind of node this is. In this case we are interested in first and second subnodes of the `BracketExpr` node - flow stage kind and type parameter respectively.
 
-As we have alreay seed earlier, `map [string]` and `map[string]` are parsed differently - first one is handled as one-element array passed to `map` function argument, and second is bracket expression. [Method call syntax](https://nim-lang.org/docs/manual.html#procedures-method-call-syntax) and usually makes programming DSL a little harder - you need to check for both alternatives, remember which index each capture should be in etc.
+As we have already seed earlier, `map [string]` and `map[string]` are parsed differently - first one is handled as one-element array passed to `map` function argument, and second is bracket expression. [Method call syntax](https://nim-lang.org/docs/manual.html#procedures-method-call-syntax) and usually makes programming DSL a little harder - you need to check for both alternatives, remember which index each capture should be in etc.
 
 With pattern matching though it becomes quite easy to do - adding second alternative to match will be enough.
 
@@ -323,7 +323,7 @@ This brings one important change `typeParam` capture is no longer `NimNode` - ty
 
 -------------------------------------------------------------
 
-This example shows really well how pattern matching can help handling different alternative syntaxes. Another very powerful feature is sequence matching - sadly in this particular example we had no need for it, but I decided to still showcase it. Consider [procedure declaration](https://nim-lang.org/docs/macros.html#statements-procedure-declaration) ast - suppose we need to match name, arguments, and return type. Usually part of case statement would look similarly to this:
+This example shows really well how pattern matching can help to handle different alternative syntaxes. Another very powerful feature is sequence matching - sadly in this particular example we had no need for it, but I decided to still showcase it. Consider [procedure declaration](https://nim-lang.org/docs/macros.html#statements-procedure-declaration) ast - suppose we need to match name, arguments, and return type. Usually part of case statement would look similarly to this:
 
 ```nim
   let name = arg[0]
@@ -423,7 +423,7 @@ for it in [1, 2, 3]:
     Add result - 4
     Add result - 6
 
-And it would compile and work perfectly fine. But now we have a problem of getting type of the expression itself - everything is fine as long as you only use `map` - after all `block:` is an expression, and we can have something like
+And it would compile and work perfectly fine. But now we have a problem of getting type of the expression itself - everything is fine as long as you only use `map` - after all `block:` is an expression, and we can have something like this:
 
 ```nim
 echo typeof((block:
@@ -666,8 +666,8 @@ let res = flow lines("/etc/passwd"):
 -   Full flow macro implementation can be seen [here](https://github.com/nim-lang/fusion/blob/ea18f8559c514b227b148300a2900b3e2a282b0d/tests/tmatching.nim#L1878) - it is a part of test suite for the library, but a lot of comments from the article are still present.
 -   I tried to write [test suite](https://github.com/nim-lang/fusion/blob/master/tests/tmatching.nim) in a way that would make it easier to use as an example as well, and while for the most part it does not have such level of implementation comments, it could still be treated as an example on how to use this library.
 -   This library is still being developed - some minor bugs and inconsistencies could be expected, as well as ergonomics improvements. Consequently, some internal implementation details (mutability of captured variables for example) can change in the future. When [view types](https://nim-lang.org/docs/manual_experimental.html#view-types) implementation would become a non-experimental feature captures would be done using immutable views instead.
--   I personally see this library is a stepping store for adding pattern matching support in nim core - thanks to unparallel metaprogramming capabilites even features like that can be tested in external libraries before being included in the language itself (instead of making almost irrevesable additions and dealing with fallback/bad design choices later). This means, first and foremost that DSL usability, ergnonomics feedback is welcome, as well as discussions about parts that don't seem particularly useful overall (and might potentially be deleted).
+-   I personally see this library is a stepping store for adding pattern matching support in nim core - thanks to unparalleled metaprogramming capabilites even features like that can be tested in external libraries before being included in the language itself (instead of making almost irrevesible additions and dealing with fallback/bad design choices later). This means, first and foremost that DSL usability, ergnonomics feedback is welcome, as well as discussions about parts that don't seem particularly useful overall (and might potentially be deleted).
     - For initial discussion about this library implementation you can see [RFC #245](https://github.com/nim-lang/RFCs/issues/245)
     - First implementation [PR](https://github.com/nim-lang/fusion/pull/33) also has some discussions that led to partial implementation change.
     - Current implementation does not require changing language syntax **at all**, but suggestion was made to make `let` usable in contexts other than direct variable declaration, making it possible for syntaxes like
-      - `let [all elems] = @[1, 2, 3, 4]` as opposed to current `[all @elems] := @[1, 2, 3, 4]`. Latter one, while not particularly different, creates new way of introducing variables.
+      - `let [all elems] = @[1, 2, 3, 4]` as opposed to current `[all @elems] := @[1, 2, 3, 4]`. Latter one, while not particularly different, creates new way of introducing variables, which might be unwanted.
