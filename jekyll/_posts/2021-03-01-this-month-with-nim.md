@@ -58,6 +58,19 @@ Spatial algorithms are used to find the "closest" things faster than simple brut
 They make your code run faster using smarter data structures.
 [Spacy](https://github.com/treeform/spacy) has different "Spaces" that you can use to speed up games and graphical applications.
 
+
+## Nim VS Code/Codium Extension
+
+#### Author: saem
+
+If you'd like to write programs in Nim and be certain that you're on Nim while doing it, well then the [Nim Extension](https://github.com/saem/vscode-nim) for VS Code/Codium is for you!
+
+Originally started as a port of an extension written in TypeScript, this one is written in straight Nim and compiled to JS -- yes, Nim can do that!
+The port started as a project to learn Nim itself and make it easier for Nimions or even new Nimlets to be productive using the language and be empowered to make changes to the extension directly.
+Imagine, being able to improve your tools as you go, it's like macros, but your IDE or something.
+
+
+
 ----
 
 ## Want to see your project here next month?
