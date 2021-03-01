@@ -10,7 +10,7 @@ excerpt: "Five interesting packages our users worked on in Feburary"
 #### Author: Allin
 
 [Suber](https://github.com/olliNiinivaara/Suber) is an in-process topic-based [publish/subscribe](https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern) engine with an in-memory cache.
-I'm primarily aiming it for situations where a server is pushing messages to clients but connections may occasionally fail, and therefore a fast method for redelivering missed messages comes in handy.
+It is primarily aimed for situations where a server is pushing messages to clients but connections may occasionally fail, and therefore a fast method for redelivering missed messages comes in handy.
 Probably also other valid use cases exist.
 
 
