@@ -19,7 +19,7 @@ excerpt: "Nim fusion and pattern matching"
 # Nim fusion
 
 [Fusion](https://github.com/nim-lang/fusion) contains Nim modules that are meant to
-be treated as an extension to stdlib.
+be treated as an extension to the stdlib.
 Currently, the following modules are present:
 
 - `fusion/smartptrs` - C++-like unique/shared pointers
@@ -682,7 +682,7 @@ func typeExprFromStages(stages: seq[FlowStage], arg: NimNode): NimNode =
     block:
       (
         proc(): auto = # `auto` annotation allows to derive type
-                       # of the proc from any assingment withing
+                       # of the proc from any assignment within the
                        # proc body - we take advantage of this,
                        # and avoid building type expression
                        # manually.
@@ -691,7 +691,7 @@ func typeExprFromStages(stages: seq[FlowStage], arg: NimNode): NimNode =
             result = `resTuple`
 #           ^^^^^^^^^^^^^^^^^^^
 #           |
-#           Type of the return will be derived from this assinment.
+#           Type of the return will be derived from this assignment.
 #           Even though it is placed within loop body, it will still
 #           derive necessary return type
       )()[`lastId`]
@@ -699,7 +699,7 @@ func typeExprFromStages(stages: seq[FlowStage], arg: NimNode): NimNode =
 #      | |
 #      | Get last element from proc return type
 #      |
-#      After proc is declared we call it immediatey
+#      After proc is declared we call it immediately
 ```
 
 
@@ -826,8 +826,8 @@ Expected type seq[char], but expression it.split(":") has type of seq[string]
   When [view types](https://nim-lang.org/docs/manual_experimental.html#view-types) implementation
   would become a non-experimental feature captures would be done using immutable views instead.
 - I personally see this library as a stepping store for adding pattern matching support in Nim core -
-  thanks to unparalleled metaprogramming capabilites even features like that can be tested in external
-  libraries before being included in the language itself (instead of making almost irrevesible additions
+  thanks to unparalleled metaprogramming capabilities even features like that can be tested in external
+  libraries before being included in the language itself (instead of making almost irreversible additions
   and dealing with fallback/bad design choices later).
   This means, first and foremost, that DSL usability and ergonomics feedback is welcome, as well as
   discussions about parts that don't seem particularly useful overall (and might potentially be deleted).
