@@ -10,7 +10,7 @@ current: Install
 
 # Manual installation
 
-If you're not sure which version (64-bit or 32-bit) to pick, it is very likely
+If you are not sure which version (64-bit or 32-bit) to pick, it is very likely
 that you want the 64-bit version (x86\_64):
 
 <div class="center">
@@ -26,7 +26,7 @@ that you want the 64-bit version (x86\_64):
   </a>
 </div>
 
-If you know what you're doing and you're sure you need a 32-bit version,
+If you know what you are doing and you are sure you need a 32-bit version,
 you can download it below:
 
 <div class="center">
@@ -42,8 +42,6 @@ you can download it below:
   </a>
 </div>
 
-# Binary installation
-
 The installation using the provided zip files should be fairly
 straightforward. Simply extract the files into the desired installation
 directory, and run ``finish.exe``.
@@ -58,11 +56,11 @@ It is common for Nim developers to include two directories in their
 * ``%USERPROFILE%\.nimble\bin`` (where ``%USERPROFILE%`` is the home directory)
 
 The zip file includes a simple application called ``finish.exe`` that can
-attempt to add the first directory into your ``PATH``.
+attempt to add both directories to your ``PATH``.
 This tool also checks for the presence of a C compiler and can install ``MingW``,
 the GNU C compiler collection for Windows.
 
-# Compiler dependencies
+## Compiler dependencies
 
 The Nim compiler needs a C compiler in order to compile software. You can
 use ``finish.exe`` to install MingW.
@@ -75,7 +73,7 @@ Nim.
 * 32 bit - [mingw32.7z]({{ site.baseurl }}/download/mingw32.7z)
 * 64 bit - [mingw64.7z]({{ site.baseurl }}/download/mingw64.7z)
 
-# Other dependencies
+## Other dependencies
 
 There are a number of other dependencies that you may need to install in order
 to use Nim. They include:
@@ -99,7 +97,7 @@ release or the latest development version.
 # Install Nim using Scoop
 
 [Scoop](https://scoop.sh/) is a command-line installer for Windows.
-It can install Nim with following command line that also automatically install gcc and set PATH.
+It can install Nim with the following command line commands, which also automatically install the GCC compiler and set the PATH.
 
 ```
 scoop install nim
