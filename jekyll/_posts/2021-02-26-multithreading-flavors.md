@@ -203,7 +203,7 @@ The only components necessary for multithreading are tasks (function + environme
 
 ### 1. The Producer-Consumer design
 
-With this design, you separate you application into functional modules. From some inputs tasks are produced sent to the corresponding modules which in turn do their processing and create new tasks for modules downstream until all tasks are done.
+With this design, you separate your application into functional modules. From some inputs tasks are produced sent to the corresponding modules which in turn do their processing and create new tasks for modules downstream until all tasks are done.
 A typical example is for a game would be:
 - An UI thread listening to network and keyboard/mouse/controller inputs
 - A rendering thread in charge of graphics
