@@ -24,15 +24,15 @@ Currently, the following modules are present:
 
 - `fusion/smartptrs` - C++-like unique/shared pointers
 - `fusion/btreetables` - sorted associative containers
-- `fusion/matching` - pattern matching implementation using nim macros - main focus of this article
+- `fusion/matching` - pattern matching implementation using Nim macros - the main focus of this article
 - `fusion/htmlparser` - HTML parser
 - `fusion/astdsl` - karax-style DSL for constructing an AST
 - `fusion/filepermissions` - convenience functions for working with file permissions.
 
 The documentation index can be found [here](https://nim-lang.github.io/fusion/theindex.html).
 
-To install `fusion` simply run ``nimble install fusion``.
-To try it out without installing use [nim playground](https://play.nim-lang.org/#ix=2Qzc).
+To install `fusion` simply run `nimble install fusion`.
+To try it out without installing, use the [Nim playground](https://play.nim-lang.org/#ix=2Qzc).
 
 
 ```nim
@@ -51,20 +51,20 @@ case [(1, 3), (3, 4)]:
 
 # Pattern matching introduction
 
-New pattern matching library introduces support for two very useful concepts:
+The new pattern matching library introduces support for two very useful concepts:
 **pattern matching** and **object destructuring**.
 
-Pattern matching is a mechanism that allows you to check particular object against
-the pattern --- you could think of it mainly as a way to reduce boilerplate code when
-comparing objects for equality, checking if value is within range, particular key
-is present in table and so on.
+Pattern matching is a mechanism that allows you to check a particular object against
+a pattern --- you could think of it mainly as a way to reduce boilerplate code when
+comparing objects for equality, checking if a value is within range, checking if a
+particular key is present in a table and so on.
 
 ```nim
 import std/json, fusion/matching
 
 {.experimental: "caseStmtMacros".}
 
-# Json is very simple data format, but illustrates a lot of useful features
+# JSON is very simple data format, but illustrates a lot of useful features
 # of pattern matching
 case parseJson("""{ "key" : "value" }"""):
   # No longer necessary to check if key is present - it is done
@@ -130,8 +130,8 @@ Output:
     hello. Is string? true
 
 
-And matching tree structures of case objects (such as AST).
-For `enum` conforming to [nep1 style guide](https://nim-lang.org/docs/nep1.html#introduction-naming-conventions)
+And matching tree structures of case objects (such as an AST).
+For `enum`, conforming to the [NEP1 style guide](https://nim-lang.org/docs/nep1.html#introduction-naming-conventions)
 naming conventions, you can omit the prefix entirely, leading to code that looks
 roughly like this:
 
@@ -155,24 +155,24 @@ case <some AST node>:
 
 # Using pattern matching for writing macros
 
-Nim macros are one of the most powerful and parts of the language, but they might
+Nim macros are one of the most powerful parts of the language, but they might
 seem a little intimidating for newcomers, especially when it comes to implementing
-a macro for solving particular problem at hand.
+a macro for solving a particular problem at hand.
 
-This article gives an example on how one can easily create relatively complex macro
-using new pattern matching library.
+This article gives an example on how one can easily create a relatively complex macro
+using the new pattern matching library.
 
-We will be creating macro for dataflow programming, with support for some operations
-in the `std/sequtils` module (map/filter/each).
+We will be creating a macro for dataflow programming, with support for some operations
+from the `std/sequtils` module (map/filter/each).
 The macro won't be covering all possible combinations and use cases as it would make
-implementation significantly more complicated.
+the implementation significantly more complicated.
 
 
-## First step - design DSL
+## First step - design the DSL
 
-When writing macro, it is very useful to just write DSL code (as if you already
-had macro) and what you expect it to generate.
-Decide out *what you want to do* and *how it should look*.
+When writing a macro, it is very useful to just write DSL code (as if you already
+had the macro) and what you expect it to generate.
+Decide *what you want to do* and *how it should look like*.
 In our case, the input could look roughly like this:
 
 ```
@@ -186,7 +186,7 @@ flow lines("/etc/passwd"):
     echo it
 ```
 
-And should generate a loop that looks like this:
+And it should generate a loop that looks like this:
 
 ```nim
 var res = seq[ResType]
@@ -197,10 +197,10 @@ for it0 in lines("/etc/passwd"):
 ```
 
 
-## Analyze DSL parse tree
+## Analyze the DSL parse tree
 
 Now the question is - how to transform the first into the second?
-We will start by first looking at the output for `dumpTree` on `flow` macro:
+We will start by first looking at the output for `dumpTree` on the `flow` macro:
 
 ```
 dumpTree:
@@ -236,9 +236,9 @@ Output:
 
 This load of text might seem a little confusing at first, but in the end it can be
 taken apart quite easily (and that is exactly what we will be doing).
-First, on line 3 we see the `flow` identifier (`Ident "flow"`) - this is a start of our macro.
+First, on line 3, we see the `flow` identifier (`Ident "flow"`) - this is the start of our macro.
 Then, on the next line is a `lines("/etc/passwd")` argument. `StmtList` on lines
-`7-20` is the actual body of the `flow` macro - `map` section etc.
+`7-20` is the actual body of the `flow` macro - the `map` section etc.
 We will get into their internal structure a little later.
 
 
@@ -247,13 +247,13 @@ We will get into their internal structure a little later.
 After we a have rough outline of the input AST, it is time to decide on how this
 particular macro can be implemented.
 
-I usually try to introduce some kind of intermediate representation for DSL in
-order to make things more organized and decouple parsing stage from code generation.
+I usually try to introduce some kind of intermediate representation for the DSL in
+order to make things more organized and decouple the parsing stage from code generation.
 This might make the implementation a little longer, but more extensible and robust.
-You can, without a doubt, just go directly to code generation, but for more complex
+You can, without a doubt, just go directly to code generation, but for a more complex
 DSL I would still recommend using some kind of IR.
 
-In this particular case DSL structure for `flow` macro can be described as:
+In this particular case, the DSL structure for the `flow` macro can be described as:
 
 ```nim
 type
@@ -269,24 +269,24 @@ type
 ```
 
 It directly maps on the input DSL.
-`map` should create `fskMap` stage, `filter` creates `fskFilter` and so on.
-Optionally you can specify output type like this `map [ExpectedOutput]`.
-The macro will work in two stages: first it will convert input representation into
-an intermediate representation, and then generate the resulting AST.
+`map` should create a `fskMap` stage, `filter` creates `fskFilter` and so on.
+Optionally you can specify the output type like this: `map [ExpectedOutput]`.
+The macro will work in two stages: first it will convert the input representation into
+an intermediate representation, and then it will generate the resulting AST.
 
 
 ## Pattern matching
 
 Now, after we have good understanding of what exactly we want to do - the question is 'how?'.
 That's where [`fusion/matching`](https://nim-lang.github.io/fusion/src/fusion/matching.html)
-comes particularly handy - we already identifier all patterns, and now it is only matter
+comes particularly handy - we already identified all patterns, and now it is only a matter
 of writing this down in code.
 
-Without pattern matching you'd be left with long series of repeating `[0][0][0]`
-and `if kind == nnkBracketExpr` in order to retrieve parts from DSL and validate input.
+Without pattern matching, you'd be left with a long series of repeating `[0][0][0]`
+and `if kind == nnkBracketExpr` in order to retrieve parts from the DSL and validate input.
 
-Before we proceed to writing patterns for whole DSL, it is important to consider
-three possible cases of writing a stage.
+Before we proceed to writing patterns for the whole DSL, it is important to consider
+the three possible cases of writing a stage.
 The first once is very simple - no type specified, only a stage identifier:
 
 ```nim
@@ -303,7 +303,7 @@ Output:
         StmtList
           Ident "body"
 
-But a single stage with type parameter can be written using two different ways - both
+But a single stage with a type parameter can be written using two different ways - both
 are **syntactically correct**, but have different parse trees:
 
 With space between `map` and `[a]`:
@@ -325,7 +325,7 @@ StmtList
       Ident "body"
 ```
 
-Without spaces between `map` and `[a]`:
+Without space between `map` and `[a]`:
 
 ```nim
 dumpTree:
@@ -343,11 +343,11 @@ StmtList
     StmtList
 ```
 
-The difference is due to
+The difference is due to the
 [method call syntax](https://nim-lang.org/docs/manual.html#procedures-method-call-syntax) -
 `map[a]` is treated as a bracket expression (like array subscript), but `map [a]`
 is parsed as a procedure `map` call, with argument `[a]` (passing an array to a
-function call).
+function).
 
 
 ## `fusion/matching`
@@ -355,19 +355,19 @@ function call).
 Let's make a small digression in order to better understand how the new pattern
 matching library can help us here.
 
-We will be focusing on parts that are relevant to our task - for more details you
+We will be focusing on the parts that are relevant to our task - for more details you
 can read the [documentation](https://nim-lang.github.io/fusion/src/fusion/matching.html).
 
 When writing Nim macros you are mostly dealing with
 [NimNode](https://nim-lang.org/docs/macros.html#the-ast-in-nim) objects - first to
-process input AST, and then to generate new code back.
-AST is comprised of [case objects](https://nim-lang.org/docs/manual.html#types-object-variants).
-Usually, the first part of the macro involves lots of checks for correct node kind,
-followed by iteration over subnodes to extract the input data.
+process input AST, and then to generate new code.
+The AST is comprised of [case objects](https://nim-lang.org/docs/manual.html#types-object-variants).
+Usually, the first part of the macro involves lots of checks for the correct node kind,
+followed by iteration over the subnodes to extract the input data.
 Pattern matching simplifies this, allowing to directly write expected patterns
-for AST, with syntax closely matching that of `dumpTree`.
+for the AST, with syntax closely matching that of `dumpTree`.
 
-For example - if we have code like `map[string]` it has following tree representation:
+For example - if we have code like `map[string]` it has the following tree representation:
 
 ```nim
 dumpTree:
@@ -390,20 +390,20 @@ body.assertMatch:
     @typeParam
 ```
 
-Notice similarity between AST and a pattern for matching - each node has `kind` field,
+Notice the similarity between the AST and a pattern for matching - each node has `kind` field,
 which describes what kind of node this is.
-In this case we are interested in first and second subnodes of the `BracketExpr`
+In this case we are interested in the first and second subnodes of the `BracketExpr`
 node - flow stage kind and type parameter respectively.
 
 As we have already seen earlier, `map [string]` and `map[string]` are parsed
-differently - the first one is handled as one-element array passed to `map` function
-argument, and the second is bracket expression.
+differently - the first one is handled as one-element array passed to `map` as function
+argument, and the second is a bracket expression.
 [Method call syntax](https://nim-lang.org/docs/manual.html#procedures-method-call-syntax)
-and usually makes programming DSL a little harder - you need to check for both
+usually makes programming a DSL a little harder - you need to check for both
 alternatives, remember which index each capture should be in, etc.
 
 With pattern matching though it becomes quite easy to do - adding a second
-alternative to match will be enough.
+alternative will be enough.
 
 ```nim
 body.matches:
@@ -412,7 +412,7 @@ body.matches:
   Command[@head, Bracket[@typeParam]]
 ```
 
-It should also be possible to omit type parameters from DSL entirely - they are
+It should also be possible to omit type parameters from the DSL entirely - they are
 quite nice and would allow for better type checking, but could become quite annoying to write.
 So, we should also expect someone to just write `map` - without any type qualifications.
 To handle this case we add a third alternative for pattern:
@@ -424,28 +424,29 @@ body.matches:
   @head is Ident()
 ```
 
-This brings one important change `typeParam` capture is no longer `NimNode` - type
+This brings one important change: The `typeParam` capture is no longer `NimNode` - the type
 has changed to `Option[NimNode]`, because not all alternatives have this variable.
 `head` is still a `NimNode` just as before - all possible alternatives contain
-this variable, so it would be set if input matches.
+this variable, so it would be set if the input matches.
 
 ----
 
 This example shows really well how pattern matching can help to handle different
 alternative syntaxes.
-Another very powerful feature is a sequence matching - sadly in this particular
+Another very powerful feature is sequence matching - sadly in this particular
 example we had no need for it, but I decided to still showcase it.
-Consider [procedure declaration](https://nim-lang.org/docs/macros.html#statements-procedure-declaration)
+Consider a [procedure declaration](https://nim-lang.org/docs/macros.html#statements-procedure-declaration)
 AST - suppose we need to match name, arguments, and return type.
-Usually part of case statement would look similarly to this:
+Usually, part of a case statement would look similar to this:
 
 ```nim
+of nnkProcDef:
   let name = arg[0]
   let returnType = arg[3][0]
   let arguments = arg[3][1 .. ^1]
 ```
 
-This is not particularly complicated, but with pattern matching it all transforms to:
+This is not particularly complicated, but with pattern matching it all becomes:
 
 ```
 ProcDef[@name, _, _, [@returnType, all @arguments], .._]
@@ -454,8 +455,8 @@ ProcDef[@name, _, _, [@returnType, all @arguments], .._]
 
 ## Flow macro implementation
 
-Out first stage would be processing of all input into `FlowStage`.
-We already have a way to extract the data from input AST - using pattern matching.
+Our first stage would be processing the input into a `FlowStage`.
+We already have a way to extract the data from the input AST - using pattern matching.
 
 ```nim
 macro flow(arg, body: untyped): untyped =
@@ -476,8 +477,8 @@ macro flow(arg, body: untyped): untyped =
         )
 ```
 
-After that, we have all necessary information for generating result code.
-If last stage is not `each`, i.e. there is a return value after each iteration,
+After that, we have all necessary information for generating the result code.
+If the last stage is not `each`, i.e. there is a return value after each iteration,
 we need to determine the type of the result sequence and then append to it on
 each iteration.
 
@@ -500,10 +501,10 @@ else:
 ```
 
 
-### Get result type
+### Get the result type
 
 Each stage of the dataflow has a type, and potentially defines variables.
-In addition to that - each stage uses special variable `it` - that has to be
+In addition to that - each stage uses the special variable `it` - that has to be
 injected separately for each stage, **but** at the same time it is used for
 communicating values between stages.
 
@@ -551,7 +552,7 @@ Output:
 
 
 And it would compile and work perfectly fine.
-But now we have a problem of getting type of the expression itself - everything
+But now we have a problem of getting the type of the expression itself - everything
 is fine as long as you only use `map` - after all `block:` is an expression,
 and we can have something like this:
 
@@ -571,9 +572,9 @@ Output:
 Not the prettiest code in the world, by all means - but it will become even worse
 when we have to deal with `filter`, `each`, injected variables and iterators.
 
-The second alternative is to use declare a proc with `auto` return variable and
-assign result of the expression to it.
-In that case compiler will figure out return type for us.
+The second alternative is to use declare a proc with an `auto` return type and
+assign the result of the expression to it.
+In that case, the compiler will figure out the return type for us.
 
 ```nim
 proc hello[T](a: T): auto =
@@ -592,18 +593,18 @@ Now we only need to write code generation for `#[ Expression to evaluate ]#` and
 substitute `result =` when necessary.
 
 
-### Create evaluation expression
+### Create the evaluation expression
 
 1. Body rewrite
 
-   Each stage in `flow` injects `it` variable - the result of the evaluation from 
+   Each stage in `flow` injects an `it` variable - the result of the evaluation from 
    the previous stage.
    To avoid getting redefinition errors from multiple `let it = <expression>` on
    each stage, we will replace each occurrence of `it` with `it<stage-index>`.
    For the first stage it would be `it -> it1`, the second one is `it -> it2` and so on.
 
-   `rewrite` takes input `NimNode` and either returns it as-is (if no rewriting is necessary)
-   or, in case of identifier `it` (`Ident(strVal: "it")`), converts it into a new
+   `rewrite` takes an input `NimNode` and either returns it as-is (if no rewriting is necessary)
+   or, in case of the identifier `it` (`Ident(strVal: "it")`), converts it into a new
    one with the corresponding index.
 
    ```nim
@@ -626,7 +627,7 @@ substitute `result =` when necessary.
 
 2. Create eval expression
 
-   For each stage, we rewrite body and then append a new chunk of generated code
+   For each stage, we rewrite the body and then append a new chunk of generated code
    to the result.
 
    ```nim
@@ -749,7 +750,7 @@ macro flow(arg, body: untyped): untyped =
   result = newBlockStmt(result)
 ```
 
-An example of the macro use:
+An example of the macro in action:
 
 ```nim
 let res = flow lines("/etc/passwd"):
@@ -794,7 +795,7 @@ let res = block:
   res
 ```
 
-An example of flow state mismatch error:
+An example of a flow state mismatch error:
 
 ```nim
 let res = flow lines("/etc/passwd"):
@@ -815,8 +816,8 @@ Expected type seq[char], but expression it.split(":") has type of seq[string]
   [`zero_functional`](https://github.com/zero-functional/zero-functional).
 - Full flow macro implementation can be seen
   [here](https://github.com/nim-lang/fusion/blob/ea18f8559c514b227b148300a2900b3e2a282b0d/tests/tmatching.nim#L1878) -
-  it is a part of test suite for the library, but a lot of comments from the article are still present.
-- I tried to write [test suite](https://github.com/nim-lang/fusion/blob/master/tests/tmatching.nim)
+  it is a part of the test suite for the library, but a lot of comments from the article are still present.
+- I tried to write the [test suite](https://github.com/nim-lang/fusion/blob/master/tests/tmatching.nim)
   in a way that would make it easier to use as an example as well, and while for the most part it
   does not have such level of implementation comments, it could still be treated as an example on how to use this library.
 - This library is still being developed - some minor bugs and inconsistencies could be expected, as
@@ -824,9 +825,9 @@ Expected type seq[char], but expression it.split(":") has type of seq[string]
   Consequently, some internal implementation details (mutability of captured variables for example)
   can change in the future.
   When [view types](https://nim-lang.org/docs/manual_experimental.html#view-types) implementation
-  would become a non-experimental feature captures would be done using immutable views instead.
-- I personally see this library as a stepping store for adding pattern matching support in Nim core -
-  thanks to unparalleled metaprogramming capabilities even features like that can be tested in external
+  would become a non-experimental feature, captures would be done using immutable views instead.
+- I personally see this library as a stepping stone for adding pattern matching support in Nim core -
+  thanks to unparalleled metaprogramming capabilities, even features like that can be tested in external
   libraries before being included in the language itself (instead of making almost irreversible additions
   and dealing with fallback/bad design choices later).
   This means, first and foremost, that DSL usability and ergonomics feedback is welcome, as well as
@@ -834,7 +835,7 @@ Expected type seq[char], but expression it.split(":") has type of seq[string]
   - For initial discussion about this library implementation you can see [RFC #245](https://github.com/nim-lang/RFCs/issues/245)
   - First implementation [PR](https://github.com/nim-lang/fusion/pull/33) also has some discussions
     that led to partial implementation change.
-  - Current implementation does not require changing language syntax **at all**, but suggestion was
+  - Current implementation does not require changing language syntax **at all**, but a suggestion was
     made to make `let` usable in contexts other than direct variable declaration, making it possible for syntaxes like
     `let [all elems] = @[1, 2, 3, 4]` as opposed to current `[all @elems] := @[1, 2, 3, 4]`.
     Latter one, while not particularly different, creates new way of introducing variables, which might be unwanted.
