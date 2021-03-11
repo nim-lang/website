@@ -19,7 +19,7 @@ A channel is a model for sharing memory via message passing. A thread is able to
 ## The advantages
 
 - Designed for ARC/ORC, no legacy code
-- No need to `deepcopy`, just move data around
+- No need to `deepCopy`, just move data around
 - No data races
 - Based on [Michael & Scott lock-based queues](https://www.cs.rochester.edu/~scott/papers/1996_PODC_queues.pdf)
 
@@ -37,7 +37,7 @@ A channel is a model for sharing memory via message passing. A thread is able to
 
 **app.nim**
 
-The main thread prepares tasks via reading `todo_urls.txt`. Then it sends JSON data to a channel. The crawl thread does the crawlers’ work. It receives URL data from the channel and downloads the contents using `httpclient`.
+The main thread prepares tasks via reading `todo_urls.txt`. Then it sends JSON data to a channel. The crawl thread does the crawlers' work. It receives URL data from the channel and downloads the contents using `httpclient`.
 
 ```nim
 import std/channels
@@ -48,8 +48,7 @@ var ch = initChan[JsonNode]() # we need to send JsonNode
 
 proc download(client: HttpClient, url: string) =
   let response = client.get(url)
-  echo "content: "
-  echo response.body[0 .. 20]  # prints the results
+  echo "content: ", response.body[0 .. 20] # prints the results
 
 proc crawl =
   var client = newHttpClient() # the crawler
