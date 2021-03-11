@@ -1,3 +1,11 @@
+---
+
+title: "The new Nim channels implementation for ORC"
+author: xflywind
+excerpt: "The new channels library is efficient and safe to use"
+
+---
+
 # The new Nim channels implementation for ORC
 
 Version 1.4 ships with the so-called ORC memory management algorithm. ORC is the existing ARC algorithm (first shipped in version 1.2) plus a cycle collector. The Nim devel branch also introduces a new module called `std/isolation`. With it we can pass `isolated` data to threads safely and easily. It prevents data races at compile time. Recently `std/channels` is merged to the devel branch which is designed for ORC. It combines `isolated` data and `channels` and is efficient and safe to use.
