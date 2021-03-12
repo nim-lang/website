@@ -135,7 +135,7 @@ By means of `Isolated` data, the channels become safe and convenient to use.
 
 ## Benchmark
 
-Here is a simple benchmark. We create 10 threads for sending data to the channel and 5 threads for receiving data from the channel.
+Here is a simple benchmark. We create 10 threads that send data to the channel and 5 threads that receive it.
 
 ```nim
 # benchmark the new channel implementation with 
