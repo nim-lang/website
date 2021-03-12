@@ -37,7 +37,7 @@ A channel is a model for sharing memory via message passing. A thread is able to
 
 **app.nim**
 
-The main thread prepares tasks via reading `todo_urls.txt`. Then it sends JSON data to a channel. The crawl thread does the crawlers' work. It receives URL data from the channel and downloads the contents using `httpclient`.
+The main thread prepares tasks by reading `todo_urls.txt`. Then it sends JSON data to a channel. The crawl thread does the actual work - it receives URL data from the channel and downloads the contents using the `httpclient` module.
 
 ```nim
 import std/channels
