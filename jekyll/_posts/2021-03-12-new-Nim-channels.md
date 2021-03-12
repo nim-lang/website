@@ -207,7 +207,7 @@ The new implementation is much faster than the old one!
 
 The new channels implementation makes ORC suitable for sharing data between threads. Data races are detected at compile time.
 
-If you use latest Nim version, you can run the example above and experiment `std/channels` with your own programs. Please try it out and give us your feedback!
+If you use the latest devel, you can run the example above and experiment with `std/channels` in your own programs. Please try it out and give us your feedback!
 
 ## Further information
 
