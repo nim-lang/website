@@ -62,7 +62,7 @@ proc prepareTasks(fileWithUrls: string): seq[Isolated[JsonNode]] =
   for line in lines(fileWithUrls):
     result.add isolate(parseJson(line)) # parse JSON file
 
-proc spawnCrawlers  =
+proc spawnCrawlers =
   var tasks = prepareTasks("todo_urls.json")
   for t in mitems tasks: # we need a mutable view of the items
     ch.send move t
