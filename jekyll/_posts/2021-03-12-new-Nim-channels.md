@@ -76,7 +76,7 @@ spawnCrawlers()
 joinThread(thr)
 ```
 
-First you need to import `std/channels`.
+First, we import `std/channels`.
 
 Then you can create a channel using `newChannel` which returns a `Channel[T]`. It uses `mpmc` internally which stands for multiple producer, multiple consumer. The `elements` parameter is used to specify whether a channel is buffered or not. For an unbuffered channel, the sender and the receiver block until the other side is ready. Sending data to a buffered channel blocks only when the buffer is full. Receiving data from a buffered channel blocks when the buffer is empty.
 
