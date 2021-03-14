@@ -14,7 +14,7 @@ Version 1.4 ships with the so-called ORC memory management algorithm. ORC is the
 
 ## Background
 
-A channel is a model for sharing memory via message passing. A thread is able to send or receive messages over a channel. It's like sending a letter to your friend. The postman is the channel. Your friend is the receiver. You probably already know `system/channels`. What’s the difference between the new channels implementation and the old one? If you use the old one, you will need to copy your letter by hand first and send the copy to your friend. Then your friend may mark something on the copied letter and it won’t affect the original. This works fine, however it is not efficient. If you use the new implementation, you will only need to put your letter in the mailbox. No need to copy it!
+A channel is a model for sharing memory via message passing. A thread is able to send or receive messages over a channel. It's like sending a letter to your friend. The postman is the channel. Your friend is the receiver. You probably already know `system/channels`. What's the difference between the new channels implementation and the old one? If you use the old one, you will need to copy your letter by hand first and send the copy to your friend. Then your friend may mark something on the copied letter and it won't affect the original. This works fine, however it is not efficient. If you use the new implementation, you will only need to put your letter in the mailbox. No need to copy it!
 
 ## The advantages
 
@@ -25,7 +25,7 @@ A channel is a model for sharing memory via message passing. A thread is able to
 
 ## Explore the new channels
 
-**Note:** Be sure to compile your code with `--gc:orc –-threads:on`.
+**Note:** Be sure to compile your code with `--gc:orc –-threads:on -d:ssl`.
 
 ### Let's crawl the web
 
@@ -78,7 +78,7 @@ joinThread(thr)
 
 First you need to import `std/channels`.
 
-Then you can create a channel using `newChannel` which returns a `Channel[T]`. It uses `mpmc` internally which stands for multiple producer, multiple consumer. The `elements` parameter is used to specify whether a channel is buffered or not.  For an unbuffered channel, the sender and the receiver block until the other side is ready. Sending data to a buffered channel blocks only when the buffer is full. Receiving data from a buffered channel blocks when the buffer is empty.
+Then you can create a channel using `newChannel` which returns a `Channel[T]`. It uses `mpmc` internally which stands for multiple producer, multiple consumer. The `elements` parameter is used to specify whether a channel is buffered or not. For an unbuffered channel, the sender and the receiver block until the other side is ready. Sending data to a buffered channel blocks only when the buffer is full. Receiving data from a buffered channel blocks when the buffer is empty.
 
 `newChannel` is a generic proc, you can specify the types of the data you want to send or receive.
 
@@ -120,7 +120,7 @@ proc spawnCrawlers  =
   chan.send isolate(newJString("Hello, Nim"))
 ```
 
-`Isolated` data can only be moved, not copied. It is implemented as a library without bloating Nim's core type system. The `isolate` proc is used to create an isolated subgraph from the expression `value`. Whether the expression `value` is isolated is checked at compile time. The `extract` proc is used to get the internal value of `Isolated` data. 
+`Isolated` data can only be moved, not copied. It is implemented as a library without bloating Nim's core type system. The `isolate` proc is used to create an isolated subgraph from the expression `value`. Whether the expression `value` is isolated is checked at compile time. The `extract` proc is used to get the internal value of `Isolated` data.
 
 ```nim
 import std/isolation
@@ -130,7 +130,7 @@ doAssert data.extract == "string"
 doAssert data.extract == ""
 ```
 
-By means of `Isolated` data, the channels become safe and convenient to use.
+By means of `Isolated` data, the channels become safer and more convenient to use.
 
 
 ## Benchmark
