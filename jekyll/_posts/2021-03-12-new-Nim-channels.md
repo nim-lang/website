@@ -78,9 +78,9 @@ joinThread(thr)
 
 First, we import `std/channels`.
 
-Then you can create a channel using `newChannel` which returns a `Channel[T]`. It uses `mpmc` internally which stands for multiple producer, multiple consumer. The `elements` parameter is used to specify whether a channel is buffered or not. For an unbuffered channel, the sender and the receiver block until the other side is ready. Sending data to a buffered channel blocks only when the buffer is full. Receiving data from a buffered channel blocks when the buffer is empty.
+Then we can create a channel using `newChannel`, which returns a `Channel[T]`. It uses `mpmc` internally, which stands for "multiple producer, multiple consumer". The `elements` parameter is used to specify whether a channel is buffered or not. For an unbuffered channel, the sender and the receiver block until the other side is ready. Sending data to a buffered channel blocks only when the buffer is full. Receiving data from a buffered channel blocks when the buffer is empty.
 
-`newChannel` is a generic proc, you can specify the types of the data you want to send or receive.
+`newChannel` is a generic proc - you can specify the types of the data you want to send or receive.
 
 ```nim
 var chan1 = newChannel[int]()
@@ -90,13 +90,13 @@ var chan2 = newChannel[string](elements = 1) # unbuffered channel
 var chan3 = newChannel[seq[string]](elements = 30) # buffered channel
 ```
 
-`send` proc takes data that we want to send to the channel.  The passed data is moved around, not copied. Because `chan.send(isolate(data))` is very common to use, `template send[T](c: var Chan[T]; src: T) = chan.send(isolate(src))` is provided for convenience. For example, you can use `chan.send("Hello World")` instead of `chan.send(isolate("Hello World!"))`.
+The `send` proc takes data that we want to send to the channel. The passed data is moved around, not copied. Because `chan.send(isolate(data))` is very common to use, `template send[T](c: var Chan[T]; src: T) = chan.send(isolate(src))` is provided for convenience. For example, you can use `chan.send("Hello World")` instead of `chan.send(isolate("Hello World!"))`.
 
-There are two useful procs for a receiver: `recv` and `tryRecv`. `recv` blocks until something is sent to the channel. In contrast `tryRecv` doesn't block. If no message exists in the channel, it just fails and returns `false`. We can write a while loop to call `tryRecv`and handle a message when available.
+There are two useful procs for a receiver: `recv` and `tryRecv`. `recv` blocks until something is sent to the channel. In contrast, `tryRecv` doesn't block - if no message exists in the channel, it just fails and returns `false`. We can write a while loop to call `tryRecv`and handle a message when available.
 
-###  It is safe and convenient
+### It is safe and convenient
 
-The Nim compiler rejects the program below at compile time. It says that `expression cannot be isolated: s`. `s` is a `ref object`, it may be modified somewhere and is not unique, so the variable cannot be isolated.
+The Nim compiler rejects the program below at compile time. It says that `expression cannot be isolated: s`. This is because `s` is a `ref object` - it may be modified somewhere and is not unique, so the variable cannot be isolated.
 
 
 ```nim
@@ -104,7 +104,7 @@ import std/[channels, json, isolation]
 
 var chan = newChannel[JsonNode]()
 
-proc spawnCrawlers  =
+proc spawnCrawlers =
   var s = newJString("Hello, Nim")
   chan.send isolate(s)
 ```
@@ -116,7 +116,7 @@ import std/[channels, json, isolation]
 
 var chan = newChannel[JsonNode]()
 
-proc spawnCrawlers  =
+proc spawnCrawlers =
   chan.send isolate(newJString("Hello, Nim"))
 ```
 
@@ -144,15 +144,13 @@ Here is a simple benchmark. We create 10 threads that send data to the channel a
 # benchmark the old channel implementation with
 # `nim c -r --threads:on -d:oldChan -d:danger app.nim`
 
-import std/[os, times, isolation]
+import std/times
 
 var
   sender: array[0 .. 9, Thread[void]]
   receiver: array[0 .. 4, Thread[void]] 
-
-
 when defined(newChan):
-  import std/channels
+  import std/[channels, isolation]
   var chan = newChannel[seq[string]](40)
 
   proc sendHandler() =
@@ -170,8 +168,6 @@ elif defined(oldChan):
 
   proc sendHandler() =
     chan.send(@["Hello, Nim"])
-
-
   proc recvHandler() =
     let x = chan.recv()
     discard x
@@ -181,8 +177,6 @@ template benchmark() =
     createThread(sender[i], sendHandler)
 
   joinThreads(sender)
-
-
   for i in 0 .. receiver.high:
     createThread(receiver[i], recvHandler)
 
@@ -196,10 +190,10 @@ benchmark()
 The new implementation is much faster than the old one!
 
 
-| Implementation                    | Time                                 |
-| --------------------------------- | ------------------------------------ |
-| system/channels + refc(-d:danger) | 433 microseconds and 590 nanoseconds |
-| std/channels + orc(-d:danger)     | 137 microseconds and 522 nanoseconds |
+| Implementation                     | Elapsed time |
+| ---------------------------------- | -----------: |
+| system/channels + refc (-d:danger) |       433 μs |
+| std/channels + orc (-d:danger)     |       137 μs |
 
 
 
