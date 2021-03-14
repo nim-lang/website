@@ -42,8 +42,6 @@ The main thread prepares tasks by reading `todo_urls.json`, and then it sends JS
 ```nim
 import std/channels
 import std/[httpclient, isolation, json]
-
-
 var ch = newChannel[JsonNode]() # we need to send JsonNode
 
 proc download(client: HttpClient, url: string) =
