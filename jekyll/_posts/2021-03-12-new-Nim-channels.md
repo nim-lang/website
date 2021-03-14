@@ -14,7 +14,7 @@ Version 1.4 ships with the so-called ORC memory management algorithm. ORC is the
 
 ## Background
 
-A channel is a model for sharing memory via message passing. A thread is able to send or receive messages over a channel. It's like sending a letter to your friend. The postman is the channel. Your friend is the receiver.  You may know  `system/channels` already exists. What’s the difference between new channels implementation and the old one? If you use the old one, you need to copy your letter by hand first and send the copied one to your friend instead. Then your friend may mark something on the copied letter, it won’t affect the original letter. It works fine, however it is not efficient. If you use the new one, you only need to put your letter in the mailbox. No need to copy your letter!
+A channel is a model for sharing memory via message passing. A thread is able to send or receive messages over a channel. It's like sending a letter to your friend. The postman is the channel. Your friend is the receiver. You probably already know `system/channels`. What’s the difference between the new channels implementation and the old one? If you use the old one, you will need to copy your letter by hand first and send the copy to your friend. Then your friend may mark something on the copied letter and it won’t affect the original. This works fine, however it is not efficient. If you use the new implementation, you will only need to put your letter in the mailbox. No need to copy it!
 
 ## The advantages
 
@@ -37,14 +37,14 @@ A channel is a model for sharing memory via message passing. A thread is able to
 
 **app.nim**
 
-The main thread prepares tasks by reading `todo_urls.txt`. Then it sends JSON data to a channel. The crawl thread does the actual work - it receives URL data from the channel and downloads the contents using the `httpclient` module.
+The main thread prepares tasks by reading `todo_urls.json`. Then it sends JSON data to a channel. The crawl thread does the actual work - it receives URL data from the channel and downloads the contents using the `httpclient` module.
 
 ```nim
 import std/channels
 import std/[httpclient, isolation, json]
 
 
-var ch = initChan[JsonNode]() # we need to send JsonNode
+var ch = newChannel[JsonNode]() # we need to send JsonNode
 
 proc download(client: HttpClient, url: string) =
   let response = client.get(url)
@@ -78,31 +78,31 @@ joinThread(thr)
 
 First you need to import `std/channels`.
 
-Then you can create a channel using `initChan`. It uses `mpmc` internally which stands for multiple producer, multiple consumer. The `elements` parameter is used to specify whether a channel is buffered or not.  For an unbuffered channel, the sender and the receiver block until the other side is ready. Sending data to a buffered channel blocks only when the buffer is full. Receiving data from a buffered channel blocks when the buffer is empty.
+Then you can create a channel using `newChannel` which returns a `Channel[T]`. It uses `mpmc` internally which stands for multiple producer, multiple consumer. The `elements` parameter is used to specify whether a channel is buffered or not.  For an unbuffered channel, the sender and the receiver block until the other side is ready. Sending data to a buffered channel blocks only when the buffer is full. Receiving data from a buffered channel blocks when the buffer is empty.
 
-`initChan` is a generic proc, you can specify the types of the data you want to send or receive.
+`newChannel` is a generic proc, you can specify the types of the data you want to send or receive.
 
 ```nim
-var chan1 = initChan[int]()
+var chan1 = newChannel[int]()
 # or
-var chan2 = initChan[string](elements = 1) # unbuffered channel
+var chan2 = newChannel[string](elements = 1) # unbuffered channel
 # or
-var chan3 = initChan[seq[string]](elements = 30) # buffered channel
+var chan3 = newChannel[seq[string]](elements = 30) # buffered channel
 ```
 
-`send` proc takes something we want to send to the channel.  The passed data is moved around, not copied. Because `chan.send(isolate(data))` is very common to use, `template send[T](c: var Chan[T]; src: T) = chan.send(isolate(src))` is provided for convenience. For example, you can use `chan.send("Hello World")` instead of `chan.send(isolate("Hello World!"))`.
+`send` proc takes data that we want to send to the channel.  The passed data is moved around, not copied. Because `chan.send(isolate(data))` is very common to use, `template send[T](c: var Chan[T]; src: T) = chan.send(isolate(src))` is provided for convenience. For example, you can use `chan.send("Hello World")` instead of `chan.send(isolate("Hello World!"))`.
 
 There are two useful procs for a receiver: `recv` and `tryRecv`. `recv` blocks until something is sent to the channel. In contrast `tryRecv` doesn't block. If no message exists in the channel, it just fails and returns `false`. We can write a while loop to call `tryRecv`and handle a message when available.
 
 ###  It is safe and convenient
 
-The Nim compiler rejects the program below at compile time. It says that `expression cannot be isolated: s`. Because s is a ref object, may be modified somewhere and is not unique. So the variable cannot be isolated.
+The Nim compiler rejects the program below at compile time. It says that `expression cannot be isolated: s`. `s` is a `ref object`, it may be modified somewhere and is not unique, so the variable cannot be isolated.
 
 
 ```nim
 import std/[channels, json, isolation]
 
-var chan = initChan[JsonNode]()
+var chan = newChannel[JsonNode]()
 
 proc spawnCrawlers  =
   var s = newJString("Hello, Nim")
@@ -114,13 +114,13 @@ It is only allowed to pass a function call directly.
 ```nim
 import std/[channels, json, isolation]
 
-var chan = initChan[JsonNode]()
+var chan = newChannel[JsonNode]()
 
 proc spawnCrawlers  =
   chan.send isolate(newJString("Hello, Nim"))
 ```
 
-`Isolated` data can only be moved, not copied. It is implemented as a library without bloating Nim's core type system. The `isolate` proc is used to create an isolated subgraph from the expression `value`. The expression `value` is checked at compile time . The `extract` proc is used to get the internal value of `Isolated` data. 
+`Isolated` data can only be moved, not copied. It is implemented as a library without bloating Nim's core type system. The `isolate` proc is used to create an isolated subgraph from the expression `value`. Whether the expression `value` is isolated is checked at compile time. The `extract` proc is used to get the internal value of `Isolated` data. 
 
 ```nim
 import std/isolation
@@ -153,7 +153,7 @@ var
 
 when defined(newChan):
   import std/channels
-  var chan = initChan[seq[string]](40)
+  var chan = newChannel[seq[string]](40)
 
   proc sendHandler() =
     chan.send(isolate(@["Hello, Nim"]))
