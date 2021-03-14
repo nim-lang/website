@@ -14,7 +14,7 @@ Version 1.4 ships with the so-called ORC memory management algorithm. ORC is the
 
 ## Background
 
-A channel is a model for sharing memory via message passing. A thread is able to send or receive messages over a channel. It's like sending a letter to your friend. The postman is the channel. Your friend is the receiver. You probably already know `system/channels`. What's the difference between the new channels implementation and the old one? If you use the old one, you will need to copy your letter by hand first and send the copy to your friend. Then your friend may mark something on the copied letter and it won't affect the original. This works fine, however it is not efficient. If you use the new implementation, you will only need to put your letter in the mailbox. No need to copy it!
+A channel is a model for sharing memory via message passing. A thread is able to send or receive messages over a channel. It's like sending a letter to your friend: the postman is the channel, and your friend is the receiver. You might already know `system/channels`, which is the old channels implementation. What's better in the new implementation? With the old one, first you need to copy your letter and send the copy to your friend. Then your friend may mark something on the copied letter and it won't affect the original. This works fine, but it is not efficient. If you use the new implementation, you only need to put your letter in the mailbox. No need to copy it!
 
 ## The advantages
 
