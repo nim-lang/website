@@ -138,10 +138,10 @@ Here is a simple benchmark. We create 10 threads that send data to the channel a
 
 ```nim
 # benchmark the new channel implementation with 
-# `nim c -r --threads:on --gc:orc -d:newChan -d:danger app.nim`
+# `nim r --threads:on --gc:orc -d:newChan -d:danger app.nim`
 #
 # benchmark the old channel implementation with
-# `nim c -r --threads:on -d:oldChan -d:danger app.nim`
+# `nim r --threads:on -d:oldChan -d:danger app.nim`
 
 import std/times
 
@@ -167,13 +167,14 @@ elif defined(oldChan):
 
   proc sendHandler() =
     chan.send(@["Hello, Nim"])
+
   proc recvHandler() =
     let x = chan.recv()
     discard x
 
 template benchmark() =
-  for i in 0 .. sender.high:
-    createThread(sender[i], sendHandler)
+  for t in mitems(sender):
+    t.createThread(sendHandler)
 
   joinThreads(sender)
   for i in 0 .. receiver.high:
