@@ -146,8 +146,8 @@ Here is a simple benchmark. We create 10 threads that send data to the channel a
 import std/times
 
 var
-  sender: array[0 .. 9, Thread[void]]
-  receiver: array[0 .. 4, Thread[void]] 
+  sender: array[10, Thread[void]]
+  receiver: array[5, Thread[void]] 
 when defined(newChan):
   import std/[channels, isolation]
   var chan = newChannel[seq[string]](40)
