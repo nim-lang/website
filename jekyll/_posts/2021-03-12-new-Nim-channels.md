@@ -14,7 +14,7 @@ Version 1.4 ships with the so-called ORC memory management algorithm. ORC is the
 
 ## Background
 
-A channel is a model for sharing memory via message passing. A thread is able to send or receive messages over a channel. It's like sending a letter to your friend: the postman is the channel, and your friend is the receiver. You might already know `system/channels`, which is the old channels implementation. What's better in the new implementation? With the old one, first you need to copy your letter and send the copy to your friend. Then your friend may mark something on the copied letter and it won't affect the original. This works fine, but it is not efficient. If you use the new implementation, you only need to put your letter in the mailbox. No need to copy it!
+A channel is a model for sharing memory via message passing. A thread is able to send or receive messages over a channel. It's like sending a letter to your friend: the postman is the channel, and your friend is the receiver. You might already know `system/channels_builtin`, which is the old channels implementation. What's better in the new implementation? With the old one, first you need to copy your letter and send the copy to your friend. Then your friend may mark something on the copied letter and it won't affect the original. This works fine, but it is not efficient. If you use the new implementation, you only need to put your letter in the mailbox. No need to copy it!
 
 ## The advantages
 
@@ -50,12 +50,12 @@ proc download(client: HttpClient, url: string) =
 
 proc crawl =
   var client = newHttpClient() # the crawler
+  defer: client.close()
   var data: JsonNode
   ch.recv(data) # the JSON data
   if data != nil:
     for url in data["url"]:
       download(client, url.getStr)
-  client.close()
 
 proc prepareTasks(fileWithUrls: string): seq[Isolated[JsonNode]] =
   result = @[]
@@ -104,7 +104,8 @@ var chan = newChannel[JsonNode]()
 
 proc spawnCrawlers =
   var s = newJString("Hello, Nim")
-  chan.send isolate(s)
+  chan.send isolate(s) # compile time error
+  chan.send unsafeIsolate(s) # ok: user's responsability to check that `s` isn't mutated
 ```
 
 It is only allowed to pass a function call directly.
@@ -151,9 +152,6 @@ when defined(newChan):
   import std/[channels, isolation]
   var chan = newChannel[seq[string]](40)
 
-  proc sendHandler() =
-    chan.send(isolate(@["Hello, Nim"]))
-
   proc recvHandler() =
     var x: seq[string]
     chan.recv(x)
@@ -164,12 +162,12 @@ elif defined(oldChan):
 
   chan.open(maxItems = 40)
 
-  proc sendHandler() =
-    chan.send(@["Hello, Nim"])
-
   proc recvHandler() =
     let x = chan.recv()
     discard x
+
+proc sendHandler() =
+  chan.send(@["Hello, Nim"])
 
 template benchmark() =
   for t in mitems(sender):
@@ -189,10 +187,10 @@ benchmark()
 The new implementation is much faster than the old one!
 
 
-| Implementation                     | Elapsed time |
-| ---------------------------------- | -----------: |
-| system/channels + refc (-d:danger) |       433 μs |
-| std/channels + orc (-d:danger)     |       137 μs |
+| Implementation                             | Elapsed time |
+| ------------------------------------------ | -----------: |
+| system/channels_builtin + refc (-d:danger) |       433 μs |
+| std/channels + orc (-d:danger)             |       137 μs |
 
 
 
