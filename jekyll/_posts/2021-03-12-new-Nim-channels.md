@@ -134,7 +134,7 @@ By means of `Isolated` data, the channels become safer and more convenient to us
 
 ## Benchmark
 
-Here is a simple benchmark. We create 10 threads that send data to the channel and 5 threads that receive it.
+Here is a simple benchmark. We create 40 threads that send data to the channel and 5/10/20 threads that receive it.
 
 ```nim
 # benchmark the new channel implementation with 
@@ -146,8 +146,11 @@ Here is a simple benchmark. We create 10 threads that send data to the channel a
 import std/times
 
 var
-  sender: array[10, Thread[void]]
-  receiver: array[5, Thread[void]] 
+  sender: array[40, Thread[void]]
+  receiver: array[5, Thread[void]]
+  # receiver: array[10, Thread[void]]  # with 10 threads
+  # receiver: array[20, Thread[void]]  # with 20 threads
+
 when defined(newChan):
   import std/[channels, isolation]
   var chan = newChannel[seq[string]](40)
@@ -187,10 +190,10 @@ benchmark()
 The new implementation is much faster than the old one!
 
 
-| Implementation                             | Elapsed time |
-| ------------------------------------------ | -----------: |
-| system/channels_builtin + refc (-d:danger) |       433 μs |
-| std/channels + orc (-d:danger)             |       137 μs |
+| Implementation                             |   5 threads  |  10 threads  |  20 threads |
+| ------------------------------------------ | -----------: | -----------: | ----------: |
+| system/channels_builtin + refc (-d:danger) |       458 μs |       859 μs |     1710 μs |
+| std/channels + orc (-d:danger)             |       188 μs |       258 μs |      428 μs |
 
 
 
