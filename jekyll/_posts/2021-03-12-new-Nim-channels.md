@@ -21,7 +21,6 @@ A channel is a model for sharing memory via message passing. A thread is able to
 - Designed for ARC/ORC, no legacy code
 - No need to `deepCopy`, just move data around
 - No data races
-- Based on [Michael & Scott lock-based queues](https://www.cs.rochester.edu/~scott/papers/1996_PODC_queues.pdf)
 
 ## Explore the new channels
 
