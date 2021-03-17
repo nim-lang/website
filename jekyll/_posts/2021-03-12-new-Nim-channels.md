@@ -41,35 +41,27 @@ The main thread prepares tasks by reading `todo_urls.json`, and then it sends JS
 ```nim
 import std/channels
 import std/[httpclient, isolation, json]
-
 var ch = newChannel[JsonNode]() # we need to send JsonNode
-
 proc download(client: HttpClient, url: string) =
   let response = client.get(url)
   echo "content: ", response.body[0 .. 20] # prints the results
-
 proc crawl =
   var client = newHttpClient() # the crawler
   defer: client.close()
-  var data: JsonNode
-  ch.recv(data) # the JSON data
+  let data = ch.recv() # the JSON data
   if data != nil:
     for url in data["url"]:
       download(client, url.getStr)
-
 proc prepareTasks(fileWithUrls: string): seq[Isolated[JsonNode]] =
   result = @[]
   for line in lines(fileWithUrls):
     result.add isolate(parseJson(line)) # parse JSON file
-
 proc spawnCrawlers =
   var tasks = prepareTasks("todo_urls.json")
   for t in mitems tasks: # we need a mutable view of the items
     ch.send move t
-
 var thr: Thread[void]
 createThread(thr, crawl) # create crawl thread
-
 spawnCrawlers()
 joinThread(thr)
 ```
@@ -150,40 +142,28 @@ var
   receiver: array[5, Thread[void]]
   # receiver: array[10, Thread[void]]  # with 10 threads
   # receiver: array[20, Thread[void]]  # with 20 threads
-
 when defined(newChan):
   import std/[channels, isolation]
   var chan = newChannel[seq[string]](40)
-
-  proc recvHandler() =
-    var x: seq[string]
-    chan.recv(x)
-    discard x
-
 elif defined(oldChan):
   var chan: Channel[seq[string]]
-
   chan.open(maxItems = 40)
 
-  proc recvHandler() =
-    let x = chan.recv()
-    discard x
+proc recvHandler() =
+  let x = chan.recv()
+  discard x
 
 proc sendHandler() =
   chan.send(@["Hello, Nim"])
-
 template benchmark() =
   for t in mitems(sender):
     t.createThread(sendHandler)
-
   joinThreads(sender)
   for i in 0 .. receiver.high:
     createThread(receiver[i], recvHandler)
-
   let start = now()
   joinThreads(receiver)
   echo now() - start
-
 benchmark()
 ```
 
