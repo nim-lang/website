@@ -80,13 +80,13 @@ var chan2 = newChannel[string](elements = 1) # unbuffered channel
 var chan3 = newChannel[seq[string]](elements = 30) # buffered channel
 ```
 
-The `send` proc takes data that we want to send to the channel. The passed data is moved around, not copied. Because `chan.send(isolate(data))` is very common to use, `template send[T](c: var Chan[T]; src: T) = chan.send(isolate(src))` is provided for convenience. For example, you can use `chan.send("Hello World")` instead of `chan.send(isolate("Hello World!"))`.
+The `send` proc takes data that we want to send to the channel. The passed data is moved around, not copied. Because `chan.send(isolate(data))` is very common to use, `template send[T](c: var Channel[T]; src: T) = c.send(isolate(src))` is provided for convenience. For example, you can use `chan.send("Hello world")` instead of `chan.send(isolate("Hello world!"))`.
 
 There are two useful procs for a receiver: `recv` and `tryRecv`. `recv` blocks until something is sent to the channel. In contrast, `tryRecv` doesn't block - if no message exists in the channel, it just fails and returns `false`. We can write a while loop to call `tryRecv` and handle a message when available.
 
 ### It is safe and convenient
 
-The Nim compiler rejects the program below at compile time. It says that `expression cannot be isolated: s`. This is because `s` is a `ref object` - it may be modified somewhere and is not unique, so the variable cannot be isolated.
+The Nim compiler rejects the program below. It says that `expression cannot be isolated: s`. This is because `s` is a `ref object` - it may be modified somewhere and is not unique, so the variable cannot be isolated.
 
 
 ```nim
@@ -118,7 +118,7 @@ import std/isolation
 
 var data = isolate("string")
 doAssert data.extract == "string"
-doAssert data.extract == ""
+doAssert data.extract == "" # the value was moved
 ```
 
 By means of `Isolated` data, the channels become safer and more convenient to use.
@@ -126,7 +126,7 @@ By means of `Isolated` data, the channels become safer and more convenient to us
 
 ## Benchmark
 
-Here is a simple benchmark. We create 40 threads that send data to the channel and 5/10/20 threads that receive it.
+Here is a simple benchmark. We create 40 threads that send data to the channel and 5/10/20 threads that receive from it.
 
 ```nim
 # benchmark the new channel implementation with 
@@ -155,6 +155,7 @@ proc recvHandler() =
 
 proc sendHandler() =
   chan.send(@["Hello, Nim"])
+
 template benchmark() =
   for t in mitems(sender):
     t.createThread(sendHandler)
@@ -164,6 +165,7 @@ template benchmark() =
   let start = now()
   joinThreads(receiver)
   echo now() - start
+
 benchmark()
 ```
 
