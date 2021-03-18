@@ -82,7 +82,7 @@ var chan3 = newChannel[seq[string]](elements = 30) # buffered channel
 
 The `send` proc takes data that we want to send to the channel. The passed data is moved around, not copied. Because `chan.send(isolate(data))` is very common to use, `template send[T](c: var Chan[T]; src: T) = chan.send(isolate(src))` is provided for convenience. For example, you can use `chan.send("Hello World")` instead of `chan.send(isolate("Hello World!"))`.
 
-There are two useful procs for a receiver: `recv` and `tryRecv`. `recv` blocks until something is sent to the channel. In contrast, `tryRecv` doesn't block - if no message exists in the channel, it just fails and returns `false`. We can write a while loop to call `tryRecv`and handle a message when available.
+There are two useful procs for a receiver: `recv` and `tryRecv`. `recv` blocks until something is sent to the channel. In contrast, `tryRecv` doesn't block - if no message exists in the channel, it just fails and returns `false`. We can write a while loop to call `tryRecv` and handle a message when available.
 
 ### It is safe and convenient
 
