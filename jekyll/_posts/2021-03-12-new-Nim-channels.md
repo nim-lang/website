@@ -68,9 +68,13 @@ joinThread(thr)
 
 First, we import `std/channels`.
 
-Then we can create a channel using `newChannel`, which returns a `Channel[T]`. It uses MPMC internally, which stands for "multiple producer, multiple consumer". The `elements` parameter is used to specify whether a channel is buffered or not. For an unbuffered channel, the sender and the receiver block until the other side is ready. Sending data to a buffered channel blocks only when the buffer is full. Receiving data from a buffered channel blocks when the buffer is empty.
+Then we can create a channel using `newChannel` proc with the following signature:
+```nim
+proc newChannel*[T](elements = 30): Channel[T]
+```
+The new Nim channel is based on MPMC queue architecture internally, which stands for "multiple producer, multiple consumer". As you can see, `newChannel` is a generic proc - you can specify the type of the data you want to send or receive. The proc returns a `Channel[T]` and takes a single parameter `elements` with 30 as the default and which is used to specify whether a channel is buffered (`elements` = 1) or not (`elements` > 1). For an unbuffered channel, the sender and the receiver block until the other side is ready. Sending data to a buffered channel blocks only when the buffer is full. Receiving data from a buffered channel blocks when the buffer is empty.
 
-`newChannel` is a generic proc - you can specify the types of the data you want to send or receive.
+Here's three examples of initializing a channel:
 
 ```nim
 var chan1 = newChannel[int]()
