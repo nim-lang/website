@@ -8,7 +8,7 @@ excerpt: "The new channels library is efficient and safe to use"
 
 # The new Nim channels implementation for ORC
 
-Version 1.4 ships with the so-called ORC memory management algorithm. ORC is the existing ARC algorithm (first shipped in version 1.2) plus a cycle collector. The Nim devel branch introduces a new module called `std/isolation`, which allows us to pass `Isolated` data to threads safely and easily - it prevents data races at compile time. Another recent addition to the devel branch is `std/channels`, which is designed for ORC. It combines `Isolated` data and `channels`, and is efficient and safe to use.
+Version 1.4 ships with the so-called ORC memory management algorithm. ORC is the existing ARC algorithm (first shipped in version 1.2) plus a cycle collector. The Nim devel branch introduces a new module called `std/isolation`, which allows us to pass `Isolated` data to threads safely and easily - it prevents data races at compile time. An `Isolated[T]` value owns data of type `T` that no one else has access to - hence it is isolated. This is also called an isolated subgraph. Another recent addition to the devel branch is `std/channels`, which is designed for ORC. It combines `Isolated` data and `channels`, and is efficient and safe to use.
 
 **Note:** At the time of writing, to compile the below code you need to use a development version of the Nim compiler (from 2021-03-12 or later). However, it should also work in Nim 1.6.0 or later. 
 
