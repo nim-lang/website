@@ -89,12 +89,14 @@ The Raspberry Pi Pico is a micro-controller which runs C code, which you know wh
 Throw Nim on it!
 I've started making idiomatic bindings for the Pico which makes it rather simple to get going with Nim on the Pico.
 Currently supporting GPIO, ADC, and PWM.
+
 Check out the [template](https://github.com/beef331/picotemplate) repo exists with examples and explanation on how to make the project.
+
 Check out the [Pico-SDK](https://github.com/beef331/picostdlib) for the bindings.
 
 ## Cosmonim - an example of using [Cosmopolitan Libc](https://justine.lol/cosmopolitan/index.html) with Nim
 
-#### Author: Danil Yarantsev (@Yardanico)[https://github.com/Yardanico]
+#### Author: Danil Yarantsev [@Yardanico](https://github.com/Yardanico)
 
 Cosmopolitan is a project that allows one to compile C programs into [portable binaries](https://justine.lol/ape.html) that can run on multiple OSes at the same time.
 Cosmonim shows how to properly set up the Nim compiler to use Cosmopolitan; provides a few example programs and stubs (empty headers) so that the C compiler would not complain about missing headers.
@@ -103,7 +105,7 @@ With Cosmonim you can make CLI applications with Nim and distribute them as a si
 
 ## [Blog post - Amalgamating Nim programs](https://zen.su/posts/amalgamating-nim-programs/)
 
-#### Author: Danil Yarantsev (@Yardanico)[https://github.com/Yardanico]
+#### Author: Danil Yarantsev [@Yardanico](https://github.com/Yardanico)
 
 In this blog post I talk about amalgamating Nim programs with [CIL](https://github.com/cil-project/cil).
 Amalgamation is a process (popularised and used by the widely known SQLite project) of combining multiple source files into a single file.
