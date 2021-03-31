@@ -101,6 +101,15 @@ Cosmonim shows how to properly set up the Nim compiler to use Cosmopolitan; prov
 
 With Cosmonim you can make CLI applications with Nim and distribute them as a single binary for multiple platforms!
 
+## [Blog post - Amalgamating Nim programs](https://zen.su/posts/amalgamating-nim-programs/)
+
+#### Author: Danil Yarantsev (@Yardanico)[https://github.com/Yardanico]
+
+In this blog post I talk about amalgamating Nim programs with [CIL](https://github.com/cil-project/cil).
+Amalgamation is a process (popularised and used by the widely known SQLite project) of combining multiple source files into a single file.
+We can use that to compile Nim programs into single-file C programs that can be distributed more easily, or used in contexts where using Nim directly is not possible.
+
+
 ----
 
 ## Want to see your project here next month?
