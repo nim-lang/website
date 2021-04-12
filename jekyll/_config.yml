@@ -30,8 +30,6 @@ navigation:
     url: /features.html
   - title: Download
     url: /install.html
-  - title: Learn
-    url: /learn.html
   - title: Documentation
     url: /documentation.html
   - title: Forum

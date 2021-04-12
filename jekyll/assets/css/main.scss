@@ -978,6 +978,11 @@ table.tableblock, div.content > table {
   div.pure-u-1 {
     padding-right: 10pt;
   }
+
+  div.pure-u-md-1-3 {
+    padding: 5pt;
+    box-sizing: border-box;
+  }
 }
 
 // Misc.
