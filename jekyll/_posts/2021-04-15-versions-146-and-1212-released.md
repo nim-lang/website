@@ -52,6 +52,8 @@ Alternatively, you can download Nim 1.4.6 from
 
 ## Bugfixes since 1.4.4
 
+- Fixed GC crash resulting from inlining of the memory allocation procs
+  ([link](https://github.com/nim-lang/Nim/pull/17709)
 - Fixed "isolate doesn't work"
   ([#17264](https://github.com/nim-lang/Nim/issues/17264))
 - Fixed "regression since 1.4.2: vm crash with lists.SinglyLinkedRing"
@@ -129,8 +131,8 @@ Alternatively, you can download Nim 1.2.12 from
 
 ## Bugfixes since 1.2.10
 
-- Fixed "Inconsistent unsigned -> signed RangeDefect usage across integer sizes"
-  ([#15210](https://github.com/nim-lang/Nim/issues/15210))
+- Fixed GC crash resulting from inlining of the memory allocation procs
+  ([link](https://github.com/nim-lang/Nim/pull/17709)
 - Fixed "incorrect raises effect for `$`(NimNode)"
   ([#17454](https://github.com/nim-lang/Nim/issues/17454))
 
