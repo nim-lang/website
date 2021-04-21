@@ -73,18 +73,6 @@ Nim.
 * 32 bit - [mingw32.7z]({{ site.baseurl }}/download/mingw32.7z)
 * 64 bit - [mingw64.7z]({{ site.baseurl }}/download/mingw64.7z)
 
-## Other dependencies
-
-There are a number of other dependencies that you may need to install in order
-to use Nim. They include:
-
-* PCRE
-* OpenSSL
-
-Windows users can download the DLLs for these
-[here]({{ site.baseurl }}/download/dlls.zip).  Place the DLLs in the same
-directory as `nim.exe`.
-
 
 # Installation using ``choosenim``
 
@@ -92,20 +80,3 @@ directory as `nim.exe`.
 installer for the Nim programming language. It allows you
 to easily switch between versions of Nim, whether that is the latest stable
 release or the latest development version.
-
-
-# Install Nim using Scoop
-
-[Scoop](https://scoop.sh/) is a command-line installer for Windows.
-It can install Nim with the following command line commands, which also automatically install the GCC compiler and set the PATH.
-
-```
-scoop install nim
-```
-
-Update Nim:
-
-```
-scoop update
-scoop update nim
-```
