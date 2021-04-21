@@ -57,6 +57,14 @@ css_class: install
     <h2>Windows</h2>
     Nim 1.4:
     <ul>
+      <li>Nim 1.4.6:
+      <a href="{{ site.baseurl }}/download/nim-1.4.6_x64.zip">64-bit</a>,
+      <a href="{{ site.baseurl }}/download/nim-1.4.6_x32.zip">32-bit</a>
+      </li>
+      <li>Nim 1.4.4:
+      <a href="{{ site.baseurl }}/download/nim-1.4.4_x64.zip">64-bit</a>,
+      <a href="{{ site.baseurl }}/download/nim-1.4.4_x32.zip">32-bit</a>
+      </li>
       <li>Nim 1.4.2:
       <a href="{{ site.baseurl }}/download/nim-1.4.2_x64.zip">64-bit</a>,
       <a href="{{ site.baseurl }}/download/nim-1.4.2_x32.zip">32-bit</a>
@@ -68,6 +76,14 @@ css_class: install
     </ul>
     Nim 1.2:
     <ul>
+      <li>Nim 1.2.12:
+      <a href="{{ site.baseurl }}/download/nim-1.2.12_x64.zip">64-bit</a>,
+      <a href="{{ site.baseurl }}/download/nim-1.2.12_x32.zip">32-bit</a>
+      </li>
+      <li>Nim 1.2.10:
+      <a href="{{ site.baseurl }}/download/nim-1.2.10_x64.zip">64-bit</a>,
+      <a href="{{ site.baseurl }}/download/nim-1.2.10_x32.zip">32-bit</a>
+      </li>
       <li>Nim 1.2.8:
       <a href="{{ site.baseurl }}/download/nim-1.2.8_x64.zip">64-bit</a>,
       <a href="{{ site.baseurl }}/download/nim-1.2.8_x32.zip">32-bit</a>
