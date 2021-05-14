@@ -71,7 +71,4 @@ to Nim using one the following services:
 <i class="fab fa-paypal" aria-hidden="true"></i>
 [PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=FLWX5V2PMAXAU)
 
-<i class="fab fa-btc" aria-hidden="true"></i>
-``1BXfuKM2uvoD6mbx4g5xM3eQhLzkCK77tJ``
-
 </section>
