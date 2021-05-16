@@ -10,18 +10,8 @@ current: Install
 
 # Manual installation
 
-<div class="center">
-  <a href="{{ site.baseurl }}/download/nim-{{ site.nim_version }}_x32.zip"
-    class="pure-button pure-button-primary download-button">
-    <i class="fa fa-file-archive-o" aria-hidden="true"></i>
-    Download x86 zip
-  </a>
-  <a href="{{ site.baseurl }}/download/nim-{{ site.nim_version }}_x32.zip.sha256"
-    class="pure-button">
-    <i class="fa fa-file-text-o" aria-hidden="true"></i>
-    SHA256
-  </a>
-</div>
+If you are not sure which version (64-bit or 32-bit) to pick, it is very likely
+that you want the 64-bit version (x86\_64):
 
 <div class="center">
   <a href="{{ site.baseurl }}/download/nim-{{ site.nim_version }}_x64.zip"
@@ -36,7 +26,21 @@ current: Install
   </a>
 </div>
 
-# Notes about binary installation
+If you know what you are doing and you are sure you need a 32-bit version,
+you can download it below:
+
+<div class="center">
+  <a href="{{ site.baseurl }}/download/nim-{{ site.nim_version }}_x32.zip"
+    class="pure-button pure-button-primary download-button">
+    <i class="fa fa-file-archive-o" aria-hidden="true"></i>
+    Download x86 zip
+  </a>
+  <a href="{{ site.baseurl }}/download/nim-{{ site.nim_version }}_x32.zip.sha256"
+    class="pure-button">
+    <i class="fa fa-file-text-o" aria-hidden="true"></i>
+    SHA256
+  </a>
+</div>
 
 The installation using the provided zip files should be fairly
 straightforward. Simply extract the files into the desired installation
@@ -52,11 +56,11 @@ It is common for Nim developers to include two directories in their
 * ``%USERPROFILE%\.nimble\bin`` (where ``%USERPROFILE%`` is the home directory)
 
 The zip file includes a simple application called ``finish.exe`` that can
-attempt to add the first directory into your ``PATH``.
+attempt to add both directories to your ``PATH``.
 This tool also checks for the presence of a C compiler and can install ``MingW``,
 the GNU C compiler collection for Windows.
 
-# Notes about compiler dependencies
+## Compiler dependencies
 
 The Nim compiler needs a C compiler in order to compile software. You can
 use ``finish.exe`` to install MingW.
@@ -69,18 +73,6 @@ Nim.
 * 32 bit - [mingw32.7z]({{ site.baseurl }}/download/mingw32.7z)
 * 64 bit - [mingw64.7z]({{ site.baseurl }}/download/mingw64.7z)
 
-# Other dependencies
-
-There are a number of other dependencies that you may need to install in order
-to use Nim. They include:
-
-* PCRE
-* OpenSSL
-
-Windows users can download the DLLs for these
-[here]({{ site.baseurl }}/download/dlls.zip).  Place the DLLs in the same
-directory as `nim.exe`.
-
 
 # Installation using ``choosenim``
 
@@ -88,20 +80,3 @@ directory as `nim.exe`.
 installer for the Nim programming language. It allows you
 to easily switch between versions of Nim, whether that is the latest stable
 release or the latest development version.
-
-
-# Install Nim using Scoop
-
-[Scoop](https://scoop.sh/) is a command-line installer for Windows.
-It can install Nim with following command line that also automatically install gcc and set PATH.
-
-```
-scoop install nim
-```
-
-Update Nim:
-
-```
-scoop update
-scoop update nim
-```

@@ -30,7 +30,7 @@ Gitter, by clicking [here](https://gitter.im/nim-lang/Nim).
 
 <i class="fab fa-discord black li" aria-hidden="true"></i>
 Join the Discord chat room, which relays messages both ways between IRC and
-Discord, by clicking [here](https://discord.gg/ezDFDw2).
+Discord, by clicking [here](https://discord.gg/nim).
 
 <i class="fab black li" aria-hidden="true">m</i>
 Join the Matrix chat room, which relays messages both ways between IRC and

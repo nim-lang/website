@@ -11,18 +11,8 @@ current: Install
 
 ## Pre-built binaries for Linux
 
-<div class="center">
-  <a href="{{ site.baseurl }}/download/nim-{{ site.nim_version }}-linux_x32.tar.xz"
-    class="pure-button pure-button-primary download-button">
-    <i class="fa fa-file-archive-o" aria-hidden="true"></i>
-    Download x86 tarball
-  </a>
-  <a href="{{ site.baseurl }}/download/nim-{{ site.nim_version }}-linux_x32.tar.xz.sha256"
-    class="pure-button">
-    <i class="fa fa-file-text-o" aria-hidden="true"></i>
-    SHA256
-  </a>
-</div>
+If you're not sure which version (64-bit or 32-bit) to pick, it is very likely
+that you want the 64-bit version (x86\_64):
 
 <div class="center">
   <a href="{{ site.baseurl }}/download/nim-{{ site.nim_version }}-linux_x64.tar.xz"
@@ -31,6 +21,22 @@ current: Install
     Download x86_64 tarball
   </a>
   <a href="{{ site.baseurl }}/download/nim-{{ site.nim_version }}-linux_x64.tar.xz.sha256"
+    class="pure-button">
+    <i class="fa fa-file-text-o" aria-hidden="true"></i>
+    SHA256
+  </a>
+</div>
+
+If you know what you're doing and you're sure you need a 32-bit version,
+you can download it below:
+
+<div class="center">
+  <a href="{{ site.baseurl }}/download/nim-{{ site.nim_version }}-linux_x32.tar.xz"
+    class="pure-button pure-button-primary download-button">
+    <i class="fa fa-file-archive-o" aria-hidden="true"></i>
+    Download x86 tarball
+  </a>
+  <a href="{{ site.baseurl }}/download/nim-{{ site.nim_version }}-linux_x32.tar.xz.sha256"
     class="pure-button">
     <i class="fa fa-file-text-o" aria-hidden="true"></i>
     SHA256
@@ -62,6 +68,7 @@ extracted directory, and execute the following commands:
 ```bash
 sh build.sh
 bin/nim c koch
+./koch boot -d:release
 ./koch tools
 ```
 

@@ -17,13 +17,10 @@
 <select class="pure-button" onchange="showcodesample(this.selectedIndex)">
   <optgroup label="Basic">
     <option>Simple example</option>
-    <option>Functions</option>
     <option>If…else, Case switch</option>
     <option>Basic math</option>
     <option>String operations</option>
     <option>Comprehensions</option>
-    <option>OOP inheritance</option>
-    <option>Templates</option>
     <!-- Add more examples by adding an option here -->
   </optgroup>
 </select>
@@ -84,37 +81,6 @@ for o in opcodes:
 
 <code id="sample1" class="sample">
 {% highlight nim %}
-import sugar
-
-proc substract2integers(a, b: int): int =
-  ## Documentation here (Markdown or RST).
-  a - b
-
-# Side effects free function.
-func sum2integers(a, b: int): int =
-  ## `Links supported <https://nim-lang.org>`_
-  a + b
-
-# Multi-line anonymous function.
-var lambda = func (a: int): int =
-  result =
-    if a < 0: 0
-    else: a + 1
-
-# Arrow function.
-let sayHello = () => echo "Hello World"
-
-# Arrow functions with a pragma.
-let usesPragma = () {.inline.} => 42
-
-# Arrow functions with a name.
-multiply2integers(a, b: int) => a * b
-{% endhighlight %}
-</code>
-
-
-<code id="sample2" class="sample">
-{% highlight nim %}
 var conditional = 42
 
 if conditional < 0:
@@ -151,7 +117,7 @@ else:
 </code>
 
 
-<code id="sample3" class="sample">
+<code id="sample2" class="sample">
 {% highlight nim %}
 import math
 
@@ -184,7 +150,7 @@ assert clamp(1.4, 0.0, 1.0) == 1.0 # Clamp
 </code>
 
 
-<code id="sample4" class="sample">
+<code id="sample3" class="sample">
 {% highlight nim %}
 import strutils
 
@@ -213,7 +179,7 @@ for word in tokenize("This is an example"):
 </code>
 
 
-<code id="sample5" class="sample">
+<code id="sample4" class="sample">
 {% highlight nim %}
 import sugar, tables, sets
 
@@ -223,7 +189,7 @@ let variable0 = collect(newSeq):
 
 assert variable0 == @[-18, 2, 84, 0, -2, 18]
 
-let variable1 = collect(initTable(4)):
+let variable1 = collect(initTable):
   for key, value in @[0, 5, 9]:
     {key: value div 2}
 
@@ -236,65 +202,6 @@ let variable2 = collect(initHashSet):
 assert variable2 == [2, 18, 84, 0, -18, -2].toSet
 {% endhighlight %}
 </code>
-
-
-<code id="sample6" class="sample">
-{% highlight nim %}
-type
-  Animal = object of RootObj # Animal base object.
-    age: int # Attributes of base object.
-    name: string
-  Cat = object of Animal # Cat inherited object.
-    playfulness: float
-
-func increaseAge(self: var Cat) =
-  self.age.inc() # Cat object function, modifies object.
-
-var kitten = Cat(name: "Tom") # Cat object instance.
-kitten.increaseAge() # Cat object function used.
-assert kitten.name == "Tom" # Assert on Cat object.
-{% endhighlight %}
-</code>
-
-
-<code id="sample7" class="sample">
-{% highlight nim %}
-template optimizeMult{`*`(a, 2)}(a: int): int =
-  a + a # Rewrite a * 2 by a + a
-
-template `:=`(name, value): untyped =
-  (var name = value; name) # Walrus operator
-
-template pwnEcho{echo(x)}(x: typed) =
-  stdout.write x # Rewrite echo by stdout.write
-
-echo (variable := 4) * 2 == 8
-{% endhighlight %}
-</code>
-
-
-<code id="sample8" class="sample">
-{% highlight nim %}
-import critbits
-
-var cbtdict = {"a": "0", "b": "1", "c": "2"}.toCritBitTree
-assert cbtdict is CritBitTree[string]
-assert cbtdict["b"] == "1"
-cbtdict["key"] = "value"
-assert cbtdict["key"] == "value"
-echo cbtdict.len
-
-var cbtset = [1, 2, 3, 4, 5].toCritBitTree
-assert cbtset is CritBitTree[void]
-cbtset.incl 42
-assert 42 in cbtset
-cbtset.excl 42
-echo cbtset.len
-{% endhighlight %}
-</code>
-
-
-
 
 
 <!-- Add more examples by adding a code block here -->
