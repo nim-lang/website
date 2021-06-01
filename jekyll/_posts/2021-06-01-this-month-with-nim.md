@@ -14,7 +14,7 @@ It comes with a one-pass compiler to 32-bit RISC instructions and an emulator, a
 The interesting part in Nim0 is not the language itself but the [compiler source](https://gitlab.com/pmetras/nim0) in less than 4000 lines of commented code, with references to Niklaus Wirth's [Compiler Construction book](https://people.inf.ethz.ch/wirth/CompilerConstruction/index.html) that you can follow while reading the book, even if the book talks about Oberon-0.
 When you have completed the book and added a few features to Nim0 compiler, you'll be ready to jump into hacking [Nim compiler](https://github.com/nim-lang/Nim).
 
-Want to try it? Look at the simple instructions and detailed example at https://pmetras.gitlab.io/nim0/.
+Want to try it? Look at the simple instructions and detailed example at [pmetras.gitlab.io/nim0](https://pmetras.gitlab.io/nim0/).
 
 
 ## Nimibook
