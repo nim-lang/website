@@ -51,58 +51,8 @@ use_dark_highlighting: true
       </div>
 
       <div class="pure-u-1 pure-u-md-2-5">
-        {% highlight nim %}
-import strformat
 
-type
-  Person = object
-    name: string
-    age: Natural # Ensures the age is positive
-
-let people = [
-  Person(name: "John", age: 45),
-  Person(name: "Kate", age: 30)
-]
-
-for person in people:
-  # Type-safe string interpolation,
-  # evaluated at compile time.
-  echo(fmt"{person.name} is {person.age} years old")
-{% endhighlight %}
-
-        {% highlight nim %}
-# Thanks to Nim's 'iterator' and 'yield' constructs,
-# iterators are as easy to write as ordinary
-# functions. They are compiled to inline loops.
-iterator oddNumbers[Idx, T](a: array[Idx, T]): T =
-  for x in a:
-    if x mod 2 == 1:
-      yield x
-
-for odd in oddNumbers([3, 6, 9, 12, 15, 18]):
-  echo odd
-{% endhighlight %}
-
-
-          {% highlight nim %}
-# Use Nim's macro system to transform a dense
-# data-centric description of x86 instructions
-# into lookup tables that are used by
-# assemblers and JITs.
-import macros, strutils
-
-macro toLookupTable(data: static[string]): untyped =
-  result = newTree(nnkBracket)
-  for w in data.split(';'):
-    result.add newLit(w)
-
-const
-  data = "mov;btc;cli;xor"
-  opcodes = toLookupTable(data)
-
-for o in opcodes:
-  echo o
-{% endhighlight %}
+        {% include_relative code_carrousel.html %}
 
         <div class="text-centered">
           <a href="http://rosettacode.org/wiki/Category:Nim">More examples at RosettaCode…</a>
