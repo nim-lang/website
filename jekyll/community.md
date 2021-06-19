@@ -8,7 +8,7 @@ css_class: community
 
 <h2 class="text-centered page-subtitle">
   No matter the communication medium, we hope that you will find a place in
-  our community.
+  our community. Just remember to <a href="https://boz.com/articles/be-kind">be kind</a>.
 </h2>
 
 # Chat rooms
@@ -16,17 +16,14 @@ css_class: community
 By far the quickest and easiest way to get involved in our community is
 by joining one of our chat rooms.
 
-Our official chat room is the #nim channel on irc.freenode.net. You can
+Our official chat room is the #nim channel on irc.libera.chat. You can
 access it in multiple ways:
 
 <i class="fc fa-irc li" aria-hidden="true">#</i>
 Use an [IRC client](https://en.wikipedia.org/wiki/Internet_Relay_Chat#Clients)
-to connect to irc.freenode.net and join the #nim channel. You can also view
+to connect to irc.libera.chat and join the #nim channel. You can also view
 the [IRC Logs](https://irclogs.nim-lang.org).
 
-<i class="fab fa-gitter black li" aria-hidden="true"></i>
-Join the Gitter chat room, which relays messages both ways between IRC and
-Gitter, by clicking [here](https://gitter.im/nim-lang/Nim).
 
 <svg
   width="50"
@@ -40,16 +37,18 @@ Gitter, by clicking [here](https://gitter.im/nim-lang/Nim).
 Join the Discord chat room, which relays messages both ways between IRC and
 Discord, by clicking [here](https://discord.gg/nim).
 
+<i class="fab fa-gitter black li" aria-hidden="true"></i>
+Join the Gitter chat room, which relays messages both ways between Matrix and
+Gitter, by clicking [here](https://gitter.im/nim-lang/Nim).
+
 <i class="fab black li" aria-hidden="true">m</i>
-Join the Matrix chat room, which relays messages both ways between IRC and
-Matrix, by clicking [here](https://matrix.to/#/#freenode_#nim:matrix.org).
+Join the Matrix chat room, which relays messages both ways between Discord and
+Matrix, by clicking [here](https://matrix.to/#/#nim-lang:matrix.org).
 
 <i class="fab fa-telegram black li" aria-hidden="true"></i>
-Join the Telegram chat room (it doesn't relay any messages)
-by clicking [here](https://t.me/nim_lang).
-
-<i class="fab fa-telegram black li" aria-hidden="true"></i>
-Join the Telegram chat room (in Italian) by clicking [here](https://t.me/nimitalia).
+Join the Telegram chat room, which relays messages both ways between Discord and
+Telegram by clicking [here](https://t.me/nim_lang). There is also an italian
+Telegram that can be accessed by clicking [here](https://t.me/nimitalia).
 
 You can join this chat room to ask a quick question, or engage in a discussion
 about features and projects that interest you. For formal feature requests and
@@ -59,8 +58,8 @@ Be aware that all messages in Gitter, Discord, Matrix and IRC are logged.
 You can access the IRC logs of the #nim channel
 [here](https://irclogs.nim-lang.org).
 
-The #nim channel is primarily for on-topic discussion. There is also a
-semi-official #nim-offtopic channel for off-topic discussion.
+The #nim channel is primarily for on-topic discussion. There is also an
+official #nim-offtopic channel for off-topic discussion.
 
 If you dislike being logged, there is also a #nim-nologs channel.
 
