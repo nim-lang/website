@@ -1,6 +1,7 @@
 ---
 title: "NimConf 2021 - Nim Online Conference"
 author: The Nim Team
+excerpt: "NimConf 2021 will take place in about two weeks from now -- on June 26th."
 ---
 
 
