@@ -90,9 +90,9 @@ echo domain
 ```
 
 
-## [libFuzzer](https://github.com/beef331/kashae)
+## [libFuzzer](https://github.com/planetis-m/libfuzzer)
 
-#### Author: [Jason Beetham](https://github.com/beef331)
+#### Author: [@planetis-m](https://github.com/planetis-m)
 
 Thin interface for LLVM/Clang libFuzzer, an in-process, coverage-guided, evolutionary fuzzing engine.
 Fuzzing is an automated bug finding technique, where randomized inputs are fed to a target program in order to get it to crash.
