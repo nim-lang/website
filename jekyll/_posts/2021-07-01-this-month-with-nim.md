@@ -4,6 +4,103 @@ author: The Nim Community
 excerpt: "Three interesting projects our users worked on in June"
 ---
 
+
+## [CPS](https://github.com/disruptek/cps)
+
+#### Authors: [@Leorize](https://github.com/alaviss), [@disruptek](https://github.com/disruptek), [@Zevv](https://github.com/zevv) and [@saem](https://github.com/saem)
+
+The project brings Continuation-Passing Style to Nim. CPS is an elegant approach to writing control-flow which is rooted in musty programming language theory. Now Nim's macro system allows you the advantages of CPS without having to introduce any syntax.
+
+A short demonstration of implementing `goto` in Nim with CPS:
+
+```nim
+import std/tables
+import cps
+
+type
+  Count = ref object of Continuation
+    labels: Table[string, Continuation.fn]
+
+proc label(c: Count; name: string): Count {.cpsMagic.} =
+  c.labels[name] = c.fn
+  result = c
+
+proc goto(c: Count; name: string): Count {.cpsMagic.} =
+  c.fn = c.labels[name]
+  result = c
+
+proc count(upto: int): int {.cps: Count.} =
+  ## deploy the Count to make counting fun again;
+  ## this continuation returns the number of trips through the goto
+  result = 0
+  label: "again!"
+  inc result
+  echo result, "!"
+  echo result, " loops, ah ah ah!"
+  if result < upto:
+    goto "again!"
+  echo "whew!"
+
+const many = 1_000
+assert many == count(many) # This might take awhile to run
+```
+
+If you are interested, see Zevv's excellent [write up on CPS](https://github.com/zevv/cpsdoc).
+Come join us at [#cps:matrix.org](https://matrix.to/#/#cps:matrix.org) or [#cps on libera.chat](https://web.libera.chat/#cps).
+
+
+
+## [Whois.nim](https://gitea.com/Thisago/whois.nim)
+
+#### Author: [@Thisago](https://github.com/thisago)
+
+The Whois.nim is a simple whois client.
+With cache!
+
+```nim
+import whois
+
+echo whois("duckduckgo.com")
+
+# or
+
+var domain = "metager.org".toDomain # convert to a `Domain` instance
+domain.update() # Get data from API
+
+echo domain
+```
+
+
+## [libFuzzer](https://github.com/planetis-m/libfuzzer)
+
+#### Author: [@planetis-m](https://github.com/planetis-m)
+
+Thin interface for LLVM/Clang libFuzzer, an in-process, coverage-guided, evolutionary fuzzing engine.
+Fuzzing is an automated bug finding technique, where randomized inputs are fed to a target program in order to get it to crash.
+With fuzzing, you can increase your test coverage to find edge cases and trigger bugs more effectively.
+
+```nim
+proc fuzzMe(data: openarray[byte]): bool =
+  result = data.len >= 3 and
+    data[0].char == 'F' and
+    data[1].char == 'U' and
+    data[2].char == 'Z' and
+    data[3].char == 'Z' # :‑<
+
+proc initialize(): cint {.exportc: "LLVMFuzzerInitialize".} =
+  {.emit: "N_CDECL(void, NimMain)(void); NimMain();".}
+
+proc testOneInput(data: ptr UncheckedArray[byte], len: int): cint {.
+    exportc: "LLVMFuzzerTestOneInput", raises: [].} =
+  result = 0
+  discard fuzzMe(data.toOpenArray(0, len-1))
+```
+
+It takes a split second for libFuzzer to perform ~40.000 runs.
+Behind the scenes it uses value profiling to guide the fuzzer past these comparisons much more efficiently than simply hoping to stumble on the exact sequence of bytes by chance.
+
+
+
 ## [Dik](https://github.com/juancarlospaco/dik)
 
 #### Author: [Juan Carlos](https://github.com/juancarlospaco)
@@ -65,102 +162,7 @@ doAssert myDik[1] == myDik["key1"]
 clear myDik
 doAssert myDik.len == 0
 doAssert $myDik == "{:}"
-
 ```
-
-
-## [Whois.nim](https://gitea.com/Thisago/whois.nim)
-
-#### Authors: [@Thisago](https://github.com/thisago)
-
-The Whois.nim is a simple whois client.
-With cache!
-
-```nim
-import whois
-
-echo whois("duckduckgo.com")
-
-# or
-
-var domain = "metager.org".toDomain # convert to a `Domain` instance
-domain.update() # Get data from API
-
-echo domain
-```
-
-
-## [libFuzzer](https://github.com/planetis-m/libfuzzer)
-
-#### Author: [@planetis-m](https://github.com/planetis-m)
-
-Thin interface for LLVM/Clang libFuzzer, an in-process, coverage-guided, evolutionary fuzzing engine.
-Fuzzing is an automated bug finding technique, where randomized inputs are fed to a target program in order to get it to crash.
-With fuzzing, you can increase your test coverage to find edge cases and trigger bugs more effectively.
-
-```nim
-proc fuzzMe(data: openarray[byte]): bool =
-  result = data.len >= 3 and
-    data[0].char == 'F' and
-    data[1].char == 'U' and
-    data[2].char == 'Z' and
-    data[3].char == 'Z' # :‑<
-
-proc initialize(): cint {.exportc: "LLVMFuzzerInitialize".} =
-  {.emit: "N_CDECL(void, NimMain)(void); NimMain();".}
-
-proc testOneInput(data: ptr UncheckedArray[byte], len: int): cint {.
-    exportc: "LLVMFuzzerTestOneInput", raises: [].} =
-  result = 0
-  discard fuzzMe(data.toOpenArray(0, len-1))
-```
-
-It takes a split second for libFuzzer to perform ~40.000 runs.
-Behind the scenes it uses value profiling to guide the fuzzer past these comparisons much more efficiently than simply hoping to stumble on the exact sequence of bytes by chance.
-
-
-## [CPS](https://github.com/disruptek/cps)
-
-#### Author: [@Leorize](https://github.com/alaviss), [@disruptek](https://github.com/disruptek), [@Zevv](https://github.com/zevv) and [@saem](https://github.com/saem)
-
-The project brings Continuation-Passing Style to Nim. CPS is an elegant approach to writing control-flow which is rooted in musty programming language theory. Now Nim's macro system allows you the advantages of CPS without having to introduce any syntax.
-
-A short demonstration of implementing `goto` in Nim with CPS:
-
-```nim
-import std/tables
-import cps
-
-type
-  Count = ref object of Continuation
-    labels: Table[string, Continuation.fn]
-
-proc label(c: Count; name: string): Count {.cpsMagic.} =
-  c.labels[name] = c.fn
-  result = c
-
-proc goto(c: Count; name: string): Count {.cpsMagic.} =
-  c.fn = c.labels[name]
-  result = c
-
-proc count(upto: int): int {.cps: Count.} =
-  ## deploy the Count to make counting fun again;
-  ## this continuation returns the number of trips through the goto
-  result = 0
-  label: "again!"
-  inc result
-  echo result, "!"
-  echo result, " loops, ah ah ah!"
-  if result < upto:
-    goto "again!"
-  echo "whew!"
-
-const many = 1_000
-assert many == count(many) # This might take awhile to run
-```
-
-If you are interested, see Zevv's excellent [write up on CPS](https://github.com/zevv/cpsdoc).
-Come join us at [#cps:matrix.org](https://matrix.to/#/#cps:matrix.org) or [#cps on libera.chat](https://web.libera.chat/#cps)
 
 ----
 
