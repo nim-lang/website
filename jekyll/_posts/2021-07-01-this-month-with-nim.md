@@ -119,6 +119,49 @@ It takes a split second for libFuzzer to perform ~40.000 runs.
 Behind the scenes it uses value profiling to guide the fuzzer past these comparisons much more efficiently than simply hoping to stumble on the exact sequence of bytes by chance.
 
 
+## [CPS](https://github.com/disruptek/cps)
+
+#### Author: [@Leorize](https://github.com/alaviss), [@disruptek](https://github.com/disruptek), [@Zevv](https://github.com/zevv) and [@saem](https://github.com/saem)
+
+The project brings Continuation-Passing Style to Nim. CPS is an elegant approach to writing control-flow which is rooted in musty programming language theory. Now Nim's macro system allows you the advantages of CPS without having to introduce any syntax.
+
+A short demonstration of implementing `goto` in Nim with CPS:
+
+```nim
+import std/tables
+import cps
+
+type
+  Count = ref object of Continuation
+    labels: Table[string, Continuation.fn]
+
+proc label(c: Count; name: string): Count {.cpsMagic.} =
+  c.labels[name] = c.fn
+  result = c
+
+proc goto(c: Count; name: string): Count {.cpsMagic.} =
+  c.fn = c.labels[name]
+  result = c
+
+proc count(upto: int): int {.cps: Count.} =
+  ## deploy the Count to make counting fun again;
+  ## this continuation returns the number of trips through the goto
+  result = 0
+  label: "again!"
+  inc result
+  echo result, "!"
+  echo result, " loops, ah ah ah!"
+  if result < upto:
+    goto "again!"
+  echo "whew!"
+
+const many = 1_000
+assert many == count(many) # This might take awhile to run
+```
+
+If you are interested, see Zevv's excellent [write up on CPS](https://github.com/zevv/cpsdoc).
+Come join us at [#cps:matrix.org](https://matrix.to/#/#cps:matrix.org) or [#cps on libera.chat](https://web.libera.chat/#cps)
+
 ----
 
 ## Want to see your project here next month?
