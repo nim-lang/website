@@ -28,7 +28,7 @@
 
 <code id="sample0" class="sample">
 {% highlight nim %}
-import strformat
+import std/strformat
 
 type
   Person = object
@@ -119,7 +119,7 @@ else:
 
 <code id="sample2" class="sample">
 {% highlight nim %}
-import math
+import std/math
 
 # Basic math.
 assert 1 + 2 == 3        # Sum
@@ -145,14 +145,17 @@ assert floorDiv(8, 3) == 2    # Floor Division
 assert hypot(4.0, 3.0) == 5.0 # Hypotenuse
 assert gamma(4.0) == 6.0      # Gamma function
 assert radToDeg(TAU) == 360.0 # Radians to Degrees
-assert clamp(1.4, 0.0, 1.0) == 1.0 # Clamp
+assert clamp(1.4, 0.0 .. 1.0) == 1.0 # Clamp
+assert almostEqual(PI, 3.14159265358979)
+assert euclDiv(-13, -3) == 5  # Euclidean Division
+assert euclMod(-13, 3) == 2   # Euclidean Modulo
 {% endhighlight %}
 </code>
 
 
 <code id="sample3" class="sample">
 {% highlight nim %}
-import strutils
+import std/[strutils, strscans]
 
 assert "con" & "cat" == "concat"
 assert "    a    ".strip == "a"
@@ -175,13 +178,19 @@ assert "    a".unindent(4) == "a"
 
 for word in tokenize("This is an example"):
   echo word
+
+let (ok, year, month, day) = scanTuple("1000-01-01", "$i-$i-$i")
+if ok:
+  assert year == 1000
+  assert month == 1
+  assert day == 1
 {% endhighlight %}
 </code>
 
 
 <code id="sample4" class="sample">
 {% highlight nim %}
-import sugar, tables, sets
+import std/[sugar, tables, sets, sequtils, strutils]
 
 let variable0 = collect(newSeq):
   for item in @[-9, 1, 42, 0, -1, 9]:
@@ -199,9 +208,17 @@ let variable2 = collect(initHashSet):
   for item in @[-9, 1, 42, 0, -1, 9]:
     {item + item}
 
-assert variable2 == [2, 18, 84, 0, -18, -2].toSet
+assert variable2 == [2, 18, 84, 0, -18, -2].toHashSet
+
+assert toSeq(1..15).mapIt(
+    if it mod 15 == 0:  "FizzBuzz"
+    elif it mod 5 == 0: "Buzz"
+    elif it mod 3 == 0: "Fizz"
+    else: $it
+  ).join(" ").strip == "1 2 Fizz 4 Buzz Fizz 7 8 Fizz Buzz 11 Fizz 13 14 FizzBuzz"
 {% endhighlight %}
 </code>
 
 
-<!-- Add more examples by adding a code block here -->
+<!-- Add more examples by adding a code block here.
+  Examples must work on the latest "stable" version of Nim -->
