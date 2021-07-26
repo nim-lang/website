@@ -192,19 +192,19 @@ if ok:
 {% highlight nim %}
 import std/[sugar, tables, sets, sequtils, strutils]
 
-let variable0 = collect:
+let variable0 = collect(newSeq):
   for item in @[-9, 1, 42, 0, -1, 9]:
     item * 2
 
 assert variable0 == @[-18, 2, 84, 0, -2, 18]
 
-let variable1 = collect:
+let variable1 = collect(initTable):
   for key, value in @[0, 5, 9]:
     {key: value div 2}
 
 assert variable1 == {0: 0, 1: 2, 2: 4}.toTable
 
-let variable2 = collect:
+let variable2 = collect(initHashSet):
   for item in @[-9, 1, 42, 0, -1, 9]:
     {item + item}
 
@@ -220,4 +220,5 @@ assert toSeq(1..15).mapIt(
 </code>
 
 
-<!-- Add more examples by adding a code block here -->
+<!-- Add more examples by adding a code block here.
+  Examples must work on the latest "stable" version of Nim -->
