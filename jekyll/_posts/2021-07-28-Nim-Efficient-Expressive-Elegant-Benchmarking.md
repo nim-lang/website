@@ -372,7 +372,7 @@ fn main() {
 
 The above Rust version with identical algorithm is not quite as fast as the Nim version; upon inspection of the produced assembler code, one sees that it is missing a Extreme Loop Unrolling loop optimization for the loop overhead (or has reversed an optimization due to Loop Strength Reduction, which is a known issue with the current LLVM backend).  Thus, is is adding some fraction of a CPU clock cycle per eight-cull loop.
 
-Which language one finds most elegant is partly due to bias or willingess to adapt of an "offside rule" whitespace-significant language like Nim or the somewhat dated curly bracket code block designators/semicolon statment separators type of language such as Rust.
+Which language one finds most elegant is partly due to bias or willingness to adapt of an "offside rule" whitespace-significant language like Nim or the somewhat dated curly bracket code block designators/semicolon statement separators type of language such as Rust.
 
 ## Conclusion
 
