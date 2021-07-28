@@ -1,6 +1,8 @@
-| title | author | excerpt |
-| :---: | :----: | :---: |
-| Benchmarking the Beast | W. Gordon Goodsman (GordonBGood) | Benchmarking with the Sieve of Eratosthenes with efficient cache use |
+---
+title: "Benchmarking the Beast"
+author: W. Gordon Goodsman (GordonBGood)
+excerpt: "Benchmarking with the Sieve of Eratosthenes with efficient cache use "
+---
 
 <div class="sidebarblock">
   <div class="content">
@@ -60,7 +62,7 @@ In order to be better able to reveal the speed of the generated code from compil
 3. Rather than using some of the "bit-twiddling" operations involving bit shifts in order to produce a mask for the indexed bit position, one can use an eight element Look-Up-Table (LUT) that is easier and thus faster for the compiler to use.
 4. Finally, one can develop the mentioned "Extreme Loop Unrolling" algorithm, which works as follows:
    1. The base primes have been reduced to only odd values.
-   2. culling across bytes means that culling is across even values since bytes have eight bits.
+   2. Culling across bytes means that culling is across even values since bytes have eight bits.
    3. Doing this, a repeating modulo pattern occurs where the same indexed bit position will be marked for every eight culls and the byte masked will be exactly the base prime value away from when that bit position was last marked as culled.
    4. The above means that each repeating pattern for a given base prime value only differs by the bit position at which it starts, for eight possibilities.
    5. Due to modulo mathematics, there are only differing patterns for the base prime values modulo eight, and since all base prime values are odd means that the least significant bit is always a one, there are only four varieties of culling pattern.  These four patterns times the eight possible starting positions means there are only 32 total culling patterns.
@@ -256,7 +258,7 @@ Now, this speed can't quite be maintained for a real application with larger ran
 
 ## Analysis as compared to other languages
 
-So in order to be able to assert that Nim is "Efficient, Effective, and Elegant", one needs to compare it to something; since Nim's design goals are in that order, languages that aren't as efficient will be rejected from the outset.  This means the following:
+So in order to be able to assert that Nim is "Efficient, Expressive, and Elegant", one needs to compare it to something; since Nim's design goals are in that order, languages that aren't as efficient will be rejected from the outset.  This means the following:
 
 1. Languages such as Python and R are not comparable in the context of performance/efficiency because their default implementations are interpreted and thus much slower. As well, almost all languages in this same category are dynamically typed (which contributes to their lack of competitive performance), which make them ineffective if applied to the many of the kinds of programming tasks to which Nim can be applied. Among the host of other languages in this category are all of the Lisp-based languages such as Scheme/Racket/Common Lisp and also Clojure, which is both a dynamically typed language and a Just In Time compiled language that also fits into the next section.
 2. Languages which are Just-In-Time (JIT) compiled are generally less efficient because the generated JIT code is generally about three times slower due to the limitations of being "safe" placed on their runtime and less optimizations being possible in time-limited JIT compilation; such languages include Java, Kotlin, C#, and F#.  An interesting exception is Julia which uses the LLVM IR system to entirely compile a program when it is run; once this significant pre-compilation time is lost, the rest of the program can run extremely fast.  Julia has powerful macros and pointer operations and runs the conventional "bit-twiddling" algorithm about as fast as Nim or other compiled languages.  Where Julia loses is in general effectiveness as it is a dynamically typed language and also loses in elegance in its syntax with required code block `end` keywords reminds one of writing Fortran code.  As for "Extreme Loop Unrolling", Julia requires a "PointerArithmetic" package to do this which, like most of the other languages in this category, isn't as efficient as the native pointers available in other compiled languages so can't match the macro combined with pointer manipulation as can be implemented in Nim.
