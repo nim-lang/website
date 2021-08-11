@@ -50,10 +50,6 @@ Join the Telegram chat room, which relays messages both ways between Discord and
 Telegram by clicking [here](https://t.me/nim_lang). There is also an italian
 Telegram that can be accessed by clicking [here](https://t.me/nimitalia).
 
-<i class="fab black li" aria-hidden="true">m</i>
-Ask questions and share projects at the Nim Quora Space [here](https://nim.quora.com).
-
-
 You can join this chat room to ask a quick question, or engage in a discussion
 about features and projects that interest you. For formal feature requests and
 issue reporting consult the [Issues and RFCs](#issues-and-rfcs) section.
