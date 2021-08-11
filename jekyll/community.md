@@ -110,6 +110,16 @@ questions.
 <i class="fab fa-stack-overflow" aria-hidden="true"></i>
 [nim](https://stackoverflow.com/questions/tagged/nim-lang)
 
+# Quora
+
+The Nim Programming Language Quora Space!
+A space to ask questions about the Nim Programming Language and it's uses.
+You can also share cool projects.
+
+<i class="fab fa-stack-overflow" aria-hidden="true"></i>
+[The Nim-lang Quora](https://nim.quora.com)
+
+
 # Meetups
 
 If you're planning on organising a Nim meetup, please let us know, we would
