@@ -116,7 +116,7 @@ The Nim Programming Language Quora Space!
 A space to ask questions about the Nim Programming Language and it's uses.
 You can also share cool projects.
 
-<i class="fab fa-stack-overflow" aria-hidden="true"></i>
+<i class="fab fa-quora" aria-hidden="true"></i>
 [The Nim-lang Quora](https://nim.quora.com)
 
 
