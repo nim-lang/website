@@ -21,6 +21,7 @@
     <option>Basic math</option>
     <option>String operations</option>
     <option>Comprehensions</option>
+    <option>Ranges, Bound Checks</option>
     <!-- Add more examples by adding an option here -->
   </optgroup>
 </select>
@@ -139,6 +140,7 @@ assert floor(2.9) == 2.0 # Floor
 assert ceil(2.9) == 3.0  # Ceil
 assert cos(TAU) == 1.0   # Cosine
 assert gcd(12, 8) == 4   # Greatest common divisor
+assert fac(6) == 720     # Factorial
 assert trunc(1.75) == 1.0     # Truncate
 assert floorMod(8, 3) == 2    # Floor Modulo
 assert floorDiv(8, 3) == 2    # Floor Division
@@ -216,6 +218,43 @@ assert toSeq(1..15).mapIt(
     elif it mod 3 == 0: "Fizz"
     else: $it
   ).join(" ").strip == "1 2 Fizz 4 Buzz Fizz 7 8 Fizz Buzz 11 Fizz 13 14 FizzBuzz"
+{% endhighlight %}
+</code>
+
+
+<code id="sample5" class="sample">
+{% highlight nim %}
+# int range, value must be between '5' and '8'.
+var variable0: 5..8 = 5
+variable0 = 8
+variable0 = 7
+assert not compiles(variable0 = 4)
+assert not compiles(variable0 = 9)
+# float range, value must be between '3.3' and '7.5'.
+var variable1: 3.3..7.5 = 3.3
+variable1 = 7.5
+variable1 = 5.5
+assert not compiles(variable1 = 3.2)
+assert not compiles(variable1 = 7.6)
+# char range, value must be between 'b' and 'f'.
+var variable2: 'b'..'f' = 'b'
+variable2 = 'f'
+variable2 = 'c'
+assert not compiles(variable2 = 'g')
+assert not compiles(variable2 = 'a')
+# Positive, value must be > 0.
+var variable3: Positive = 1
+variable3 = 1
+variable3 = 999
+assert not compiles(variable3 = 0)
+assert not compiles(variable2 = -1)
+assert not compiles(variable2 = -9)
+# Natural, value must be >= 0.
+var variable4: Natural = 0
+variable4 = 1
+variable4 = 999
+assert not compiles(variable4 = -1)
+assert not compiles(variable4 = -9)
 {% endhighlight %}
 </code>
 
