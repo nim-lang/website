@@ -179,8 +179,9 @@ assert "    a".unindent(4) == "a"
 for word in tokenize("This is an example"):
   echo word
 
-let (ok, year, month, day) = scanTuple("1000-01-01", "$i-$i-$i")
-if ok:
+var year, month, day: int
+
+if "1000-01-01".scanf("$i-$i-$i", year, month, day):
   assert year == 1000
   assert month == 1
   assert day == 1
