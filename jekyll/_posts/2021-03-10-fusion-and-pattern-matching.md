@@ -421,7 +421,7 @@ To handle this case we add a third alternative for pattern:
 body.matches:
   BracketExpr[@head, @typeParam] |
   Command[@head, Bracket[@typeParam]] |
-  @head is Ident()
+  (@head is Ident())
 ```
 
 This brings one important change: The `typeParam` capture is no longer `NimNode` - the type
