@@ -42,8 +42,8 @@ If you have installed a previous version of Nim using `choosenim`,
 getting Nim 1.6 is as easy as:
 
 ```bash
-$ choosenim update self
-$ choosenim update stable
+choosenim update self
+choosenim update stable
 ```
 
 If you don't have `choosenim`, you can follow the same
@@ -51,9 +51,9 @@ If you don't have `choosenim`, you can follow the same
 
 ## Building from source
 ```bash
-$ git clone https://github.com/nim-lang/Nim
-$ cd Nim
-$ sh build_all.sh
+git clone https://github.com/nim-lang/Nim
+cd Nim
+sh build_all.sh
 ```
 The last command can be re-run after pulling new commits.
 Note that the `csources` repo used was changed to `csources_v1`, the new setup is designed to be forward and backward compatible.
