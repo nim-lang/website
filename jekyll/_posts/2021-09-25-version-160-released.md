@@ -624,10 +624,12 @@ Compatibility notes:
 
 - `--usenimcache` (implied by `nim r main`) now generates an output file that includes a hash of
   some of the compilation options, which allows caching generated binaries:
+  ```bash
   nim r main # recompiles
   nim r -d:foo main # recompiles
   nim r main # uses cached binary
   nim r main arg1 arg2 # ditto (runtime arguments are irrelevant)
+```
 
 - `nim r` now supports cross compilation from unix to windows when specifying `-d:mingw` by using wine,
   e.g.: `nim r --eval:'import os; echo "a" / "b"'` prints `a\b`
