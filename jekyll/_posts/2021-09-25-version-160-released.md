@@ -152,7 +152,7 @@ echo a # with `-d:nimPreviewFloatRoundtrip`: 9.78, like in python3 (instead of  
 ```
 
 ## New `std/jsbigints` module
-Provides arbitrary precision integers for JS target. See PR #16409.
+Provides arbitrary precision integers for JS target. See PR [#16409](https://github.com/nim-lang/Nim/pull/16409).
 Example:
 ```nim
 import std/jsbigints
@@ -385,7 +385,7 @@ Compatibility notes:
 - Exported `sslHandle` from `std/net` and `std/asyncnet`.
 - Added `hasDataBuffered` to `std/asyncnet`.
 - various functions in `std/httpclient` now accept `url` of type `Uri`. Moreover `request` function's
-  `httpMethod` argument of type `string` was deprecated in favor of `HttpMethod` `enum` type; see #15919.
+  `httpMethod` argument of type `string` was deprecated in favor of `HttpMethod` `enum` type; see [#15919](https://github.com/nim-lang/Nim/pull/15919).
 - Added `asyncdispatch.activeDescriptors` that returns the number of currently
   active async event handles/file descriptors.
 - Added `getPort` to `std/asynchttpserver` to resolve OS-assigned `Port(0)`;
@@ -496,7 +496,7 @@ Compatibility notes:
   See PR [#16362](https://github.com/nim-lang/Nim/pull/16362), [#16536](https://github.com/nim-lang/Nim/pull/16536).
 
 - new module: `std/packedsets`
-  Generalizes `std/intsets`, see PR #15564.
+  Generalizes `std/intsets`, see PR [#15564](https://github.com/nim-lang/Nim/pull/15564).
 
 Compatibility notes:
 - Deprecated `sequtils.delete` and added an overload taking a `Slice` that raises a defect
