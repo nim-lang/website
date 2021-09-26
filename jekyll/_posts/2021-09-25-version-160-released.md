@@ -205,7 +205,7 @@ assert 0xffffffffffffffff'big == (1'big shl 64'big) - 1'big
 ```
 
 ## New-style concepts
-E.g.:
+Example:
 ```nim
 type
   Comparable = concept # no T, an atom
@@ -734,7 +734,7 @@ Compatibility notes:
 - TLS: OSX now uses native TLS (`--tlsEmulation:off`), TLS now works with importcpp non-POD types,
   such types must use `.cppNonPod` and `--tlsEmulation:off`should be used.
 - Added `unsafeIsolate` and `extract` to `std/isolation`.
-- Added new module: `std/tasks`
+- Added `std/tasks`, a new module containing primitives for creating parallel programs.
 
 
 ## Memory management
@@ -748,7 +748,8 @@ Compatibility notes:
   This is only supported for `--gc:orc` or `--gc:arc`.
 
 Compatibility notes:
-- `--newruntime` and `--refchecks` are deprecated.
+- `--newruntime` and `--refchecks` are deprecated,
+  use `--gc:arc`, --gc:orc`, or `--gc:none` as appropriate instead.
 
 
 ## Docgen
@@ -803,7 +804,7 @@ func fn*(a: int): int = 42  ## Doc comment
 - `testament`: added `nimoutFull: bool` spec to compare full output of compiler
   instead of a subset; many bugfixes to testament.
 
-- Added `atlas` helper tool.
+- Added `atlas` a tool for automating workflows involing "cloning" a nimble package and dependencies recursively
 
 ## Misc/cleanups
 - Deprecated `TaintedString` and `--taintmode`.
