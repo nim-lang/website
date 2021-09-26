@@ -3,8 +3,11 @@ title: "Version 1.6.0 released"
 author: The Nim Team
 ---
 
-We are very proud to announce Nim version 1.6, the latest stable release, after a year in the making!
-This is by far the biggest release yet, here are some stats:
+Nim version 1.6 is now officially released!
+
+A year in the making, 1.6 is the latest stable release and by far the largest yet.
+We're proud of what we, the core team and dedicated volunteers, have accomplished with this milestone.
+Here are some stats:
 * 1667 PRs merged (1760 commits)
 * 893 issues closed
 * 15 new stdlib modules
