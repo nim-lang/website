@@ -19,7 +19,7 @@ This release includes improvements in the following areas:
 * roundtrip float to string: >10x faster, correct rounding via dragonbox algorithm
 * significant improvements in error messages, showing useful context
 * doc generation logic and documentation, in particular `runnableExamples` now works in more contexts and replaces `code-block`.
-* made js, VM and nimscript backend more consistent with c backend, allowing more modules to work with those backends, including `prelude`; the test suite now standardizes on testing stdlib modules on each major backend (c, js, vm).
+* made js, VM and nimscript backend more consistent with c backend, allowing more modules to work with those backends, including the imports from `prelude`; the test suite now standardizes on testing stdlib modules on each major backend (c, js, vm).
 * support for apple silicon/M1 macs, 32-bit RISC-V, improved support for nodejs backend
 * major improvements to the following modules: `system, math, random, json, jsonutils, os, typetraits, wrapnils, lists, hashes`
 * performance improvements in compiler and stdlib
@@ -61,8 +61,8 @@ We now have an API to be used in CI which abstracts the implementation details: 
 
 # Contributors to v1.6
 
-Many thanks to our many [contributors](https://github.com/nim-lang/Nim/graphs/contributors?from=2020-10-16&to=2021-09-25&type=c), nim is a community driven collaborative effort that welcomes
-all contributions, big or small.
+Many thanks to our recurring and new [contributors](https://github.com/nim-lang/Nim/graphs/contributors?from=2020-10-16&to=2021-09-25&type=c),
+nim is a community driven collaborative effort that welcomes all contributions, big or small.
 
 
 # backward compatibility and preview flags
