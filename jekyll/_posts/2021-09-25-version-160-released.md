@@ -118,7 +118,12 @@ See PR #17196 for additional details.
   from `foo`. This can be useful for testing purposes or for more flexibility in project organization.
 - Added a new module `std/importutils`, and an API `privateAccess`, which allows access to private fields
   for an object type in the current scope.
-
+Example:
+```nim
+from system as system2 {.all.} import ThisIsSystem
+import os {.all.}
+assert weirdTarget
+```
 
 ## `nim --eval:cmd`
 Added `nim --eval:cmd` to evaluate a command directly:, e.g.: `nim --eval:"echo 1"`.
@@ -139,20 +144,40 @@ See PR #15687 for more details.
 This currently has to be enabled via `-d:nimPreviewFloatRoundtrip`.
 It is expected that this behavior becomes the new default in upcoming versions, as with other `nimPreviewX` define flags.
 
+Example:
+```nim
+from math import round
+let a = round(9.779999999999999, 2)
+assert a == 9.78
+echo a # with `-d:nimPreviewFloatRoundtrip`: 9.78, like in python3 (instead of  9.779999999999999)
+```
 
 ## new `std/jsbigints` module
 Provides arbitrary precision integers for JavaScript target. See PR #16409.
-
+Example:
+```nim
+import std/jsbigints
+assert big"2" ** big"64" == big"18446744073709551616"
+```
 
 ## new `std/sysrand` module
 Cryptographically secure pseudorandom number generator, see PR #16459.
+Example:
+```nim
+import std/sysrand
+assert urandom(1234) != urandom(1234) # unlikely to fail in practice
+```
 
 
 ## User defined literals
 - Custom numeric literals (e.g. `-128'bignum`) are now supported.
 - The unary minus in `-1` is now part of the integer literal, it is now parsed as a single token.
   This implies that edge cases like `-128'i8` finally work correctly.
-
+Example:
+```nim
+func `'big`*(num: cstring): JsBigInt {.importjs: "BigInt(#)".}
+assert 0xffffffffffffffff'big == (1'big shl 64'big) - 1'big
+```
 
 ## new-style concepts
 E.g.:
@@ -170,7 +195,14 @@ now have the same precedence as `.`, so that `a.?b.c` is now parsed as `(a.?b).c
 A warning is generated when a dot-like operator is used without `-d:nimPreviewDotLikeOps`.
 
 An important use case is to enable dynamic fields without affecting the builtin `.` operator, e.g. for
-jsffi, json, nimpy.
+jsffi, json, nimpy. Example:
+```nim
+import std/json
+template `.?`(a: JsonNode, b: untyped{ident}): JsonNode =
+  a[astToStr(b)]
+let j = %*{"a1": {"a2": 10}}
+assert j.?a1.?a2.getInt == 10
+```
 
 
 - Last block argument is now supported with optional params:
