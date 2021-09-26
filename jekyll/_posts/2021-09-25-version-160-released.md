@@ -23,7 +23,7 @@ Python-like syntax; LISP-like flexibility; strong C, C++, JS, python interop;
 and best-in class metaprogramming.
 
 This release includes improvements in the following areas:
-* new language features (user defined literals, private imports, strict effects, `iterable[T]`, new style concepts, dot-like operators, block arguments with optional params)
+* new language features (user defined literals, private imports, strict effects, `iterable[T]`, dot-like operators, block arguments with optional params)
 * new compiler features (`nim --eval:cmd`, custom nimscript extensions, customizable compiler messages)
 * major improvements to `--gc:arc`, `--gc:orc`
 * correctness and performance of integer and float parsing and rendering in all backends
@@ -206,15 +206,6 @@ Example:
 func `'big`*(num: cstring): JsBigInt {.importjs: "BigInt(#)".}
 assert 0xffffffffffffffff'big == (1'big shl 64'big) - 1'big
 ```
-
-## New-style concepts
-Example:
-```nim
-type
-  Comparable = concept # no T, an atom
-    proc cmp(a, b: Self): int
-```
-See PR [#15251](https://github.com/nim-lang/Nim/pull/15251) for details.
 
 
 ## Dot-like operators
@@ -664,6 +655,16 @@ Compatibility notes:
 
 - Reusing a type name in a different scope now works, refs [#17710](https://github.com/nim-lang/Nim/pull/17710).
 - Fixed implicit and explicit generics in procedures, refs [#18808](https://github.com/nim-lang/Nim/pull/18808).
+
+
+## New-style concepts
+Example:
+```nim
+type
+  Comparable = concept # no T, an atom
+    proc cmp(a, b: Self): int
+```
+See PR [#15251](https://github.com/nim-lang/Nim/pull/15251) for details.
 
 
 ## Lexical / syntactic
