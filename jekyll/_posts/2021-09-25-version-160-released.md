@@ -17,12 +17,12 @@ Nim made its first entry in TIOBE index in 2017 at position 129, last year it en
 This release includes improvements in the following areas:
 * new language features (user defined literals, private imports, strict effects, `iterable[T]`, new style concepts, dot-like operators, block arguments with optional params)
 * new compiler features (`nim --eval:cmd`, custom nimscript extensions, customizable compiler messages)
-* major improvements to gc:arc, gc:orc
+* major improvements to `--gc:arc`, `--gc:orc`
 * correctness and performance of integer and float parsing and rendering in all backends
 * significant improvements in error messages, showing useful context
 * doc generation logic and documentation, in particular `runnableExamples` now works in more contexts and replaces `code-block`.
 * made JS, VM and nimscript backend more consistent with C backend, allowing more modules to work with those backends, including the imports from `std/prelude`; the test suite now standardizes on testing stdlib modules on each major backend (C, JS, VM).
-* support for apple silicon/M1 macs, 32-bit RISC-V, improved support for nodejs backend
+* support for Apple silicon/M1, 32-bit RISC-V, improved support for NodeJS backend
 * major improvements to the following modules: `system, math, random, json, jsonutils, os, typetraits, wrapnils, lists, hashes` including performance improvements
 * deprecated a number of error prone or redundant mis-features
 
@@ -95,10 +95,9 @@ else:
   {.pragma: effectsOf.}
 
 proc mysort(s: seq; cmp: proc(a, b: T): int) {.effectsOf: cmp.}
-
 ```
 
-To enable the new effect system, use --experimental:strictEffects. See #18777 and RFC #408.
+To enable the new effect system, use --experimental:strictEffects. See [#18777](https://github.com/nim-lang/Nim/pull/18777) and RFC [#408](https://github.com/nim-lang/RFCs/issues/408).
 
 
 ## `iterable[T]`
@@ -110,7 +109,7 @@ template fn(a: untyped)
 ```
 This solves a number of long standing issues related to iterators. In particular,
 iterable arguments can now be used with MCS, e.g. `iota(3).toSeq` now works.
-See PR #17196 for additional details.
+See PR [#17196](https://github.com/nim-lang/Nim/pull/17196) for additional details.
 
 
 ## Private imports and private field access
@@ -136,7 +135,7 @@ You can also use it to explore a module's APIs, including private symbols:
 ```bash
 nim --eval:'import os {.all.}; echo weirdTarget'
 ```
-See PR #15687 for more details.
+See PR [#15687](https://github.com/nim-lang/Nim/pull/15687) for more details.
 
 
 ## Round-trip float to string
@@ -161,7 +160,7 @@ assert big"2" ** big"64" == big"18446744073709551616"
 ```
 
 ## New `std/sysrand` module
-Cryptographically secure pseudorandom number generator, see PR #16459.
+Cryptographically secure pseudorandom number generator, see PR [#16459](https://github.com/nim-lang/Nim/pull/16459).
 Example:
 ```nim
 import std/sysrand
@@ -206,7 +205,7 @@ type
   Comparable = concept # no T, an atom
     proc cmp(a, b: Self): int
 ```
-See PR #15251 for details.
+See PR [#15251](https://github.com/nim-lang/Nim/pull/15251) for details.
 
 
 ## Dot-like operators
@@ -287,7 +286,7 @@ The following modules were added (they are discussed in the rest of the text):
 
 ## `system`
 - Added `system.prepareStrMutation` for better support of low
-  level `moveMem`, `copyMem` operations for Orc's copy-on-write string
+  level `moveMem`, `copyMem` operations for `gc:orc`'s copy-on-write string
   implementation.
 - `system.addEscapedChar` now renders `\r` as `\r` instead of `\c`, to be compatible
   with most other languages.
@@ -308,9 +307,9 @@ Compatibility notes:
 - `cuchar` is now deprecated as it aliased `char` where arguably it should have aliased `uint8`.
   Please use `char` or `uint8` instead.
 - `repr` now doesn't insert trailing newline; previous behavior was very inconsistent,
-  see #16034. Use `-d:nimLegacyReprWithNewline` for previous behavior. `repr` now also
+  see [#16034](https://github.com/nim-lang/Nim/pull/16034). Use `-d:nimLegacyReprWithNewline` for previous behavior. `repr` now also
   renders ASTs correctly for user defined literals, setters, `do`, etc.
-- Deprecated `any`. See https://github.com/nim-lang/RFCs/issues/281
+- Deprecated `any`. See RFC [#281](https://github.com/nim-lang/RFCs/issues/281).
 - The unary slice `..b` was deprecated, use `0..b` instead.
 
 
@@ -326,7 +325,7 @@ Compatibility notes:
 
 Compatibility notes:
 - `math.round` now is rounded "away from zero" in JS backend which is consistent
-  with other backends. See #9125. Use `-d:nimLegacyJsRound` for previous behavior.
+  with other backends. See [#9125](https://github.com/nim-lang/Nim/pull/9125). Use `-d:nimLegacyJsRound` for previous behavior.
 
 
 ## Random number generators: `std/random`, `std/sysrand`, `std/oids`
@@ -336,14 +335,14 @@ Compatibility notes:
 - `initRand(seed)` now allows `seed == 0`.
 - Added `std/sysrand` module to get random numbers from a secure source
 - Fixed overflow bugs.
-- Fix initrand to avoid random number sequences overlapping, refs #18744.
+- Fix `initRand` to avoid random number sequences overlapping, refs [#18744](https://github.com/nim-lang/Nim/pull/18744).
 - `std/oids` now uses `std/random`.
 
 Compatibility notes:
 - Deprecated `std/mersenne`.
 - `random.initRand(seed)` now produces non-skewed values for the 1st call to `rand()` after
   initialization with a small (< 30000) seed. Use `-d:nimLegacyRandomInitRand` to restore
-  previous behavior for a transition time, see PR #17467.
+  previous behavior for a transition time, see PR [#17467](https://github.com/nim-lang/Nim/pull/17467).
   provided by the operating system.
 
 
@@ -353,7 +352,7 @@ Compatibility notes:
   as is via reference (without a deep copy) instead of treating `JsonNode` as a regular ref object,
   this can be customized via `jsonNodeMode`.
 - `std/json` and `std/jsonutils` now serialize NaN, Inf, -Inf as strings, so that
-  `%[NaN, -Inf]` is the string `["nan","-inf"]` instead of `[nan,-inf]` which was invalid json.
+  `%[NaN, -Inf]` is the string `["nan","-inf"]` instead of `[nan,-inf]` which was invalid JSON.
 - `std/json` can now handle integer literals and floating point literals of
   arbitrary length and precision.
   Numbers that do not fit the underlying `BiggestInt` or `BiggestFloat` fields are
@@ -415,7 +414,7 @@ Compatibility notes:
 - `os.FileInfo` (returned by `getFileInfo`) now contains `blockSize`,
   determining preferred I/O block size for this file object.
 - Added `os.getCacheDir()` to return platform specific cache directory.
-- Improved `os.getTempDir()`, see PR #16914.
+- Improved `os.getTempDir()`, see PR [#16914](https://github.com/nim-lang/Nim/pull/16914).
 - Added `os.isAdmin` to tell whether the caller's process is a member of the
   Administrators local group (on Windows) or a root (on POSIX).
 - Added optional `options` argument to `copyFile`, `copyFileToDir`, and
@@ -475,7 +474,7 @@ Compatibility notes:
 
 ## `std/wrapnils`
 - `std/wrapnils` doesn't use `experimental:dotOperators` anymore, avoiding
-  issues like bug #13063 (which affected error messages)
+  issues like bug [#13063](https://github.com/nim-lang/Nim/issues/13063) (which affected error messages)
   for modules importing `std/wrapnils`.
   Added `??.` macro which returns an `Option`.
   `std/wrapnils` can now be used to protect against `FieldDefect` errors in
@@ -494,7 +493,7 @@ Compatibility notes:
   and `lists.toDoublyLinkedList` convert from `openArray`s; `lists.copy` implements
   shallow copying; `lists.add` concatenates two lists - an O(1) variation that consumes
   its argument, `addMoved`, is also supplied. 
-  See PR #16362, #16536.
+  See PR [#16362](https://github.com/nim-lang/Nim/pull/16362), [#16536](https://github.com/nim-lang/Nim/pull/16536).
 
 - new module: `std/packedsets`
   Generalizes `std/intsets`, see PR #15564.
@@ -543,12 +542,12 @@ Compatibility notes:
   returning a tuple which can be unpacked for easier usage of `scanf`.
 - Added `decodeQuery` to `std/uri`.
 - `parseopt.initOptParser` has been made available and `parseopt` has been
-  added back to `prelude` for all backends. Previously `initOptParser` was
-  unavailable if the `os` module did not have `paramCount` or `paramStr`,
+  added back to `std/prelude` for all backends. Previously `initOptParser` was
+  unavailable if the `std/os` module did not have `paramCount` or `paramStr`,
   but the use of these in `initOptParser` were conditionally to the runtime
   arguments passed to it, so `initOptParser` has been changed to raise
   `ValueError` when the real command line is not available. `parseopt` was
-  previously excluded from `prelude` for JS, as it could not be imported.
+  previously excluded from `std/prelude` for JS, as it could not be imported.
 
 Compatibility notes:
 - Changed the behavior of `uri.decodeQuery` when there are unencoded `=`
@@ -561,9 +560,9 @@ Compatibility notes:
 
 ## JS stdlib changes
 - Added `std/jsbigints` module, arbitrary precision integers for JS target.
-- Added setCurrentException for JS backend.
+- Added `setCurrentException` for JS backend.
 - `writeStackTrace` is available in JS backend now.
-- Added `then`, `catch` to `asyncjs` for promise pipelining, for now hidden behind `-d:nimExperimentalAsyncjsThen`.
+- Added `then`, `catch` to `std/asyncjs` for promise pipelining, for now hidden behind `-d:nimExperimentalAsyncjsThen`.
 - Added `std/jsfetch` module [Fetch](https://developer.mozilla.org/docs/Web/API/Fetch_API) wrapper for JS target.
 - Added `std/jsheaders` module [Headers](https://developer.mozilla.org/en-US/docs/Web/API/Headers) wrapper for JS target.
 - Added `std/jsformdata` module [FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData) wrapper for JS target.
@@ -578,7 +577,7 @@ Compatibility notes:
 - Added `dom.scrollIntoView` proc with options
 - Added `dom.setInterval`, `dom.clearInterval` overloads.
 - Merged `std/dom_extensions` module into `std/dom` module,
-  it was a module with a single line, see https://github.com/nim-lang/RFCs/issues/413
+  it was a module with a single line, see RFC [#413](https://github.com/nim-lang/RFCs/issues/413).
 - `$` now gives more correct results on JS backend.
 
 
@@ -592,40 +591,40 @@ Compatibility notes:
 - VM now supports `addr(mystring[ind])` (index + index assignment)
 - `nimscript` now handles `except Exception as e`.
 - nil dereference is not allowed at compile time. `cast[ptr int](nil)[]` is rejected at compile time.
-- `static[T]` now works better, refs #17590, #15853.
+- `static[T]` now works better, refs [#17590](https://github.com/nim-lang/Nim/pull/17590), [#15853](https://github.com/nim-lang/Nim/pull/15853).
 - `distinct T` conversions now works in VM.
 - `items(cstring)` now works in VM
-- fix `addr`, `len`, `high` in VM (#16002, #16610).
+- fix `addr`, `len`, `high` in VM ([#16002](https://github.com/nim-lang/Nim/pull/16002), [#16610](https://github.com/nim-lang/Nim/pull/16610)).
 - `std/cstrutils` now works in VM.
 
 
 ## OS-specific notes
-- Support for apple silicon/M1 macs.
-- Support for 32-bit RISC-V, refs #16231.
+- Support for Apple silicon/M1.
+- Support for 32-bit RISC-V, refs [#16231](https://github.com/nim-lang/Nim/pull/16231).
 - The allocator for Nintendo Switch, which was nonfunctional because
   of breaking changes in libnx, was removed, in favour of the new `-d:nimAllocPagesViaMalloc` option.
 - Allow reading parameters when compiling for Nintendo Switch.
 
-- Cross compilation targetting windows was improved
-  This now works from osx/linux:
+- Cross compilation targeting Windows was improved
+  This now works from OSX/Linux:
   `nim r -d:mingw main`
   `--nimcache` now correctly works in a cross-compilation setting.
 
 
 ## Performance / memory optimizations
 - The comment field in PNode AST was moved to a side channel, reducing overall memory usage during compilation by a factor 1.25x
-- jsonutils deserialization is now up to 20x faster
+- `std/jsonutils` deserialization is now up to 20x faster
 - `os.copyFile` is now 2.5x faster on OSX, by using `copyfile` from `copyfile.h`;
   use `-d:nimLegacyCopyFile` for OSX < 10.5.
-- float to string is now 10x faster thanks to dragonbox algorithm, with `-d:nimPreviewFloatRoundtrip`.
+- float to string is now 10x faster thanks to Dragonbox algorithm, with `-d:nimPreviewFloatRoundtrip`.
 - `newSeqWith` is 3x faster
-- CI now supports batching (making windows CI 2.3X faster).
-- sets now uses optimized `countSetBits`, see PR #17334.
+- CI now supports batching (making Windows CI 2.3X faster).
+- sets now uses optimized `countSetBits`, see PR [#17334](https://github.com/nim-lang/Nim/pull/17334).
 
 ## Debugging
 - You can now enable/disable VM tracing in user code via `vmutils.vmTrace`.
-- `koch tools` now builds `bin/nim_dbg` which allows easy access to a debug version of nim without recompiling.
-- Added new module `compiler/debugutils` to help with debugging nim compiler.
+- `koch tools` now builds `bin/nim_dbg` which allows easy access to a debug version of Nim without recompiling.
+- Added new module `compiler/debugutils` to help with debugging Nim compiler.
 - Renamed `-d:nimCompilerStackraceHints` to `-d:nimCompilerStacktraceHints` and used it in more contexts;
   this flag which works in tandem with `--stackTraceMsgs` to show user code context in compiler stacktraces.
 
@@ -634,7 +633,7 @@ Compatibility notes:
 - `typeof(voidStmt)` now works and returns `void`.
 - `enum` values can now be overloaded. This needs to be enabled
   via `{.experimental: "overloadableEnums".}`. We hope that this feature allows for the
-  development of more fluent (less ugly) APIs. See https://github.com/nim-lang/RFCs/issues/373
+  development of more fluent (less ugly) APIs. See RFC [#373](https://github.com/nim-lang/RFCs/issues/373).
   for more details.
 
 - A type conversion from one `enum` type to another now produces an `[EnumConv]` warning.
@@ -653,8 +652,8 @@ Compatibility notes:
 - There is a new warning for *any* type conversion to `enum` that can be enabled via
   `.warning[AnyEnumConv]:on` or `--warning:AnyEnumConv:on`.
 
-- Reusing a type name in a different scope now works, refs #17710.
-- Fixed implicit and explicit generics in procedures, refs #18808.
+- Reusing a type name in a different scope now works, refs [#17710](https://github.com/nim-lang/Nim/pull/17710).
+- Fixed implicit and explicit generics in procedures, refs [#18808](https://github.com/nim-lang/Nim/pull/18808).
 
 
 ## Lexical / syntactic
@@ -669,7 +668,7 @@ Compatibility notes:
 
 
 ## Compiler messages, error messages, hints, warnings
-- Significant improvement to error messages involving effect mismatches, see PRs #18384, #18418.
+- Significant improvement to error messages involving effect mismatches, see PRs [#18384](https://github.com/nim-lang/Nim/pull/18384), [#18418](https://github.com/nim-lang/Nim/pull/18418).
 - Added `--declaredLocs` to show symbol declaration location in error messages.
 - Added `--spellSuggest` to show spelling suggestions on typos.
 - Added `--processing:dots|filenames|off` which customizes `hintProcessing`;
@@ -678,7 +677,7 @@ Compatibility notes:
 - Added `--hintAsError` with similar semantics as `--warningAsError`.
 - Added `--unitsep:on|off` to control whether to add ASCII unit separator `\31` before a newline
  for every generated message (potentially multiline), so tooling can tell when messages start and end.
-- Added `--filenames:abs|canonical|legacyRelProj` which replaces --listFullPaths:on|off
+- Added `--filenames:abs|canonical|legacyRelProj` which replaces `--listFullPaths:on|off`
 - `--hint:all:on|off` is now supported to select or deselect all hints; it
   differs from `--hints:on|off` which acts as a (reversible) gate.
   Likewise with `--warning:all:on|off`.
@@ -698,20 +697,20 @@ Compatibility notes:
 
 
 ## Building and running Nim programs, configuration system
-- json build instructions are now generated in `$nimcache/outFileBasename.json`
+- JSON build instructions are now generated in `$nimcache/outFileBasename.json`
   instead of `$nimcache/projectName.json`. This allows avoiding recompiling a given project
   compiled with different options if the output file differs.
 
 - `--usenimcache` (implied by `nim r main`) now generates an output file that includes a hash of
   some of the compilation options, which allows caching generated binaries:
-  ```bash
+```bash
   nim r main # recompiles
   nim r -d:foo main # recompiles
   nim r main # uses cached binary
   nim r main arg1 arg2 # ditto (runtime arguments are irrelevant)
 ```
 
-- `nim r` now supports cross compilation from unix to windows when specifying `-d:mingw` by using wine,
+- `nim r` now supports cross compilation from unix to windows when specifying `-d:mingw` by using Wine,
   e.g.: `nim r --eval:'import os; echo "a" / "b"'` prints `a\b`
 
 - `nim` can compile version 1.4.0 as follows: `nim c --lib:lib --stylecheck:off -d:nimVersion140 compiler/nim`.
@@ -732,11 +731,11 @@ Compatibility notes:
 
 
 ## Memory management
-- `--gc:arc` now bootstraps (#PR 17342).
-- Lots of improvements to gc:arc, gc:orc, refs PR #15697, #16849, #17993.
+- `--gc:arc` now bootstraps (PR [#17342](https://github.com/nim-lang/Nim/pull/17342)).
+- Lots of improvements to `gc:arc`, `gc:orc`, refs PR [#15697](https://github.com/nim-lang/Nim/pull/15697), [#16849](https://github.com/nim-lang/Nim/pull/16849), [#17993](https://github.com/nim-lang/Nim/pull/17993).
 - `--gc:orc` is now 10% faster than previously for common workloads. If
   you have trouble with its changed behavior, compile with `-d:nimOldOrc`.
-- The `gc:orc` algorithm was refined so that custom container types can participate in the
+- The `--gc:orc` algorithm was refined so that custom container types can participate in the
   cycle collection process. See the documentation of `=trace` for more details.
 - On embedded devices `malloc` can now be used instead of `mmap` via `-d:nimAllocPagesViaMalloc`.
   This is only supported for `--gc:orc` or `--gc:arc`.
@@ -746,9 +745,9 @@ Compatibility notes:
 
 
 ## Docgen
-- docgen: rst files can now use single backticks instead of double backticks and correctly render
-  in both rst2html (as before) as well as common tools rendering rst directly (e.g. github), by
-  adding: `default-role:: code` directive inside the rst file, which is now handled by rst2html.
+- docgen: RST files can now use single backticks instead of double backticks and correctly render
+  in both `rst2html` (as before) as well as common tools rendering RST directly (e.g. GitHub), by
+  adding: `default-role:: code` directive inside the RST file, which is now handled by `rst2html`.
 
 - Source+Edit links now appear on top of every docgen'd page when
   `nim doc --git.url:url ...` is given.
@@ -757,8 +756,8 @@ Compatibility notes:
   by `xelatex` (not by `pdflatex` as before). Now default Latex settings
   provide support for Unicode and do better job for avoiding margin overflows.
 
-- The rst parser now supports footnotes, citations, admonitions, short style references with symbols.
-- The rst parser now supports markdown table syntax.
+- The RST parser now supports footnotes, citations, admonitions, short style references with symbols.
+- The RST parser now supports Markdown table syntax.
   Known limitations:
   - cell alignment is not supported, i.e. alignment annotations in a delimiter
     row (`:---`, `:--:`, `---:`) are ignored,
@@ -785,22 +784,23 @@ func fn*(a: int): int = 42  ## Doc comment
 
 - There is a new `cast` section `{.cast(uncheckedAssign).}: body` that disables some
   compiler checks regarding `case objects`. This allows serialization libraries
-  to avoid ugly, non-portable solutions. See https://github.com/nim-lang/RFCs/issues/407
+  to avoid ugly, non-portable solutions. See RFC [#407](https://github.com/nim-lang/RFCs/issues/407).
   for more details.
 
 ## Tools
-- major improvements to `nimgrep`, see PR #15612.
-- `fusion` is now un-bundled from nim, `./koch fusion` will
-  install it via nimble at a fixed hash.
+- major improvements to `nimgrep`, see PR [#15612
+](https://github.com/nim-lang/Nim/pull/15612).
+- `fusion` is now un-bundled from Nim, `./koch fusion` will
+  install it via Nimble at a fixed hash.
 
-- testament: added `nimoutFull: bool` spec to compare full output of compiler
+- `testament`: added `nimoutFull: bool` spec to compare full output of compiler
   instead of a subset; many bugfixes to testament.
 
-- Added atlas helper tool.
+- Added `atlas` helper tool.
 
 ## Misc/cleanups
 - Deprecated `TaintedString` and `--taintmode`.
 - Deprecated `--nilseqs` which is now a noop.
 - Added `-d:nimStrictMode` in CI in several places to ensure code doesn't have certain hints/warnings
 - Removed `.travis.yml`, `appveyor.yml.disabled`, `.github/workflows/ci.yml.disabled`.
-- `[skip ci]` now works in azure and CI pipelines, see detail in PR #17561
+- `[skip ci]` now works in azure and CI pipelines, see detail in PR [#17561](https://github.com/nim-lang/Nim/pull/17561)
