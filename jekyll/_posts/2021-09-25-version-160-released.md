@@ -17,9 +17,9 @@ Here are some stats:
 
 Nim made its first entry in TIOBE index in 2017 at position 129,
 last year it entered the top-100, and last 2 months it entered the top-50 (https://forum.nim-lang.org/t/8297).
-We hope this release will reinforce this trend, building on Nim's core strenghs:
+We hope this release will reinforce this trend, building on Nim's core strengths:
 a practical, compiled systems programming language; offering C-like performance and portability;
-Python-like syntax; LISP-like flexibility; strong C, C++, JS, python interop;
+Python-like syntax; LISP-like flexibility; strong C, C++, JS, Python interop;
 and best-in class metaprogramming.
 
 This release includes improvements in the following areas:
@@ -753,7 +753,7 @@ Compatibility notes:
 
 Compatibility notes:
 - `--newruntime` and `--refchecks` are deprecated,
-  use `--gc:arc`, --gc:orc`, or `--gc:none` as appropriate instead.
+  use `--gc:arc`, `--gc:orc`, or `--gc:none` as appropriate instead.
 
 
 ## Docgen
@@ -808,7 +808,7 @@ func fn*(a: int): int = 42  ## Doc comment
 - `testament`: added `nimoutFull: bool` spec to compare full output of compiler
   instead of a subset; many bugfixes to testament.
 
-- Added `atlas` a tool for automating workflows involing "cloning" a nimble package and dependencies recursively
+- Added `atlas` a tool for automating workflows involving "cloning" a nimble package and dependencies recursively
 
 ## Misc/cleanups
 - Deprecated `TaintedString` and `--taintmode`.
