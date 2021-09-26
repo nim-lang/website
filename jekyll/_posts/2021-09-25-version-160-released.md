@@ -265,7 +265,7 @@ The following modules were added (they are discussed in the rest of the text):
 - `std/vmutils`
 
 - Deprecated `std/mersenne`.
-- Removed deprecated `iup` module from stdlib, it has already moved to
+- Removed deprecated `std/iup` module from stdlib, it has already moved to
   [nimble](https://github.com/nim-lang/iup).
 
 
@@ -354,7 +354,7 @@ Compatibility notes:
   this can be customized via `jsonNodeMode`.
 - `json` and `jsonutils` now serialize NaN, Inf, -Inf as strings, so that
   `%[NaN, -Inf]` is the string `["nan","-inf"]` instead of `[nan,-inf]` which was invalid json.
-- The JSON module can now handle integer literals and floating point literals of
+- `std/json` can now handle integer literals and floating point literals of
   arbitrary length and precision.
   Numbers that do not fit the underlying `BiggestInt` or `BiggestFloat` fields are
   kept as string literals and one can use external BigNum libraries to handle these.
