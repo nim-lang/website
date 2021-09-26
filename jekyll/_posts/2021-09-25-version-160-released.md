@@ -391,7 +391,7 @@ Compatibility notes:
   active async event handles/file descriptors.
 - Added `getPort` to `std/asynchttpserver` to resolve OS-assigned `Port(0)`;
   this is usually recommended instead of hardcoding ports which can lead to "Address already in use" errors.
-- Fixed premature garbage collection in `std/asyncdispatch`, when a stack trace override is in place.
+- Fixed premature garbage collection in `std/asyncdispatch`, when a stacktrace override is in place.
 - Added `httpcore.is1xx` and missing HTTP codes.
 - Added `htmlgen.portal` for [making "SPA style" pages using HTML only](https://web.dev/hands-on-portals).
 
@@ -438,7 +438,7 @@ Compatibility notes:
 - environment variable APIs now work in multithreaded scenarios, by delegating to direct OS calls
   instead of trying to keep track of the environment.
 - `putEnv`, `delEnv` now work at CT.
-- `nodejs` backend now supports osenv: `getEnv`, `putEnv`, `envPairs`, `delEnv`, `existsEnv`.
+- NodeJS backend now supports osenv: `getEnv`, `putEnv`, `envPairs`, `delEnv`, `existsEnv`.
 
 Compatibility notes:
 - `std/os`: `putEnv` now raises if the 1st argument contains a `=`
@@ -459,10 +459,10 @@ Compatibility notes:
 
 
 ## `std/prelude`
-- `strformat` is now part of `include std/prelude`.
-- Added `sequtils` import to `prelude`.
-- `prelude` now works with the JS target.
-- `prelude` can now be used via `include std/prelude`, but `include prelude` still works.
+- `std/strformat` is now part of `include std/prelude`.
+- Added `std/sequtils` import to `std/prelude`.
+- `std/prelude` now works with the JS target.
+- `std/prelude` can now be used via `include std/prelude`, but `include prelude` still works.
 
 
 ## String manipulation: `std/strformat`, `std/strbasics`
