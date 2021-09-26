@@ -71,7 +71,7 @@ We now have an API to be used in CI which abstracts the implementation details: 
 [#17815](https://github.com/nim-lang/Nim/pull/17815).
 
 
-# Contributors to v1.6
+# Contributors to Nim 1.6
 
 Many thanks to our recurring and new [contributors](https://github.com/nim-lang/Nim/graphs/contributors?from=2020-10-16&to=2021-09-25&type=c),
 Nim is a community driven collaborative effort that welcomes all contributions, big or small.
