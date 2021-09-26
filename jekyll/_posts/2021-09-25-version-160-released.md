@@ -12,7 +12,12 @@ This is by far the biggest release yet, here are some stats:
 * documentation and minor improvements to 170 modules, including 312 new runnable examples
 * 280 new nimble packages
 
-Nim made its first entry in TIOBE index in 2017 at position 129, last year it entered the top-100, and last 2 months it entered the top-50 (https://forum.nim-lang.org/t/8297). We hope this release will reinforce this trend, building on Nim's core strenghs: a practical, compiled systems programming language offering C-like performance and portability, python-like syntax, LISP-like flexibility, strong C, C++, JS, python interop and best-in class metaprogramming.
+Nim made its first entry in TIOBE index in 2017 at position 129,
+last year it entered the top-100, and last 2 months it entered the top-50 (https://forum.nim-lang.org/t/8297).
+We hope this release will reinforce this trend, building on Nim's core strenghs:
+a practical, compiled systems programming language; offering C-like performance and portability;
+Python-like syntax; LISP-like flexibility; strong C, C++, JS, python interop;
+and best-in class metaprogramming.
 
 This release includes improvements in the following areas:
 * new language features (user defined literals, private imports, strict effects, `iterable[T]`, new style concepts, dot-like operators, block arguments with optional params)
@@ -169,7 +174,7 @@ assert urandom(1234) != urandom(1234) # unlikely to fail in practice
 
 
 ## New module: `std/tempfiles`
-Allows creating temporary files and directories, see PR #17361 and followups.
+Allows creating temporary files and directories, see PR [#17361](https://github.com/nim-lang/Nim/pull/17361) and followups.
 ```nim
 import std/tempfiles
 let tmpPath = genTempPath("prefix", "suffix.log", "/tmp/")
