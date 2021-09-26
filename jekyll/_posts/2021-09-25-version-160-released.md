@@ -12,7 +12,7 @@ This is by far the biggest release yet, here are some stats:
 * documentation and minor improvements to 170 modules, including 312 new runnable examples
 * 280 new nimble packages
 
-Nim made its first entry in TIOBE index in 2017 at position 129, last year it entered the top-100, and last 2 months it entered the top-50 (https://forum.nim-lang.org/t/8297). We hope this release will reinforce this trend, building on Nim's core strenghs: a practical, compiled systems programming language offering C-like performance and portability, python-like syntax, LISP-like flexibility, strong C, C++, js, python interop and best-in class metaprogramming.
+Nim made its first entry in TIOBE index in 2017 at position 129, last year it entered the top-100, and last 2 months it entered the top-50 (https://forum.nim-lang.org/t/8297). We hope this release will reinforce this trend, building on Nim's core strenghs: a practical, compiled systems programming language offering C-like performance and portability, python-like syntax, LISP-like flexibility, strong C, C++, JS, python interop and best-in class metaprogramming.
 
 This release includes improvements in the following areas:
 * new language features (user defined literals, private imports, strict effects, `iterable[T]`, new style concepts, dot-like operators, block arguments with optional params)
@@ -21,7 +21,7 @@ This release includes improvements in the following areas:
 * correctness and performance of integer and float parsing and rendering in all backends
 * significant improvements in error messages, showing useful context
 * doc generation logic and documentation, in particular `runnableExamples` now works in more contexts and replaces `code-block`.
-* made js, VM and nimscript backend more consistent with c backend, allowing more modules to work with those backends, including the imports from `prelude`; the test suite now standardizes on testing stdlib modules on each major backend (c, js, vm).
+* made JS, VM and nimscript backend more consistent with c backend, allowing more modules to work with those backends, including the imports from `prelude`; the test suite now standardizes on testing stdlib modules on each major backend (c, JS, VM).
 * support for apple silicon/M1 macs, 32-bit RISC-V, improved support for nodejs backend
 * major improvements to the following modules: `system, math, random, json, jsonutils, os, typetraits, wrapnils, lists, hashes` including performance improvements
 * deprecated a number of error prone or redundant mis-features
@@ -559,7 +559,7 @@ Compatibility notes:
   underlying code is also updated the same way.
 
 
-## js stdlib changes
+## JS stdlib changes
 - Added `jsbigints` module, arbitrary precision integers for JavaScript target.
 - Added setCurrentException for JS backend.
 - `writeStackTrace` is available in JS backend now.
@@ -579,12 +579,12 @@ Compatibility notes:
 - Added `dom.setInterval`, `dom.clearInterval` overloads.
 - Merged `dom_extensions` module into `dom` module,
   it was a module with a single line, see https://github.com/nim-lang/RFCs/issues/413
-- `$` now gives more correct results on js backend.
+- `$` now gives more correct results on JS backend.
 
 
-## js compiler changes
+## JS compiler changes
 - The `cstring` doesn't support `[]=` operator in JS backend.
-- Now array literals(JS backend) uses JS typed arrays when the corresponding js typed array exists,
+- Now array literals(JS backend) uses JS typed arrays when the corresponding JS typed array exists,
   for example `[byte(1), 2, 3]` generates `new Uint8Array([1, 2, 3])`.
 
 
@@ -674,7 +674,7 @@ Compatibility notes:
 - Added `--spellSuggest` to show spelling suggestions on typos.
 - Added `--processing:dots|filenames|off` which customizes `hintProcessing`;
   `--processing:filenames` shows which include/import modules are being compiled as an import stack.
-- `FieldDefect` messages now shows discriminant value + lineinfo, in all backends (c,vm,js)
+- `FieldDefect` messages now shows discriminant value + lineinfo, in all backends (c,JS,VM)
 - Added `--hintAsError` with similar semantics as `--warningAsError`.
 - Added `--unitsep:on|off` to control whether to add ASCII unit separator `\31` before a newline
  for every generated message (potentially multiline), so tooling can tell when messages start and end.
