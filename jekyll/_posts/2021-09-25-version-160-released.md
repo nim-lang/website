@@ -27,7 +27,7 @@ This release includes improvements in the following areas:
 * significant improvements in error messages, showing useful context
 * doc generation logic and documentation, in particular `runnableExamples` now works in more contexts and replaces `code-block`.
 * made JS, VM and nimscript backend more consistent with C backend, allowing more modules to work with those backends, including the imports from `std/prelude`; the test suite now standardizes on testing stdlib modules on each major backend (C, JS, VM).
-* support for Apple silicon/M1, 32-bit RISC-V, improved support for NodeJS backend
+* support for Apple silicon/M1, 32-bit RISC-V, CROSSOS, improved support for NodeJS backend
 * major improvements to the following modules: `system, math, random, json, jsonutils, os, typetraits, wrapnils, lists, hashes` including performance improvements
 * deprecated a number of error prone or redundant mis-features
 
@@ -64,7 +64,8 @@ The last command can be re-run after pulling new commits.
 Note that the `csources` repo used was changed to `csources_v1`, the new setup is designed to be forward and backward compatible.
 
 ## Building from a CI setup
-We now have an API to be used in CI which abstracts the implementation details: `. ci/funs.sh && nimBuildCsourcesIfNeeded`; in fact all the existing CI pipelines have been refactored to use this.
+We now have an API to be used in CI which abstracts the implementation details: `. ci/funs.sh && nimBuildCsourcesIfNeeded`; in fact all the existing CI pipelines have been refactored to use this, see
+[#17815](https://github.com/nim-lang/Nim/pull/17815).
 
 
 # Contributors to v1.6
@@ -606,6 +607,7 @@ Compatibility notes:
 ## OS-specific notes
 - Support for Apple silicon/M1.
 - Support for 32-bit RISC-V, refs [#16231](https://github.com/nim-lang/Nim/pull/16231).
+- Support for CROSSOS, refs [#18889](https://github.com/nim-lang/Nim/pull/18889).
 - The allocator for Nintendo Switch, which was nonfunctional because
   of breaking changes in libnx, was removed, in favour of the new `-d:nimAllocPagesViaMalloc` option.
 - Allow reading parameters when compiling for Nintendo Switch.
