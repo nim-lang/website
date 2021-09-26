@@ -153,7 +153,7 @@ echo a # with `-d:nimPreviewFloatRoundtrip`: 9.78, like in python3 (instead of  
 ```
 
 ## New `std/jsbigints` module
-Provides arbitrary precision integers for JavaScript target. See PR #16409.
+Provides arbitrary precision integers for JS target. See PR #16409.
 Example:
 ```nim
 import std/jsbigints
@@ -215,7 +215,7 @@ now have the same precedence as `.`, so that `a.?b.c` is now parsed as `(a.?b).c
 A warning is generated when a dot-like operator is used without `-d:nimPreviewDotLikeOps`.
 
 An important use case is to enable dynamic fields without affecting the builtin `.` operator, e.g. for
-jsffi, json, nimpy. Example:
+`std/jsffi`, `std/json`, `pkg/nimpy`. Example:
 ```nim
 import std/json
 template `.?`(a: JsonNode, b: untyped{ident}): JsonNode =
@@ -461,7 +461,7 @@ Compatibility notes:
 ## `std/prelude`
 - `strformat` is now part of `include std/prelude`.
 - Added `sequtils` import to `prelude`.
-- `prelude` now works with the JavaScript target.
+- `prelude` now works with the JS target.
 - `prelude` can now be used via `include std/prelude`, but `include prelude` still works.
 
 
@@ -560,19 +560,19 @@ Compatibility notes:
 
 
 ## JS stdlib changes
-- Added `jsbigints` module, arbitrary precision integers for JavaScript target.
+- Added `jsbigints` module, arbitrary precision integers for JS target.
 - Added setCurrentException for JS backend.
 - `writeStackTrace` is available in JS backend now.
 - Added `then`, `catch` to `asyncjs` for promise pipelining, for now hidden behind `-d:nimExperimentalAsyncjsThen`.
-- Added `std/jsfetch` module [Fetch](https://developer.mozilla.org/docs/Web/API/Fetch_API) wrapper for JavaScript target.
-- Added `std/jsheaders` module [Headers](https://developer.mozilla.org/en-US/docs/Web/API/Headers) wrapper for JavaScript target.
-- Added `std/jsformdata` module [FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData) wrapper for JavaScript target.
+- Added `std/jsfetch` module [Fetch](https://developer.mozilla.org/docs/Web/API/Fetch_API) wrapper for JS target.
+- Added `std/jsheaders` module [Headers](https://developer.mozilla.org/en-US/docs/Web/API/Headers) wrapper for JS target.
+- Added `std/jsformdata` module [FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData) wrapper for JS target.
 - Added `jscore.debugger` to [call any available debugging functionality, such as breakpoints.](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/debugger).
 - Added `jsconsole.dir`, `jsconsole.dirxml`, `jsconsole.timeStamp`.
 - Added dollar `$` and `len` for `jsre.RegExp`.
-- Added `jsconsole.jsAssert` for JavaScript target.
-- Added `**` to jsffi.
-- Added `copyWithin` [for `seq` and `array` for JavaScript targets](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/copyWithin).
+- Added `jsconsole.jsAssert` for JS target.
+- Added `**` to `std/jsffi`.
+- Added `copyWithin` [for `seq` and `array` for JS targets](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/copyWithin).
 - In `std/dom`, `Interval` is now a `ref object`, same as `Timeout`. Definitions of `setTimeout`,
   `clearTimeout`, `setInterval`, `clearInterval` were updated.
 - Added `dom.scrollIntoView` proc with options
