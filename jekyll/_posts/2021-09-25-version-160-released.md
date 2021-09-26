@@ -281,8 +281,8 @@ The following modules were added (they are discussed in the rest of the text):
 - Added `genEnumCaseStmt` macro that generates
   case statement to parse string to enum.
 - Added `items` for enums with holes.
-- Added `symbolName` to return the enum symbol name ignoring the human readable name.
-- Added `symbolRank` to return the index in which an enum member is listed in an enum.
+- Added `symbolName` to return the `enum` symbol name ignoring the human readable name.
+- Added `symbolRank` to return the index in which an `enum` member is listed in an enum.
 
 
 ## `system`
@@ -386,7 +386,7 @@ Compatibility notes:
 - Exported `sslHandle` from `std/net` and `std/asyncnet`.
 - Added `hasDataBuffered` to `std/asyncnet`.
 - various functions in `std/httpclient` now accept `url` of type `Uri`. Moreover `request` function's
-  `httpMethod` argument of type `string` was deprecated in favor of `HttpMethod` enum type; see #15919.
+  `httpMethod` argument of type `string` was deprecated in favor of `HttpMethod` `enum` type; see #15919.
 - Added `asyncdispatch.activeDescriptors` that returns the number of currently
   active async event handles/file descriptors.
 - Added `getPort` to `std/asynchttpserver` to resolve OS-assigned `Port(0)`;
@@ -632,12 +632,12 @@ Compatibility notes:
 
 ## Type system
 - `typeof(voidStmt)` now works and returns `void`.
-- Enum values can now be overloaded. This needs to be enabled
+- `enum` values can now be overloaded. This needs to be enabled
   via `{.experimental: "overloadableEnums".}`. We hope that this feature allows for the
   development of more fluent (less ugly) APIs. See https://github.com/nim-lang/RFCs/issues/373
   for more details.
 
-- A type conversion from one enum type to another now produces an `[EnumConv]` warning.
+- A type conversion from one `enum` type to another now produces an `[EnumConv]` warning.
   You should use `ord` (or `cast`, but the compiler won't help, if you misuse it) instead.
   ```
   type A = enum a1, a2
@@ -650,7 +650,7 @@ Compatibility notes:
   This warning will become an error in future versions! Use an explicit conversion
   like `cstring(x)` in order to silence the warning.
 
-- There is a new warning for *any* type conversion to enum that can be enabled via
+- There is a new warning for *any* type conversion to `enum` that can be enabled via
   `.warning[AnyEnumConv]:on` or `--warning:AnyEnumConv:on`.
 
 - Reusing a type name in a different scope now works, refs #17710.
