@@ -79,6 +79,7 @@ and an explicit opt-out is needed for some transition period.
 With so many new features, pinpointing the most salient ones is a subjective exercise,
 but here are a select few:
 
+
 ## strict effects
 The effect system was refined and there is a new `.effectsOf` annotation that does
   explicitly what was previously done implicitly. See the manual for details.
@@ -108,11 +109,13 @@ This solves a number of long standing issues related to iterators. In particular
 iterable arguments can now be used with MCS, e.g. `iota(3).toSeq` now works.
 See PR #17196 for additional details.
 
+
 ## private imports and private field access
 - A new import syntax `import foo {.all.}` now allows to import all symbols (public or private)
   from `foo`. This can be useful for testing purposes or for more flexibility in project organization.
 - Added a new module `std/importutils`, and an API `privateAccess`, which allows access to private fields
   for an object type in the current scope.
+
 
 ## `nim --eval:cmd`
 Added `nim --eval:cmd` to evaluate a command directly:, e.g.: `nim --eval:"echo 1"`.
@@ -127,21 +130,26 @@ nim --eval:'import os {.all.}; echo weirdTarget'
 ```
 See PR #15687 for more details.
 
+
 ## roundtrip float to string
 `system.addFloat` and `system.$` now can produce string representations of floating point numbers that are minimal in size and that "roundtrip" (via the "Dragonbox" algorithm).
 This currently has to be enabled via `-d:nimPreviewFloatRoundtrip`.
 It is expected that this behavior becomes the new default in upcoming versions, as with other `nimPreviewX` define flags.
 
+
 ## new `std/jsbigints` module
 Provides arbitrary precision integers for JavaScript target. See PR #16409.
 
+
 ## new `std/sysrand` module
 Cryptographically secure pseudorandom number generator, see PR #16459.
+
 
 ## User defined literals
 - Custom numeric literals (e.g. `-128'bignum`) are now supported.
 - The unary minus in `-1` is now part of the integer literal, it is now parsed as a single token.
   This implies that edge cases like `-128'i8` finally work correctly.
+
 
 ## new-style concepts
 E.g.:
@@ -185,8 +193,10 @@ The following modules were added:
 - Removed deprecated `iup` module from stdlib, it has already moved to
   [nimble](https://github.com/nim-lang/iup).
 
+
 ## new module: std/packedsets
 Generalizes std/intsets, see PR #15564.
+
 
 ## new module: std/tempfiles
 Allows creating temporary files and directories, see PR #17361 and followups.
@@ -195,12 +205,14 @@ Allows creating temporary files and directories, see PR #17361 and followups.
 - Added `std/strbasics` for high performance string operations.
 - Added `strip`, `setSlice`, `add(a: var string, b: openArray[char])`.
 
-### new module: std/setutils
+
+## new module: std/setutils
 - Added `setutils.toSet` that can take any iterable and convert it to a built-in `set`,
   if the iterable yields a built-in settable type.
 - Added `setutils.fullSet` which returns a full built-in `set` for a valid type.
 - Added `setutils.complement` which returns the complement of a built-in `set`.
 - Added `setutils.[]=`.
+
 
 ## new module: std/enumutils
 - Added `genEnumCaseStmt` macro that generates
@@ -208,6 +220,7 @@ Allows creating temporary files and directories, see PR #17361 and followups.
 - Added `items` for enums with holes.
 - Added `symbolName` to return the enum symbol name ignoring the human readable name.
 - Added `symbolRank` to return the index in which an enum member is listed in an enum.
+
 
 ## system
 - Added `system.prepareStrMutation` for better support of low
@@ -237,6 +250,7 @@ Compatibility notes:
 - Deprecated `any`. See https://github.com/nim-lang/RFCs/issues/281
 - The unary slice `..b` was deprecated, use `0..b` instead.
 
+
 ## std/math
 - Added `almostEqual` for comparing two float values using a machine epsilon.
 - Added `clamp` which allows using a `Slice` to clamp to a value.
@@ -250,6 +264,7 @@ Compatibility notes:
 Compatibility notes:
 - `math.round` now is rounded "away from zero" in JS backend which is consistent
   with other backends. See #9125. Use `-d:nimLegacyJsRound` for previous behavior.
+
 
 ## std/random, std/sysrand, std/oids
 - Added `randState` template that exposes the default random number generator.
@@ -267,6 +282,7 @@ Compatibility notes:
   initialization with a small (< 30000) seed. Use `-d:nimLegacyRandomInitRand` to restore
   previous behavior for a transition time, see PR #17467.
   provided by the operating system.
+
 
 ## std/json, std/jsonutils
 - `jsonutils` now serializes/deserializes holey enums as regular enums (via `ord`) instead of as strings.
@@ -291,6 +307,7 @@ Compatibility notes:
 - `jsonutils.toJson` now supports customization via `ToJsonOptions`.
 - `json`, `jsonutils` now support roundtrip serialization when `-d:nimPreviewFloatRoundtrip` is used.
 
+
 ## std/typetraits, std/compilesettings
 - `distinctBase` now is identity instead of error for non distinct types.
 - `distinctBase` now allows controlling whether to be recursive or not.
@@ -299,6 +316,7 @@ Compatibility notes:
 - Added `hasClosure`.
 - Added `pointerBase` to return `T` for `ref T | ptr T`.
 - Added `compilesettings.SingleValueSetting.libPath`.
+
 
 ## networking: std/net, std/asyncnet, std/htmlgen, std/httpclient, std/asyncdispatch, std/asynchttpserver, std/httpcore
 - Fixed buffer overflow bugs in `net`.
@@ -321,12 +339,14 @@ Compatibility notes:
   the OpenSSL DLLs (e.g. libssl-1_1-x64.dll, libcrypto-1_1-x64.dll) you
   now also need to ship `cacert.pem` with your `.exe` file.
 
+
 ## std/hashes
 - `hashes.hash` can now support `object` and `ref` (can be overloaded in user code),
   if `-d:nimEnableHashRef` is used.
 
 - `hashes.hash(proc|ptr|ref|pointer)` now calls `hash(int)` and honors `-d:nimIntHash1`,
   `hashes.hash(closure)` has also been improved.
+
 
 ## OS: std/os, std/io, std/socketstream, std/linenoise
 - `os.FileInfo` (returned by `getFileInfo`) now contains `blockSize`,
@@ -348,6 +368,7 @@ Compatibility notes:
 - Added a simpler to use `io.readChars` overload.
 - Added `socketstream` module that wraps sockets in the stream interface
 - Added experimental `linenoise.readLineStatus` to get line and status (e.g. ctrl-D or ctrl-C).
+
 
 ## environment variable handling
 - empty environment variable values are now supported across OS's and backends
@@ -386,6 +407,7 @@ Compatibility notes:
 - Reusing a type name in a different scope now works, refs #17710.
 - Fixed implicit and explicit generics in procedures, refs #18808.
 
+
 ## lexical / syntactic
 - Nim now supports a small subset of Unicode operators as operator symbols.
   The supported symbols are: "∙ ∘ × ★ ⊗ ⊘ ⊙ ⊛ ⊠ ⊡ ∩ ∧ ⊓ ± ⊕ ⊖ ⊞ ⊟ ∪ ∨ ⊔".
@@ -413,6 +435,7 @@ do:
 
 - `var a{.foo.} = expr` now works inside templates (except when `foo` is overloaded).
 
+
 ## posix
 - On POSIX systems, the default signal handlers used for Nim programs (it's
   used for printing the stacktrace on fatal signals) will now re-raise the
@@ -426,15 +449,18 @@ do:
   https://www.freedesktop.org/software/systemd/man/os-release.html
 - Remove undefined behavior for posix.open
 
+
 ## std/prelude
 - `strformat` is now part of `include std/prelude`.
 - Added `sequtils` import to `prelude`.
 - `prelude` now works with the JavaScript target.
 - `prelude` can now be used via `include std/prelude`, but `include prelude` still works.
 
+
 ## std/strformat
 - added support for parenthesized expressions.
 - added support for const string's instead of just string literals
+
 
 ## std/wrapnils
 - `std/wrapnils` doesn't use `experimental:dotOperators` anymore, avoiding
@@ -445,6 +471,7 @@ do:
   case objects, generates optimal code (no overhead compared to manual
   if-else branches), and preserves lvalue semantics which allows modifying
   an expression.
+
 
 ## containers: std/algorithm, std/lists, std/sequtils, std/options
 - Removed the optional `longestMatch` parameter of the `critbits._WithPrefix` iterators (it never worked reliably)
@@ -471,6 +498,7 @@ Compatibility notes:
   zone offsets without colons, e.g. `UTC+7 -> +0700`.
 - Added `dateTime` and deprecated `initDateTime`.
 
+
 ## std/macros and AST
 - New module `std/genasts` containing `genAst` that avoids the problems inherent with `quote do` and can
   be used as a replacement.
@@ -484,6 +512,7 @@ Compatibility notes:
 
 - Make custom op in macros.quote work for all statements.
 
+
 ## std/sugar
 - Added `sugar.dumpToString` which improves on `sugar.dump`.
 - Added an overload for the `collect` macro that inferes the container type based
@@ -491,6 +520,7 @@ Compatibility notes:
 
 Compatibility notes:
 - Removed support for named procs in `sugar.=>`.
+
 
 ## parsing: std/parsecfg, std/strscans, std/uri
 - Added `sections` iterator in `parsecfg`.
@@ -515,7 +545,7 @@ Compatibility notes:
   underlying code is also updated the same way.
 
 
-## js backend
+## js stdlib changes
 - Added `jsbigints` module, arbitrary precision integers for JavaScript target.
 - Added setCurrentException for JS backend.
 - `writeStackTrace` is available in JS backend now.
@@ -537,6 +567,7 @@ Compatibility notes:
   it was a module with a single line, see https://github.com/nim-lang/RFCs/issues/413
 - `$` now gives more correct results on js backend.
 
+
 ## js compiler changes
 - The `cstring` doesn't support `[]=` operator in JS backend.
 - Now array literals(JS backend) uses JS typed arrays when the corresponding js typed array exists,
@@ -555,6 +586,7 @@ Compatibility notes:
   `nim r -d:mingw main`
   `--nimcache` now correctly works in a cross-compilation setting.
 
+
 ## VM and nimscript backend
 - VM now supports `addr(mystring[ind])` (index + index assignment)
 - `nimscript` now handles `except Exception as e`.
@@ -565,11 +597,13 @@ Compatibility notes:
 - fix `addr`, `len`, `high` in VM (#16002, #16610).
 - std/cstrutils now works in VM.
 
+
 ## multithreading
 - TLS: OSX now uses native TLS (`--tlsEmulation:off`), TLS now works with importcpp non-POD types,
   such types must use `.cppNonPod` and `--tlsEmulation:off`should be used.
 - Added `unsafeIsolate` and `extract` to `std/isolation`.
 - Added new module: std/tasks
+
 
 ## performance / memory optimizations
 - The comment field in PNode AST was moved to a side channel, reducing overall memory usage during compilation by a factor 1.25x
@@ -587,6 +621,7 @@ Compatibility notes:
 - Added new module `compiler/debugutils` to help with debugging nim compiler.
 - Renamed `-d:nimCompilerStackraceHints` to `-d:nimCompilerStacktraceHints` and used it in more contexts;
   this flag which works in tandem with `--stackTraceMsgs` to show user code context in compiler stacktraces.
+
 
 ## compiler messages, error messages, hints, warnings
 - Significant improvement to error messages involving effect mismatches, see PRs #18384, #18418.
