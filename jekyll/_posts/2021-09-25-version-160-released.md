@@ -148,6 +148,8 @@ block:
   echo t.monthdayZero # ok
 ```
 
+See PR [#17706](https://github.com/nim-lang/Nim/pull/17706) for additional details.
+
 
 ## `nim --eval:cmd`
 Added `nim --eval:cmd` to evaluate a command directly:, e.g.: `nim --eval:"echo 1"`.
