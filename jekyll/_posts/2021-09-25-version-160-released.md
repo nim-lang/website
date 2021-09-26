@@ -290,7 +290,7 @@ The following modules were added (they are discussed in the rest of the text):
 
 
 ## `system`
-- Added `system.prepareStrMutation` for better support of low
+- Added `system.prepareMutation` for better support of low
   level `moveMem`, `copyMem` operations for `gc:orc`'s copy-on-write string
   implementation.
 - `system.addEscapedChar` now renders `\r` as `\r` instead of `\c`, to be compatible
