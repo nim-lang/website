@@ -139,7 +139,7 @@ See PR [#15687](https://github.com/nim-lang/Nim/pull/15687) for more details.
 
 
 ## Round-trip float to string
-`system.addFloat` and `system.$` now can produce string representations of floating point numbers that are minimal in size and that "round-trip" (via the "Dragonbox" algorithm).
+`system.addFloat` and `system.$` now can produce string representations of floating point numbers that are minimal in size and possess round-trip and correct rounding guarantees (via the [Dragonbox](https://raw.githubusercontent.com/jk-jeon/dragonbox/master/other_files/Dragonbox.pdf) algorithm).
 This currently has to be enabled via `-d:nimPreviewFloatRoundtrip`.
 It is expected that this behavior becomes the new default in upcoming versions, as with other `nimPreviewX` define flags.
 
