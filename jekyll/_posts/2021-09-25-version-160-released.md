@@ -225,7 +225,8 @@ assert j.?a1.?a2.getInt == 10
 ```
 
 
-- Last block argument is now supported with optional params:
+## Block arguments now support optional params
+This solves a major pain point for routines accepting block params, see PR #18631 for details:
 ```nim
 template fn(a = 1, b = 2, body) = discard
 fn(1, 2): # already works
