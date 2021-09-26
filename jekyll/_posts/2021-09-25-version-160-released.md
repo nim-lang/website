@@ -674,7 +674,7 @@ Compatibility notes:
 - Added `--spellSuggest` to show spelling suggestions on typos.
 - Added `--processing:dots|filenames|off` which customizes `hintProcessing`;
   `--processing:filenames` shows which include/import modules are being compiled as an import stack.
-- `FieldDefect` messages now shows discriminant value + lineinfo, in all backends (C,JS,VM)
+- `FieldDefect` messages now shows discriminant value + lineinfo, in all backends (C, JS, VM)
 - Added `--hintAsError` with similar semantics as `--warningAsError`.
 - Added `--unitsep:on|off` to control whether to add ASCII unit separator `\31` before a newline
  for every generated message (potentially multiline), so tooling can tell when messages start and end.
