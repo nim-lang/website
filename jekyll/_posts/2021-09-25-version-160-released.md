@@ -67,7 +67,10 @@ The last command can be re-run after pulling new commits.
 Note that the `csources` repo used was changed to `csources_v1`, the new setup is designed to be forward and backward compatible.
 
 ## Building from a CI setup
-We now have an API to be used in CI which abstracts the implementation details: `. ci/funs.sh && nimBuildCsourcesIfNeeded`; in fact all the existing CI pipelines have been refactored to use this, see
+We now have bash APIs to (re-)build Nim from source which hide implementation details, for example:
+`. ci/funs.sh && nimBuildCsourcesIfNeeded`.
+This can be useful for CI when alternatives (using nightly builds or a Docker image) are not suitable;
+in fact all the existing CI pipelines have been refactored to use this, see
 [#17815](https://github.com/nim-lang/Nim/pull/17815).
 
 
