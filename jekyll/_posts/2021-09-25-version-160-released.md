@@ -15,15 +15,17 @@ This is by far the biggest release yet, here are some stats:
 Nim made its first entry in TIOBE index in 2017 at position 129, last year it entered the top-100, and last 2 months it entered the top-50 (https://forum.nim-lang.org/t/8297). We hope this release will reinforce this trend, building on Nim's core strenghs: a practical, compiled systems programming language offering C-like performance and portability, python-like syntax, LISP-like flexibility, strong C, C++, js, python interop and best-in class metaprogramming.
 
 This release includes improvements in the following areas:
+* new language features (user defined literals, private imports, strict effects, `iterable[T]`, new style concepts, dot-like operators, block arguments with optional params)
+* new compiler features (`nim --eval:cmd`, custom nimscript extensions, customizable compiler messages)
 * major improvements to gc:arc, gc:orc
-* roundtrip float to string: >10x faster, correct rounding via dragonbox algorithm
+* correctness and performance of integer and float parsing and rendering in all backends
 * significant improvements in error messages, showing useful context
 * doc generation logic and documentation, in particular `runnableExamples` now works in more contexts and replaces `code-block`.
 * made js, VM and nimscript backend more consistent with c backend, allowing more modules to work with those backends, including the imports from `prelude`; the test suite now standardizes on testing stdlib modules on each major backend (c, js, vm).
 * support for apple silicon/M1 macs, 32-bit RISC-V, improved support for nodejs backend
-* major improvements to the following modules: `system, math, random, json, jsonutils, os, typetraits, wrapnils, lists, hashes`
-* performance improvements in compiler and stdlib
+* major improvements to the following modules: `system, math, random, json, jsonutils, os, typetraits, wrapnils, lists, hashes` including performance improvements
 * deprecated a number of error prone or redundant mis-features
+
 
 # Installing Nim 1.6
 We recommend everyone to upgrade to 1.6:
@@ -58,6 +60,7 @@ Note that the `csources` repo used was changed to `csources_v1`, the new setup i
 
 ## Building from a CI setup
 We now have an API to be used in CI which abstracts the implementation details: `. ci/funs.sh && nimBuildCsourcesIfNeeded`; in fact all the existing CI pipelines have been refactored to use this.
+
 
 # Contributors to v1.6
 
@@ -169,41 +172,48 @@ A warning is generated when a dot-like operator is used without `-d:nimPreviewDo
 An important use case is to enable dynamic fields without affecting the builtin `.` operator, e.g. for
 jsffi, json, nimpy.
 
+
+- Last block argument is now supported with optional params:
+```nim
+template fn(a = 1, b = 2, body) = discard
+fn(1, 2): # already works
+  bar
+fn(a = 1): # now works
+  bar
+```
+ditto with multiple block args via do:
+```nim
+template fn(a = 1, b = 2, body1, body2) = discard
+fn(a = 1): # now works
+  bar1
+do:
+  bar2
+```
+
+
 # Other new features
 
 ## new and deprecated modules
-The following modules were added:
-- enumutils
-- genasts
-- importutils
-- jsbigints
-- jsfetch
-- jsformdata
-- jsheaders
-- packedsets
-- setutils
-- socketstreams
-- strbasics
-- sysrand
-- tasks
-- tempfiles
-- vmutils
+The following modules were added (they are discussed in the rest of the text):
+- std/enumutils
+- std/genasts
+- std/importutils
+- std/jsbigints
+- std/jsfetch
+- std/jsformdata
+- std/jsheaders
+- std/packedsets
+- std/setutils
+- std/socketstreams
+- std/strbasics
+- std/sysrand
+- std/tasks
+- std/tempfiles
+- std/vmutils
 
 - Deprecated `std/mersenne`.
 - Removed deprecated `iup` module from stdlib, it has already moved to
   [nimble](https://github.com/nim-lang/iup).
-
-
-## new module: std/packedsets
-Generalizes std/intsets, see PR #15564.
-
-
-## new module: std/tempfiles
-Allows creating temporary files and directories, see PR #17361 and followups.
-
-## new module: std/strbasics
-- Added `std/strbasics` for high performance string operations.
-- Added `strip`, `setSlice`, `add(a: var string, b: openArray[char])`.
 
 
 ## new module: std/setutils
@@ -266,7 +276,7 @@ Compatibility notes:
   with other backends. See #9125. Use `-d:nimLegacyJsRound` for previous behavior.
 
 
-## std/random, std/sysrand, std/oids
+## random number generators: std/random, std/sysrand, std/oids
 - Added `randState` template that exposes the default random number generator.
   Useful for library authors.
 - Added `initRand()` overload with no argument which uses the current time as a seed.
@@ -348,7 +358,7 @@ Compatibility notes:
   `hashes.hash(closure)` has also been improved.
 
 
-## OS: std/os, std/io, std/socketstream, std/linenoise
+## OS: std/os, std/io, std/socketstream, std/linenoise, std/tempfiles
 - `os.FileInfo` (returned by `getFileInfo`) now contains `blockSize`,
   determining preferred I/O block size for this file object.
 - Added `os.getCacheDir()` to return platform specific cache directory.
@@ -369,6 +379,9 @@ Compatibility notes:
 - Added `socketstream` module that wraps sockets in the stream interface
 - Added experimental `linenoise.readLineStatus` to get line and status (e.g. ctrl-D or ctrl-C).
 
+- new module: std/tempfiles
+  Allows creating temporary files and directories, see PR #17361 and followups.
+
 
 ## environment variable handling
 - empty environment variable values are now supported across OS's and backends
@@ -379,61 +392,6 @@ Compatibility notes:
 
 Compatibility notes:
 - `std/os`: `putEnv` now raises if the 1st argument contains a `=`
-
-
-## type system
-- `typeof(voidStmt)` now works and returns `void`.
-- Enum values can now be overloaded. This needs to be enabled
-  via `{.experimental: "overloadableEnums".}`. We hope that this feature allows for the
-  development of more fluent (less ugly) APIs. See https://github.com/nim-lang/RFCs/issues/373
-  for more details.
-
-- A type conversion from one enum type to another now produces an `[EnumConv]` warning.
-  You should use `ord` (or `cast`, but the compiler won't help, if you misuse it) instead.
-  ```
-  type A = enum a1, a2
-  type B = enum b1, b2
-  echo a1.B # produces a warning
-  echo a1.ord.B # produces no warning
-  ```
-
-- A dangerous implicit conversion to `cstring` now triggers a `[CStringConv]` warning.
-  This warning will become an error in future versions! Use an explicit conversion
-  like `cstring(x)` in order to silence the warning.
-
-- There is a new warning for *any* type conversion to enum that can be enabled via
-  `.warning[AnyEnumConv]:on` or `--warning:AnyEnumConv:on`.
-
-- Reusing a type name in a different scope now works, refs #17710.
-- Fixed implicit and explicit generics in procedures, refs #18808.
-
-
-## lexical / syntactic
-- Nim now supports a small subset of Unicode operators as operator symbols.
-  The supported symbols are: "∙ ∘ × ★ ⊗ ⊘ ⊙ ⊛ ⊠ ⊡ ∩ ∧ ⊓ ± ⊕ ⊖ ⊞ ⊟ ∪ ∨ ⊔".
-  To enable this feature, use `--experimental:unicodeOperators`. Note that due
-  to parser limitations you **cannot** enable this feature via a
-  pragma `{.experimental: "unicodeOperators".}` reliably, you need to enable
-  it via the command line or in a configuration file.
-
-- Last block argument is now supported with optional params:
-```nim
-template fn(a = 1, b = 2, body) = discard
-fn(1, 2): # already works
-  bar
-fn(a = 1): # now works
-  bar
-```
-ditto with multiple block args via do:
-```nim
-template fn(a = 1, b = 2, body1, body2) = discard
-fn(a = 1): # now works
-  bar1
-do:
-  bar2
-```
-
-- `var a{.foo.} = expr` now works inside templates (except when `foo` is overloaded).
 
 
 ## posix
@@ -457,9 +415,12 @@ do:
 - `prelude` can now be used via `include std/prelude`, but `include prelude` still works.
 
 
-## std/strformat
+## string manipulation: std/strformat, std/strbasics
 - added support for parenthesized expressions.
 - added support for const string's instead of just string literals
+
+- Added `std/strbasics` for high performance string operations.
+  Added `strip`, `setSlice`, `add(a: var string, b: openArray[char])`.
 
 
 ## std/wrapnils
@@ -473,7 +434,7 @@ do:
   an expression.
 
 
-## containers: std/algorithm, std/lists, std/sequtils, std/options
+## containers: std/algorithm, std/lists, std/sequtils, std/options, std/packedsets
 - Removed the optional `longestMatch` parameter of the `critbits._WithPrefix` iterators (it never worked reliably)
 - Added `algorithm.merge`.
 - In `lists`: renamed `append` to `add` and retained `append` as an alias;
@@ -484,6 +445,9 @@ do:
   shallow copying; `lists.add` concatenates two lists - an O(1) variation that consumes
   its argument, `addMoved`, is also supplied. 
   See PR #16362, #16536.
+
+- new module: std/packedsets
+  Generalizes std/intsets, see PR #15564.
 
 Compatibility notes:
 - Deprecated `sequtils.delete` and added an overload taking a `Slice` that raises a defect
@@ -574,19 +538,6 @@ Compatibility notes:
   for example `[byte(1), 2, 3]` generates `new Uint8Array([1, 2, 3])`.
 
 
-## OS-specific notes
-- Support for apple silicon/M1 macs.
-- Support for 32-bit RISC-V, refs #16231.
-- The allocator for Nintendo Switch, which was nonfunctional because
-  of breaking changes in libnx, was removed, in favour of the new `-d:nimAllocPagesViaMalloc` option.
-- Allow reading parameters when compiling for Nintendo Switch.
-
-- Cross compilation targetting windows was improved
-  This now works from osx/linux:
-  `nim r -d:mingw main`
-  `--nimcache` now correctly works in a cross-compilation setting.
-
-
 ## VM and nimscript backend
 - VM now supports `addr(mystring[ind])` (index + index assignment)
 - `nimscript` now handles `except Exception as e`.
@@ -598,11 +549,17 @@ Compatibility notes:
 - std/cstrutils now works in VM.
 
 
-## multithreading
-- TLS: OSX now uses native TLS (`--tlsEmulation:off`), TLS now works with importcpp non-POD types,
-  such types must use `.cppNonPod` and `--tlsEmulation:off`should be used.
-- Added `unsafeIsolate` and `extract` to `std/isolation`.
-- Added new module: std/tasks
+## OS-specific notes
+- Support for apple silicon/M1 macs.
+- Support for 32-bit RISC-V, refs #16231.
+- The allocator for Nintendo Switch, which was nonfunctional because
+  of breaking changes in libnx, was removed, in favour of the new `-d:nimAllocPagesViaMalloc` option.
+- Allow reading parameters when compiling for Nintendo Switch.
+
+- Cross compilation targetting windows was improved
+  This now works from osx/linux:
+  `nim r -d:mingw main`
+  `--nimcache` now correctly works in a cross-compilation setting.
 
 
 ## performance / memory optimizations
@@ -621,6 +578,44 @@ Compatibility notes:
 - Added new module `compiler/debugutils` to help with debugging nim compiler.
 - Renamed `-d:nimCompilerStackraceHints` to `-d:nimCompilerStacktraceHints` and used it in more contexts;
   this flag which works in tandem with `--stackTraceMsgs` to show user code context in compiler stacktraces.
+
+
+## type system
+- `typeof(voidStmt)` now works and returns `void`.
+- Enum values can now be overloaded. This needs to be enabled
+  via `{.experimental: "overloadableEnums".}`. We hope that this feature allows for the
+  development of more fluent (less ugly) APIs. See https://github.com/nim-lang/RFCs/issues/373
+  for more details.
+
+- A type conversion from one enum type to another now produces an `[EnumConv]` warning.
+  You should use `ord` (or `cast`, but the compiler won't help, if you misuse it) instead.
+  ```
+  type A = enum a1, a2
+  type B = enum b1, b2
+  echo a1.B # produces a warning
+  echo a1.ord.B # produces no warning
+  ```
+
+- A dangerous implicit conversion to `cstring` now triggers a `[CStringConv]` warning.
+  This warning will become an error in future versions! Use an explicit conversion
+  like `cstring(x)` in order to silence the warning.
+
+- There is a new warning for *any* type conversion to enum that can be enabled via
+  `.warning[AnyEnumConv]:on` or `--warning:AnyEnumConv:on`.
+
+- Reusing a type name in a different scope now works, refs #17710.
+- Fixed implicit and explicit generics in procedures, refs #18808.
+
+
+## lexical / syntactic
+- Nim now supports a small subset of Unicode operators as operator symbols.
+  The supported symbols are: "∙ ∘ × ★ ⊗ ⊘ ⊙ ⊛ ⊠ ⊡ ∩ ∧ ⊓ ± ⊕ ⊖ ⊞ ⊟ ∪ ∨ ⊔".
+  To enable this feature, use `--experimental:unicodeOperators`. Note that due
+  to parser limitations you **cannot** enable this feature via a
+  pragma `{.experimental: "unicodeOperators".}` reliably, you need to enable
+  it via the command line or in a configuration file.
+
+- `var a{.foo.} = expr` now works inside templates (except when `foo` is overloaded).
 
 
 ## compiler messages, error messages, hints, warnings
@@ -677,6 +672,13 @@ Compatibility notes:
 - The configuration subsystem now allows for `-d:release` and `-d:danger` to work as expected.
   The downside is that these defines now have custom logic that doesn't apply for
   other defines.
+
+
+## multithreading
+- TLS: OSX now uses native TLS (`--tlsEmulation:off`), TLS now works with importcpp non-POD types,
+  such types must use `.cppNonPod` and `--tlsEmulation:off`should be used.
+- Added `unsafeIsolate` and `extract` to `std/isolation`.
+- Added new module: std/tasks
 
 
 ## gc
