@@ -123,16 +123,31 @@ See PR [#17196](https://github.com/nim-lang/Nim/pull/17196) for additional detai
 
 
 ## Private imports and private field access
-- A new import syntax `import foo {.all.}` now allows to import all symbols (public or private)
-  from `foo`. This can be useful for testing purposes or for more flexibility in project organization.
-- Added a new module `std/importutils`, and an API `privateAccess`, which allows access to private fields
-  for an object type in the current scope.
+A new import syntax `import foo {.all.}` now allows to import all symbols (public or private) from `foo`.
+This can be useful for testing purposes or for more flexibility in project organization.
+
 Example:
 ```nim
-from system as system2 {.all.} import ThisIsSystem
-import os {.all.}
-assert weirdTarget
+from system {.all.} as system2 import nil
+echo system2.ThisIsSystem # ThisIsSystem is private in `system`
+import os {.all.} # weirdTarget is private in `os`
+echo weirdTarget # or `os.weirdTarget`
 ```
+
+Added a new module `std/importutils`, and an API `privateAccess`, which allows access
+to private fields for an object type in the current scope.
+
+Example:
+```nim
+import times
+from std/importutils import privateAccess
+block:
+  let t = now()
+  # echo t.monthdayZero # Error: undeclared field: 'monthdayZero' for type times.DateTime
+  privateAccess(typeof(t)) # enables private access in this scope
+  echo t.monthdayZero # ok
+```
+
 
 ## `nim --eval:cmd`
 Added `nim --eval:cmd` to evaluate a command directly:, e.g.: `nim --eval:"echo 1"`.
