@@ -169,6 +169,26 @@ assert urandom(1234) != urandom(1234) # unlikely to fail in practice
 ```
 
 
+## new module: std/tempfiles
+Allows creating temporary files and directories, see PR #17361 and followups.
+```nim
+import std/tempfiles
+let tmpPath = genTempPath("prefix", "suffix.log", "/tmp/")
+# tmpPath looks like: /tmp/prefixpmW1P2KLsuffix.log
+
+let dir = createTempDir("tmpprefix_", "_end")
+# created dir looks like: getTempDir() / "tmpprefix_YEl9VuVj_end"
+
+let (cfile, path) = createTempFile("tmpprefix_", "_end.tmp")
+# path looks like: getTempDir() / "tmpprefix_FDCIRZA0_end.tmp"
+cfile.write "foo"
+cfile.setFilePos 0
+assert readAll(cfile) == "foo"
+close cfile
+assert readFile(path) == "foo"
+```
+
+
 ## User defined literals
 - Custom numeric literals (e.g. `-128'bignum`) are now supported.
 - The unary minus in `-1` is now part of the integer literal, it is now parsed as a single token.
@@ -410,9 +430,6 @@ Compatibility notes:
 - Added a simpler to use `io.readChars` overload.
 - Added `socketstream` module that wraps sockets in the stream interface
 - Added experimental `linenoise.readLineStatus` to get line and status (e.g. ctrl-D or ctrl-C).
-
-- new module: std/tempfiles
-  Allows creating temporary files and directories, see PR #17361 and followups.
 
 
 ## environment variable handling
