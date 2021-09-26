@@ -94,8 +94,8 @@ but here are a select few:
 
 ## Strict effects
 The effect system was refined and there is a new `.effectsOf` annotation that does
-  explicitly what was previously done implicitly. See the manual for details.
-  To write code that is portable with older Nim versions, use this idiom:
+explicitly what was previously done implicitly. See [manual](https://nim-lang.github.io/Nim/manual.html#effect-system-effectsof-annotation) for details.
+To write code that is portable with older Nim versions, use this idiom:
 
 ```nim
 when defined(nimHasEffectsOf):
