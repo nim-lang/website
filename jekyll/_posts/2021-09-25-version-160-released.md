@@ -348,11 +348,11 @@ Compatibility notes:
 
 
 ## `std/json`, `std/jsonutils`
-- `jsonutils` now serializes/deserializes holey enums as regular enums (via `ord`) instead of as strings.
+- `std/jsonutils` now serializes/deserializes holey enums as regular enums (via `ord`) instead of as strings.
   Use `-d:nimLegacyJsonutilsHoleyEnum` for a transition period. `toJson` now serializes `JsonNode`
   as is via reference (without a deep copy) instead of treating `JsonNode` as a regular ref object,
   this can be customized via `jsonNodeMode`.
-- `json` and `jsonutils` now serialize NaN, Inf, -Inf as strings, so that
+- `std/json` and `std/jsonutils` now serialize NaN, Inf, -Inf as strings, so that
   `%[NaN, -Inf]` is the string `["nan","-inf"]` instead of `[nan,-inf]` which was invalid json.
 - `std/json` can now handle integer literals and floating point literals of
   arbitrary length and precision.
@@ -365,10 +365,10 @@ Compatibility notes:
 - Added `BackwardsIndex` overload for `JsonNode`.
 - `json.%`,`json.to`, `jsonutils.formJson`,`jsonutils.toJson` now work with `uint|uint64`
   instead of raising (as in 1.4) or giving wrong results (as in 1.2).
-- `jsonutils` now handles `cstring` (including as Table key), and `set`.
+- `std/jsonutils` now handles `cstring` (including as Table key), and `set`.
 - added `jsonutils.jsonTo` overload with `opt = Joptions()` param.
 - `jsonutils.toJson` now supports customization via `ToJsonOptions`.
-- `json`, `jsonutils` now support round-trip serialization when `-d:nimPreviewFloatRoundtrip` is used.
+- `std/json`, `std/jsonutils` now support round-trip serialization when `-d:nimPreviewFloatRoundtrip` is used.
 
 
 ## `std/typetraits`, `std/compilesettings`
@@ -382,16 +382,16 @@ Compatibility notes:
 
 
 ## networking: `std/net`, `std/asyncnet`, `std/htmlgen`, `std/httpclient`, `std/asyncdispatch`, `std/asynchttpserver`, `std/httpcore`
-- Fixed buffer overflow bugs in `net`.
-- Exported `sslHandle` from `net` and `asyncnet`.
-- Added `hasDataBuffered` to `asyncnet`.
-- various functions in `httpclient` now accept `url` of type `Uri`. Moreover `request` function's
+- Fixed buffer overflow bugs in `std/net`.
+- Exported `sslHandle` from `std/net` and `std/asyncnet`.
+- Added `hasDataBuffered` to `std/asyncnet`.
+- various functions in `std/httpclient` now accept `url` of type `Uri`. Moreover `request` function's
   `httpMethod` argument of type `string` was deprecated in favor of `HttpMethod` enum type; see #15919.
 - Added `asyncdispatch.activeDescriptors` that returns the number of currently
   active async event handles/file descriptors.
-- Added `getPort` to `asynchttpserver` to resolve OS-assigned `Port(0)`;
+- Added `getPort` to `std/asynchttpserver` to resolve OS-assigned `Port(0)`;
   this is usually recommended instead of hardcoding ports which can lead to "Address already in use" errors.
-- Fixed premature garbage collection in asyncdispatch, when a stack trace override is in place.
+- Fixed premature garbage collection in `std/asyncdispatch`, when a stack trace override is in place.
 - Added `httpcore.is1xx` and missing HTTP codes.
 - Added `htmlgen.portal` for [making "SPA style" pages using HTML only](https://web.dev/hands-on-portals).
 
