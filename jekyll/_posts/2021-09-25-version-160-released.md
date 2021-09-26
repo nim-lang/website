@@ -444,7 +444,7 @@ Compatibility notes:
 - `std/os`: `putEnv` now raises if the 1st argument contains a `=`
 
 
-## Posix
+## POSIX
 - On POSIX systems, the default signal handlers used for Nim programs (it's
   used for printing the stacktrace on fatal signals) will now re-raise the
   signal for the OS default handlers to handle.
@@ -455,7 +455,7 @@ Compatibility notes:
   for previous behavior.
 - Added `posix_utils.osReleaseFile` to get system identification from `os-release` file on Linux and the BSDs.
   https://www.freedesktop.org/software/systemd/man/os-release.html
-- Remove undefined behavior for posix.open
+- Remove undefined behavior for `posix.open`
 
 
 ## `std/prelude`
