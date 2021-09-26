@@ -65,7 +65,7 @@ We now have an API to be used in CI which abstracts the implementation details: 
 # Contributors to v1.6
 
 Many thanks to our recurring and new [contributors](https://github.com/nim-lang/Nim/graphs/contributors?from=2020-10-16&to=2021-09-25&type=c),
-nim is a community driven collaborative effort that welcomes all contributions, big or small.
+Nim is a community driven collaborative effort that welcomes all contributions, big or small.
 
 
 # Backward compatibility and preview flags
@@ -697,7 +697,7 @@ Compatibility notes:
 - `--hint:CC` now goes to stderr (like all other hints) instead of stdout.
 
 
-## Building and running nim programs, configuration system
+## Building and running Nim programs, configuration system
 - json build instructions are now generated in `$nimcache/outFileBasename.json`
   instead of `$nimcache/projectName.json`. This allows avoiding recompiling a given project
   compiled with different options if the output file differs.
