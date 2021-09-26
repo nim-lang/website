@@ -83,6 +83,7 @@ Starting with this release, we've introduced preview flags of the form `-d:nimPr
 (e.g. `-d:nimPreviewFloatRoundtrip`); they allow users to opt-in a new stdlib/compiler behavior
 that will likely become default in the next or a future release.
 These staging flags are aimed at minimizing backward compatibility issues.
+
 We also introduced opt-out flags of the form `-d:nimLegacyX`,  e.g. `-d:nimLegacyCopyFile`,
 for cases where the default was changed to the new behavior,
 and an explicit opt-out is needed for some transition period.
