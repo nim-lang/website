@@ -808,7 +808,6 @@ func fn*(a: int): int = 42  ## Doc comment
 - `testament`: added `nimoutFull: bool` spec to compare full output of compiler
   instead of a subset; many bugfixes to testament.
 
-- Added `atlas` a tool for automating workflows involving "cloning" a nimble package and dependencies recursively
 
 ## Misc/cleanups
 - Deprecated `TaintedString` and `--taintmode`.
