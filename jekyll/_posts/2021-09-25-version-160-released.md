@@ -21,7 +21,7 @@ This release includes improvements in the following areas:
 * correctness and performance of integer and float parsing and rendering in all backends
 * significant improvements in error messages, showing useful context
 * doc generation logic and documentation, in particular `runnableExamples` now works in more contexts and replaces `code-block`.
-* made JS, VM and nimscript backend more consistent with C backend, allowing more modules to work with those backends, including the imports from `prelude`; the test suite now standardizes on testing stdlib modules on each major backend (C, JS, VM).
+* made JS, VM and nimscript backend more consistent with C backend, allowing more modules to work with those backends, including the imports from `std/prelude`; the test suite now standardizes on testing stdlib modules on each major backend (C, JS, VM).
 * support for apple silicon/M1 macs, 32-bit RISC-V, improved support for nodejs backend
 * major improvements to the following modules: `system, math, random, json, jsonutils, os, typetraits, wrapnils, lists, hashes` including performance improvements
 * deprecated a number of error prone or redundant mis-features
