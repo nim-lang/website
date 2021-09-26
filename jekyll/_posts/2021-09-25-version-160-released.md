@@ -139,8 +139,8 @@ nim --eval:'import os {.all.}; echo weirdTarget'
 See PR #15687 for more details.
 
 
-## Roundtrip float to string
-`system.addFloat` and `system.$` now can produce string representations of floating point numbers that are minimal in size and that "roundtrip" (via the "Dragonbox" algorithm).
+## Round-trip float to string
+`system.addFloat` and `system.$` now can produce string representations of floating point numbers that are minimal in size and that "round-trip" (via the "Dragonbox" algorithm).
 This currently has to be enabled via `-d:nimPreviewFloatRoundtrip`.
 It is expected that this behavior becomes the new default in upcoming versions, as with other `nimPreviewX` define flags.
 
@@ -368,7 +368,7 @@ Compatibility notes:
 - `jsonutils` now handles `cstring` (including as Table key), and `set`.
 - added `jsonutils.jsonTo` overload with `opt = Joptions()` param.
 - `jsonutils.toJson` now supports customization via `ToJsonOptions`.
-- `json`, `jsonutils` now support roundtrip serialization when `-d:nimPreviewFloatRoundtrip` is used.
+- `json`, `jsonutils` now support round-trip serialization when `-d:nimPreviewFloatRoundtrip` is used.
 
 
 ## std/typetraits, std/compilesettings
