@@ -169,7 +169,7 @@ assert urandom(1234) != urandom(1234) # unlikely to fail in practice
 ```
 
 
-## New module: std/tempfiles
+## New module: `std/tempfiles`
 Allows creating temporary files and directories, see PR #17361 and followups.
 ```nim
 import std/tempfiles
@@ -248,28 +248,28 @@ do:
 
 ## New and deprecated modules
 The following modules were added (they are discussed in the rest of the text):
-- std/enumutils
-- std/genasts
-- std/importutils
-- std/jsbigints
-- std/jsfetch
-- std/jsformdata
-- std/jsheaders
-- std/packedsets
-- std/setutils
-- std/socketstreams
-- std/strbasics
-- std/sysrand
-- std/tasks
-- std/tempfiles
-- std/vmutils
+- `std/enumutils`
+- `std/genasts`
+- `std/importutils`
+- `std/jsbigints`
+- `std/jsfetch`
+- `std/jsformdata`
+- `std/jsheaders`
+- `std/packedsets`
+- `std/setutils`
+- `std/socketstreams`
+- `std/strbasics`
+- `std/sysrand`
+- `std/tasks`
+- `std/tempfiles`
+- `std/vmutils`
 
 - Deprecated `std/mersenne`.
 - Removed deprecated `iup` module from stdlib, it has already moved to
   [nimble](https://github.com/nim-lang/iup).
 
 
-## New module: std/setutils
+## New module: `std/setutils`
 - Added `setutils.toSet` that can take any iterable and convert it to a built-in `set`,
   if the iterable yields a built-in settable type.
 - Added `setutils.fullSet` which returns a full built-in `set` for a valid type.
@@ -277,7 +277,7 @@ The following modules were added (they are discussed in the rest of the text):
 - Added `setutils.[]=`.
 
 
-## New module: std/enumutils
+## New module: `std/enumutils`
 - Added `genEnumCaseStmt` macro that generates
   case statement to parse string to enum.
 - Added `items` for enums with holes.
@@ -285,7 +285,7 @@ The following modules were added (they are discussed in the rest of the text):
 - Added `symbolRank` to return the index in which an enum member is listed in an enum.
 
 
-## system
+## `system`
 - Added `system.prepareStrMutation` for better support of low
   level `moveMem`, `copyMem` operations for Orc's copy-on-write string
   implementation.
@@ -314,7 +314,7 @@ Compatibility notes:
 - The unary slice `..b` was deprecated, use `0..b` instead.
 
 
-## std/math
+## `std/math`
 - Added `almostEqual` for comparing two float values using a machine epsilon.
 - Added `clamp` which allows using a `Slice` to clamp to a value.
 - Added `ceilDiv` for round up integer division.
@@ -329,7 +329,7 @@ Compatibility notes:
   with other backends. See #9125. Use `-d:nimLegacyJsRound` for previous behavior.
 
 
-## Random number generators: std/random, std/sysrand, std/oids
+## Random number generators: `std/random`, `std/sysrand`, `std/oids`
 - Added `randState` template that exposes the default random number generator.
   Useful for library authors.
 - Added `initRand()` overload with no argument which uses the current time as a seed.
@@ -337,7 +337,7 @@ Compatibility notes:
 - Added `std/sysrand` module to get random numbers from a secure source
 - Fixed overflow bugs.
 - Fix initrand to avoid random number sequences overlapping, refs #18744.
-- std/oids now uses std/random.
+- `std/oids` now uses `std/random`.
 
 Compatibility notes:
 - Deprecated `std/mersenne`.
@@ -347,7 +347,7 @@ Compatibility notes:
   provided by the operating system.
 
 
-## std/json, std/jsonutils
+## `std/json`, `std/jsonutils`
 - `jsonutils` now serializes/deserializes holey enums as regular enums (via `ord`) instead of as strings.
   Use `-d:nimLegacyJsonutilsHoleyEnum` for a transition period. `toJson` now serializes `JsonNode`
   as is via reference (without a deep copy) instead of treating `JsonNode` as a regular ref object,
@@ -371,7 +371,7 @@ Compatibility notes:
 - `json`, `jsonutils` now support round-trip serialization when `-d:nimPreviewFloatRoundtrip` is used.
 
 
-## std/typetraits, std/compilesettings
+## `std/typetraits`, `std/compilesettings`
 - `distinctBase` now is identity instead of error for non distinct types.
 - `distinctBase` now allows controlling whether to be recursive or not.
 - Added `enumLen` to return the number of elements in an enum.
@@ -381,7 +381,7 @@ Compatibility notes:
 - Added `compilesettings.SingleValueSetting.libPath`.
 
 
-## networking: std/net, std/asyncnet, std/htmlgen, std/httpclient, std/asyncdispatch, std/asynchttpserver, std/httpcore
+## networking: `std/net`, `std/asyncnet`, `std/htmlgen`, `std/httpclient`, `std/asyncdispatch`, `std/asynchttpserver`, `std/httpcore`
 - Fixed buffer overflow bugs in `net`.
 - Exported `sslHandle` from `net` and `asyncnet`.
 - Added `hasDataBuffered` to `asyncnet`.
@@ -403,7 +403,7 @@ Compatibility notes:
   now also need to ship `cacert.pem` with your `.exe` file.
 
 
-## std/hashes
+## `std/hashes`
 - `hashes.hash` can now support `object` and `ref` (can be overloaded in user code),
   if `-d:nimEnableHashRef` is used.
 
@@ -411,7 +411,7 @@ Compatibility notes:
   `hashes.hash(closure)` has also been improved.
 
 
-## OS: std/os, std/io, std/socketstream, std/linenoise, std/tempfiles
+## OS: `std/os`, `std/io`, `std/socketstream`, `std/linenoise`, `std/tempfiles`
 - `os.FileInfo` (returned by `getFileInfo`) now contains `blockSize`,
   determining preferred I/O block size for this file object.
 - Added `os.getCacheDir()` to return platform specific cache directory.
@@ -458,14 +458,14 @@ Compatibility notes:
 - Remove undefined behavior for posix.open
 
 
-## std/prelude
+## `std/prelude`
 - `strformat` is now part of `include std/prelude`.
 - Added `sequtils` import to `prelude`.
 - `prelude` now works with the JavaScript target.
 - `prelude` can now be used via `include std/prelude`, but `include prelude` still works.
 
 
-## String manipulation: std/strformat, std/strbasics
+## String manipulation: `std/strformat`, `std/strbasics`
 - added support for parenthesized expressions.
 - added support for const string's instead of just string literals
 
@@ -473,7 +473,7 @@ Compatibility notes:
   Added `strip`, `setSlice`, `add(a: var string, b: openArray[char])`.
 
 
-## std/wrapnils
+## `std/wrapnils`
 - `std/wrapnils` doesn't use `experimental:dotOperators` anymore, avoiding
   issues like bug #13063 (which affected error messages)
   for modules importing `std/wrapnils`.
@@ -484,7 +484,7 @@ Compatibility notes:
   an expression.
 
 
-## Containers: std/algorithm, std/lists, std/sequtils, std/options, std/packedsets
+## Containers: `std/algorithm`, `std/lists`, `std/sequtils`, `std/options`, `std/packedsets`
 - Removed the optional `longestMatch` parameter of the `critbits._WithPrefix` iterators (it never worked reliably)
 - Added `algorithm.merge`.
 - In `lists`: renamed `append` to `add` and retained `append` as an alias;
@@ -496,8 +496,8 @@ Compatibility notes:
   its argument, `addMoved`, is also supplied. 
   See PR #16362, #16536.
 
-- new module: std/packedsets
-  Generalizes std/intsets, see PR #15564.
+- new module: `std/packedsets`
+  Generalizes `std/intsets`, see PR #15564.
 
 Compatibility notes:
 - Deprecated `sequtils.delete` and added an overload taking a `Slice` that raises a defect
@@ -507,13 +507,13 @@ Compatibility notes:
   and `$none(int)` to `"none(int)"` instead of `"None[int]"`.
 
 
-## std/times
+## `std/times`
 - Added `ZZZ` and `ZZZZ` patterns to `times.nim` `DateTime` parsing, to match time
   zone offsets without colons, e.g. `UTC+7 -> +0700`.
 - Added `dateTime` and deprecated `initDateTime`.
 
 
-## std/macros and AST
+## `std/macros` and AST
 - New module `std/genasts` containing `genAst` that avoids the problems inherent with `quote do` and can
   be used as a replacement.
   use `-d:nimLegacyMacrosCollapseSymChoice` to get previous behavior.
@@ -527,7 +527,7 @@ Compatibility notes:
 - Make custom op in macros.quote work for all statements.
 
 
-## std/sugar
+## `std/sugar`
 - Added `sugar.dumpToString` which improves on `sugar.dump`.
 - Added an overload for the `collect` macro that inferes the container type based
   on the syntax of the last expression. Works with std seqs, tables and sets.
@@ -536,7 +536,7 @@ Compatibility notes:
 - Removed support for named procs in `sugar.=>`.
 
 
-## Parsing: std/parsecfg, std/strscans, std/uri
+## Parsing: `std/parsecfg`, `std/strscans`, `std/uri`
 - Added `sections` iterator in `parsecfg`.
 - `strscans.scanf` now supports parsing single characters.
 - `strscans.scanTuple` added which uses `strscans.scanf` internally,
@@ -596,7 +596,7 @@ Compatibility notes:
 - `distinct T` conversions now works in VM.
 - `items(cstring)` now works in VM
 - fix `addr`, `len`, `high` in VM (#16002, #16610).
-- std/cstrutils now works in VM.
+- `std/cstrutils` now works in VM.
 
 
 ## OS-specific notes
@@ -728,7 +728,7 @@ Compatibility notes:
 - TLS: OSX now uses native TLS (`--tlsEmulation:off`), TLS now works with importcpp non-POD types,
   such types must use `.cppNonPod` and `--tlsEmulation:off`should be used.
 - Added `unsafeIsolate` and `extract` to `std/isolation`.
-- Added new module: std/tasks
+- Added new module: `std/tasks`
 
 
 ## Memory management
