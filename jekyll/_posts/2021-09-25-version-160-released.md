@@ -487,7 +487,7 @@ Compatibility notes:
 ## Containers: `std/algorithm`, `std/lists`, `std/sequtils`, `std/options`, `std/packedsets`
 - Removed the optional `longestMatch` parameter of the `critbits._WithPrefix` iterators (it never worked reliably)
 - Added `algorithm.merge`.
-- In `lists`: renamed `append` to `add` and retained `append` as an alias;
+- In `std/lists`: renamed `append` to `add` and retained `append` as an alias;
   added `prepend` and `prependMoved` analogously to `add` and `addMoved`;
   added `remove` for `SinglyLinkedList`s.
 - Added new operations for singly- and doubly linked lists: `lists.toSinglyLinkedList`
@@ -524,7 +524,7 @@ Compatibility notes:
   `nnkTupleConstr` node. Will affect macros expecting nodes to be of `nnkPar`.
 - In `std/macros`, `treeRepr,lispRepr,astGenRepr` now represent SymChoice nodes in a collapsed way,
 
-- Make custom op in macros.quote work for all statements.
+- Make custom op in `macros.quote` work for all statements.
 
 
 ## `std/sugar`
@@ -560,7 +560,7 @@ Compatibility notes:
 
 
 ## JS stdlib changes
-- Added `jsbigints` module, arbitrary precision integers for JS target.
+- Added `std/jsbigints` module, arbitrary precision integers for JS target.
 - Added setCurrentException for JS backend.
 - `writeStackTrace` is available in JS backend now.
 - Added `then`, `catch` to `asyncjs` for promise pipelining, for now hidden behind `-d:nimExperimentalAsyncjsThen`.
