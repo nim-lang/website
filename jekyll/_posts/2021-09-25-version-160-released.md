@@ -30,7 +30,7 @@ This release includes improvements in the following areas:
 * significant improvements in error messages, showing useful context
 * documentation generation logic and documentation, in particular `runnableExamples` now works in more contexts
 * JS, VM and nimscript backend are more consistent with C backend, allowing more modules to work with those backends, including the imports from `std/prelude`; the test suite now standardizes on testing stdlib modules on each major backend (C, JS, VM).
-* support for Apple silicon/M1, 32-bit RISC-V, CROSSOS, improved support for NodeJS backend
+* support for Apple silicon/M1, 32-bit RISC-V, armv8l, CROSSOS, improved support for NodeJS backend
 * major improvements to the following modules: `system`, `math`, `random`, `json`, `jsonutils`, `os`, `typetraits`, `wrapnils`, `lists`, `hashes` including performance improvements
 * deprecated a number of error prone or redundant mis-features
 
@@ -623,6 +623,7 @@ Compatibility notes:
 ## OS-specific notes
 - Support for Apple silicon/M1.
 - Support for 32-bit RISC-V, refs [#16231](https://github.com/nim-lang/Nim/pull/16231).
+- Support for armv8l, refs [#18901](https://github.com/nim-lang/Nim/pull/18901).
 - Support for CROSSOS, refs [#18889](https://github.com/nim-lang/Nim/pull/18889).
 - The allocator for Nintendo Switch, which was nonfunctional because
   of breaking changes in libnx, was removed, in favour of the new `-d:nimAllocPagesViaMalloc` option.
