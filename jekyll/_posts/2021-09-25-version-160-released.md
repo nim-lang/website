@@ -319,7 +319,7 @@ The following modules were added (they are discussed in the rest of the text):
   with most other languages.
 - Added `cmpMem` to `system`.
 - `doAssertRaises` now correctly handles foreign exceptions.
-- `addInt` now supports unsigned integers
+- `addInt` now supports unsigned integers.
 
 Compatibility notes:
 - `system.delete` had a most surprising behavior when the index passed to it was out of
