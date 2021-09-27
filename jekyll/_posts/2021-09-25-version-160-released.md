@@ -579,42 +579,42 @@ Compatibility notes:
 
 
 ## JS stdlib changes
-- Added `std/jsbigints` module, arbitrary precision integers for JS target.
-- Added `setCurrentException` for JS backend.
-- `writeStackTrace` is available in JS backend now.
+- Added `std/jsbigints` module, arbitrary precision integers for the JS target.
+- Added `setCurrentException` for the JS backend.
+- `writeStackTrace` is available in the JS backend now.
 - Added `then`, `catch` to `std/asyncjs` for promise pipelining, for now hidden behind `-d:nimExperimentalAsyncjsThen`.
-- Added `std/jsfetch` module [Fetch](https://developer.mozilla.org/docs/Web/API/Fetch_API) wrapper for JS target.
-- Added `std/jsheaders` module [Headers](https://developer.mozilla.org/en-US/docs/Web/API/Headers) wrapper for JS target.
-- Added `std/jsformdata` module [FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData) wrapper for JS target.
-- Added `jscore.debugger` to [call any available debugging functionality, such as breakpoints.](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/debugger).
+- Added `std/jsfetch` module [Fetch](https://developer.mozilla.org/docs/Web/API/Fetch_API) wrapper for the JS target.
+- Added `std/jsheaders` module [Headers](https://developer.mozilla.org/en-US/docs/Web/API/Headers) wrapper for the JS target.
+- Added `std/jsformdata` module [FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData) wrapper for the JS target.
+- Added `jscore.debugger` to [call any available debugging functionality, such as breakpoints](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/debugger).
 - Added `jsconsole.dir`, `jsconsole.dirxml`, `jsconsole.timeStamp`.
 - Added dollar `$` and `len` for `jsre.RegExp`.
-- Added `jsconsole.jsAssert` for JS target.
+- Added `jsconsole.jsAssert` for the JS target.
 - Added `**` to `std/jsffi`.
 - Added `copyWithin` [for `seq` and `array` for JS targets](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/copyWithin).
 - In `std/dom`, `Interval` is now a `ref object`, same as `Timeout`. Definitions of `setTimeout`,
   `clearTimeout`, `setInterval`, `clearInterval` were updated.
-- Added `dom.scrollIntoView` proc with options
+- Added `dom.scrollIntoView` proc with options.
 - Added `dom.setInterval`, `dom.clearInterval` overloads.
-- Merged `std/dom_extensions` module into `std/dom` module,
+- Merged `std/dom_extensions` into the `std/dom` module,
   it was a module with a single line, see RFC [#413](https://github.com/nim-lang/RFCs/issues/413).
-- `$` now gives more correct results on JS backend.
+- `$` now gives more correct results on the JS backend.
 
 
 ## JS compiler changes
-- The `cstring` doesn't support `[]=` operator in JS backend.
-- Now array literals(JS backend) uses JS typed arrays when the corresponding JS typed array exists,
+- `cstring` doesn't support the `[]=` operator anymore in the JS backend.
+- Array literals now use JS typed arrays when the corresponding JS typed array exists,
   for example `[byte(1), 2, 3]` generates `new Uint8Array([1, 2, 3])`.
 
 
 ## VM and nimscript backend
-- VM now supports `addr(mystring[ind])` (index + index assignment)
+- VM now supports `addr(mystring[ind])` (index + index assignment).
 - `nimscript` now handles `except Exception as e`.
-- nil dereference is not allowed at compile time. `cast[ptr int](nil)[]` is rejected at compile time.
+- `nil` dereference is not allowed at compile time. `cast[ptr int](nil)[]` is rejected at compile time.
 - `static[T]` now works better, refs [#17590](https://github.com/nim-lang/Nim/pull/17590), [#15853](https://github.com/nim-lang/Nim/pull/15853).
-- `distinct T` conversions now works in VM.
-- `items(cstring)` now works in VM
-- fix `addr`, `len`, `high` in VM ([#16002](https://github.com/nim-lang/Nim/pull/16002), [#16610](https://github.com/nim-lang/Nim/pull/16610)).
+- `distinct T` conversions now work in VM.
+- `items(cstring)` now works in VM.
+- Fix `addr`, `len`, `high` in VM ([#16002](https://github.com/nim-lang/Nim/pull/16002), [#16610](https://github.com/nim-lang/Nim/pull/16610)).
 - `std/cstrutils` now works in VM.
 
 
@@ -627,20 +627,20 @@ Compatibility notes:
 - Allow reading parameters when compiling for Nintendo Switch.
 
 - Cross compilation targeting Windows was improved
-  This now works from OSX/Linux:
+  This now works from macOS/Linux:
   `nim r -d:mingw main`
   `--nimcache` now correctly works in a cross-compilation setting.
 
 
 ## Performance / memory optimizations
 - The comment field in PNode AST was moved to a side channel, reducing overall memory usage during compilation by a factor 1.25x
-- `std/jsonutils` deserialization is now up to 20x faster
-- `os.copyFile` is now 2.5x faster on OSX, by using `copyfile` from `copyfile.h`;
-  use `-d:nimLegacyCopyFile` for OSX < 10.5.
-- float to string is now 10x faster thanks to Dragonbox algorithm, with `-d:nimPreviewFloatRoundtrip`.
-- `newSeqWith` is 3x faster
+- `std/jsonutils` deserialization is now up to 20x faster.
+- `os.copyFile` is now 2.5x faster on macOS, by using `copyfile` from `copyfile.h`;
+  use `-d:nimLegacyCopyFile` for macOS < 10.5.
+- Float to string conversion is now 10x faster thanks to the Dragonbox algorithm, with `-d:nimPreviewFloatRoundtrip`.
+- `newSeqWith` is 3x faster.
 - CI now supports batching (making Windows CI 2.3X faster).
-- sets now uses optimized `countSetBits`, see PR [#17334](https://github.com/nim-lang/Nim/pull/17334).
+- Sets now uses the optimized `countSetBits` proc, see PR [#17334](https://github.com/nim-lang/Nim/pull/17334).
 
 ## Debugging
 - You can now enable/disable VM tracing in user code via `vmutils.vmTrace`.
@@ -695,7 +695,7 @@ See PR [#15251](https://github.com/nim-lang/Nim/pull/15251) for details.
   pragma `{.experimental: "unicodeOperators".}` reliably, you need to enable
   it via the command line or in a configuration file.
 
-- `var a{.foo.} = expr` now works inside templates (except when `foo` is overloaded).
+- `var a {.foo.} = expr` now works inside templates (except when `foo` is overloaded).
 
 
 ## Compiler messages, error messages, hints, warnings
@@ -721,10 +721,10 @@ See PR [#15251](https://github.com/nim-lang/Nim/pull/15251) for details.
 - `typedesc[Foo]` now renders as such instead of `type Foo` in compiler messages.
 - `runnableExamples` now show originating location in stacktraces on failure.
 - `SuccessX` message now shows more useful information.
-- new `DuplicateModuleImport` warning, and improved `UnusedImport` and `XDeclaredButNotUsed` accuracy.
+- New `DuplicateModuleImport` warning, improved `UnusedImport` and `XDeclaredButNotUsed` accuracy.
 
 Compatibility notes:
-- `--hint:CC` now goes to stderr (like all other hints) instead of stdout.
+- `--hint:CC` now prints to stderr (like all other hints) instead of stdout.
 
 
 ## Building and running Nim programs, configuration system
@@ -755,7 +755,7 @@ Compatibility notes:
 
 
 ## Multithreading
-- TLS: OSX now uses native TLS (`--tlsEmulation:off`), TLS now works with importcpp non-POD types,
+- TLS: macOS now uses native TLS (`--tlsEmulation:off`), TLS now works with `importcpp` non-POD types,
   such types must use `.cppNonPod` and `--tlsEmulation:off`should be used.
 - Added `unsafeIsolate` and `extract` to `std/isolation`.
 - Added `std/tasks`, a new module containing primitives for creating parallel programs.
@@ -778,8 +778,8 @@ Compatibility notes:
 
 ## Docgen
 - docgen: RST files can now use single backticks instead of double backticks and correctly render
-  in both `rst2html` (as before) as well as common tools rendering RST directly (e.g. GitHub), by
-  adding: `default-role:: code` directive inside the RST file, which is now handled by `rst2html`.
+  in both `rst2html` (as before) as well as common tools rendering RST directly (e.g. GitHub). This is done by
+  adding the `default-role:: code` directive inside the RST file (which is now handled by `rst2html`).
 
 - Source+Edit links now appear on top of every docgen'd page when
   `nim doc --git.url:url ...` is given.
@@ -820,7 +820,7 @@ func fn*(a: int): int = 42  ## Doc comment
   for more details.
 
 ## Tools
-- major improvements to `nimgrep`, see PR [#15612
+- Major improvements to `nimgrep`, see PR [#15612
 ](https://github.com/nim-lang/Nim/pull/15612).
 - `fusion` is now un-bundled from Nim, `./koch fusion` will
   install it via Nimble at a fixed hash.
