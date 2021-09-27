@@ -657,7 +657,7 @@ Compatibility notes:
 - `std/cstrutils` now works in VM.
 
 
-## OS-specific notes
+## OS/platform-specific notes
 - Support for Apple silicon/M1.
 - Support for 32-bit RISC-V, refs [#16231](https://github.com/nim-lang/Nim/pull/16231).
 - Support for armv8l, refs [#18901](https://github.com/nim-lang/Nim/pull/18901).
