@@ -23,7 +23,7 @@ Python-like syntax; LISP-like flexibility; strong C, C++, JS, Python interop;
 and best-in class metaprogramming.
 
 This release includes improvements in the following areas:
-* new language features (user-defined literals, private imports, strict effects, `iterable[T]`, dot-like operators, block arguments with optional parameters)
+* new language features (`iterable[T]`, user-defined literals, private imports, strict effects, dot-like operators, block arguments with optional parameters)
 * new compiler features (`nim --eval:cmd`, custom nimscript extensions, customizable compiler messages)
 * major improvements to `--gc:arc` and `--gc:orc`
 * correctness and performance of integer and float parsing and rendering in all backends
@@ -96,6 +96,41 @@ With so many new features, pinpointing the most salient ones is a subjective exe
 but here are a select few:
 
 
+## `iterable[T]`
+The `iterable[T]` type class was added to match called iterators,
+which solves a number of long-standing issues related to iterators.
+Example:
+```nim
+iterator iota(n: int): int =
+  for i in 0..<n: yield i
+
+# previously, you'd need `untyped`, which caused other problems such as lack
+# of type inference, overloading issues, and MCS.
+template sumOld(a: untyped): untyped = # no type inference possible
+  var result: typeof(block:(for ai in a: ai))
+  for ai in a: result += ai
+  result
+
+assert sumOld(iota(3)) == 0 + 1 + 2
+
+# now, you can write:
+template sum[T](a: iterable[T]): T =
+  # `template sum(a: iterable): auto =` would also be possible
+  var result: T
+  for ai in a: result += ai
+  result
+
+assert sum(iota(3)) == 0 + 1 + 2 # or `iota(3).sum`
+
+```
+In particular iterable arguments can now be used with MCS, example:
+```nim
+import std/[sequtils, os]
+echo walkFiles("*").toSeq # now works
+```
+See PR [#17196](https://github.com/nim-lang/Nim/pull/17196) for additional details.
+
+
 ## Strict effects
 The effect system was refined and there is a new `.effectsOf` annotation that does
 explicitly what was previously done implicitly. See the [manual](https://nim-lang.github.io/Nim/manual.html#effect-system-effectsof-annotation) for more details.
@@ -111,18 +146,6 @@ proc mysort(s: seq; cmp: proc(a, b: T): int) {.effectsOf: cmp.}
 ```
 
 To enable the new effect system, compile with `--experimental:strictEffects`. See also [#18777](https://github.com/nim-lang/Nim/pull/18777) and RFC [#408](https://github.com/nim-lang/RFCs/issues/408).
-
-
-## `iterable[T]`
-The `iterable[T]` type class was added to match called iterators, which enables writing:
-```nim
-template fn(a: iterable) # or template fn[T](a: iterable[T])
-# instead of:
-template fn(a: untyped)
-```
-This solves a number of long-standing issues related to iterators. In particular,
-iterable arguments can now be used with MCS, e.g. `iota(3).toSeq` now works.
-See PR [#17196](https://github.com/nim-lang/Nim/pull/17196) for additional details.
 
 
 ## Private imports and private field access
