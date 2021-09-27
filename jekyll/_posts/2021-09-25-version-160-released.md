@@ -283,7 +283,7 @@ fn(1, 2): # already works
 fn(a = 1): # now works
   bar
 ```
-ditto with multiple block arguments via `do`:
+Likewise with multiple block arguments via `do`:
 ```nim
 template fn(a = 1, b = 2, body1, body2) = discard
 fn(a = 1): # now works
@@ -764,7 +764,7 @@ Compatibility notes:
   nim r main # recompiles
   nim r -d:foo main # recompiles
   nim r main # uses cached binary
-  nim r main arg1 arg2 # ditto (runtime arguments are irrelevant)
+  nim r main arg1 arg2 # likewise (runtime arguments are irrelevant)
 ```
 
 - `nim r` now supports cross compilation from unix to windows when specifying `-d:mingw` by using Wine,
