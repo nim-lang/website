@@ -359,7 +359,7 @@ The following modules were added (they are discussed in the rest of the text):
 - `addInt` now supports unsigned integers.
 
 Compatibility notes:
-- `system.delete` had a most surprising behavior when the index passed to it was out of
+- `system.delete` had surprising behavior when the index passed to it was out of
   bounds (it would delete the last entry then). Compile with `-d:nimStrictDelete` so
   that an index error is produced instead. Be aware however that your code might depend on
   this quirky behavior so a review process is required on your part before you can
