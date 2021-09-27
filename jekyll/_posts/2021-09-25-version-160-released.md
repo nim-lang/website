@@ -16,22 +16,22 @@ Here are some stats:
 * 280 new nimble packages
 
 Nim made its first entry in TIOBE index in 2017 at position 129,
-last year it entered the top-100, and last 2 months it entered the top-50 (https://forum.nim-lang.org/t/8297).
+last year it entered the top-100, and in the last 2 months the top-50 (https://forum.nim-lang.org/t/8297).
 We hope this release will reinforce this trend, building on Nim's core strengths:
 a practical, compiled systems programming language; offering C-like performance and portability;
 Python-like syntax; LISP-like flexibility; strong C, C++, JS, Python interop;
 and best-in class metaprogramming.
 
 This release includes improvements in the following areas:
-* new language features (user defined literals, private imports, strict effects, `iterable[T]`, dot-like operators, block arguments with optional params)
+* new language features (user defined literals, private imports, strict effects, `iterable[T]`, dot-like operators, block arguments with optional parameters)
 * new compiler features (`nim --eval:cmd`, custom nimscript extensions, customizable compiler messages)
-* major improvements to `--gc:arc`, `--gc:orc`
+* major improvements to `--gc:arc` and `--gc:orc`
 * correctness and performance of integer and float parsing and rendering in all backends
 * significant improvements in error messages, showing useful context
 * doc generation logic and documentation, in particular `runnableExamples` now works in more contexts and replaces `code-block`.
 * made JS, VM and nimscript backend more consistent with C backend, allowing more modules to work with those backends, including the imports from `std/prelude`; the test suite now standardizes on testing stdlib modules on each major backend (C, JS, VM).
 * support for Apple silicon/M1, 32-bit RISC-V, CROSSOS, improved support for NodeJS backend
-* major improvements to the following modules: `system, math, random, json, jsonutils, os, typetraits, wrapnils, lists, hashes` including performance improvements
+* major improvements to the following modules: `system`, `math`, `random`, `json`, `jsonutils`, `os`, `typetraits`, `wrapnils`, `lists`, `hashes` including performance improvements
 * deprecated a number of error prone or redundant mis-features
 
 
@@ -40,7 +40,7 @@ We recommend everyone to upgrade to 1.6:
 
 ## New users
 
-Check out if the package manager of your OS already ships version 1.6 or
+Check out if your package manager already ships version 1.6 or
 install it as described [here](https://nim-lang.org/install.html).
 
 
@@ -83,13 +83,13 @@ Nim is a community driven collaborative effort that welcomes all contributions, 
 # Backward compatibility and preview flags
 
 Starting with this release, we've introduced preview flags of the form `-d:nimPreviewX`
-(e.g. `-d:nimPreviewFloatRoundtrip`); they allow users to opt-in a new stdlib/compiler behavior
-that will likely become default in the next or a future release.
+(e.g. `-d:nimPreviewFloatRoundtrip`), which allow users to opt-in to new stdlib/compiler behavior
+that will likely become the default in the next or a future release.
 These staging flags are aimed at minimizing backward compatibility issues.
 
 We also introduced opt-out flags of the form `-d:nimLegacyX`,  e.g. `-d:nimLegacyCopyFile`,
-for cases where the default was changed to the new behavior,
-and an explicit opt-out is needed for some transition period.
+for cases where the default was changed to the new behavior.
+For a transition period, these flags can be used to get the old behaviour.
 
 # Major new features
 With so many new features, pinpointing the most salient ones is a subjective exercise,
@@ -98,7 +98,7 @@ but here are a select few:
 
 ## Strict effects
 The effect system was refined and there is a new `.effectsOf` annotation that does
-explicitly what was previously done implicitly. See [manual](https://nim-lang.github.io/Nim/manual.html#effect-system-effectsof-annotation) for details.
+explicitly what was previously done implicitly. See the [manual](https://nim-lang.github.io/Nim/manual.html#effect-system-effectsof-annotation) for more details.
 To write code that is portable with older Nim versions, use this idiom:
 
 ```nim
@@ -110,11 +110,11 @@ else:
 proc mysort(s: seq; cmp: proc(a, b: T): int) {.effectsOf: cmp.}
 ```
 
-To enable the new effect system, use --experimental:strictEffects. See [#18777](https://github.com/nim-lang/Nim/pull/18777) and RFC [#408](https://github.com/nim-lang/RFCs/issues/408).
+To enable the new effect system, compile with `--experimental:strictEffects`. See also [#18777](https://github.com/nim-lang/Nim/pull/18777) and RFC [#408](https://github.com/nim-lang/RFCs/issues/408).
 
 
 ## `iterable[T]`
-Added `iterable[T]` type class to match called iterators, which enables writing:
+The `iterable[T]` type class was added to match called iterators, which enables writing:
 ```nim
 template fn(a: iterable) # or template fn[T](a: iterable[T])
 # instead of:
@@ -182,7 +182,7 @@ echo a # with `-d:nimPreviewFloatRoundtrip`: 9.78, like in python3 (instead of  
 ```
 
 ## New `std/jsbigints` module
-Provides arbitrary precision integers for JS target. See PR [#16409](https://github.com/nim-lang/Nim/pull/16409).
+Provides arbitrary precision integers for the JS target. See PR [#16409](https://github.com/nim-lang/Nim/pull/16409).
 Example:
 ```nim
 import std/jsbigints
@@ -219,9 +219,9 @@ assert readFile(path) == "foo"
 
 
 ## User defined literals
-- Custom numeric literals (e.g. `-128'bignum`) are now supported.
-- The unary minus in `-1` is now part of the integer literal, it is now parsed as a single token.
-  This implies that edge cases like `-128'i8` finally work correctly.
+Custom numeric literals (e.g. `-128'bignum`) are now supported.
+Additionally, the unary minus in `-1` is now part of the integer literal, i.e. it is now parsed as a single token.
+This implies that edge cases like `-128'i8` finally work correctly.
 Example:
 ```nim
 func `'big`*(num: cstring): JsBigInt {.importjs: "BigInt(#)".}
@@ -245,8 +245,8 @@ assert j.?a1.?a2.getInt == 10
 ```
 
 
-## Block arguments now support optional params
-This solves a major pain point for routines accepting block params, see PR #18631 for details:
+## Block arguments now support optional parameters
+This solves a major pain point for routines accepting block parameters, see PR #18631 for details:
 ```nim
 template fn(a = 1, b = 2, body) = discard
 fn(1, 2): # already works
@@ -254,7 +254,7 @@ fn(1, 2): # already works
 fn(a = 1): # now works
   bar
 ```
-ditto with multiple block args via do:
+ditto with multiple block arguments via `do`:
 ```nim
 template fn(a = 1, b = 2, body1, body2) = discard
 fn(a = 1): # now works
@@ -318,7 +318,7 @@ The following modules were added (they are discussed in the rest of the text):
 Compatibility notes:
 - `system.delete` had a most surprising behavior when the index passed to it was out of
   bounds (it would delete the last entry then). Compile with `-d:nimStrictDelete` so
-  that an index error is produced instead. But be aware that your code might depend on
+  that an index error is produced instead. Be aware however that your code might depend on
   this quirky behavior so a review process is required on your part before you can
   use `-d:nimStrictDelete`. To make this review easier, use the `-d:nimAuditDelete`
   switch, it pretends that `system.delete` is deprecated so that it is easier to see
@@ -327,8 +327,8 @@ Compatibility notes:
   `-d:nimStrictDelete` will become the default in upcoming versions.
 - `cuchar` is now deprecated as it aliased `char` where arguably it should have aliased `uint8`.
   Please use `char` or `uint8` instead.
-- `repr` now doesn't insert trailing newline; previous behavior was very inconsistent,
-  see [#16034](https://github.com/nim-lang/Nim/pull/16034). Use `-d:nimLegacyReprWithNewline` for previous behavior. `repr` now also
+- `repr` now doesn't insert trailing newlines; the previous behavior was very inconsistent,
+  see [#16034](https://github.com/nim-lang/Nim/pull/16034). Use `-d:nimLegacyReprWithNewline` for the previous behavior. `repr` now also
   renders ASTs correctly for user defined literals, setters, `do`, etc.
 - Deprecated `any`. See RFC [#281](https://github.com/nim-lang/RFCs/issues/281).
 - The unary slice `..b` was deprecated, use `0..b` instead.
@@ -345,8 +345,8 @@ Compatibility notes:
 - Added `frexp` overload procs. Deprecated `c_frexp`, use `frexp` instead.
 
 Compatibility notes:
-- `math.round` now is rounded "away from zero" in JS backend which is consistent
-  with other backends. See [#9125](https://github.com/nim-lang/Nim/pull/9125). Use `-d:nimLegacyJsRound` for previous behavior.
+- `math.round` now rounds "away from zero" in the JS backend, which is consistent
+  with other backends. See [#9125](https://github.com/nim-lang/Nim/pull/9125). Use `-d:nimLegacyJsRound` for the previous behavior.
 
 
 ## Random number generators: `std/random`, `std/sysrand`, `std/oids`
@@ -354,7 +354,7 @@ Compatibility notes:
   Useful for library authors.
 - Added `initRand()` overload with no argument which uses the current time as a seed.
 - `initRand(seed)` now allows `seed == 0`.
-- Added `std/sysrand` module to get random numbers from a secure source
+- Added `std/sysrand` module to get random numbers from a secure source.
 - Fixed overflow bugs.
 - Fix `initRand` to avoid random number sequences overlapping, refs [#18744](https://github.com/nim-lang/Nim/pull/18744).
 - `std/oids` now uses `std/random`.
@@ -405,7 +405,7 @@ Compatibility notes:
 - Fixed buffer overflow bugs in `std/net`.
 - Exported `sslHandle` from `std/net` and `std/asyncnet`.
 - Added `hasDataBuffered` to `std/asyncnet`.
-- various functions in `std/httpclient` now accept `url` of type `Uri`. Moreover `request` function's
+- Various functions in `std/httpclient` now accept `url` of type `Uri`. Moreover `request` function's
   `httpMethod` argument of type `string` was deprecated in favor of `HttpMethod` `enum` type; see [#15919](https://github.com/nim-lang/Nim/pull/15919).
 - Added `asyncdispatch.activeDescriptors` that returns the number of currently
   active async event handles/file descriptors.
@@ -416,17 +416,16 @@ Compatibility notes:
 - Added `htmlgen.portal` for [making "SPA style" pages using HTML only](https://web.dev/hands-on-portals).
 
 Compatibility notes:
-- On Windows the SSL library now checks for valid certificates.
+- On Windows, the SSL library now checks for valid certificates.
   It uses the `cacert.pem` file for this purpose which was extracted
   from `https://curl.se/ca/cacert.pem`. Besides
-  the OpenSSL DLLs (e.g. libssl-1_1-x64.dll, libcrypto-1_1-x64.dll) you
+  the OpenSSL DLLs (e.g. `libssl-1_1-x64.dll`, `libcrypto-1_1-x64.dll`) you
   now also need to ship `cacert.pem` with your `.exe` file.
 
 
 ## `std/hashes`
 - `hashes.hash` can now support `object` and `ref` (can be overloaded in user code),
   if `-d:nimEnableHashRef` is used.
-
 - `hashes.hash(proc|ptr|ref|pointer)` now calls `hash(int)` and honors `-d:nimIntHash1`,
   `hashes.hash(closure)` has also been improved.
 
@@ -449,7 +448,7 @@ Compatibility notes:
   (instead of skipping them sometimes as it was before).
 - Added optional `followSymlinks` argument to `setFilePermissions`.
 - Added a simpler to use `io.readChars` overload.
-- Added `socketstream` module that wraps sockets in the stream interface
+- Added `socketstream` module that wraps sockets in the stream interface.
 - Added experimental `linenoise.readLineStatus` to get line and status (e.g. ctrl-D or ctrl-C).
 
 
@@ -461,7 +460,7 @@ Compatibility notes:
 - NodeJS backend now supports osenv: `getEnv`, `putEnv`, `envPairs`, `delEnv`, `existsEnv`.
 
 Compatibility notes:
-- `std/os`: `putEnv` now raises if the 1st argument contains a `=`
+- `std/os`: `putEnv` now raises if the 1st argument contains a `=`.
 
 
 ## POSIX
@@ -475,7 +474,7 @@ Compatibility notes:
   for previous behavior.
 - Added `posix_utils.osReleaseFile` to get system identification from `os-release` file on Linux and the BSDs.
   https://www.freedesktop.org/software/systemd/man/os-release.html
-- Remove undefined behavior for `posix.open`
+- Remove undefined behavior for `posix.open`.
 
 
 ## `std/prelude`
@@ -486,19 +485,19 @@ Compatibility notes:
 
 
 ## String manipulation: `std/strformat`, `std/strbasics`
-- added support for parenthesized expressions.
-- added support for const string's instead of just string literals
+- Added support for parenthesized expressions.
+- Added support for const string's instead of just string literals
 
 - Added `std/strbasics` for high performance string operations.
-  Added `strip`, `setSlice`, `add(a: var string, b: openArray[char])`.
+- Added `strip`, `setSlice`, `add(a: var string, b: openArray[char])`.
 
 
 ## `std/wrapnils`
 - `std/wrapnils` doesn't use `experimental:dotOperators` anymore, avoiding
   issues like bug [#13063](https://github.com/nim-lang/Nim/issues/13063) (which affected error messages)
   for modules importing `std/wrapnils`.
-  Added `??.` macro which returns an `Option`.
-  `std/wrapnils` can now be used to protect against `FieldDefect` errors in
+- Added `??.` macro which returns an `Option`.
+- `std/wrapnils` can now be used to protect against `FieldDefect` errors in
   case objects, generates optimal code (no overhead compared to manual
   if-else branches), and preserves lvalue semantics which allows modifying
   an expression.
@@ -516,7 +515,7 @@ Compatibility notes:
   its argument, `addMoved`, is also supplied. 
   See PR [#16362](https://github.com/nim-lang/Nim/pull/16362), [#16536](https://github.com/nim-lang/Nim/pull/16536).
 
-- new module: `std/packedsets`
+- New module: `std/packedsets`
   Generalizes `std/intsets`, see PR [#15564](https://github.com/nim-lang/Nim/pull/15564).
 
 Compatibility notes:
@@ -536,7 +535,7 @@ Compatibility notes:
 ## `std/macros` and AST
 - New module `std/genasts` containing `genAst` that avoids the problems inherent with `quote do` and can
   be used as a replacement.
-  use `-d:nimLegacyMacrosCollapseSymChoice` to get previous behavior.
+  Use `-d:nimLegacyMacrosCollapseSymChoice` to get the previous behavior.
 
 - The required name of case statement macros for the experimental
   `caseStmtMacros` feature has changed from `match` to `` `case` ``.
