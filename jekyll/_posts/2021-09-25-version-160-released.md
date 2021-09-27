@@ -877,7 +877,7 @@ func fn*(a: int): int = 42  ## Doc comment
 
 
 # Footnotes
-Evaluated on a 8-core 2019 mac 11.5, 2.3GHz with 64GB RAM.
+Tested on a 2.3 GHz 8-Core Intel Core i9, 2019 macOS 11.5 with 64GB RAM.
 * [1] command used: `nim c -o:/tmp/main -d:danger --eval:'echo "hello world"'`
 * [2] commands used:
   for nim: `nim c --forceBuild compiler/nim`
