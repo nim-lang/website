@@ -187,7 +187,7 @@ Example:
 ```nim
 import std/jsbigints
 assert 2'big ** 65'big == 36893488147419103232'big
-echo 0xdeadbeaf'big shl 4'big # 59774855920n
+echo 0xdeadbeef'big shl 4'big # 59774856944n
 ```
 
 
