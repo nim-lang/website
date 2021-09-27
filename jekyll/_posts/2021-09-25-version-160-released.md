@@ -6,8 +6,7 @@ author: The Nim Team
 Nim version 1.6 is now officially released!
 
 A year in the making, 1.6 is the latest stable release and by far the largest yet.
-We're proud of what we, the core team and dedicated volunteers, have accomplished with this milestone.
-Here are some stats:
+We're proud of what we, the core team and dedicated volunteers, have accomplished with this milestone:
 * 1667 PRs merged (1760 commits)
 * 893 issues closed
 * 15 new stdlib modules
@@ -21,6 +20,22 @@ We hope this release will reinforce this trend, building on Nim's core strengths
 a practical, compiled systems programming language; offering C-like performance and portability;
 Python-like syntax; LISP-like flexibility; strong C, C++, JS, Python interop;
 and best-in class metaprogramming.
+
+Why use Nim?
+* one language to rule them all: write your iOS/android/web frontend and backend in the same language, from a [gameboy kickstarter](https://forum.nim-lang.org/t/8375) to a [blockchain client](https://github.com/status-im).
+* concise and readable like python: `echo "hello world"` is a 1-liner (5 lines in C, C++, go, java).
+* small binaries: `echo "hello world"` generates a 73K binary (go: 2MB, rust: 377K, C++: 56K), thanks to dead code elimination [1].
+* good compile times: a full compiler rebuild takes ~12s (rust: 15mn, gcc: 30mn+, clang: 1hr+, go: 90s) [2].
+* no need for makefiles, cmake, configure or other build scripts, thanks to CTFE and dependency tracking [3]
+* target any platform where there's a C compiler [4], from embedded devices to WASM to nintendo or gameboy
+* 0-overhead interop lets you reuse code in C, C++ (including templates, [C++ STL](https://clonkk.github.io/nim-cppstl/cppstl.html)), JS, Objective-C, python (via [nimpy](https://github.com/yglukhov/nimpy))
+* built-in [documentation generator](https://nim-lang.github.io/Nim/system.html) that understands nim code and runnable examples that stay in sync
+
+Last but not least, `macros` let you manipulate/generate code at compile time instead of relying on code generators, allowing for example to easily write DSLs or extend the language, all in user code:
+  - [karax](https://github.com/karaxnim/karax) for react+JSX-like Single Page Applications
+  - [cligen](https://github.com/c-blake/cligen) for API-inferred command line generator
+  - [std/wrapnils](https://nim-lang.github.io/Nim/wrapnils.html) JS-like optional chaining
+  - [std/strformat](https://nim-lang.github.io/Nim/strformat.html) python-like f-strings
 
 This release includes improvements in the following areas:
 * new language features (`iterable[T]`, user-defined literals, private imports, strict effects, dot-like operators, block arguments with optional parameters)
@@ -859,3 +874,17 @@ func fn*(a: int): int = 42  ## Doc comment
 - Added `-d:nimStrictMode` in CI in several places to ensure code doesn't have certain hints/warnings.
 - Removed `.travis.yml`, `appveyor.yml.disabled`, `.github/workflows/ci.yml.disabled`.
 - `[skip ci]` now works in azure and CI pipelines, see detail in PR [#17561](https://github.com/nim-lang/Nim/pull/17561).
+
+
+# Footnotes
+Evaluated on a 8-core 2019 mac 11.5, 2.3GHz with 64GB RAM.
+* [1] command used: `nim c -o:/tmp/main -d:danger --eval:'echo "hello world"'`
+* [2] commands used:
+  for nim: `nim c --forceBuild compiler/nim`
+  for rust: `./x.py build`, see also https://www.reddit.com/r/rust/comments/76jq7h/long_time_to_compile_rustc/
+  for gcc: see https://unix.stackexchange.com/questions/421822/how-long-does-it-take-to-compile-gcc-7-3-0
+  https://solarianprogrammer.com/2016/10/07/building-gcc-ubuntu-linux/
+  for clang: see https://quuxplusone.github.io/blog/2018/04/16/building-llvm-from-source/
+  for go: `./make.bash`
+* [3] a separate nimscript file can be used if needed to execute code at compile time
+      before compiling the main program but it's in the same language
