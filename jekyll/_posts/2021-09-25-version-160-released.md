@@ -233,12 +233,14 @@ echo 0xdeadbeef'big shl 4'big # 59774856944n
 
 
 ## New `std/sysrand` module
-Cryptographically secure pseudorandom number generator, see PR [#16459](https://github.com/nim-lang/Nim/pull/16459).
+Cryptographically secure pseudorandom number generator,
+allows generating random numbers from a secure source provided by the operating system.
 Example:
 ```nim
 import std/sysrand
 assert urandom(1234) != urandom(1234) # unlikely to fail in practice
 ```
+See PR [#16459](https://github.com/nim-lang/Nim/pull/16459).
 
 
 ## New module: `std/tempfiles`
@@ -392,11 +394,11 @@ Compatibility notes:
 
 
 ## Random number generators: `std/random`, `std/sysrand`, `std/oids`
+- Added `std/sysrand` module (see details above).
 - Added `randState` template that exposes the default random number generator.
   Useful for library authors.
 - Added `initRand()` overload with no argument which uses the current time as a seed.
 - `initRand(seed)` now allows `seed == 0`.
-- Added `std/sysrand` module to get random numbers from a secure source.
 - Fixed overflow bugs.
 - Fix `initRand` to avoid random number sequences overlapping, refs [#18744](https://github.com/nim-lang/Nim/pull/18744).
 - `std/oids` now uses `std/random`.
@@ -406,7 +408,6 @@ Compatibility notes:
 - `random.initRand(seed)` now produces non-skewed values for the 1st call to `rand()` after
   initialization with a small (< 30000) seed. Use `-d:nimLegacyRandomInitRand` to restore
   previous behavior for a transition time, see PR [#17467](https://github.com/nim-lang/Nim/pull/17467).
-  provided by the operating system.
 
 
 ## `std/json`, `std/jsonutils`
