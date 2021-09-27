@@ -160,10 +160,14 @@ It defaults to `e` (nimscript) but can also work with other commands, e.g.:
 ```bash
 find . | nim r --eval:'import strutils; for a in stdin.lines: echo a.toUpper'
 ```
-You can now use nim as a calculator, e.g. `nim --eval:'echo 3.1 / (1.2+7)'`.
-You can also use it to explore a module's APIs, including private symbols:
+
 ```bash
+# use as a calculator:
+nim --eval:'echo 3.1 / (1.2+7)'
+# explore a module's APIs, including private symbols:
 nim --eval:'import os {.all.}; echo weirdTarget'
+# use a custom backend:
+nim r -b:js --eval:"import std/jsbigints; echo 2'big ** 64'big"
 ```
 See PR [#15687](https://github.com/nim-lang/Nim/pull/15687) for more details.
 
