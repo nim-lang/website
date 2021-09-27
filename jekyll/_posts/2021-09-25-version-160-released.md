@@ -11,25 +11,25 @@ Here are some stats:
 * 1667 PRs merged (1760 commits)
 * 893 issues closed
 * 15 new stdlib modules
-* new features in >40 stdlib modules, including major improvements to 10 commonly used modules.
+* new features in more than 40 stdlib modules, including major improvements to 10 commonly used modules.
 * documentation and minor improvements to 170 modules, including 312 new runnable examples
 * 280 new nimble packages
 
 Nim made its first entry in TIOBE index in 2017 at position 129,
-last year it entered the top-100, and in the last 2 months the top-50 (https://forum.nim-lang.org/t/8297).
+last year it entered the top-100, and in the last 2 months the top-50 ([https://forum.nim-lang.org/t/8297](https://forum.nim-lang.org/t/8297)).
 We hope this release will reinforce this trend, building on Nim's core strengths:
 a practical, compiled systems programming language; offering C-like performance and portability;
 Python-like syntax; LISP-like flexibility; strong C, C++, JS, Python interop;
 and best-in class metaprogramming.
 
 This release includes improvements in the following areas:
-* new language features (user defined literals, private imports, strict effects, `iterable[T]`, dot-like operators, block arguments with optional parameters)
+* new language features (user-defined literals, private imports, strict effects, `iterable[T]`, dot-like operators, block arguments with optional parameters)
 * new compiler features (`nim --eval:cmd`, custom nimscript extensions, customizable compiler messages)
 * major improvements to `--gc:arc` and `--gc:orc`
 * correctness and performance of integer and float parsing and rendering in all backends
 * significant improvements in error messages, showing useful context
-* doc generation logic and documentation, in particular `runnableExamples` now works in more contexts and replaces `code-block`.
-* made JS, VM and nimscript backend more consistent with C backend, allowing more modules to work with those backends, including the imports from `std/prelude`; the test suite now standardizes on testing stdlib modules on each major backend (C, JS, VM).
+* documentation generation logic and documentation, in particular `runnableExamples` now works in more contexts
+* JS, VM and nimscript backend are more consistent with C backend, allowing more modules to work with those backends, including the imports from `std/prelude`; the test suite now standardizes on testing stdlib modules on each major backend (C, JS, VM).
 * support for Apple silicon/M1, 32-bit RISC-V, CROSSOS, improved support for NodeJS backend
 * major improvements to the following modules: `system`, `math`, `random`, `json`, `jsonutils`, `os`, `typetraits`, `wrapnils`, `lists`, `hashes` including performance improvements
 * deprecated a number of error prone or redundant mis-features
@@ -120,7 +120,7 @@ template fn(a: iterable) # or template fn[T](a: iterable[T])
 # instead of:
 template fn(a: untyped)
 ```
-This solves a number of long standing issues related to iterators. In particular,
+This solves a number of long-standing issues related to iterators. In particular,
 iterable arguments can now be used with MCS, e.g. `iota(3).toSeq` now works.
 See PR [#17196](https://github.com/nim-lang/Nim/pull/17196) for additional details.
 
@@ -155,7 +155,7 @@ See PR [#17706](https://github.com/nim-lang/Nim/pull/17706) for additional detai
 
 
 ## `nim --eval:cmd`
-Added `nim --eval:cmd` to evaluate a command directly:, e.g.: `nim --eval:"echo 1"`.
+Added `nim --eval:cmd` to evaluate a command directly, e.g.: `nim --eval:"echo 1"`.
 It defaults to `e` (nimscript) but can also work with other commands, e.g.:
 ```bash
 find . | nim r --eval:'import strutils; for a in stdin.lines: echo a.toUpper'
@@ -224,7 +224,7 @@ assert readFile(path) == "foo"
 ```
 
 
-## User defined literals
+## User-defined literals
 Custom numeric literals (e.g. `-128'bignum`) are now supported.
 Additionally, the unary minus in `-1` is now part of the integer literal, i.e. it is now parsed as a single token.
 This implies that edge cases like `-128'i8` finally work correctly.
@@ -252,7 +252,7 @@ assert j.?a1.?a2.getInt == 10
 
 
 ## Block arguments now support optional parameters
-This solves a major pain point for routines accepting block parameters, see PR #18631 for details:
+This solves a major pain point for routines accepting block parameters, see PR [#18631](https://github.com/nim-lang/Nim/pull/18631) for details:
 ```nim
 template fn(a = 1, b = 2, body) = discard
 fn(1, 2): # already works
@@ -378,7 +378,7 @@ Compatibility notes:
   Use `-d:nimLegacyJsonutilsHoleyEnum` for a transition period. `toJson` now serializes `JsonNode`
   as is via reference (without a deep copy) instead of treating `JsonNode` as a regular ref object,
   this can be customized via `jsonNodeMode`.
-- `std/json` and `std/jsonutils` now serialize NaN, Inf, -Inf as strings, so that
+- `std/json` and `std/jsonutils` now serialize `NaN`, `Inf`, `-Inf` as strings, so that
   `%[NaN, -Inf]` is the string `["nan","-inf"]` instead of `[nan,-inf]` which was invalid JSON.
 - `std/json` can now handle integer literals and floating point literals of
   arbitrary length and precision.
@@ -459,7 +459,7 @@ Compatibility notes:
 
 
 ## Environment variable handling
-- empty environment variable values are now supported across OS's and backends
+- empty environment variable values are now supported across OS's and backends.
 - environment variable APIs now work in multithreaded scenarios, by delegating to direct OS calls
   instead of trying to keep track of the environment.
 - `putEnv`, `delEnv` now work at CT.
@@ -480,7 +480,7 @@ Compatibility notes:
   for previous behavior.
 - Added `posix_utils.osReleaseFile` to get system identification from `os-release` file on Linux and the BSDs.
   https://www.freedesktop.org/software/systemd/man/os-release.html
-- Remove undefined behavior for `posix.open`.
+- Removed undefined behavior for `posix.open`.
 
 
 ## `std/prelude`
@@ -492,8 +492,7 @@ Compatibility notes:
 
 ## String manipulation: `std/strformat`, `std/strbasics`
 - Added support for parenthesized expressions.
-- Added support for const string's instead of just string literals
-
+- Added support for const string's instead of just string literals.
 - Added `std/strbasics` for high performance string operations.
 - Added `strip`, `setSlice`, `add(a: var string, b: openArray[char])`.
 
@@ -510,7 +509,7 @@ Compatibility notes:
 
 
 ## Containers: `std/algorithm`, `std/lists`, `std/sequtils`, `std/options`, `std/packedsets`
-- Removed the optional `longestMatch` parameter of the `critbits._WithPrefix` iterators (it never worked reliably)
+- Removed the optional `longestMatch` parameter of the `critbits._WithPrefix` iterators (it never worked reliably).
 - Added `algorithm.merge`.
 - In `std/lists`: renamed `append` to `add` and retained `append` as an alias;
   added `prepend` and `prependMoved` analogously to `add` and `addMoved`;
@@ -520,8 +519,7 @@ Compatibility notes:
   shallow copying; `lists.add` concatenates two lists - an O(1) variation that consumes
   its argument, `addMoved`, is also supplied. 
   See PR [#16362](https://github.com/nim-lang/Nim/pull/16362), [#16536](https://github.com/nim-lang/Nim/pull/16536).
-
-- New module: `std/packedsets`
+- New module: `std/packedsets`.
   Generalizes `std/intsets`, see PR [#15564](https://github.com/nim-lang/Nim/pull/15564).
 
 Compatibility notes:
@@ -542,19 +540,17 @@ Compatibility notes:
 - New module `std/genasts` containing `genAst` that avoids the problems inherent with `quote do` and can
   be used as a replacement.
   Use `-d:nimLegacyMacrosCollapseSymChoice` to get the previous behavior.
-
 - The required name of case statement macros for the experimental
   `caseStmtMacros` feature has changed from `match` to `` `case` ``.
 - Tuple expressions are now parsed consistently as
   `nnkTupleConstr` node. Will affect macros expecting nodes to be of `nnkPar`.
-- In `std/macros`, `treeRepr,lispRepr,astGenRepr` now represent SymChoice nodes in a collapsed way,
-
+- In `std/macros`, `treeRepr,lispRepr,astGenRepr` now represent SymChoice nodes in a collapsed way.
 - Make custom op in `macros.quote` work for all statements.
 
 
 ## `std/sugar`
 - Added `sugar.dumpToString` which improves on `sugar.dump`.
-- Added an overload for the `collect` macro that inferes the container type based
+- Added an overload for the `collect` macro that infers the container type based
   on the syntax of the last expression. Works with std seqs, tables and sets.
 
 Compatibility notes:
@@ -631,7 +627,6 @@ Compatibility notes:
 - The allocator for Nintendo Switch, which was nonfunctional because
   of breaking changes in libnx, was removed, in favour of the new `-d:nimAllocPagesViaMalloc` option.
 - Allow reading parameters when compiling for Nintendo Switch.
-
 - Cross compilation targeting Windows was improved
   This now works from macOS/Linux:
   `nim r -d:mingw main`
@@ -680,6 +675,7 @@ Compatibility notes:
   `.warning[AnyEnumConv]:on` or `--warning:AnyEnumConv:on`.
 
 - Reusing a type name in a different scope now works, refs [#17710](https://github.com/nim-lang/Nim/pull/17710).
+
 - Fixed implicit and explicit generics in procedures, refs [#18808](https://github.com/nim-lang/Nim/pull/18808).
 
 
@@ -748,7 +744,7 @@ Compatibility notes:
 ```
 
 - `nim r` now supports cross compilation from unix to windows when specifying `-d:mingw` by using Wine,
-  e.g.: `nim r --eval:'import os; echo "a" / "b"'` prints `a\b`
+  e.g.: `nim r --eval:'import os; echo "a" / "b"'` prints `a\b`.
 
 - `nim` can compile version 1.4.0 as follows: `nim c --lib:lib --stylecheck:off -d:nimVersion140 compiler/nim`.
   `-d:nimVersion140` is not needed for bootstrapping, only for building 1.4.0 from devel.
@@ -786,31 +782,25 @@ Compatibility notes:
 - docgen: RST files can now use single backticks instead of double backticks and correctly render
   in both `rst2html` (as before) as well as common tools rendering RST directly (e.g. GitHub). This is done by
   adding the `default-role:: code` directive inside the RST file (which is now handled by `rst2html`).
-
 - Source+Edit links now appear on top of every docgen'd page when
   `nim doc --git.url:url ...` is given.
-
 - Latex doc generation is revised: output `.tex` files should be compiled
   by `xelatex` (not by `pdflatex` as before). Now default Latex settings
   provide support for Unicode and do better job for avoiding margin overflows.
-
 - The RST parser now supports footnotes, citations, admonitions, short style references with symbols.
 - The RST parser now supports Markdown table syntax.
   Known limitations:
   - cell alignment is not supported, i.e. alignment annotations in a delimiter
     row (`:---`, `:--:`, `---:`) are ignored,
   - every table row must start with `|`, e.g. `| cell 1 | cell 2 |`.
-
 - Implemented `doc2tex` compiler command which converts documentation in
   `.nim` files to Latex.
-
 - docgen now supports syntax highlighting for inline code.
 - docgen now supports same line doc comments:
 ```nim
 func fn*(a: int): int = 42  ## Doc comment
 ```
 - docgen now renders deprecated and other pragmas.
-
 - `runnableExamples` now works with templates and nested templates.
 - `runnableExamples: "-r:off"` now works for examples that should compile but not run. 
 - `runnableExamples` now renders code verbatim, and produces correct code in all cases.
@@ -830,7 +820,6 @@ func fn*(a: int): int = 42  ## Doc comment
 ](https://github.com/nim-lang/Nim/pull/15612).
 - `fusion` is now un-bundled from Nim, `./koch fusion` will
   install it via Nimble at a fixed hash.
-
 - `testament`: added `nimoutFull: bool` spec to compare full output of compiler
   instead of a subset; many bugfixes to testament.
 
@@ -838,6 +827,6 @@ func fn*(a: int): int = 42  ## Doc comment
 ## Misc/cleanups
 - Deprecated `TaintedString` and `--taintmode`.
 - Deprecated `--nilseqs` which is now a noop.
-- Added `-d:nimStrictMode` in CI in several places to ensure code doesn't have certain hints/warnings
+- Added `-d:nimStrictMode` in CI in several places to ensure code doesn't have certain hints/warnings.
 - Removed `.travis.yml`, `appveyor.yml.disabled`, `.github/workflows/ci.yml.disabled`.
-- `[skip ci]` now works in azure and CI pipelines, see detail in PR [#17561](https://github.com/nim-lang/Nim/pull/17561)
+- `[skip ci]` now works in azure and CI pipelines, see detail in PR [#17561](https://github.com/nim-lang/Nim/pull/17561).
