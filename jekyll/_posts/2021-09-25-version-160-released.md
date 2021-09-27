@@ -186,8 +186,10 @@ Provides arbitrary precision integers for the JS target. See PR [#16409](https:/
 Example:
 ```nim
 import std/jsbigints
-assert big"2" ** big"64" == big"18446744073709551616"
+assert 2'big ** 65'big == 36893488147419103232'big
+echo 2'big ** 65'big # 36893488147419103232n
 ```
+
 
 ## New `std/sysrand` module
 Cryptographically secure pseudorandom number generator, see PR [#16459](https://github.com/nim-lang/Nim/pull/16459).
