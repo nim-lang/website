@@ -91,6 +91,20 @@ We also introduced opt-out flags of the form `-d:nimLegacyX`,  e.g. `-d:nimLegac
 for cases where the default was changed to the new behavior.
 For a transition period, these flags can be used to get the old behaviour.
 
+Here's the list of these flags introduced in this release, refer to the text below for explanations:
+- `-d:nimLegacyCopyFile`
+- `-d:nimLegacyJsRound`
+- `-d:nimLegacyJsonutilsHoleyEnum`
+- `-d:nimLegacyMacrosCollapseSymChoice`
+- `-d:nimLegacyParseQueryStrict`
+- `-d:nimLegacyRandomInitRand`
+- `-d:nimLegacyReprWithNewline`
+- `-d:nimLegacySigpipeHandler`
+- `-d:nimLegacyTypeMismatch`
+- `-d:nimPreviewDotLikeOps`
+- `-d:nimPreviewFloatRoundtrip`
+
+
 # Major new features
 With so many new features, pinpointing the most salient ones is a subjective exercise,
 but here are a select few:
