@@ -352,7 +352,6 @@ Compatibility notes:
   use `-d:nimStrictDelete`. To make this review easier, use the `-d:nimAuditDelete`
   switch, it pretends that `system.delete` is deprecated so that it is easier to see
   where it was used in your code.
-
   `-d:nimStrictDelete` will become the default in upcoming versions.
 - `cuchar` is now deprecated as it aliased `char` where arguably it should have aliased `uint8`.
   Please use `char` or `uint8` instead.
@@ -681,7 +680,6 @@ Compatibility notes:
   via `{.experimental: "overloadableEnums".}`. We hope that this feature allows for the
   development of more fluent (less ugly) APIs. See RFC [#373](https://github.com/nim-lang/RFCs/issues/373).
   for more details.
-
 - A type conversion from one `enum` type to another now produces an `[EnumConv]` warning.
   You should use `ord` (or `cast`, but the compiler won't help, if you misuse it) instead.
   ```
@@ -690,16 +688,12 @@ Compatibility notes:
   echo a1.B # produces a warning
   echo a1.ord.B # produces no warning
   ```
-
 - A dangerous implicit conversion to `cstring` now triggers a `[CStringConv]` warning.
   This warning will become an error in future versions! Use an explicit conversion
   like `cstring(x)` in order to silence the warning.
-
 - There is a new warning for *any* type conversion to `enum` that can be enabled via
   `.warning[AnyEnumConv]:on` or `--warning:AnyEnumConv:on`.
-
 - Reusing a type name in a different scope now works, refs [#17710](https://github.com/nim-lang/Nim/pull/17710).
-
 - Fixed implicit and explicit generics in procedures, refs [#18808](https://github.com/nim-lang/Nim/pull/18808).
 
 
@@ -720,7 +714,6 @@ See PR [#15251](https://github.com/nim-lang/Nim/pull/15251) for details.
   to parser limitations you **cannot** enable this feature via a
   pragma `{.experimental: "unicodeOperators".}` reliably, you need to enable
   it via the command line or in a configuration file.
-
 - `var a {.foo.} = expr` now works inside templates (except when `foo` is overloaded).
 
 
@@ -757,7 +750,6 @@ Compatibility notes:
 - JSON build instructions are now generated in `$nimcache/outFileBasename.json`
   instead of `$nimcache/projectName.json`. This allows avoiding recompiling a given project
   compiled with different options if the output file differs.
-
 - `--usenimcache` (implied by `nim r main`) now generates an output file that includes a hash of
   some of the compilation options, which allows caching generated binaries:
 ```bash
@@ -766,13 +758,10 @@ Compatibility notes:
   nim r main # uses cached binary
   nim r main arg1 arg2 # likewise (runtime arguments are irrelevant)
 ```
-
 - `nim r` now supports cross compilation from unix to windows when specifying `-d:mingw` by using Wine,
   e.g.: `nim r --eval:'import os; echo "a" / "b"'` prints `a\b`.
-
 - `nim` can compile version 1.4.0 as follows: `nim c --lib:lib --stylecheck:off -d:nimVersion140 compiler/nim`.
   `-d:nimVersion140` is not needed for bootstrapping, only for building 1.4.0 from devel.
-
 - `nim e` now accepts arbitrary file extensions for the nimscript file,
   although `.nims` is still the preferred extension in general.
 - The configuration subsystem now allows for `-d:release` and `-d:danger` to work as expected.
@@ -831,13 +820,14 @@ func fn*(a: int): int = 42  ## Doc comment
 - docgen now shows correct, canonical import paths in docs.
 - docgen now shows all routines in sidebar, and the proc signature is now shown in sidebar.
 
+
 ## Effects and checks
 - Significant improvement to error messages involving effect mismatches
-
 - There is a new `cast` section `{.cast(uncheckedAssign).}: body` that disables some
   compiler checks regarding `case objects`. This allows serialization libraries
   to avoid ugly, non-portable solutions. See RFC [#407](https://github.com/nim-lang/RFCs/issues/407).
   for more details.
+
 
 ## Tools
 - Major improvements to `nimgrep`, see PR [#15612
