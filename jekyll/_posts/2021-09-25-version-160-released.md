@@ -27,7 +27,7 @@ Why use Nim?
 * small binaries: `echo "hello world"` generates a 73K binary (go: 2MB, rust: 377K, C++: 56K), thanks to dead code elimination [1].
 * good compile times: a full compiler rebuild takes ~12s (rust: 15mn, gcc: 30mn+, clang: 1hr+, go: 90s) [2].
 * no need for makefiles, cmake, configure or other build scripts, thanks to CTFE and dependency tracking [3]
-* target any platform where there's a C compiler [4], from embedded devices to WASM to nintendo or gameboy
+* target any platform with a C compiler: [embedded systems](https://github.com/elcritch/nesper), [micro-controllers](https://forum.nim-lang.org/t/7731), [WASM](https://forum.nim-lang.org/t/4779), nintendo switch or [gameboy](https://www.kickstarter.com/projects/penguinrik/goodboy-galaxy-exploration-platform-game-gba-pc-and-switch)
 * 0-overhead interop lets you reuse code in C, C++ (including templates, [C++ STL](https://clonkk.github.io/nim-cppstl/cppstl.html)), JS, Objective-C, python (via [nimpy](https://github.com/yglukhov/nimpy))
 * built-in [documentation generator](https://nim-lang.github.io/Nim/system.html) that understands nim code and runnable examples that stay in sync
 
