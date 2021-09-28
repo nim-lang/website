@@ -886,6 +886,6 @@ Tested on a 2.3 GHz 8-Core Intel Core i9, 2019 macOS 11.5 with 64GB RAM.
   for GCC: see https://unix.stackexchange.com/questions/421822/how-long-does-it-take-to-compile-gcc-7-3-0
   https://solarianprogrammer.com/2016/10/07/building-gcc-ubuntu-linux/
   for Clang: see https://quuxplusone.github.io/blog/2018/04/16/building-llvm-from-source/
-  for go: `./make.bash`
+  for Go: `./make.bash`
 * [3] a separate nimscript file can be used if needed to execute code at compile time
       before compiling the main program but it's in the same language
