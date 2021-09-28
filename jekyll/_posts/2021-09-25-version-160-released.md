@@ -25,7 +25,8 @@ Why use Nim?
 * one language to rule them all: write your iOS/android/web frontend and backend in the same language, from a [gameboy kickstarter](https://forum.nim-lang.org/t/8375) to a [blockchain client](https://github.com/status-im).
 * concise and readable like python: `echo "hello world"` is a 1-liner (5 lines in C, C++, go, java).
 * small binaries: `echo "hello world"` generates a 73K binary (go: 2MB, rust: 377K, C++: 56K), thanks to dead code elimination [1].
-* good compile times: a full compiler rebuild takes ~12s (rust: 15mn, gcc: 30mn+, clang: 1hr+, go: 90s) [2].
+* fast compile times: a full compiler rebuild takes ~12s (rust: 15mn, gcc: 30mn+, clang: 1hr+, go: 90s) [2].
+* C-like performance: see [Web Frameworks Benchmark](https://web-frameworks-benchmark.netlify.app/result), [ray tracing](https://nim-lang.org/blog/2020/06/30/ray-tracing-in-nim.html)
 * no need for makefiles, cmake, configure or other build scripts, thanks to CTFE and dependency tracking [3]
 * target any platform with a C compiler: [embedded systems](https://github.com/elcritch/nesper), [micro-controllers](https://forum.nim-lang.org/t/7731), [WASM](https://forum.nim-lang.org/t/4779), nintendo switch or [gameboy](https://www.kickstarter.com/projects/penguinrik/goodboy-galaxy-exploration-platform-game-gba-pc-and-switch)
 * 0-overhead interop lets you reuse code in C, C++ (including templates, [C++ STL](https://clonkk.github.io/nim-cppstl/cppstl.html)), JS, Objective-C, python (via [nimpy](https://github.com/yglukhov/nimpy))
