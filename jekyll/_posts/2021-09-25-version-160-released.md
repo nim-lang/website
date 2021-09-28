@@ -881,8 +881,8 @@ func fn*(a: int): int = 42  ## Doc comment
 Tested on a 2.3 GHz 8-Core Intel Core i9, 2019 macOS 11.5 with 64GB RAM.
 * [1] command used: `nim c -o:/tmp/main -d:danger --eval:'echo "hello world"'`
 * [2] commands used:
-  for nim: `nim c --forceBuild compiler/nim`
-  for rust: `./x.py build`, see also https://www.reddit.com/r/rust/comments/76jq7h/long_time_to_compile_rustc/
+  for Nim: `nim c --forceBuild compiler/nim`
+  for Rust: `./x.py build`, see also https://www.reddit.com/r/rust/comments/76jq7h/long_time_to_compile_rustc/
   for GCC: see https://unix.stackexchange.com/questions/421822/how-long-does-it-take-to-compile-gcc-7-3-0
   https://solarianprogrammer.com/2016/10/07/building-gcc-ubuntu-linux/
   for Clang: see https://quuxplusone.github.io/blog/2018/04/16/building-llvm-from-source/
