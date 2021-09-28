@@ -18,25 +18,25 @@ Nim made its first entry in TIOBE index in 2017 at position 129,
 last year it entered the top-100, and in the last 2 months the top-50 ([https://forum.nim-lang.org/t/8297](https://forum.nim-lang.org/t/8297)).
 We hope this release will reinforce this trend, building on Nim's core strengths:
 a practical, compiled systems programming language; offering C-like performance and portability;
-Python-like syntax; LISP-like flexibility; strong C, C++, JS, Python interop;
+Python-like syntax; Lisp-like flexibility; strong C, C++, JS, Python interop;
 and best-in class metaprogramming.
 
 Why use Nim?
-* one language to rule them all: write your iOS/android/web frontend and backend in the same language, from a [gameboy kickstarter](https://forum.nim-lang.org/t/8375) to a [blockchain client](https://github.com/status-im).
-* concise and readable like python: `echo "hello world"` is a 1-liner (5 lines in C, C++, go, java).
-* small binaries: `echo "hello world"` generates a 73K binary (go: 2MB, rust: 377K, C++: 56K), thanks to dead code elimination [1].
-* fast compile times: a full compiler rebuild takes ~12s (rust: 15mn, gcc: 30mn+, clang: 1hr+, go: 90s) [2].
+* one language to rule them all: write your iOS/Android/web frontend and backend in the same language, from a [Gameboy kickstarter](https://forum.nim-lang.org/t/8375) to a [blockchain client](https://github.com/status-im).
+* concise and readable like Python: `echo "hello world"` is a 1-liner (5 lines in C, C++, Go, Java).
+* small binaries: `echo "hello world"` generates a 73K binary (Go: 2MB, Rust: 377K, C++: 56K) [1].
+* fast compile times: a full compiler rebuild takes ~12s (Rust: 15min, gcc: 30min+, clang: 1hr+, Go: 90s) [2].
 * C-like performance: see [Web Frameworks Benchmark](https://web-frameworks-benchmark.netlify.app/result), [ray tracing](https://nim-lang.org/blog/2020/06/30/ray-tracing-in-nim.html), [primes](https://github.com/PlummersSoftwareLLC/Primes)
 * no need for makefiles, cmake, configure or other build scripts, thanks to CTFE and dependency tracking [3]
-* target any platform with a C compiler: [embedded systems](https://github.com/elcritch/nesper), [micro-controllers](https://forum.nim-lang.org/t/7731), [WASM](https://forum.nim-lang.org/t/4779), nintendo switch or [gameboy](https://www.kickstarter.com/projects/penguinrik/goodboy-galaxy-exploration-platform-game-gba-pc-and-switch)
-* 0-overhead interop lets you reuse code in C, C++ (including templates, [C++ STL](https://clonkk.github.io/nim-cppstl/cppstl.html)), JS, Objective-C, python (via [nimpy](https://github.com/yglukhov/nimpy))
-* built-in [documentation generator](https://nim-lang.github.io/Nim/system.html) that understands nim code and runnable examples that stay in sync
+* target any platform with a C compiler: [embedded systems](https://github.com/elcritch/nesper), [micro-controllers](https://forum.nim-lang.org/t/7731), [WASM](https://forum.nim-lang.org/t/4779), Nintendo Switch or [Gameboy](https://www.kickstarter.com/projects/penguinrik/goodboy-galaxy-exploration-platform-game-gba-pc-and-switch)
+* 0-overhead interop lets you reuse code in C, C++ (including templates, [C++ STL](https://clonkk.github.io/nim-cppstl/cppstl.html)), JS, Objective-C, Python (via [nimpy](https://github.com/yglukhov/nimpy))
+* built-in [documentation generator](https://nim-lang.github.io/Nim/system.html) that understands Nim code and runnable examples that stay in sync
 
-Last but not least, `macros` let you manipulate/generate code at compile time instead of relying on code generators, allowing for example to easily write DSLs or extend the language, all in user code:
+Last but not least, macros let you manipulate/generate code at compile time instead of relying on code generators, allowing for example to easily write DSLs or extend the language, all in user code:
   - [karax](https://github.com/karaxnim/karax) for react+JSX-like Single Page Applications
   - [cligen](https://github.com/c-blake/cligen) for API-inferred command line generator
   - [std/wrapnils](https://nim-lang.github.io/Nim/wrapnils.html) JS-like optional chaining
-  - [std/strformat](https://nim-lang.github.io/Nim/strformat.html) python-like f-strings
+  - [std/strformat](https://nim-lang.github.io/Nim/strformat.html) Python-like f-strings
 
 This release includes improvements in the following areas:
 * new language features (`iterable[T]`, user-defined literals, private imports, strict effects, dot-like operators, block arguments with optional parameters)
@@ -713,7 +713,7 @@ Compatibility notes:
   for more details.
 - A type conversion from one `enum` type to another now produces an `[EnumConv]` warning.
   You should use `ord` (or `cast`, but the compiler won't help, if you misuse it) instead.
-  ```
+  ```nim
   type A = enum a1, a2
   type B = enum b1, b2
   echo a1.B # produces a warning
@@ -883,9 +883,9 @@ Tested on a 2.3 GHz 8-Core Intel Core i9, 2019 macOS 11.5 with 64GB RAM.
 * [2] commands used:
   for nim: `nim c --forceBuild compiler/nim`
   for rust: `./x.py build`, see also https://www.reddit.com/r/rust/comments/76jq7h/long_time_to_compile_rustc/
-  for gcc: see https://unix.stackexchange.com/questions/421822/how-long-does-it-take-to-compile-gcc-7-3-0
+  for GCC: see https://unix.stackexchange.com/questions/421822/how-long-does-it-take-to-compile-gcc-7-3-0
   https://solarianprogrammer.com/2016/10/07/building-gcc-ubuntu-linux/
-  for clang: see https://quuxplusone.github.io/blog/2018/04/16/building-llvm-from-source/
+  for Clang: see https://quuxplusone.github.io/blog/2018/04/16/building-llvm-from-source/
   for go: `./make.bash`
 * [3] a separate nimscript file can be used if needed to execute code at compile time
       before compiling the main program but it's in the same language
