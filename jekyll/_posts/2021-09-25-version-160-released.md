@@ -28,7 +28,7 @@ Why use Nim?
 * fast compile times: a full compiler rebuild takes ~12s (Rust: 15min, gcc: 30min+, clang: 1hr+, Go: 90s) [2].
 * C-like performance: see [Web Frameworks Benchmark](https://web-frameworks-benchmark.netlify.app/result), [ray tracing](https://nim-lang.org/blog/2020/06/30/ray-tracing-in-nim.html), [primes](https://github.com/PlummersSoftwareLLC/Primes)
 * no need for makefiles, cmake, configure or other build scripts, thanks to CTFE and dependency tracking [3]
-* target any platform with a C compiler: [embedded systems](https://github.com/elcritch/nesper), [micro-controllers](https://forum.nim-lang.org/t/7731), [WASM](https://forum.nim-lang.org/t/4779), Nintendo Switch or [Gameboy](https://www.kickstarter.com/projects/penguinrik/goodboy-galaxy-exploration-platform-game-gba-pc-and-switch)
+* target any platform with a C compiler: [embedded systems](https://github.com/elcritch/nesper), [micro-controllers](https://forum.nim-lang.org/t/7731), [WASM](https://forum.nim-lang.org/t/4779), Nintendo Switch or [Game Boy Advance](https://forum.nim-lang.org/t/8375)
 * zero-overhead interop lets you reuse code in C, C++ (including templates, [C++ STL](https://clonkk.github.io/nim-cppstl/cppstl.html)), JS, Objective-C, Python (via [nimpy](https://github.com/yglukhov/nimpy))
 * built-in [documentation generator](https://nim-lang.github.io/Nim/system.html) that understands Nim code and runnable examples that stay in sync
 
