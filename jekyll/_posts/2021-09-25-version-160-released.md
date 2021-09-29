@@ -253,21 +253,6 @@ echo 0xdeadbeef'big shl 4'big # 59774856944n
 ```
 
 
-## New `std/jsfetch` module
-Provides a wrapper for JS Fetch API.
-Example:
-```nim
-# requires -d:nimExperimentalAsyncjsThen
-import std/[jsfetch, asyncjs, jsconsole, jsffi, sugar]
-proc fn {.async.} =
-  await fetch("https://api.github.com/users/torvalds".cstring)
-    .then((response: Response) => response.json())
-    .then((json: JsObject) => console.log(json))
-    .catch((err: Error) => console.log("Request Failed", err))
-discard fn()
-```
-
-
 ## New `std/sysrand` module
 Cryptographically secure pseudorandom number generator,
 allows generating random numbers from a secure source provided by the operating system.
@@ -368,6 +353,37 @@ The following modules were added (they are discussed in the rest of the text):
 - Deprecated `std/mersenne`.
 - Removed deprecated `std/iup` module from stdlib; it has already moved to
   [nimble](https://github.com/nim-lang/iup).
+
+
+## New `std/jsfetch` module
+Provides a wrapper for JS Fetch API.
+Example:
+```nim
+# requires -d:nimExperimentalAsyncjsThen
+import std/[jsfetch, asyncjs, jsconsole, jsffi, sugar]
+proc fn {.async.} =
+  await fetch("https://api.github.com/users/torvalds".cstring)
+    .then((response: Response) => response.json())
+    .then((json: JsObject) => console.log(json))
+    .catch((err: Error) => console.log("Request Failed", err))
+discard fn()
+```
+
+
+## New `std/tasks` module
+Provides basic primitives for creating parallel programs.
+Example:
+```nim
+import std/tasks
+var num = 0
+proc hello(a: int) = num+=a
+
+let b = toTask hello(13) # arguments must be isolated, see `std/isolation`
+b.invoke()
+assert num == 13
+b.invoke() # can be called again
+assert num == 26
+```
 
 
 ## New module: `std/setutils`
@@ -827,7 +843,7 @@ Compatibility notes:
 - TLS: macOS now uses native TLS (`--tlsEmulation:off`). TLS now works with `importcpp` non-POD types;
   such types must use `.cppNonPod` and `--tlsEmulation:off`should be used.
 - Added `unsafeIsolate` and `extract` to `std/isolation`.
-- Added `std/tasks`, a new module containing primitives for creating parallel programs.
+- Added `std/tasks`, see description above.
 
 
 ## Memory management
