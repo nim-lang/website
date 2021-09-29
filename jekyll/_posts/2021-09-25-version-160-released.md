@@ -386,6 +386,25 @@ assert num == 26
 ```
 
 
+## New module: `std/genasts`
+Provides an API `genAst` that avoids the problems inherent with `quote do` and can
+be used as a replacement.
+Example showing how this could be used for writing a simplified version of `unittest.check`:
+```nim
+import std/[genasts, macros, strutils]
+macro check2(cond: bool): untyped =
+  assert cond.kind == nnkInfix, "$# not implemented" % $cond.kind
+  result = genAst(cond, s = repr(cond), lhs = cond[1], rhs = cond[2]):
+    # each local symbol we access must be explicitly captured
+    if not cond:
+      doAssert false, "'$#'' failed: lhs: '$#', rhs: '$#'" % [s, $lhs, $rhs]
+let a = 3
+check2 a*2 == a+3
+if false: check2 a*2 < a+1 # would error with: 'a * 2 < a + 1'' failed: lhs: '6', rhs: '4'
+```
+See PR [#17426](https://github.com/nim-lang/Nim/pull/17426) for details.
+
+
 ## New module: `std/setutils`
 - Added `setutils.toSet` that can take any iterable and convert it to a built-in `set`,
   if the iterable yields a built-in settable type.
@@ -626,14 +645,13 @@ Compatibility notes:
 
 
 ## `std/macros` and AST
-- New module `std/genasts` containing `genAst` that avoids the problems inherent with `quote do` and can
-  be used as a replacement.
-  Use `-d:nimLegacyMacrosCollapseSymChoice` to get the previous behavior.
+- New module `std/genasts`, see description above.
 - The required name of case statement macros for the experimental
   `caseStmtMacros` feature has changed from `match` to `` `case` ``.
 - Tuple expressions are now parsed consistently as
   `nnkTupleConstr` node. Will affect macros expecting nodes to be of `nnkPar`.
 - In `std/macros`, `treeRepr,lispRepr,astGenRepr` now represent SymChoice nodes in a collapsed way.
+  Use `-d:nimLegacyMacrosCollapseSymChoice` to get the previous behavior.
 - Made custom op in `macros.quote` work for all statements.
 
 
