@@ -774,7 +774,7 @@ and RFC [#168](https://github.com/nim-lang/RFCs/issues/168) for details.
 - `typedesc[Foo]` now renders as such instead of `type Foo` in compiler messages.
 - `runnableExamples` now show originating location in stacktraces on failure.
 - `SuccessX` message now shows more useful information.
-- New `DuplicateModuleImport` warning, improved `UnusedImport` and `XDeclaredButNotUsed` accuracy.
+- New `DuplicateModuleImport` warning; improved `UnusedImport` and `XDeclaredButNotUsed` accuracy.
 
 Compatibility notes:
 - `--hint:CC` now prints to stderr (like all other hints) instead of stdout.
