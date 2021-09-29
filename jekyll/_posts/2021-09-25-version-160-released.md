@@ -24,7 +24,7 @@ and best-in-class metaprogramming.
 Why use Nim?
 * one language to rule them all: from [shell scripting](https://nim-lang.org/docs/nims.html) to [web frontend and backend](https://github.com/nim-lang/nimforum), [scientific computing](https://github.com/SciNim), [machine learning](https://github.com/mratsim/Arraymancer), [blockchain client](https://github.com/status-im), [gamedev](https://github.com/ftsf/nico), [embedded](https://github.com/EmbeddedNim).
 * concise and readable like Python: `echo "hello world"` is a 1-liner (5 lines in C, C++, Go, Java).
-* small binaries: `echo "hello world"` generates a 73K binary (Go: 2MB, Rust: 377K, C++: 56K) [1].
+* small binaries: `echo "hello world"` generates a 73K binary (or 5K with further options) (Go: 2MB, Rust: 377K, C++: 56K) [1].
 * fast compile times: a full compiler rebuild takes ~12s (Rust: 15min, gcc: 30min+, clang: 1hr+, Go: 90s) [2].
 * C-like performance: see [Web Frameworks Benchmark](https://web-frameworks-benchmark.netlify.app/result), [ray tracing](https://nim-lang.org/blog/2020/06/30/ray-tracing-in-nim.html), [primes](https://github.com/PlummersSoftwareLLC/Primes)
 * no need for makefiles, cmake, configure or other build scripts, thanks to CTFE and dependency tracking [3]
@@ -882,7 +882,9 @@ func fn*(a: int): int = 42  ## Doc comment
 
 # Footnotes
 Tested on a 2.3 GHz 8-Core Intel Core i9, 2019 macOS 11.5 with 64GB RAM.
-* [1] command used: `nim c -o:/tmp/main -d:danger --eval:'echo "hello world"'`
+* [1] command used: `nim c -o:/tmp/main -d:danger --eval:'echo "hello world"'`.
+  The binary size can be further reduced to 49K with stripping `--passL:-s` and link-time optimization (`--passC:-flto`).
+  Statically linking against `musl` brings it down to 5K, see https://irclogs.nim-lang.org/07-07-2020.html#12:31:34.
 * [2] commands used:
   for Nim: `nim c --forceBuild compiler/nim`
   for Rust: `./x.py build`, see also https://www.reddit.com/r/rust/comments/76jq7h/long_time_to_compile_rustc/
