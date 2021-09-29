@@ -570,8 +570,8 @@ Compatibility notes:
 - Empty environment variable values are now supported across OS's and backends.
 - Environment variable APIs now work in multithreaded scenarios, by delegating to direct OS calls
   instead of trying to keep track of the environment.
-- `putEnv`, `delEnv` now work at CT.
-- NodeJS backend now supports osenv: `getEnv`, `putEnv`, `envPairs`, `delEnv`, `existsEnv`.
+- NodeJS backend now supports `osenv`: `getEnv`, `putEnv`, `envPairs`, `delEnv`, `existsEnv`.
+- `osenv` now works in all backends (c,cpp,vm,nims,js with -d:nodejs), see PR [#18615](https://github.com/nim-lang/Nim/pull/18615).
 
 Compatibility notes:
 - `std/os`: `putEnv` now raises if the first argument contains a `=`.
