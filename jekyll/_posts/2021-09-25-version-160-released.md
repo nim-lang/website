@@ -22,13 +22,15 @@ Python-like syntax; Lisp-like flexibility; strong C, C++, JS, Python interop;
 and best-in-class metaprogramming.
 
 Why use Nim?
-* one language to rule them all: from [shell scripting](https://nim-lang.org/docs/nims.html) to [web frontend and backend](https://github.com/nim-lang/nimforum), [scientific computing](https://github.com/SciNim), [machine learning](https://github.com/mratsim/Arraymancer), [blockchain client](https://github.com/status-im), [gamedev](https://github.com/ftsf/nico), [embedded](https://github.com/EmbeddedNim).
+* one language to rule them all: from [shell scripting](https://nim-lang.org/docs/nims.html) to [web frontend and backend](https://github.com/nim-lang/nimforum), [scientific computing](https://github.com/SciNim), [deep learning](https://github.com/mratsim/Arraymancer), [blockchain client](https://github.com/status-im), [gamedev](https://github.com/ftsf/nico), [embedded](https://github.com/EmbeddedNim).
 * concise and readable like Python: `echo "hello world"` is a 1-liner (5 lines in C, C++, Go, Java).
 * small binaries: `echo "hello world"` generates a 73K binary (or 5K with further options) (Go: 2MB, Rust: 377K, C++: 56K) [1].
 * fast compile times: a full compiler rebuild takes ~12s (Rust: 15min, gcc: 30min+, clang: 1hr+, Go: 90s) [2].
 * C-like performance: see [Web Frameworks Benchmark](https://web-frameworks-benchmark.netlify.app/result), [ray tracing](https://nim-lang.org/blog/2020/06/30/ray-tracing-in-nim.html), [primes](https://github.com/PlummersSoftwareLLC/Primes)
 * no need for makefiles, cmake, configure or other build scripts, thanks to CTFE and dependency tracking [3]
-* target any platform with a C compiler: [embedded systems](https://github.com/elcritch/nesper), [micro-controllers](https://forum.nim-lang.org/t/7731), [WASM](https://forum.nim-lang.org/t/4779), Nintendo Switch or [Game Boy Advance](https://forum.nim-lang.org/t/8375)
+* target any platform with a C compiler: [Android and iOS](https://github.com/pragmagic/godot-nim#made-with-godot-nim),
+  [embedded systems](https://github.com/elcritch/nesper), [micro-controllers](https://forum.nim-lang.org/t/7731),
+  [WASM](https://forum.nim-lang.org/t/4779), Nintendo Switch, [Game Boy Advance](https://forum.nim-lang.org/t/8375).
 * zero-overhead interop lets you reuse code in C, C++ (including templates, [C++ STL](https://clonkk.github.io/nim-cppstl/cppstl.html)), JS, Objective-C, Python (via [nimpy](https://github.com/yglukhov/nimpy))
 * built-in [documentation generator](https://nim-lang.github.io/Nim/system.html) that understands Nim code and runnable examples that stay in sync
 
