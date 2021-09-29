@@ -19,7 +19,7 @@ last year it entered the top-100, and in the last 2 months the top-50 ([https://
 We hope this release will reinforce this trend, building on Nim's core strengths:
 a practical, compiled systems programming language; offering C-like performance and portability;
 Python-like syntax; Lisp-like flexibility; strong C, C++, JS, Python interop;
-and best-in class metaprogramming.
+and best-in-class metaprogramming.
 
 Why use Nim?
 * one language to rule them all: from [shell scripting](https://nim-lang.org/docs/nims.html) to [web frontend and backend](https://github.com/nim-lang/nimforum), [scientific computing](https://github.com/SciNim), [machine learning](https://github.com/mratsim/Arraymancer), [blockchain client](https://github.com/status-im), [gamedev](https://github.com/ftsf/nico), [embedded](https://github.com/EmbeddedNim).
@@ -92,7 +92,7 @@ in fact all the existing CI pipelines have been refactored to use this, see
 
 # Contributors to Nim 1.6
 
-Many thanks to our recurring and new [contributors](https://github.com/nim-lang/Nim/graphs/contributors?from=2020-10-16&to=2021-09-25&type=c),
+Many thanks to our recurring and new [contributors](https://github.com/nim-lang/Nim/graphs/contributors?from=2020-10-16&to=2021-09-25&type=c).
 Nim is a community driven collaborative effort that welcomes all contributions, big or small.
 
 
@@ -101,11 +101,11 @@ Nim is a community driven collaborative effort that welcomes all contributions, 
 Starting with this release, we've introduced preview flags of the form `-d:nimPreviewX`
 (e.g. `-d:nimPreviewFloatRoundtrip`), which allow users to opt-in to new stdlib/compiler behavior
 that will likely become the default in the next or a future release.
-These staging flags are aimed at minimizing backward compatibility issues.
+These staging flags aim to minimize backward compatibility issues.
 
 We also introduced opt-out flags of the form `-d:nimLegacyX`,  e.g. `-d:nimLegacyCopyFile`,
 for cases where the default was changed to the new behavior.
-For a transition period, these flags can be used to get the old behaviour.
+For a transition period, these flags can be used to get the old behavior.
 
 Here's the list of these flags introduced in this release, refer to the text below for explanations:
 - `-d:nimLegacyCopyFile`
@@ -153,7 +153,7 @@ template sum[T](a: iterable[T]): T =
 assert sum(iota(3)) == 0 + 1 + 2 # or `iota(3).sum`
 
 ```
-In particular iterable arguments can now be used with MCS, example:
+In particular iterable arguments can now be used with the method call syntax. For example:
 ```nim
 import std/[sequtils, os]
 echo walkFiles("*").toSeq # now works
@@ -179,7 +179,7 @@ To enable the new effect system, compile with `--experimental:strictEffects`. Se
 
 
 ## Private imports and private field access
-A new import syntax `import foo {.all.}` now allows to import all symbols (public or private) from `foo`.
+A new import syntax `import foo {.all.}` now allows importing all symbols (public or private) from `foo`.
 This can be useful for testing purposes or for more flexibility in project organization.
 
 Example:
@@ -295,7 +295,7 @@ With `-d:nimPreviewDotLikeOps`, dot-like operators (operators starting with `.`,
 now have the same precedence as `.`, so that `a.?b.c` is now parsed as `(a.?b).c` instead of `a.?(b.c)`.
 A warning is generated when a dot-like operator is used without `-d:nimPreviewDotLikeOps`.
 
-An important use case is to enable dynamic fields without affecting the builtin `.` operator, e.g. for
+An important use case is to enable dynamic fields without affecting the built-in `.` operator, e.g. for
 `std/jsffi`, `std/json`, `pkg/nimpy`. Example:
 ```nim
 import std/json
@@ -346,7 +346,7 @@ The following modules were added (they are discussed in the rest of the text):
 - `std/vmutils`
 
 - Deprecated `std/mersenne`.
-- Removed deprecated `std/iup` module from stdlib, it has already moved to
+- Removed deprecated `std/iup` module from stdlib; it has already moved to
   [nimble](https://github.com/nim-lang/iup).
 
 
@@ -362,7 +362,7 @@ The following modules were added (they are discussed in the rest of the text):
 - Added `genEnumCaseStmt` macro that generates
   case statement to parse string to enum.
 - Added `items` for enums with holes.
-- Added `symbolName` to return the `enum` symbol name ignoring the human readable name.
+- Added `symbolName` to return the `enum` symbol name ignoring the human-readable name.
 - Added `symbolRank` to return the index in which an `enum` member is listed in an enum.
 
 
@@ -382,7 +382,7 @@ Compatibility notes:
   that an index error is produced instead. Be aware however that your code might depend on
   this quirky behavior so a review process is required on your part before you can
   use `-d:nimStrictDelete`. To make this review easier, use the `-d:nimAuditDelete`
-  switch, it pretends that `system.delete` is deprecated so that it is easier to see
+  switch, which pretends that `system.delete` is deprecated so that it is easier to see
   where it was used in your code.
   `-d:nimStrictDelete` will become the default in upcoming versions.
 - `cuchar` is now deprecated as it aliased `char` where arguably it should have aliased `uint8`.
@@ -397,7 +397,7 @@ Compatibility notes:
 ## `std/math`
 - Added `almostEqual` for comparing two float values using a machine epsilon.
 - Added `clamp` which allows using a `Slice` to clamp to a value.
-- Added `ceilDiv` for round up integer division.
+- Added `ceilDiv` for integer division that rounds up.
 - Added `isNaN`.
 - Added `copySign`.
 - Added `euclDiv` and `euclMod`.
@@ -421,7 +421,7 @@ Compatibility notes:
 
 Compatibility notes:
 - Deprecated `std/mersenne`.
-- `random.initRand(seed)` now produces non-skewed values for the 1st call to `rand()` after
+- `random.initRand(seed)` now produces non-skewed values for the first call to `rand()` after
   initialization with a small (< 30000) seed. Use `-d:nimLegacyRandomInitRand` to restore
   previous behavior for a transition time, see PR [#17467](https://github.com/nim-lang/Nim/pull/17467).
 
@@ -429,8 +429,8 @@ Compatibility notes:
 ## `std/json`, `std/jsonutils`
 - `std/jsonutils` now serializes/deserializes holey enums as regular enums (via `ord`) instead of as strings.
   Use `-d:nimLegacyJsonutilsHoleyEnum` for a transition period. `toJson` now serializes `JsonNode`
-  as is via reference (without a deep copy) instead of treating `JsonNode` as a regular ref object,
-  this can be customized via `jsonNodeMode`.
+  as-is via reference (without a deep copy) instead of treating `JsonNode` as a regular ref object.
+  This can be customized via `jsonNodeMode`.
 - `std/json` and `std/jsonutils` now serialize `NaN`, `Inf`, `-Inf` as strings, so that
   `%[NaN, -Inf]` is the string `["nan","-inf"]` instead of `[nan,-inf]` which was invalid JSON.
 - `std/json` can now handle integer literals and floating point literals of
@@ -442,10 +442,10 @@ Compatibility notes:
   literals remain in the "raw" string form so that client code can easily treat
   small and large numbers uniformly.
 - Added `BackwardsIndex` overload for `JsonNode`.
-- `json.%`,`json.to`, `jsonutils.formJson`,`jsonutils.toJson` now work with `uint|uint64`
+- `json.%`,`json.to`, `jsonutils.fromJson`,`jsonutils.toJson` now work with `uint|uint64`
   instead of raising (as in 1.4) or giving wrong results (as in 1.2).
 - `std/jsonutils` now handles `cstring` (including as Table key), and `set`.
-- added `jsonutils.jsonTo` overload with `opt = Joptions()` param.
+- Added `jsonutils.jsonTo` overload with `opt = Joptions()` param.
 - `jsonutils.toJson` now supports customization via `ToJsonOptions`.
 - `std/json`, `std/jsonutils` now support round-trip serialization when `-d:nimPreviewFloatRoundtrip` is used.
 
@@ -464,7 +464,7 @@ Compatibility notes:
 - Fixed buffer overflow bugs in `std/net`.
 - Exported `sslHandle` from `std/net` and `std/asyncnet`.
 - Added `hasDataBuffered` to `std/asyncnet`.
-- Various functions in `std/httpclient` now accept `url` of type `Uri`. Moreover `request` function's
+- Various functions in `std/httpclient` now accept `url` of type `Uri`. Moreover, the `request` function's
   `httpMethod` argument of type `string` was deprecated in favor of `HttpMethod` `enum` type; see [#15919](https://github.com/nim-lang/Nim/pull/15919).
 - Added `asyncdispatch.activeDescriptors` that returns the number of currently
   active async event handles/file descriptors.
@@ -476,7 +476,7 @@ Compatibility notes:
 
 Compatibility notes:
 - On Windows, the SSL library now checks for valid certificates.
-  It uses the `cacert.pem` file for this purpose which was extracted
+  For this purpose it uses the `cacert.pem` file, which was extracted
   from `https://curl.se/ca/cacert.pem`. Besides
   the OpenSSL DLLs (e.g. `libssl-1_1-x64.dll`, `libcrypto-1_1-x64.dll`) you
   now also need to ship `cacert.pem` with your `.exe` file.
@@ -485,7 +485,7 @@ Compatibility notes:
 ## `std/hashes`
 - `hashes.hash` can now support `object` and `ref` (can be overloaded in user code),
   if `-d:nimEnableHashRef` is used.
-- `hashes.hash(proc|ptr|ref|pointer)` now calls `hash(int)` and honors `-d:nimIntHash1`,
+- `hashes.hash(proc|ptr|ref|pointer)` now calls `hash(int)` and honors `-d:nimIntHash1`.
   `hashes.hash(closure)` has also been improved.
 
 
@@ -512,14 +512,14 @@ Compatibility notes:
 
 
 ## Environment variable handling
-- empty environment variable values are now supported across OS's and backends.
-- environment variable APIs now work in multithreaded scenarios, by delegating to direct OS calls
+- Empty environment variable values are now supported across OS's and backends.
+- Environment variable APIs now work in multithreaded scenarios, by delegating to direct OS calls
   instead of trying to keep track of the environment.
 - `putEnv`, `delEnv` now work at CT.
 - NodeJS backend now supports osenv: `getEnv`, `putEnv`, `envPairs`, `delEnv`, `existsEnv`.
 
 Compatibility notes:
-- `std/os`: `putEnv` now raises if the 1st argument contains a `=`.
+- `std/os`: `putEnv` now raises if the first argument contains a `=`.
 
 
 ## POSIX
@@ -545,8 +545,8 @@ Compatibility notes:
 
 ## String manipulation: `std/strformat`, `std/strbasics`
 - Added support for parenthesized expressions.
-- Added support for const string's instead of just string literals.
-- Added `std/strbasics` for high performance string operations.
+- Added support for const strings instead of just string literals.
+- Added `std/strbasics` for high-performance string operations.
 - Added `strip`, `setSlice`, `add(a: var string, b: openArray[char])`.
 
 
@@ -598,7 +598,7 @@ Compatibility notes:
 - Tuple expressions are now parsed consistently as
   `nnkTupleConstr` node. Will affect macros expecting nodes to be of `nnkPar`.
 - In `std/macros`, `treeRepr,lispRepr,astGenRepr` now represent SymChoice nodes in a collapsed way.
-- Make custom op in `macros.quote` work for all statements.
+- Made custom op in `macros.quote` work for all statements.
 
 
 ## `std/sugar`
@@ -613,7 +613,7 @@ Compatibility notes:
 ## Parsing: `std/parsecfg`, `std/strscans`, `std/uri`
 - Added `sections` iterator in `parsecfg`.
 - `strscans.scanf` now supports parsing single characters.
-- `strscans.scanTuple` added which uses `strscans.scanf` internally,
+- Added `strscans.scanTuple` which uses `strscans.scanf` internally,
   returning a tuple which can be unpacked for easier usage of `scanf`.
 - Added `decodeQuery` to `std/uri`.
 - `parseopt.initOptParser` has been made available and `parseopt` has been
@@ -627,14 +627,14 @@ Compatibility notes:
 Compatibility notes:
 - Changed the behavior of `uri.decodeQuery` when there are unencoded `=`
   characters in the decoded values. Prior versions would raise an error. This is
-  no longer the case to comply with the HTML spec and other languages
+  no longer the case to comply with the HTML spec and other languages'
   implementations. Old behavior can be obtained with
   `-d:nimLegacyParseQueryStrict`. `cgi.decodeData` which uses the same
   underlying code is also updated the same way.
 
 
 ## JS stdlib changes
-- Added `std/jsbigints` module, arbitrary precision integers for the JS target.
+- Added `std/jsbigints` module, which provides arbitrary precision integers for the JS target.
 - Added `setCurrentException` for the JS backend.
 - `writeStackTrace` is available in the JS backend now.
 - Added `then`, `catch` to `std/asyncjs` for promise pipelining, for now hidden behind `-d:nimExperimentalAsyncjsThen`.
@@ -652,7 +652,7 @@ Compatibility notes:
 - Added `dom.scrollIntoView` proc with options.
 - Added `dom.setInterval`, `dom.clearInterval` overloads.
 - Merged `std/dom_extensions` into the `std/dom` module,
-  it was a module with a single line, see RFC [#413](https://github.com/nim-lang/RFCs/issues/413).
+  as it was a module with a single line, see RFC [#413](https://github.com/nim-lang/RFCs/issues/413).
 - `$` now gives more correct results on the JS backend.
 
 
@@ -679,11 +679,12 @@ Compatibility notes:
 - Support for armv8l, refs [#18901](https://github.com/nim-lang/Nim/pull/18901).
 - Support for CROSSOS, refs [#18889](https://github.com/nim-lang/Nim/pull/18889).
 - The allocator for Nintendo Switch, which was nonfunctional because
-  of breaking changes in libnx, was removed, in favour of the new `-d:nimAllocPagesViaMalloc` option.
+  of breaking changes in libnx, was removed, in favor of the new `-d:nimAllocPagesViaMalloc` option.
 - Allow reading parameters when compiling for Nintendo Switch.
-- Cross compilation targeting Windows was improved
-  This now works from macOS/Linux:
-  `nim r -d:mingw main`
+- Cross compilation targeting Windows was improved.
+
+  This now works from macOS/Linux: `nim r -d:mingw main`
+  
   `--nimcache` now correctly works in a cross-compilation setting.
 
 
@@ -801,7 +802,7 @@ Compatibility notes:
 
 
 ## Multithreading
-- TLS: macOS now uses native TLS (`--tlsEmulation:off`), TLS now works with `importcpp` non-POD types,
+- TLS: macOS now uses native TLS (`--tlsEmulation:off`). TLS now works with `importcpp` non-POD types;
   such types must use `.cppNonPod` and `--tlsEmulation:off`should be used.
 - Added `unsafeIsolate` and `extract` to `std/isolation`.
 - Added `std/tasks`, a new module containing primitives for creating parallel programs.
@@ -830,21 +831,21 @@ Compatibility notes:
   `nim doc --git.url:url ...` is given.
 - Latex doc generation is revised: output `.tex` files should be compiled
   by `xelatex` (not by `pdflatex` as before). Now default Latex settings
-  provide support for Unicode and do better job for avoiding margin overflows.
-- The RST parser now supports footnotes, citations, admonitions, short style references with symbols.
+  provide support for Unicode and better avoid margin overflows.
+- The RST parser now supports footnotes, citations, admonitions, and short style references with symbols.
 - The RST parser now supports Markdown table syntax.
   Known limitations:
   - cell alignment is not supported, i.e. alignment annotations in a delimiter
-    row (`:---`, `:--:`, `---:`) are ignored,
+    row (`:---`, `:--:`, `---:`) are ignored
   - every table row must start with `|`, e.g. `| cell 1 | cell 2 |`.
 - Implemented `doc2tex` compiler command which converts documentation in
   `.nim` files to Latex.
 - docgen now supports syntax highlighting for inline code.
-- docgen now supports same line doc comments:
+- docgen now supports same-line doc comments:
 ```nim
 func fn*(a: int): int = 42  ## Doc comment
 ```
-- docgen now renders deprecated and other pragmas.
+- docgen now renders `deprecated` and other pragmas.
 - `runnableExamples` now works with templates and nested templates.
 - `runnableExamples: "-r:off"` now works for examples that should compile but not run. 
 - `runnableExamples` now renders code verbatim, and produces correct code in all cases.
