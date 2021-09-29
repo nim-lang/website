@@ -736,7 +736,9 @@ type
   Comparable = concept # no T, an atom
     proc cmp(a, b: Self): int
 ```
-See PR [#15251](https://github.com/nim-lang/Nim/pull/15251) for details.
+The new design does not rely on `system.compiles` and may compile faster.
+See PR [#15251](https://github.com/nim-lang/Nim/pull/15251)
+and RFC [#168](https://github.com/nim-lang/RFCs/issues/168) for details.
 
 
 ## Lexical / syntactic
