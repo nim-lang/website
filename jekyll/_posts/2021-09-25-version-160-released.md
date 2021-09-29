@@ -253,6 +253,21 @@ echo 0xdeadbeef'big shl 4'big # 59774856944n
 ```
 
 
+## New `std/jsfetch` module
+Provides a wrapper for JS Fetch API.
+Example:
+```nim
+# requires -d:nimExperimentalAsyncjsThen
+import std/[jsfetch, asyncjs, jsconsole, jsffi, sugar]
+proc fn {.async.} =
+  await fetch("https://api.github.com/users/torvalds".cstring)
+    .then((response: Response) => response.json())
+    .then((json: JsObject) => console.log(json))
+    .catch((err: Error) => console.log("Request Failed", err))
+discard fn()
+```
+
+
 ## New `std/sysrand` module
 Cryptographically secure pseudorandom number generator,
 allows generating random numbers from a secure source provided by the operating system.
