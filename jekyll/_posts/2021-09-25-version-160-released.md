@@ -22,7 +22,7 @@ Python-like syntax; Lisp-like flexibility; strong C, C++, JS, Python interop;
 and best-in class metaprogramming.
 
 Why use Nim?
-* one language to rule them all: write your iOS/Android/web frontend and backend in the same language, from a [Gameboy kickstarter](https://forum.nim-lang.org/t/8375) to a [blockchain client](https://github.com/status-im).
+* one language to rule them all: from [shell scripting](https://nim-lang.org/docs/nims.html) to [web frontend and backend](https://github.com/nim-lang/nimforum), [scientific computing](https://github.com/SciNim), [machine learning](https://github.com/mratsim/Arraymancer), [blockchain client](https://github.com/status-im), [gamedev](https://github.com/ftsf/nico), [embedded](https://github.com/EmbeddedNim).
 * concise and readable like Python: `echo "hello world"` is a 1-liner (5 lines in C, C++, Go, Java).
 * small binaries: `echo "hello world"` generates a 73K binary (Go: 2MB, Rust: 377K, C++: 56K) [1].
 * fast compile times: a full compiler rebuild takes ~12s (Rust: 15min, gcc: 30min+, clang: 1hr+, Go: 90s) [2].
