@@ -39,7 +39,7 @@ Why use Nim?
 
 Last but not least, macros let you manipulate/generate code at compile time instead of relying on code generators,
 enabling writing DSLs and language extensions in user code. Typical examples include implementing
-Python f-strings, optional chaining, command line generators, react-like Single Page Apps, protobuf serialization and binding generators [4].
+Python-like f-strings, optional chaining, command line generators, react-like Single Page Apps, protobuf serialization and binding generators [4].
 
 This release includes improvements in the following areas:
 * new language features (`iterable[T]`, user-defined literals, private imports, strict effects, dot-like operators, block arguments with optional parameters)
