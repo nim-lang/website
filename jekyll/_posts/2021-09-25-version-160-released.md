@@ -26,10 +26,10 @@ Why use Nim?
   [scientific computing](https://github.com/SciNim), [deep learning](https://github.com/mratsim/Arraymancer),
   [blockchain client](https://github.com/status-im), [gamedev](https://github.com/ftsf/nico),
   [embedded](https://github.com/EmbeddedNim), see also some [companies using nim](https://github.com/nim-lang/Nim/wiki/Organizations-using-Nim).
-* concise and readable like Python: `echo "hello world"` is a 1-liner (5 lines in C, C++, Go, Java).
+* concise and readable: `echo "hello world"` is a 1-liner (5 lines in C, C++, Go, Java).
 * small binaries: `echo "hello world"` generates a 73K binary (or 5K with further options) (Go: 2MB, Rust: 377K, C++: 56K) [1].
 * fast compile times: a full compiler rebuild takes ~12s (Rust: 15min, gcc: 30min+, clang: 1hr+, Go: 90s) [2].
-* C-like performance: see [Web Frameworks Benchmark](https://web-frameworks-benchmark.netlify.app/result), [ray tracing](https://nim-lang.org/blog/2020/06/30/ray-tracing-in-nim.html), [primes](https://github.com/PlummersSoftwareLLC/Primes)
+* native performance: see [Web Frameworks Benchmark](https://web-frameworks-benchmark.netlify.app/result), [ray tracing](https://nim-lang.org/blog/2020/06/30/ray-tracing-in-nim.html), [primes](https://github.com/PlummersSoftwareLLC/Primes)
 * no need for makefiles, cmake, configure or other build scripts, thanks to CTFE and dependency tracking [3]
 * target any platform with a C compiler: [Android and iOS](https://github.com/pragmagic/godot-nim#made-with-godot-nim),
   [embedded systems](https://github.com/elcritch/nesper), [micro-controllers](https://forum.nim-lang.org/t/7731),
@@ -37,11 +37,9 @@ Why use Nim?
 * zero-overhead interop lets you reuse code in C, C++ (including templates, [C++ STL](https://clonkk.github.io/nim-cppstl/cppstl.html)), JS, Objective-C, Python (via [nimpy](https://github.com/yglukhov/nimpy))
 * built-in [documentation generator](https://nim-lang.github.io/Nim/system.html) that understands Nim code and runnable examples that stay in sync
 
-Last but not least, macros let you manipulate/generate code at compile time instead of relying on code generators, allowing for example to easily write DSLs or extend the language, all in user code:
-  - [karax](https://github.com/karaxnim/karax) for react+JSX-like Single Page Applications
-  - [cligen](https://github.com/c-blake/cligen) for API-inferred command line generator
-  - [std/wrapnils](https://nim-lang.github.io/Nim/wrapnils.html) JS-like optional chaining
-  - [std/strformat](https://nim-lang.github.io/Nim/strformat.html) Python-like f-strings
+Last but not least, macros let you manipulate/generate code at compile time instead of relying on code generators,
+enabling writing DSLs and language extensions in user code. Typical examples include implementing
+Python f-strings, optional chaining, command line generators, react-like Single Page Apps, protobuf serialization and binding generators [4].
 
 This release includes improvements in the following areas:
 * new language features (`iterable[T]`, user-defined literals, private imports, strict effects, dot-like operators, block arguments with optional parameters)
@@ -948,3 +946,9 @@ Tested on a 2.3 GHz 8-Core Intel Core i9, 2019 macOS 11.5 with 64GB RAM.
   for Go: `./make.bash`
 * [3] a separate nimscript file can be used if needed to execute code at compile time
       before compiling the main program but it's in the same language
+* [4] Here are some example applications of macros:
+  - [karax](https://github.com/karaxnim/karax) for react+JSX-like Single Page Applications
+  - [cligen](https://github.com/c-blake/cligen) for API-inferred command line generator
+  - [std/wrapnils](https://nim-lang.github.io/Nim/wrapnils.html) JS-like optional chaining
+  - [std/strformat](https://nim-lang.github.io/Nim/strformat.html) Python-like f-strings
+  - [protobuf-nim](https://github.com/PMunch/protobuf-nim) pure Nim implementation of protocol buffers.
