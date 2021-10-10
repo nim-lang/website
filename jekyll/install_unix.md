@@ -129,13 +129,13 @@ curl https://nim-lang.org/choosenim/init.sh -sSf | sh
 
 # Installation using package managers
 
-## Arch Linux & and Derivatives
+## Arch Linux & derivatives
 
 ```
 pacman -S nim
 ```
 
-## Debian / Ubuntu & and Derivatives
+## Debian / Ubuntu & derivatives
 
 ```
 apt-get install nim
@@ -160,7 +160,7 @@ The latest development version:
 docker pull nimlang/nim:devel
 ```
 
-## Fedora & spins
+## Fedora
 
 ```
 dnf install nim
@@ -172,7 +172,7 @@ dnf install nim
 pkg install nim
 ```
 
-## macOS (brew)
+## macOS (Homebrew)
 
 ```
 brew install nim
