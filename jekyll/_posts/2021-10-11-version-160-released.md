@@ -156,6 +156,7 @@ Here's the list of these flags introduced in this release, refer to the text bel
 - `-d:nimLegacyTypeMismatch`
 - `-d:nimPreviewDotLikeOps`
 - `-d:nimPreviewFloatRoundtrip`
+- `-d:nimPreviewHashRef`
 
 
 # Major new features
