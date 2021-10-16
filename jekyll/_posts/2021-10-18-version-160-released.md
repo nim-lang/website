@@ -16,9 +16,9 @@ with this milestone:
 * 280 new nimble packages
 
 Nim made its first entry in TIOBE index in 2017 at position 129,
-last year it entered the top-100, and in the last 2 months the top-50 ([link](https://forum.nim-lang.org/t/8297)).
+last year it entered the top-100, and for 2 months the top-50 ([link](https://forum.nim-lang.org/t/8297)).
 We hope this release will reinforce this trend, building on Nim's core strengths:
-a practical, compiled systems programming language offering C-like performance
+a practical, compiled systems programming language offering C++-like perfomance
 and portability, Python-like syntax, Lisp-like flexibility, strong C, C++, JS,
 Python interop, and best-in-class metaprogramming.
 
@@ -30,7 +30,7 @@ This release includes improvements in the following areas:
 * correctness and performance of integer and float parsing and rendering in all backends
 * significant improvements in error messages, showing useful context
 * documentation generation logic and documentation, in particular `runnableExamples` now works in more contexts
-* JS, VM and nimscript backend are more consistent with C backend, allowing more
+* JS, VM and nimscript backend are more consistent with the C backend, allowing more
   modules to work with those backends, including the imports from `std/prelude`;
   the test suite now standardizes on testing stdlib modules on each major backend (C, JS, VM)
 * support for Apple silicon/M1, 32-bit RISC-V, armv8l, CROSSOS, improved support for NodeJS backend
@@ -49,9 +49,9 @@ This release includes improvements in the following areas:
   [gamedev](https://github.com/ftsf/nico),
   [embedded](https://github.com/EmbeddedNim), see also some
   [companies using Nim](https://github.com/nim-lang/Nim/wiki/Organizations-using-Nim).
-* Concise and readable: `echo "hello world"` is a 1-liner (5 lines in C, C++, Go, Java).
-* Small binaries: `echo "hello world"` generates a 73K binary (or 5K with further options)
-  (Go: 2MB, Rust: 377K, C++: 56K) [1].
+* Concise, readable and convenient: `echo "hello world"` is a 1-liner.
+* Small binaries: `echo "hello world"` generates a 73K binary (or 5K with further options),
+  optimized for embedded devices (Go: 2MB, Rust: 377K, C++: 56K) [1].
 * Fast compile times: a full compiler rebuild takes ~12s (Rust: 15min, gcc: 30min+, clang: 1hr+, Go: 90s) [2].
 * Native performance: see [Web Frameworks Benchmark](https://web-frameworks-benchmark.netlify.app/result),
   [ray tracing](https://nim-lang.org/blog/2020/06/30/ray-tracing-in-nim.html),
@@ -147,7 +147,6 @@ For a transition period, these flags can be used to get the old behavior.
 Here's the list of these flags introduced in this release, refer to the text below for explanations:
 - `-d:nimLegacyCopyFile`
 - `-d:nimLegacyJsRound`
-- `-d:nimLegacyJsonutilsHoleyEnum`
 - `-d:nimLegacyMacrosCollapseSymChoice`
 - `-d:nimLegacyParseQueryStrict`
 - `-d:nimLegacyRandomInitRand`
@@ -157,6 +156,7 @@ Here's the list of these flags introduced in this release, refer to the text bel
 - `-d:nimPreviewDotLikeOps`
 - `-d:nimPreviewFloatRoundtrip`
 - `-d:nimPreviewHashRef`
+- `-d:nimPreviewJsonutilsHoleyEnum`
 
 
 # Major new features
