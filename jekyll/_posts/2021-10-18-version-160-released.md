@@ -84,11 +84,11 @@ React-like [Single Page Apps](https://github.com/karaxnim/karax),
 
 We recommend everyone to upgrade to 1.6:
 
-Note: earlier this year researchers spotted malware 
-[written](https://thehackernews.com/2021/03/researchers-spotted-malware-written-in.html) 
-nim programming language which 
-supposedly led to antivirus vendors falsely tagging **all** software written in nim
-as a potential threat, including nim compiler, package manager and so on (core nim 
+Note: earlier this year researchers spotted 
+[malware](https://thehackernews.com/2021/03/researchers-spotted-malware-written-in.html) 
+written in nim programming language which 
+supposedly led to antivirus vendors falsely tagging **all** software written in Nim
+as a potential threat, including nim compiler, package manager and so on (core Nim 
 tooling is written entirely in nim). This has been an ongoing issue ever since - 
 if you have any issues related to this, please report nim compiler and associated 
 tooling as false detection to the respective antivirus vendors.
