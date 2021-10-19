@@ -92,7 +92,7 @@ install it as described [here](https://nim-lang.org/install.html).
 
 Note: earlier this year researchers spotted 
 [malware](https://thehackernews.com/2021/03/researchers-spotted-malware-written-in.html) 
-written in nim programming language which 
+written in Nim programming language which 
 supposedly led to antivirus vendors falsely tagging **all** software written in Nim
 as a potential threat, including the Nim compiler, nimble (Nim's package manager) and so on (core Nim 
 tooling is written entirely in Nim). This has been an ongoing issue ever since - 
