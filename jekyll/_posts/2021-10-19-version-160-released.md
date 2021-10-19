@@ -411,10 +411,10 @@ For full changelog, see [here](https://github.com/nim-lang/Nim/blob/version-1-6/
 
 Tested on a 2.3 GHz 8-Core Intel Core i9, 2019 macOS 11.5 with 64GB RAM.
 * [1] command used: `nim c -d:danger`.
-  The binary size can be further reduced to 49K with stripping `--passL:-s`
+  The binary size can be further reduced to 49K with stripping (`--passL:-s`)
   and link-time optimization (`--passC:-flto`).
-  Statically linking against `musl` brings it down to 5K, see
-  [link](https://irclogs.nim-lang.org/07-07-2020.html#12:31:34).
+  Statically linking against `musl` brings it under 5K - see
+  [here](https://github.com/ee7/binary-size) for more details.
 * [2] commands used:
   - for Nim: `nim c --forceBuild compiler/nim`
   - for Rust: `./x.py build`, [details](https://www.reddit.com/r/rust/comments/76jq7h/long_time_to_compile_rustc/)
