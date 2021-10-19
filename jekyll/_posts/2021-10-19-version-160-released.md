@@ -18,7 +18,7 @@ with this milestone:
 Nim made its first entry in TIOBE index in 2017 at position 129,
 last year it entered the top-100, and for 2 months the top-50 ([link](https://forum.nim-lang.org/t/8297)).
 We hope this release will reinforce this trend, building on Nim's core strengths:
-a practical, compiled systems programming language offering C++-like perfomance
+a practical, compiled systems programming language offering C++-like performance
 and portability, Python-like syntax, Lisp-like flexibility, strong C, C++, JS,
 Python interop, and best-in-class metaprogramming.
 
