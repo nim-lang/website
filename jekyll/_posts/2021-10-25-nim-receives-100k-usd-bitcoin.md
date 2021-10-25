@@ -33,7 +33,7 @@ donations should be sent as well.
 
 We now also have an Ethereum address:
 
-* ``0x726eE9153261C30EF525457911c48Ba03FF1B965``
+* ``0xC1d472B409c1bdCd8C0E45515D18F08a55fE9fa8``
 
 As a final word, I would also like to ask that if anyone is looking to send us
 a large donation to our Bitcoin or Ethereum address, *please* start by sending
