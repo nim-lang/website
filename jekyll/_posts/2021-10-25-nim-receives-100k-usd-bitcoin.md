@@ -1,7 +1,7 @@
 ---
 title: "Nim receives $100k in Bitcoin donations"
 author: The Nim Team
-excerpt: "Earlier this year we have had the privilege of receiving 1.868BTC (~113k USD at time of writing) to our long-standing Bitcoin wallet address."
+excerpt: "Earlier this year we have had the privilege of receiving 1.868BTC (~117k USD at time of writing) to our long-standing Bitcoin wallet address."
 ---
 
 Earlier this year we have had the privilege of receiving 1.868BTC
