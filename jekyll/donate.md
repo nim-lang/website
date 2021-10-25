@@ -77,4 +77,6 @@ to Nim using one the following services:
 <i class="fab fa-ethereum" aria-hidden="true"></i>
 ``0xC1d472B409c1bdCd8C0E45515D18F08a55fE9fa8``
 
+Nano: ``nano_1hioyj6n1nw5tpiq8rk8g1er6pfhfuuxqm88eog19d7qkhpbyic4whzqymbd``
+
 </section>
