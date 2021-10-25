@@ -35,7 +35,7 @@ We now also have an Ethereum address:
 
 * ``0xC1d472B409c1bdCd8C0E45515D18F08a55fE9fa8``
 
-As a final word, I would also like to ask that if anyone is looking to send us
+As a final word, we would also like to ask that if anyone is looking to send us
 a large donation to our Bitcoin or Ethereum address, *please* start by sending
 us a small amount first and [get in touch](https://nim-lang.org/community.html)
 with us about your intentions.
@@ -48,7 +48,9 @@ Thanks again for all your support over the years. Your contributions, both
 monetary as well as in the form of pull requests and community building helped
 make Nim what it is today.
 
-1 - Just like with backups, it's very important to ensure you have access to
+----
+
+[1] - Just like with backups, it's very important to ensure you have access to
 your Bitcoin wallet and that it's safe against attacks. If you are reading this
 and remember an old wallet sitting on your flash drive, now might be time to
 invest in a hardware wallet and transfer all your funds there.
