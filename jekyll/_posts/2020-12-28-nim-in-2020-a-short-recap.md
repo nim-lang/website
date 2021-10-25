@@ -124,6 +124,7 @@ You can donate via:
 - [Patreon](https://www.patreon.com/araq)
 - [PayPal](https://www.paypal.com/donate/?cmd=_s-xclick&hosted_button_id=FLWX5V2PMAXAU)
 - Bitcoin: bc1qzgw3vsppsa9gu53qyecyu063jfajmjpye3r2h4
+- Ethereum: 0xC1d472B409c1bdCd8C0E45515D18F08a55fE9fa8
 
 
 Thank you all for your incredible support so far, and have a happy new year!

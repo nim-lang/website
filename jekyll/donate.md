@@ -75,6 +75,6 @@ to Nim using one the following services:
 ``bc1qzgw3vsppsa9gu53qyecyu063jfajmjpye3r2h4``
 
 <i class="fab fa-ethereum" aria-hidden="true"></i>
-``0x726eE9153261C30EF525457911c48Ba03FF1B965``
+``0xC1d472B409c1bdCd8C0E45515D18F08a55fE9fa8``
 
 </section>
