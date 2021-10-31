@@ -148,6 +148,13 @@ assert intr.invoke(doThing, 4, returnType = int) == 4 * someNum
 What's that I hear, "Oh it'd be cool if it worked with emscripten"?!
 [Well it does!](https://www.jasonbeetham.com/snake/nicoscripter.html)
 
+## [Turing Complete](https://store.steampowered.com/app/1444480/Turing_Complete/)
+
+#### [Stuffe](https://github.com/Stuffe)
+In this challenging puzzle game, you build a computer from scratch and program it.
+It is a journey through the layers of abstractions of the computer.
+The game begins when you are abducted by aliens who are testing your intelligence, and from here a lighthearted sci-fi plot evolves.
+
 ----
 
 ## Want to see your project here next month?
