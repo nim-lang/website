@@ -52,6 +52,16 @@ Nim support was merged in [this PR](https://github.com/aduros/wasm4/pull/167) so
 
 ----
 
+## Reminders
+
+We would like to remind you that we are running our annual Community Survey, and we would like to hear your opinions.
+More details at [this link](https://nim-lang.org/blog/2021/11/22/community-survey-2021.html).
+
+If you would like to practice your Nim skills by solving a series of small programming puzzles, join us in `#AdventOfNim` where we solve [Advent of Code](https://adventofcode.com/) puzzles.
+More information on [the forum](https://forum.nim-lang.org/t/8657).
+
+----
+
 ## Want to see your project here next month?
 
 [Follow this](https://github.com/beef331/website#adding-your-project-to-month-with-nim)
