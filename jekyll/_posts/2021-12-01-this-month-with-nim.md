@@ -7,7 +7,7 @@ excerpt: "November has brought one project, a blog post, and WASM-4 support."
 ## [xidoc](http://xidoc.nim.town/)
 
 #### Author: [xigoi](https://github.com/xigoi)
-xidoc is a markup language intended to be consistent and powerful.
+`xidoc` is a markup language intended to be consistent and powerful.
 It has a very straightforward syntax where everything is in the form of a command surrounded by square brackets.
 For example: `[color #ff0; This text is yellow.]`
 It can compile to HTML and LaTeX, allowing it to be used in many places.
@@ -21,7 +21,7 @@ Features include:
 - LaTeX math with helper commands
 - Code snippets and blocks with optional syntax highlighting
 - Defining custom commands
-- Including other xidoc files
+- Including other `xidoc` files
 - Ways to produce any code in the target language
 - CSS styling when compiling to HTML
 - Documentation of all commands with examples
