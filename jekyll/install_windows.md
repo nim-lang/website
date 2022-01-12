@@ -63,15 +63,15 @@ the GNU C compiler collection for Windows.
 ## Compiler dependencies
 
 The Nim compiler needs a C compiler in order to compile software. You can
-use ``finish.exe`` to install MingW.
+use ``finish.exe`` to install MinGW.
 
-The following versions of MingW are known to work with the latest version of
-Nim.
+The following versions of MinGW are known to work with the latest version of
+Nim:
 
 <!-- TODO: Instructions on what to do with these 7z files? -->
 
-* 32 bit - [mingw32.7z]({{ site.baseurl }}/download/mingw32.7z)
-* 64 bit - [mingw64.7z]({{ site.baseurl }}/download/mingw64.7z)
+* 32 bit - [mingw32.7z]({{ site.baseurl }}/download/mingw32.7z) ([SHA256]({{ site.baseurl }}/download/mingw32.7z.sha256))
+* 64 bit - [mingw64.7z]({{ site.baseurl }}/download/mingw64.7z) ([SHA256]({{ site.baseurl }}/download/mingw64.7z.sha256))
 
 
 # Installation using ``choosenim``
