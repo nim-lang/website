@@ -89,7 +89,7 @@ You can donate via:
 
 * [Open Collective](https://opencollective.com/nim)
 * [Patreon](https://www.patreon.com/araq)
-* [PayPal](https://www.paypal.com/donate/?cmd=_s-xclick&hosted_button_id=FLWX5V2PMAXAU)
+* [PayPal](https://www.paypal.com/donate/?hosted_button_id=KYXH3BLJBHZTA)
 * Bitcoin: bc1qzgw3vsppsa9gu53qyecyu063jfajmjpye3r2h4
 
 If you are a company, we also offer commercial support.
