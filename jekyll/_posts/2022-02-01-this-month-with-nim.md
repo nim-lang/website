@@ -1,5 +1,5 @@
 ---
-title: "This Month with Nim: Feburary 2022"
+title: "This Month with Nim: January 2022"
 author: The Nim Community
 excerpt: "January and December introduced cool and interesting libraries."
 ---
