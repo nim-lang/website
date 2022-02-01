@@ -17,10 +17,10 @@ To analyse your project commits, you must create a file to explain how build the
 
 The file is a TOML format it must contains these keys:
 
-* project_dir : path of the project source code. Absolute path or relative to this file.
-* build_dir : folder where the commands must be run. Relative path to project_dir.
-* build_command : a list of succesive commands to run to build your project. Relative path to project_dir.
-* file_path : a list of all files to analyse. Relative path to project_dir.
+* `project_dir`: path of the project source code. Absolute path or relative to this file.
+* `build_dir`: folder where the commands must be run. Relative path to project_dir.
+* `build_command`: a list of succesive commands to run to build your project. Relative path to project_dir.
+* `file_path`: a list of all files to analyse. Relative path to project_dir.
 
 To analyze the project's master branch, run the following command:
 ```
@@ -90,7 +90,7 @@ nimble install grab
 #### Author: [Jason Beetham](https://github.com/beef331/slicerator)
 
 Slicerator is a package with a bunch of goodies for iterators.
-From implementing an `[]` iterator for `openarray`s for 0 copy slicing iterations, to being able to make a closure from an inline iterator it's got useful features.
+From implementing an `[]` iterator for `openarray`s for zero-copy slicing iterations, to being able to make a closure from an inline iterator it's got useful features.
 The following is a showcase of just some of the features:
 ```nim
 import slicerator
