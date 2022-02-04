@@ -4,7 +4,7 @@ author: pietroppeter, pmunch, dom96
 excerpt: "Tomorrow (Sat, Feb 5th) there is a Nim Devroom at FOSDEM 2022"
 ---
 
-## Nim Devroom at FOSDEM 2022
+## Nim Devroom at FOSDEM 2022 this Saturday 5th Feb
 
 We are happy to announce that all preparations for the Nim Devroom at FOSDEM 2022 are now complete and
 we are looking forward to 8 excellent talks with more than 5 hours of Nim-related content. The conference is online this year
