@@ -41,4 +41,5 @@ We cannot wait to see you there!
 ### Final remarks
 
 - Make sure to check out the [FOSDEM Code of Conduct](https://fosdem.org/2022/practical/conduct/).
+- We invite to checkout the rest of FOSDEM program for other interesting topics, checkout [the full list of events](https://fosdem.org/2022/schedule/events/)
 - For any questions about this call for participation you can reach out to us in the [#fosdem channel](https://discord.com/channels/371759389889003530/909464670098833409) on our Nim Discord (also available through Matrix as "[Nim FOSDEM](https://matrix.to/#/#nim-fosdem:matrix.org)").
