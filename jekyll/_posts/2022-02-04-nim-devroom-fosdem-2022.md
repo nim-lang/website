@@ -9,7 +9,7 @@ excerpt: "Tomorrow (Sat, Feb 5th) there is a Nim Devroom at FOSDEM 2022"
 We are happy to announce that all preparations for the Nim Devroom at FOSDEM 2022 are now complete and
 we are looking forward to 8 excellent talks with more than 5 hours of Nim-related content. The conference is online this year
 and the talks will stream live tomorrow on the FOSDEM website. This is the final schedule for the Nim Devroom, which will be
-held tomorrow (Saturday, February 5th) from 12:30 to 17:40: https://fosdem.org/2022/schedule/track/nim_programming_language/
+held tomorrow (Saturday, February 5th) from 12:30 to 17:40: <https://fosdem.org/2022/schedule/track/nim_programming_language/>
 
 **Note that all times are Central European Time (UTC+1).**
 
@@ -21,7 +21,7 @@ thanks to our speakers for their contributions!
 You will be able to interact with the speakers through a Matrix chat and at the end of every talk there will be a live Q&A with
 the speaker. You may use a Matrix Client ([Element](https://element.io) is good choice that you can use both from web and as an
 app) and use the link provided in the page of any talk, or you can access the chat at this link:
-https://chat.fosdem.org/#/room/#nim-devroom:fosdem.org
+<https://chat.fosdem.org/#/room/#nim-devroom:fosdem.org>
 
 Are you ready to:
 
