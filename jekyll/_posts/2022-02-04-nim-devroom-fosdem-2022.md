@@ -11,7 +11,7 @@ we are looking forward to 8 excellent talks with more than 5 hours of Nim-relate
 and the talks will stream live tomorrow on the FOSDEM website. This is the final schedule for the Nim Devroom, which will be
 held tomorrow (Saturday, February 5th) from 12:30 to 17:40: https://fosdem.org/2022/schedule/track/nim_programming_language/
 
-**Note that all times are Brussels' times (CET).**
+**Note that all times are Central European Time (UTC+1).**
 
 FOSDEM is a two-day event organised by volunteers to promote the widespread use of free and open-source software.
 It normally takes place in Brussels, but this year (like last year) it will be held remotely. Participation is open to anyone
@@ -26,7 +26,7 @@ https://chat.fosdem.org/#/room/#nim-devroom:fosdem.org
 Are you ready to:
 
 * Hear the [past, present and future of concurrency](https://fosdem.org/2022/schedule/event/nim_concurrency/)
-  in Nim directly from the mouth of our BDFL
+  in Nim directly from the Nim's creator
 * Learn why Nim is well positioned for [Next generation micro-controller programming](https://fosdem.org/2022/schedule/event/nim_ngmicrocontrollers/)
   thanks to the efforts of our own PMunch
 * Discover that a Nim-based open-source library ([LibVF.io](https://github.com/Arc-Compute/libvf.io))
