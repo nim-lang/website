@@ -35,7 +35,7 @@ Are you ready to:
 * Help a 6-year-old build [Potato Zombies, a 3D game using Enu and Nim](https://fosdem.org/2022/schedule/event/nim_potatozombies/)
 * Have your mind blown by Zach showing off [Pararules, a Nim rules engine for reactive programs and games](https://fosdem.org/2022/schedule/event/nim_pararules/)
 * Join a data scientist working in genomics and follow him while he [boosts performance of his code switching from Python to Nim](https://fosdem.org/2022/schedule/event/nim_hpcfrompythontonim/)
-* And finally step through the power levels of [Nim metaprogramming in the real word](https://fosdem.org/2022/schedule/event/nim_metaprogramming/), thanks to master Treeform!
+* And finally step through the power levels of [Nim metaprogramming in the real word](https://fosdem.org/2022/schedule/event/nim_metaprogramming/), thanks to Treeform!
 
 We cannot wait to see you there!
 
