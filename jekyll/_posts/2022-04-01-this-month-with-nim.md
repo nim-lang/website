@@ -1,7 +1,7 @@
 ---
 title: "This Month with Nim: Feburary and March 2022"
 author: The Nim Community
-excerpt: "Automatic C bindings, a Declarative GTK, and Typesafe-ish macros"
+excerpt: "Automatic C bindings, a Declarative GTK, Typesafe-ish macros, and a GameCube Emulator"
 ---
 
 ## [Futhark](https://github.com/PMunch/futhark)
@@ -119,6 +119,89 @@ It is pretty early so there are not many docs,
 but I have started migrating my other macro libraries to it as it's more maintainable and easier to understand.
 
 If wanting to see more examples I have a bunch of [tests](https://github.com/beef331/micros/tree/master/tests).
+
+
+## [hocuspocube](https://github.com/RSDuck/hocuspocube)
+
+#### Authors: [RSDuck](https://github.com/RSDuck) / doofenstein
+
+
+hocuspocube is a Nintendo GameCube emulator.
+At this stage it's eable to boot the IPL (initial program loader, which loads games from DVDs and also displays the famous rolling cube animation) as well as several commercial games.
+For faster execution it features an IR based JIT recompiler so that both the PowerPC core (Gekko) and the DSP can share a backend for code generation. For assembling my own assembler [catnip](https://github.com/RSDuck/catnip) is used.
+The go to language for emulators is usually C++ mainly for performance reasons.
+But I see Nim fitting this requirement just as well, while avoiding many of the hassles C++ has (and also just being my favourite programming language overall).
+
+I want to highlight some macros in the codebase:
+
+### The instruction decoding macro
+
+Fast instruction decoding in software normally is all about creating the smallest possible LUT/case statement where some bits of the instruction are entered which then dispatches it to the appropriate handler.
+As you can probably imagine this is a recipe for giant seas of constants like [this](https://github.com/Arisotura/melonDS/blob/master/src/ARM_InstrTable.h).
+It is not the worst thing in the world,
+but it's also something you can avoid with Nim!
+With the macro, all we have to define are those pretty instruction patterns:
+
+```nim
+const PpcPatterns* =
+    (block:
+        var patterns: seq[(string, string)]
+
+        # Integer Arithmetic
+        template intArith(name: string, num: int, oe = true): untyped =
+            patterns.add (name, "011111dddddaaaaabbbbb" & (if oe: "o" else: "0") & toBin(num, 9) & "r")
+        template intArithImm(name: string, num: int): untyped =
+            patterns.add (name, toBin(num, 6) & "dddddaaaaaiiiiiiiiiiiiiiii")
+        intArith    "addx",         266
+        intArith    "addcx",        10
+        intArith    "addex",        138
+        intArithImm "addi",         14
+        intArithImm "addic",        12
+        intArithImm "addicdot",     13
+        #....
+        patterns)
+
+macro dispatchPpc*[T](instr: uint32, state: var T, undefinedInstr: proc(state: var T, instr: uint32)) =
+    generateDecoder[26..31, 1..10](PpcPatterns, initTable[string, seq[(string, uint32)]](), 32, instr, state, undefinedInstr)
+```
+
+As a bonus, the macro also does the decoding of the instruction fields for us based on the patterns in the field!
+
+### Hardware register macro
+What glues together processors and other hardware is for the most part hardware registers which can be written to and read from.
+While at first this seems like something pretty simple, just use a case statement with all the addresses. But it gets more complicated because a processor can read and write with multiple sizes which can end up accessing multiple registers at the same time or only a partial register (or in some combinations the system also just locks up).
+Additionally the PowerPC processor in the GameCube is big endian which makes things even more complicated (theoretically it's possible to switch it to little endian, though nobody ever did that).
+
+The `ioBlock` macro handles all of this:
+
+```nim
+ioBlock vi, 0x100:
+of vtr, 0x00, 2:
+    read: uint16 vtr
+    write:
+        # ...
+of dcr, 0x02, 2:
+    read: uint16 dcr
+    write:
+        dcr.mutable = val
+        # ...
+of htr0, 0x04, 4:
+    read: uint32 htr0
+    write:
+            # ....
+            htr0.mutable = val
+```
+
+In this case I'm not saying that this is the only good solution,
+but I think this one is pretty neat (I've seen this also solved relatively cleanly with a table of function pointers).
+It also runs as a homebrew application Nintendo Switch,
+albeit magnitudes slower than on PC (where it doesn't reach fullspeed yet either). Though the JIT recompiler at the moment only targets x64.
+Many parts are still very much temporary,
+so if you decide to look at the source code,
+don't be scared when you see the `glReadPixels` 😄.
+At the moment my main focus is currently to optimise it far enough to reach atleast fullspeed otherwise implementing more hardware features and then testing them would just be just a slog.
+
+
 
 ----
 
