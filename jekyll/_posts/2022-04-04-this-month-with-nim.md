@@ -4,15 +4,18 @@ author: The Nim Community
 excerpt: "Automatic C bindings, a Declarative GTK, Typesafe-ish macros, and a GameCube Emulator"
 ---
 
+
 ## [Futhark](https://github.com/PMunch/futhark)
 
 #### Author: [PMunch](https://github.com/PMunch)
+
 Have your eyes set on the perfect C library for your project?
 Can't find a wrapper for it in Nim?
 Look no further!
+
 Futhark aims to allow you to simply import C header files directly into Nim,
 and allow you to use them like you would from C without any manual intervention.
-It's still in an alpha state,
+It is still in an alpha state,
 but it can already wrap many complex header files without any rewrites or pre-processing.
 
 ```nim
@@ -54,10 +57,13 @@ nimble install futhark
 ```
 
 
+
+
 ## [OwlKettle](https://github.com/can-lehmann/owlkettle)
 
 #### Author: [Can Lehmann](https://github.com/can-lehmann)
-Owlkettle is a declarative user interface framework based on GTK. It brings the declarative GUI paradigm you know from many web frameworks to the Linux desktop.
+
+OwlKettle is a declarative user interface framework based on GTK. It brings the declarative GUI paradigm you know from many web frameworks to the Linux desktop.
 
 Let's look at an example application:
 
@@ -89,22 +95,25 @@ This code results in the following interactive application:
 
 ![An example application](https://github.com/can-lehmann/owlkettle/blob/main/docs/assets/introduction.png?raw=true)
 
-If interested check out [more examples](https://github.com/can-lehmann/owlkettle/tree/main/examples).
+If interested, check out [more examples](https://github.com/can-lehmann/owlkettle/tree/main/examples).
+
+
+
 
 ## [Micros](https://github.com/beef331/micros)
 
 #### Author: [Jason Beetham](https://github.com/beef331)
 
-Micros is an early state typesafe API ontop of Nim's `NimNode`s.
-It provides utillity procedures for these types to enable simpler and more readable apis.
+Micros is an early state typesafe API on top of Nim's `NimNode`s.
+It provides utility procedures for these types to enable simpler and more readable APIs.
 
 Want to iterate a procedure's parameters?
 
 Just do:
 ```nim
 for idefs in myProcDef.routine.params:
- for name in idefs.names:
-   echo name.NimNode
+  for name in idefs.names:
+    echo name.NimNode
 ```
 
 
@@ -116,28 +125,42 @@ myTypeDef.objectDef.addGeneric identDef("Y", int or string or float)
 ```
 
 It is pretty early so there are not many docs,
-but I have started migrating my other macro libraries to it as it's more maintainable and easier to understand.
+but I have started migrating my other macro libraries to it,
+as it's more maintainable and easier to understand.
 
 If wanting to see more examples I have a bunch of [tests](https://github.com/beef331/micros/tree/master/tests).
+
+
 
 
 ## [hocuspocube](https://github.com/RSDuck/hocuspocube)
 
 #### Authors: [RSDuck](https://github.com/RSDuck) / doofenstein
 
+Hocuspocube is a Nintendo GameCube emulator.
 
-hocuspocube is a Nintendo GameCube emulator.
-At this stage it's eable to boot the IPL (initial program loader, which loads games from DVDs and also displays the famous rolling cube animation) as well as several commercial games.
-For faster execution it features an IR based JIT recompiler so that both the PowerPC core (Gekko) and the DSP can share a backend for code generation. For assembling my own assembler [catnip](https://github.com/RSDuck/catnip) is used.
-The go to language for emulators is usually C++ mainly for performance reasons.
-But I see Nim fitting this requirement just as well, while avoiding many of the hassles C++ has (and also just being my favourite programming language overall).
+At this stage it's able to boot the IPL (initial program loader,
+which loads games from DVDs and also displays the famous rolling cube animation)
+as well as several commercial games.
+For faster execution it features an IR based JIT recompiler,
+so that both the PowerPC core (Gekko) and the DSP can share a backend for code generation.
+For assembling my own assembler, [catnip](https://github.com/RSDuck/catnip) is used.
+
+The go-to language for emulators is usually C++, mainly for performance reasons.
+But I see Nim fitting this requirement just as well,
+while avoiding many of the hassles C++ has
+(and also just being my favourite programming language overall).
 
 I want to highlight some macros in the codebase:
 
+
 ### The instruction decoding macro
 
-Fast instruction decoding in software normally is all about creating the smallest possible LUT/case statement where some bits of the instruction are entered which then dispatches it to the appropriate handler.
-As you can probably imagine this is a recipe for giant seas of constants like [this](https://github.com/Arisotura/melonDS/blob/master/src/ARM_InstrTable.h).
+Fast instruction decoding in software is normally all about creating the smallest possible LUT/case statement,
+where some bits of the instruction are entered which then dispatches it to the appropriate handler.
+As you can probably imagine, this is a recipe for giant seas of constants like
+[this](https://github.com/Arisotura/melonDS/blob/master/src/ARM_InstrTable.h).
+
 It is not the worst thing in the world,
 but it's also something you can avoid with Nim!
 With the macro, all we have to define are those pretty instruction patterns:
@@ -167,10 +190,20 @@ macro dispatchPpc*[T](instr: uint32, state: var T, undefinedInstr: proc(state: v
 
 As a bonus, the macro also does the decoding of the instruction fields for us based on the patterns in the field!
 
+
 ### Hardware register macro
-What glues together processors and other hardware is for the most part hardware registers which can be written to and read from.
-While at first this seems like something pretty simple, just use a case statement with all the addresses. But it gets more complicated because a processor can read and write with multiple sizes which can end up accessing multiple registers at the same time or only a partial register (or in some combinations the system also just locks up).
-Additionally the PowerPC processor in the GameCube is big endian which makes things even more complicated (theoretically it's possible to switch it to little endian, though nobody ever did that).
+
+What glues together processors and other hardware is for the most part hardware registers,
+which can be written to and read from.
+While at first this seems like something pretty simple:
+just use a case statement with all the addresses.
+But it gets more complicated because a processor can read and write with multiple sizes
+which can end up accessing multiple registers at the same time or only a partial register
+(or in some combinations the system also just locks up).
+
+Additionally, the PowerPC processor in the GameCube is big endian,
+which makes things even more complicated
+(theoretically it's possible to switch it to little endian, though nobody ever did that).
 
 The `ioBlock` macro handles all of this:
 
@@ -194,12 +227,16 @@ of htr0, 0x04, 4:
 
 In this case I'm not saying that this is the only good solution,
 but I think this one is pretty neat (I've seen this also solved relatively cleanly with a table of function pointers).
+
 It also runs as a homebrew application Nintendo Switch,
-albeit magnitudes slower than on PC (where it doesn't reach fullspeed yet either). Though the JIT recompiler at the moment only targets x64.
+albeit magnitudes slower than on PC (where it doesn't reach full speed yet either).
+Though the JIT recompiler at the moment only targets x64.
+
 Many parts are still very much temporary,
 so if you decide to look at the source code,
 don't be scared when you see the `glReadPixels` 😄.
-At the moment my main focus is currently to optimise it far enough to reach atleast fullspeed otherwise implementing more hardware features and then testing them would just be just a slog.
+At the moment my main focus is currently to optimise it far enough to reach at least full speed,
+otherwise implementing more hardware features and then testing them would just be just a slog.
 
 
 
