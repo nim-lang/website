@@ -192,26 +192,6 @@ pkg_add nim
 zypper in nim
 ```
 
-## Snap
-
-Get the latest stable release:
-
-```
-snap install nim-lang --classic
-```
-
-Get the latest LTS 1.0.x release:
-
-```
-snap install nim-lang-lts-1 --classic
-```
-
-Get the latest nightly build:
-
-```
-snap install nim-lang-nightly --classic
-```
-
 ## Void Linux
 
 ```
