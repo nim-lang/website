@@ -13,8 +13,9 @@ bringing some general improvements over 1.6.4.
 Besides all the bugfixes (you can see the list of them at the bottom of this post),
 we have focused on having the standard library use consistent styles for
 variable names so it can be used in projects which force a consistent style
-with `--stylecheck:usages` option.
-Also, ARC/ORC are now considerably faster at method dispatching.
+with `--styleCheck:usages` option.
+Also, ARC/ORC are now considerably faster at method dispatching,
+bringing its performance back on the level of the `refc` memory management. 
 
 We would recommend to all of our users to upgrade and use version 1.6.6.
 
