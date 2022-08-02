@@ -10,9 +10,12 @@ excerpt: "Home Automation, NimYAML 1.0, and a LaTeX like"
 #### Author: [PMunch](https://github.com/PMunch)
 
 CoAP, the Constrained Applications Protocol, is a protocol which is most commonly used for communicating with IoT devices.
-This library uses Futhark to wrap the C library libcoap.
+
+[This library](https://github.com/PMunch/libcoap) uses Futhark to wrap the C library `libcoap`.
 Then it has a nice Nim-like interface on top with automatic memory management (using destructors) and async integration so that it fits right in with your other Nim libraries.
 Currently fairly limited in what it supports, only the things needed for my own IKEA Home Smart integration has been implemented (but since it's wrapped with Futhark you still have access to all the low-level C procedures and types from libcoap).
+
+
 
 
 ## [NimYAML](https://github.com/flyx/NimYAML)
@@ -98,14 +101,15 @@ Thanks to the authors of [honeycomb](https://katrinakitten.github.io/honeycomb/h
 
 
 
-## IKEA Home Smart](https://github.com/PMunch/ikeahomesmart)
+## [IKEA Home Smart](https://github.com/PMunch/ikeahomesmart)
 
 #### Authors: [Pmunch](https://github.com/PMunch)
 
 Have you got IKEA Home Smart bulbs in your house?
 Want to automate them with some nice type-safe scripts?
 Then you've come to the right place.
-Unlike Home Assistant and Openhabian which uses a CoAP client program which is executed for every bulb change this uses libcoap directly to speak to your gateway and control your bulbs.
+
+Unlike Home Assistant and Openhabian which uses a CoAP client program which is executed for every bulb change, [IKEA Home Smart](https://github.com/PMunch/ikeahomesmart) uses libcoap directly to speak to your gateway and control your bulbs.
 It is also completely async, so you can send multiple commands at the same time and wait for them all to complete (CoAP only allows a single transaction at a time, but you can queue up requests which will be fired one after the other while your program does something else). It supports groups and bulbs, and setting the brightness, colour, and temperature of the bulbs (as long as the hardware supports it).
 
 
