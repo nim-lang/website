@@ -162,12 +162,6 @@ The latest development version:
 docker pull nimlang/nim:devel
 ```
 
-## Fedora
-
-```
-dnf install nim
-```
-
 ## FreeBSD
 
 ```
