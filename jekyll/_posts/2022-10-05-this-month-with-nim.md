@@ -31,7 +31,10 @@ New APIs for the browser implemented recently
 
 Nodejs is your toolbox with 70+ modules for JavaScript, Node, browser and more!
 
-- https://github.com/juancarlospaco/nodejs
+- [https://github.com/juancarlospaco/nodejs](https://github.com/juancarlospaco/nodejs)
+
+
+
 
 
 ## [QWatcher](https://github.com/pouriyajamshidi/qwatcher)
@@ -41,14 +44,23 @@ Nodejs is your toolbox with 70+ modules for JavaScript, Node, browser and more!
  `qwatcher` is designed to help monitor TCP connections and diagnose buffer and connectivity issues on Linux machines related to input and output queues.
 
 
+
+
+
 ## [nim-sos](https://github.com/ct-clmsn/nim-sos)
 
 #### Author: [Christopher Taylor](https://github.com/ct-clmsn)
+
 [nim-sos](https://github.com/ct-clmsn/nim-sos) provides users the ability to program parallel applications.
 In the Single-Program-Many-Data (SPMD) style for supercomputers using the Nim programming language.
-nim-sos wraps the existing [Sandia OpenSHMEM library](https://github.com/Sandia-OpenSHMEM/SOS) implemented by Sandia National Laboratory.
-nim-sos implements distributed symmetric array and distributed symmetric scalar support using the underlying OpenSHMEM wrapper.
-nim-sos provides the Nim programming language distributed symmetric shared memory and Partitioned Global Address Space (PGAS) support.
+
+nim-sos:
+- wraps the existing [Sandia OpenSHMEM library](https://github.com/Sandia-OpenSHMEM/SOS) implemented by Sandia National Laboratory.
+- implements distributed symmetric array and distributed symmetric scalar support using the underlying OpenSHMEM wrapper.
+- provides the Nim programming language distributed symmetric shared memory and Partitioned Global Address Space (PGAS) support.
+
+
+
 
 
 ## [assigns](https://github.com/metagn/assigns)
@@ -108,7 +120,13 @@ assert (x, y) == (1, 3)
 Can be installed with `nimble install assigns`. More information in [docs](https://metagn.github.io/assigns/docs/assigns.html).
 
 
+
+
+
 ----
+
+
+
 
 ## Want to see your project here next month?
 
