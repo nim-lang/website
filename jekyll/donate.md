@@ -69,6 +69,14 @@ to Nim using one the following services:
 [Salt - BountySource](https://salt.bountysource.com/teams/nim)
 
 <i class="fab fa-paypal" aria-hidden="true"></i>
-[PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=FLWX5V2PMAXAU)
+[PayPal](https://www.paypal.com/donate/?hosted_button_id=KYXH3BLJBHZTA)
+
+<i class="fab fa-btc" aria-hidden="true"></i>
+``bc1qzgw3vsppsa9gu53qyecyu063jfajmjpye3r2h4``
+
+<i class="fab fa-ethereum" aria-hidden="true"></i>
+``0xC1d472B409c1bdCd8C0E45515D18F08a55fE9fa8``
+
+Nano: ``nano_1hioyj6n1nw5tpiq8rk8g1er6pfhfuuxqm88eog19d7qkhpbyic4whzqymbd``
 
 </section>
