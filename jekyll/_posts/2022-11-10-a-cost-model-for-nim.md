@@ -140,7 +140,7 @@ are involved, they are allocated on the stack -- this is nothing new, it
 was always true for every Nim version and memory management mode.
 
 The reason why these can be embedded directly is simple: They are of a
-fixed size that is known at compile-time.
+fixed size that is known at compile time.
 
 Flexible buffer handling can be done with `openArray` which is a
 `(pointer, length)` pair. Both arrays and sequences can be passed to a
