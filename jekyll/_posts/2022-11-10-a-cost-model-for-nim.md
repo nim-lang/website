@@ -163,8 +163,8 @@ the following reasons:
 -   SSO makes *moves* slightly slower and Nim is good at moving data
     around rather than copying.
 -   SSO makes the performance harder to predict as small strings are
-    significantly faster to create than long strings. (The storage for
-    long strings needs to be requested from an allocator). SSO also
+    significantly faster to create than long strings (for which the storage
+    needs to be requested from an allocator). SSO also
     implies that the number of memory indirections differs between long
     and short strings.
 
