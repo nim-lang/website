@@ -1,6 +1,6 @@
 ---
 title: "A cost model for Nim"
-author: Araq
+author: Andreas Rumpf (Araq)
 excerpt: "This blog post is the beginning of a cost model for the implementation that is available via `Nim devel` aka Nim version 2."
 ---
 
@@ -50,7 +50,7 @@ where N is the number of nodes in the subgraph. A subgraph of acyclic
 data is immediately destroyed when the refcount of its root reaches 0.
 
 Cyclic data is harder to reason about and best avoided. Nevertheless, if
-you end up having it the system remains "deterministic" and responsive
+you end up creating cyclic data the system remains "deterministic" and responsive
 at all times. You can influence the cycle collector via a new API:
 
 ``` nim
