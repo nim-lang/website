@@ -91,7 +91,7 @@ possible to preallocate them. The standard library does not do this yet
 
 
 
-### Goto based exception handling
+### Goto-based exception handling
 
 When you compile to C code, exception handling is implemented by setting
 an internal error flag that is queried after every function call that
