@@ -240,7 +240,7 @@ create in Nim and they work well together with the builtin constructs
 because they speak a common
 [protocol](https://nim-lang.org/docs/destructors.html).
 
-How to write an array that can grow at runtime without storing the
+How to write an array that can grow at run time without storing the
 capacity is left as an exercise for the reader. Happy hacking!
 
 
