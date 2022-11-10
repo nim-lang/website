@@ -37,7 +37,7 @@ Memory can be shared effectively between threads without copying in Nim
 version 2. The complexity of allocation and deallocation is O(1) and
 Nim's default allocator is completely lockfree. Fragmentation is low
 (average is 15% - worst case is 25%) as it is based on the
-[TLSF](http://www.gii.upv.es/tlsf/) algorithm. The lockfree ideas have
+[TLSF](http://www.gii.upv.es/tlsf/) algorithm. The lock-free ideas have
 been taken from [mimalloc](https://github.com/microsoft/mimalloc).
 
 That means that the cost of `new(x)` or `ObjectRef(fields)` is O(1) for
