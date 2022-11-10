@@ -152,7 +152,7 @@ parameter that takes an `openArray`.
 
 Seqs and strings are `(len, p)` pairs in which `p` points to a block of memory,
 sometimes called "payload". The payload contains information about the
-available capacity followed by the elements, these are stored in order
+available capacity followed by the elements, which are stored in order
 with no further indirections.
 
 Nim does not implement C++'s "small string optimization" (SSO) for
