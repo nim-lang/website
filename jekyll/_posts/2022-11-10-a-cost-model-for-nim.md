@@ -95,9 +95,9 @@ possible to preallocate them. The standard library does not do this yet
 
 When you compile to C code, exception handling is implemented by setting
 an internal error flag that is queried after every function call that
-can raise. `setjmp` is not used anymore. To improve the precision of the
+can raise. `setjmp` is not used anymore. To improve the
 compiler's abilities to reason about which call "can raise", make
-wise usage of the `.raises: []` annotation. The error path is
+wise use of the `.raises: []` annotation. The error path is
 intertwined with the success path with the resulting instruction cache
 benefits and drawbacks.
 
