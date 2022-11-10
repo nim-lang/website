@@ -28,7 +28,7 @@ of these features also works on bare metal, without an operating system.
 
 ## Heap based storage
 
-Why the focus on embedded, hard realtime systems? Because when you do
+Why the focus on embedded, hard real-time systems? Because when you do
 these well you can also do everything else well! The algorithms used are
 oblivious of the heap size, Nim's memory management works well with a
 64 kB sized heap but also scales to a 16 gigabyte heap, for example.
