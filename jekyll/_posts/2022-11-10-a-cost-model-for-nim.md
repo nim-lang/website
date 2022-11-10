@@ -79,8 +79,8 @@ loop I saw no benefits in doing so. The lesson to take away here is
 
 ### Subtype checking in O(1)
 
-Starting with version 2 the `of` operator which is also used implicitly
-in the `except E as ex` construct is finally as fast as it should be:
+Starting with version 2 the `of` operator, which is also used implicitly
+in the `except E as ex` construct, is finally as fast as it should be:
 It's a range check followed by a memory fetch. The cost is O(1).
 
 Nim's exceptions are based on a good old-fashioned type hierarchy that
