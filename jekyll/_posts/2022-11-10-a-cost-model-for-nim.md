@@ -203,7 +203,7 @@ designed for hard real-time systems is a good idea.
 
 If your domain is not "hard" real-time but "soft" real-time on a
 conventional OS, you can "pin" a thread to particular core via
-`system.pinToCpu`. `pinToCpu` can mitigate the jitter conventional
+`system.pinToCpu`. This can mitigate the jitter conventional
 operating systems can introduce.
 
 
