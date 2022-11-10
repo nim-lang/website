@@ -182,7 +182,7 @@ SSO, there are external packages available
 
 Most of Nim's standard library collections are based on hashing and
 only offer O(1) behavior on the *average* case. Usually this is not good
-enough for a hard realtime setting and so these have to be avoided. In
+enough for a hard real-time setting and so these have to be avoided. In
 fact, throughout Nim's history people found cases of pathologically bad
 performance for these data structures. Instead containers based on
 BTrees can be used that offer O(log N) operations for
