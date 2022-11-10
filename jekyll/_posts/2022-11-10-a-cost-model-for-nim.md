@@ -135,7 +135,7 @@ handling should be preferred.
 ### Arrays, objects, tuples and sets
 
 These are mapped to linear sections of storage, directly embedded into
-the parent collection, that means that if no `ref` or `ptr` indirections
+the parent collection. That means that if no `ref` or `ptr` indirections
 are involved, they are allocated on the stack. (This is nothing new, it
 was always true for every Nim version and memory management mode.)
 
