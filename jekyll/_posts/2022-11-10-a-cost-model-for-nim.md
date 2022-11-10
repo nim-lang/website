@@ -121,7 +121,7 @@ It depends on your program which implementation strategy performs
 better.
 
 There are rumors that a table based exception implementation lacks
-"predictable" performance and so should not be used for hard realtime
+"predictable" performance and so should not be used for hard real-time
 systems. If these rumors are still true then the goto based exception
 handling should be preferred.
 
