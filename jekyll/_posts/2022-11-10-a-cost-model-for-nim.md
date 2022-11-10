@@ -158,7 +158,7 @@ with no further indirections.
 Nim does not implement C++'s "small string optimization" (SSO) for
 the following reasons:
 
--   Strings and seqs in Nim are binary compatible, `cast`'ing between
+-   Strings and seqs in Nim are binary compatible: `cast`'ing between
     them is supported.
 -   SSO makes *moves* slightly slower and Nim is good at moving data
     around rather than copying.
