@@ -213,7 +213,7 @@ operating systems can introduce.
 
 ## Other gotchas
 
-When targeting embedded devices there are many platform specific knobs
+When targeting embedded devices there are many platform-specific knobs
 and quirks that are beyond the scope of this document. You need to be
 aware that Nim's default debug mode is probably too costly so right
 away you should use `-d:release` or a combination of switches like
