@@ -26,7 +26,7 @@ of these features also works on bare metal, without an operating system.
 
 
 
-## Heap based storage
+## Heap-based storage
 
 Why the focus on embedded, hard real-time systems? Because when you do
 these well you can also do everything else well! The algorithms used are
