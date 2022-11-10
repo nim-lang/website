@@ -231,7 +231,7 @@ and ask for help!
 
 ## Conclusion
 
-Nim's new implementation is excellent for embedded devices but it is
+Nim's new implementation is excellent for embedded devices, but it is
 the nature of constrained devices to need specialized solutions like
 custom containers. For example, a specialized growable array container
 could save memory if it lacks a "capacity" field and uses only a 16
