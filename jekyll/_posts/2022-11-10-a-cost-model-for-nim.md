@@ -111,7 +111,7 @@ annoying but at least it is optimized out for tail calls.
 ### Table-based exception handling
 
 When you compile to C++ code, the C++ implementation of exception
-handling is used, typically it is based on exception handling tables.
+handling is used -- typically it is based on exception handling tables.
 
 
 
