@@ -20,7 +20,7 @@ that is available via "Nim devel" aka Nim version 2.
 This implementation was designed for **embedded, hard real-time
 systems**. Generally speaking, assuming you have enough RAM (which is
 about **64 kB**) all of Nim's language features are supported --
-including exception handling and heap based storage. The implementation
+including exception handling and heap-based storage. The implementation
 of these features also works on bare metal, without an operating system.
 
 
