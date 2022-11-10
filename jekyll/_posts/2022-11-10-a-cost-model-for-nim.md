@@ -201,7 +201,7 @@ the corresponding POSIX (or Windows) APIs and mechanisms. This means
 their costs are not under Nim's control. Using an operating system
 designed for hard real-time systems is a good idea.
 
-If your domain is not "hard" realtime but "soft" realtime on a
+If your domain is not "hard" real-time but "soft" real-time on a
 conventional OS, you can "pin" a thread to particular core via
 `system.pinToCpu`. `pinToCpu` can mitigate the jitter conventional
 operating systems can introduce.
