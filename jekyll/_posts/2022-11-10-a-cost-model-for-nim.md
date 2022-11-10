@@ -136,8 +136,8 @@ handling should be preferred.
 
 These are mapped to linear sections of storage, directly embedded into
 the parent collection. That means that if no `ref` or `ptr` indirections
-are involved, they are allocated on the stack. (This is nothing new, it
-was always true for every Nim version and memory management mode.)
+are involved, they are allocated on the stack -- this is nothing new, it
+was always true for every Nim version and memory management mode.
 
 The reason why these can be embedded directly is simple: They are of a
 fixed size that is known at compile-time.
