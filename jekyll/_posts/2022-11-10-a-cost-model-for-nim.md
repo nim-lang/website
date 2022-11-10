@@ -84,7 +84,7 @@ in the `except E as ex` construct, is finally as fast as it should be:
 It's a range check followed by a memory fetch. The cost is O(1).
 
 Nim's exceptions are based on a good old-fashioned type hierarchy that
-supports runtime polymorphism. The different exception classes can vary
+supports run-time polymorphism. The different exception classes can vary
 in size. As such, exceptions are allocated on the heap. However, it is
 possible to preallocate them. The standard library does not do this yet
 -- pull requests are welcome!
