@@ -57,7 +57,10 @@ css_class: install
     <h2>Windows</h2>
     Nim 1.6:
     <ul>
-      <li>Nim 1.6.8:
+      <li>Nim 1.6.10:
+      <a href="{{ site.baseurl }}/download/nim-1.6.10_x64.zip">64-bit</a>,
+      <a href="{{ site.baseurl }}/download/nim-1.6.10_x32.zip">32-bit</a>
+      </li><li>Nim 1.6.8:
       <a href="{{ site.baseurl }}/download/nim-1.6.8_x64.zip">64-bit</a>,
       <a href="{{ site.baseurl }}/download/nim-1.6.8_x32.zip">32-bit</a>
       </li><li>Nim 1.6.6:
@@ -177,7 +180,11 @@ css_class: install
     <h2>Unix</h2>
     Nim 1.6:
     <ul>
-      <li>Nim 1.6.8:
+      <li>Nim 1.6.10:
+      <a href="{{ site.baseurl }}/download/nim-1.6.10-linux_x64.tar.xz">64-bit</a>,
+      <a href="{{ site.baseurl }}/download/nim-1.6.10-linux_x32.tar.xz">32-bit</a>,
+      <a href="{{ site.baseurl }}/download/nim-1.6.10.tar.xz">source</a>
+      </li><li>Nim 1.6.8:
       <a href="{{ site.baseurl }}/download/nim-1.6.8-linux_x64.tar.xz">64-bit</a>,
       <a href="{{ site.baseurl }}/download/nim-1.6.8-linux_x32.tar.xz">32-bit</a>,
       <a href="{{ site.baseurl }}/download/nim-1.6.8.tar.xz">source</a>
