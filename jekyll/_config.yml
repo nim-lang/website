@@ -26,14 +26,17 @@ defaults:
       title: "Nim Blog"
 
 navigation:
-  - title: Blog
-    url: /blog.html
+  
   - title: Features
     url: /features.html
+  - title: Learn
+    url: /learn.html
   - title: Download
     url: /install.html
   - title: Documentation
     url: /documentation.html
+  - title: Blog
+    url: /blog.html
   - title: Forum
     url: https://forum.nim-lang.org
   - title: Donate
