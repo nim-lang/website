@@ -3,6 +3,7 @@ title: "Nim Programming Language"
 description: >
   The Nim programming language is a concise, fast programming language that
   compiles to C, C++ and JavaScript.
+url: "https://nim-lang.org/"
 baseurl: ""
 
 nim_version: 1.6.10
