@@ -13,7 +13,7 @@ This month (October 2022) has been the first month where Nim website analytics h
 for everyone to consult, here is a snapshot of the dashboard on October 31st:
 
 <p style="text-align: center;">
-  <img width="auto" height="300" src="{{ site.baseurl }}/assets/thismonthwithnim/2022-10/analytics.png">
+  <img width="auto" height="300" src="{{ site.url }}{{ site.baseurl }}/assets/thismonthwithnim/2022-10/analytics.png">
 </p>
 
 Can you spot the day of NimConf? 😜
