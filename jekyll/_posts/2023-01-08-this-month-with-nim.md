@@ -76,7 +76,7 @@ The community around p5js is very active (you can look for #p5js tag on mastodon
 The goal of p5nim is to continue improving the wrapper and provide examples of p5js code ported to p5nim. You are much welcome to contribute new examples! The website is still a bit clunky but it will be improved. It is now available to install on nimble with `nimble install p5nim`. Here is a very nice example of animated art ([live+source](https://pietroppeter.github.io/p5nim/okazz_220919a.html)): 
 
 <p style="text-align: center;">
-  <img width="auto" height="300" src="{{ site.url }}{{ site.baseurl }}/assets/thismonthwithnim/2023-01/p5nim-okazz.png">
+  <img width="auto" height="300" src="{{ site.url }}{{ site.baseurl }}/assets/thismonthwithnim/2023-01/p5nim-okazz.gif">
 </p>
 
 ----
