@@ -55,7 +55,7 @@ From stdlib only uses JsObject, Blob, Node, Future types.
 [GitHub Action](https://github.com/features/actions) to compile and run Nim source code [from GitHub issue comments code blocks](https://github.com/juancarlospaco/nimrun-action/issues/3#issuecomment-1351871284).
 
 <p style="text-align: center;">
-  <video src="{{ site.url }}{{ site.baseurl }}/assets/thismonthwithnim/2023-01/nimrun-action-video.mp4" controls="controls" muted="muted" style="max-height:640px;">
+  <video src="https://user-images.githubusercontent.com/1189414/207674682-c971f842-b4ef-42a3-81b2-62e1c378d5a4.mp4" controls="controls" muted="muted" style="max-height:640px;">
   </video>
 </p>
 
@@ -76,7 +76,7 @@ The community around p5js is very active (you can look for #p5js tag on mastodon
 The goal of p5nim is to continue improving the wrapper and provide examples of p5js code ported to p5nim. You are much welcome to contribute new examples! The website is still a bit clunky but it will be improved. It is now available to install on nimble with `nimble install p5nim`. Here is a very nice example of animated art ([live+source](https://pietroppeter.github.io/p5nim/okazz_220919a.html)): 
 
 <p style="text-align: center;">
-  <img width="auto" height="300" src="{{ site.url }}{{ site.baseurl }}/assets/thismonthwithnim/2023-01/p5nim-okazz.gif">
+  <img width="auto" height="300" src="https://user-images.githubusercontent.com/4997234/210152759-b6feeeee-f7bf-4fe5-9618-bc24459bc146.gif">
 </p>
 
 ----
