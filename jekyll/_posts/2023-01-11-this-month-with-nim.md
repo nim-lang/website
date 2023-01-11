@@ -4,6 +4,8 @@ author: The Nim Community
 excerpt: "Cliche, WebRTC, Nimrun Action and p5nim"
 ---
 
+
+
 ## New [Cliche](https://github.com/juancarlospaco/cliche) version
 
 #### Author: [Juan Carlos](https://github.com/juancarlospaco)
@@ -11,7 +13,7 @@ excerpt: "Cliche, WebRTC, Nimrun Action and p5nim"
 New Cliche version:
 - [Added support for `bool`](https://github.com/juancarlospaco/cliche/pull/9#issue-1445943903).
 - Reads `enum`, `Positive`, `Natural`, `BiggestInt`, `BiggestFloat`, `int`, `float` directly from command line.
-- Fallbacks for values: static default ➡️ env var ➡️ command line.
+- Fallbacks for values: static default ➡️  env var ➡️  command line.
 - Uses `parseInt` for int, `parseFloat` for float, `parseEnum` for enum, etc.
 
 ```nim
@@ -34,8 +36,12 @@ doAssert missing == 42 # missing is not in fake, fallback to default value 42.
 doAssert food is Food and food == PIZZA  # food is Food.PIZZA
 ```
 
-- https://github.com/juancarlospaco/cliche
-- https://juancarlospaco.github.io/cliche
+- [https://github.com/juancarlospaco/cliche](https://github.com/juancarlospaco/cliche)
+- [https://juancarlospaco.github.io/cliche](https://juancarlospaco.github.io/cliche)
+
+
+
+
 
 ## [WebRTC for Nim](https://juancarlospaco.github.io/nodejs/nodejs/jswebrtc)
 
@@ -43,10 +49,14 @@ doAssert food is Food and food == PIZZA  # food is Food.PIZZA
 
 New WebRTC for Nim (Web Real-Time Communications) just landed:
 
-- https://juancarlospaco.github.io/nodejs/nodejs/jswebrtc
-- https://github.com/juancarlospaco/nodejs
+- [https://juancarlospaco.github.io/nodejs/nodejs/jswebrtc](https://juancarlospaco.github.io/nodejs/nodejs/jswebrtc)
+- [https://github.com/juancarlospaco/nodejs](https://github.com/juancarlospaco/nodejs)
 
 From stdlib only uses JsObject, Blob, Node, Future types.
+
+
+
+
 
 ## [Nimrun Action](https://github.com/juancarlospaco/nimrun-action#nimrun-action)
 
@@ -55,25 +65,35 @@ From stdlib only uses JsObject, Blob, Node, Future types.
 [GitHub Action](https://github.com/features/actions) to compile and run Nim source code [from GitHub issue comments code blocks](https://github.com/juancarlospaco/nimrun-action/issues/3#issuecomment-1351871284).
 
 <p style="text-align: center;">
-  <video src="https://user-images.githubusercontent.com/1189414/207674682-c971f842-b4ef-42a3-81b2-62e1c378d5a4.mp4" controls="controls" muted="muted" style="max-height:640px;">
+  <video src="https://user-images.githubusercontent.com/1189414/207674682-c971f842-b4ef-42a3-81b2-62e1c378d5a4.mp4" controls="controls" muted="muted" style="max-height:640px;max-width:800px">
   </video>
 </p>
 
 <p style="text-align: center;">
-  <img width="auto" height="300" src="{{ site.url }}{{ site.baseurl }}/assets/thismonthwithnim/2023-01/nimrun-action-screenshot.png">
+  <img width="auto" height="600" src="{{ site.url }}{{ site.baseurl }}/assets/thismonthwithnim/2023-01/nimrun-action-screenshot.png">
 </p>
+
+
+
+
 
 ## [p5nim](https://github.com/pietroppeter/p5nim)
 
 #### Author: [pietroppeter](https://github.com/pietroppeter)
 
 [p5nim](https://github.com/pietroppeter/p5nim) is a wrapper for [p5js](https://p5js.org) nim library.
-I have picked up the old bindings https://github.com/Foldover/nim-p5/ which were not working with a more recent nim, fixed them and starting to improve them. In particular I make it easy to call p5js with [nimib](https://github.com/pietroppeter/nimib/). I have also started to add a wrapper for p5sound (additional library to use sound).
+I have picked up the old bindings [https://github.com/Foldover/nim-p5/](https://github.com/Foldover/nim-p5/) which were not working with a more recent nim, fixed them and starting to improve them.
+In particular I make it easy to call p5js with [nimib](https://github.com/pietroppeter/nimib/).
+I have also started to add a wrapper for p5sound (additional library to use sound).
 
-p5js is a great library to create visualization, generative art, games and generally speaking [creative coding](https://en.wikipedia.org/wiki/Creative_coding). It has a specific focus on making coding accessible and inclusive for artists, designers, educators, beginners, and anyone else! Great learning material has been published: [the coding train], [the nature of code].
+p5js is a great library to create visualization, generative art, games and generally speaking [creative coding](https://en.wikipedia.org/wiki/Creative_coding).
+It has a specific focus on making coding accessible and inclusive for artists, designers, educators, beginners, and anyone else! Great learning material has been published: [the coding train], [the nature of code].
 The community around p5js is very active (you can look for #p5js tag on mastodon, twitter, ...) and welcoming with examples often sharing the source on [openprocessing].
 
-The goal of p5nim is to continue improving the wrapper and provide examples of p5js code ported to p5nim. You are much welcome to contribute new examples! The website is still a bit clunky but it will be improved. It is now available to install on nimble with `nimble install p5nim`. Here is a very nice example of animated art ([live+source](https://pietroppeter.github.io/p5nim/okazz_220919a.html)): 
+The goal of p5nim is to continue improving the wrapper and provide examples of p5js code ported to p5nim.
+You are much welcome to contribute new examples! The website is still a bit clunky but it will be improved.
+It is now available to install on nimble with `nimble install p5nim`.
+Here is a very nice example of animated art ([live+source](https://pietroppeter.github.io/p5nim/okazz_220919a.html)): 
 
 <p style="text-align: center;">
   <img width="auto" height="300" src="https://user-images.githubusercontent.com/4997234/210152759-b6feeeee-f7bf-4fe5-9618-bc24459bc146.gif">
