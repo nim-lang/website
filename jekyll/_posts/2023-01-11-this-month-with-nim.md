@@ -87,8 +87,8 @@ In particular I make it easy to call p5js with [nimib](https://github.com/pietro
 I have also started to add a wrapper for p5sound (additional library to use sound).
 
 p5js is a great library to create visualization, generative art, games and generally speaking [creative coding](https://en.wikipedia.org/wiki/Creative_coding).
-It has a specific focus on making coding accessible and inclusive for artists, designers, educators, beginners, and anyone else! Great learning material has been published: [the coding train], [the nature of code].
-The community around p5js is very active (you can look for #p5js tag on mastodon, twitter, ...) and welcoming with examples often sharing the source on [openprocessing].
+It has a specific focus on making coding accessible and inclusive for artists, designers, educators, beginners, and anyone else! Great learning material has been published: [the coding train](https://thecodingtrain.com/), [the nature of code](https://natureofcode.com/).
+The community around p5js is very active (you can look for #p5js tag on mastodon, twitter, ...) and welcoming with examples often sharing the source on [openprocessing](https://openprocessing.org/).
 
 The goal of p5nim is to continue improving the wrapper and provide examples of p5js code ported to p5nim.
 You are much welcome to contribute new examples! The website is still a bit clunky but it will be improved.
