@@ -125,7 +125,7 @@ So, we have just locale runtime check, but since that's enum, we're still going 
 
 
 
-## [News from nimib-land](https://github.com/ct-clmsn/nim-sos)
+## News from nimib-land
 
 #### Authors: [@pietroppeter](https://github.com/pietroppeter) [@HugoGranstrom](https://github.com/HugoGranstrom)
 
