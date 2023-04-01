@@ -244,6 +244,57 @@ else:
   discard
 ```
 
+## [Climate] (https://github.com/moigagoo/climate)
+
+#### Author [moigagoo](https://github.com/moigagoo)
+
+There are several CLI libs for Nim.
+However, when I was choosing the one to use for my Sauer package,
+I found out that the existing ones were either quite complex or too low-level.
+I wanted a package that would allow me to think with commands and subcommands instead of parsers,
+while still not use a ton of macros.
+
+Working on Kraut I was surprised with how productive its approach to routing turned out to be and I decided to apply it to CLI.
+This is how **Climate** was born.
+
+Climate is like a router but for command line.
+You define your commands and subcommands like paths and define handlers for them:
+
+```
+let commands = {"command subcommand": handlerProc}
+```
+
+Options and arguments extracted from the command line are passed inside a `Context` instance.
+
+I can see how Climate could evolve from here, adding argument validation, type casting, and help generation but it's worth noting that it's already quite handy as it is.
+
+See the docs and a full demo in the repo.
+
+
+## [Kraut] (https://github.com/moigagoo/kraut)
+
+#### Author [moigagoo](https://github.com/moigagoo)
+
+I really want to make the web development story in Nim happen, in particular, the frontend part of it.
+
+Although I am not a frontend developer myself,
+I've spent some time playing around with Karax and quickly realized there are obvious missing parts.
+
+One of those low hanging fruit is routing.
+I want routing that is obvious, extensible, and unbloated.
+
+And thus, behold **Kraut**.
+Kraut is a tiny lib that allows you to think in routes instead of hash parts and URL params instead of split strings.
+The routes are defined with Nim's built-in key-value sugar, so you have nothing new to learn:
+
+```
+let routes = {"#/path/{param}/subpath/": rendererProc,}
+```
+
+The requirements for the renderer price are also very simple: they must accept a `Context` instance and return a `VNode`.
+
+See the docs and a full working example in the repo.
+
 ----
 
 
