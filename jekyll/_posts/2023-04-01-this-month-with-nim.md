@@ -9,7 +9,7 @@ excerpt: "Ui bindings, Chess bots, Raylib binding updates. The list goes on, we 
 
 #### Author: [Juan Carlos](https://github.com/juancarlospaco)
 
-Trade Bitcoin, USD and Gold using Nim!.
+Trade Bitcoin, USD and Gold using Nim!
 
 Includes examples, API documentation, giftcards maker, futures maker,
 leveraged perpetual futures automated trading bots with TSL/SL/TP/PNL,
@@ -62,7 +62,7 @@ I'm doing this mainly for my own projects, but I like the idea of making c2nim b
 C++ has also gotten much better as well, but remains tricky.
 I've also got another project in the works to automate running `c2nim` on larger projects!
 
-Here's an (incomplete list) of new options (some newer, some older):
+Here's an (incomplete) list of new options (some newer, some older):
 
 - importDefines        import C defines as procs or vars with ``{.importc.}``
 - importFuncDefines    import C define funcs as procs with ``{.importc.}``
@@ -119,7 +119,7 @@ nb.useDarkReader()
 An example of a website using nimitheme is up here: <https://neroist.github.io/nimitheme/>, which uses the Awsm Big Stone theme.
 
 
-## naylib 4.5 released
+## [naylib](https://github.com/planetis-m/naylib) 4.5 released
 
 #### Author: [planetis](https://github.com/planetis-m)
 
@@ -211,7 +211,7 @@ init()
 main()
 ```
 
-## [Fungus] (https://www.github.com/beef331/fungus)
+## [Fungus](https://www.github.com/beef331/fungus)
 
 #### Author [Jason Beetham](https://www.github.com/beef331/)
 
@@ -244,7 +244,7 @@ else:
   discard
 ```
 
-## [Climate] (https://github.com/moigagoo/climate)
+## [Climate](https://github.com/moigagoo/climate)
 
 #### Author [moigagoo](https://github.com/moigagoo)
 
@@ -271,7 +271,7 @@ I can see how Climate could evolve from here, adding argument validation, type c
 See the docs and a full demo in the repo.
 
 
-## [Kraut] (https://github.com/moigagoo/kraut)
+## [Kraut](https://github.com/moigagoo/kraut)
 
 #### Author [moigagoo](https://github.com/moigagoo)
 
