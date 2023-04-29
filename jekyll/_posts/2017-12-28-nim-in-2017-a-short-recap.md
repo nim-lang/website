@@ -1,6 +1,7 @@
 ---
 title: "Nim in 2017: A short recap"
 author: Dominik Picheta
+use_dark_highlighting: true
 ---
 
 This year has been filled with some pretty major achievements for us, because

@@ -1,6 +1,7 @@
 ---
 title: "Version 0.8.6 released"
 author: Andreas Rumpf
+use_dark_highlighting: true
 ---
 
 The version jump from 0.8.2 to 0.8.6 acknowledges the fact that all development

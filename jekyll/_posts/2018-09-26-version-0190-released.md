@@ -1,6 +1,7 @@
 ---
 title: "Version 0.19.0 released"
 author: The Nim Team
+use_dark_highlighting: true
 ---
 
 The Nim team is happy to announce that the latest release of Nim,

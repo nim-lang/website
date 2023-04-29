@@ -1,6 +1,7 @@
 ---
 title: "Version 0.10.2 released"
 author: Dominik Picheta
+use_dark_highlighting: true
 ---
 
 This release marks the completion of a very important change to the project:

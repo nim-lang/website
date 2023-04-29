@@ -2,6 +2,7 @@
 title: "Nim is coming to FOSDEM"
 author: Dominik Picheta
 excerpt: "In just under a week, FOSDEM 2018 will be taking place in Brussels"
+use_dark_highlighting: true
 ---
 
 <div class="center">

@@ -1,6 +1,7 @@
 ---
 title: "Version 0.11.2 released"
 author: Andreas Rumpf
+use_dark_highlighting: true
 ---
 
 This is just a bugfix release that fixes the most pressing regressions we

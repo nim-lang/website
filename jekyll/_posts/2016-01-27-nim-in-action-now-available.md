@@ -3,6 +3,7 @@ title: "Nim in Action is now available!"
 excerpt: "We are proud to announce that Nim in Action, a book about
 the Nim programming language, is now available!"
 author: Dominik Picheta
+use_dark_highlighting: true
 ---
 
 <div class="center">

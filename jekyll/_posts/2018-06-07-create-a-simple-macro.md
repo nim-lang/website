@@ -6,6 +6,7 @@ metaprogramming using macros. Though a lot of Nim programmers are unaware of
 their merits due to lack of learning resources. The first part of
 this series will discuss the use of macros to simplify the creation of
 boilerplate code in Nim."
+use_dark_highlighting: true
 ---
 
 <div class="sidebarblock">

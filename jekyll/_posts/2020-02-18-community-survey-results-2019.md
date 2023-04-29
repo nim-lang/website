@@ -1,6 +1,7 @@
 ---
 title: "Nim Community Survey 2019 Results"
 author: The Nim Team
+use_dark_highlighting: true
 ---
 
 Nim community survey 2019 has been open for 50 days, and we have received 908 responses, which is our record-high number (771 in 2018, 603 in 2017).

@@ -1,6 +1,7 @@
 ---
 title: "Andreas Rumpf's talk at OSCON Amsterdam"
 author: Dominik Picheta
+use_dark_highlighting: true
 ---
 
 In case you have missed it, here is Andreas' Nim: An Overview talk at

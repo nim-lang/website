@@ -1,6 +1,7 @@
 ---
 title: "Version 1.0.2 released"
 author: The Nim Team
+use_dark_highlighting: true
 ---
 
 The Nim team is happy to announce version 1.0.2, our first patch release following

@@ -1,6 +1,7 @@
 ---
 title: "Version 0.8.14 released"
 author: Andreas Rumpf
+use_dark_highlighting: true
 ---
 
 Version 0.8.14 has been released!
