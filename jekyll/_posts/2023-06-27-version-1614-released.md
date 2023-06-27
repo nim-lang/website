@@ -6,7 +6,7 @@ author: The Nim Team
 The Nim team is happy to announce version 1.6.14, our seventh (and largest) patch release for
 Nim 1.6.
 
-Version 1.6.14 is a result of almost four months of hard work, and it contains
+Version 1.6.14 is a result of three months of hard work, and it contains
 [179 commits](https://github.com/nim-lang/Nim/compare/v1.6.12...v1.6.14),
 bringing lots of general improvements over 1.6.12.
 
