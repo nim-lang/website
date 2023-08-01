@@ -114,6 +114,148 @@ Use:
 - `std/appdirs` for accessing configuration/home/temp directories.
 - `std/cmdline` for reading command line parameters.
 
+
+
+### Overloadable enums
+
+[Overloadable enums](https://nim-lang.github.io/Nim/manual.html#overloadable-enum-value-names) are no longer experimental.
+
+For example:
+
+```nim
+type
+  E1 = enum
+    value1, value2
+  E2 = enum
+    value1, value2 = 4
+
+const
+  Lookuptable = [
+    E1.value1: "1",
+    value2: "2"
+  ]
+```
+
+The types `E1` and `E2` share the names `value1` and `value2`. These are overloaded and the usual overload disambiguation
+is used so that the `E1` or `E2` prefixes can be left out in many cases. These features are most beneficial for independently developed libraries.
+
+
+
+### Default values for objects
+
+Inside an object declaration, fields can now have default values:
+
+```nim
+type
+  Rational* = object
+    num: int = 0
+    den: int = 1
+
+var r = Rational()
+assert $r == "(num: 0, den: 1)"
+```
+
+These default values are used when the field is not initialized explicitly. See also [default values for object fields](https://nim-lang.github.io/Nim/manual.html#types-default-values-for-object-fields) for details.
+
+
+
+### Definite assignment analysis
+
+We found Nim's default initialization rule to be one major source of bugs. There is a new
+experimental switch called `strictDefs` that protects against these bugs. When enabled,
+it is enforced that a variable has been given a value explicitly before the variable can
+be used:
+
+
+```nim
+{.experimental: "strictDefs".}
+
+proc main =
+  var r: Rational
+  echo r # Warning: use explicit initialization of 'r' for clarity [Uninit]
+
+main()
+```
+
+To turn the warning into an error, use `--warningAsError:Uninit:on` on the command line.
+
+
+The analysis understands basic control flow so the following works because every
+possible code path assigns a value to `r` before it is used:
+
+```nim
+{.experimental: "strictDefs".}
+
+proc main(cond: bool) =
+  var r: Rational
+  if cond:
+    r = Rational(num: 3, den: 3)
+  else:
+    r = Rational()
+  echo r
+
+main(false)
+```
+
+Even better, this feature works with `let` variables too:
+
+```nim
+{.experimental: "strictDefs".}
+
+proc main(cond: bool) =
+  let r: Rational
+  if cond:
+    r = Rational(num: 3, den: 3)
+  else:
+    r = Rational()
+  echo r
+
+main(false)
+```
+
+It is checked that every `let` variable is assigned a value exactly once.
+
+
+
+### Strict effects
+
+`--experimental:strictEffects` are now always enabled. Strict effects require callback
+parameters to be annotated with `effectsOf`:
+
+```nim
+func sort*[T](a: var openArray[T],
+              cmp: proc (x, y: T): int {.closure.},
+              order = SortOrder.Ascending) {.effectsOf: cmp.}
+```
+
+The meaning here is that `sort` has the effects of `cmp`: `sort` can raise the exceptions of `cmp`.
+
+
+
+
+### Improved error message for type mismatch
+
+```nim
+proc foo(s: string) = discard
+proc foo(x, y: int) = discard
+proc foo(c: char) = discard
+
+foo 4
+```
+
+produces:
+```
+temp3.nim(11, 1) Error: type mismatch
+Expression: foo 4
+  [1] 4: int literal(4)
+
+Expected one of (first mismatch at [position]):
+[1] proc foo(c: char)
+[1] proc foo(s: string)
+[2] proc foo(x, y: int)
+```
+
+
 ### Consistent underscore handling
 
 The underscore identifier (`_`) is now generally not added to a scope when
