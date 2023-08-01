@@ -292,7 +292,7 @@ providing a stable ABI it is important not to lose any efficiency in the calling
   `--filename` and `--notFilename` respectively.
   Also, the semantics are now consistent for such positive/negative filters.
 
-- Nim now ships with an alternative package manager called Atlas. More on this in upcoming versions.
+- Nim now ships with an alternative package manager called [Atlas](http://nim-lang.github.io/Nim/atlas.html). More on this in upcoming versions.
 
 
 ## Porting guide
