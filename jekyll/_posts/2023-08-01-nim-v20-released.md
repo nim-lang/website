@@ -5,7 +5,7 @@ author: The Nim Team
 
 The Nim team is proud and happy to announce Nim version 2.0.
 
-This is an evolution (not revolution) of Nim language, bringing ORC memory management as a default, along with many other new features and improvements.
+This is an evolution (not revolution) of Nim, bringing ORC memory management as a default, along with many other new features and improvements.
 
 
 
@@ -41,8 +41,6 @@ for the most important bugfixes and features.
 You can donate via:
 
 * [Open Collective](https://opencollective.com/nim)
-* [Patreon](https://www.patreon.com/araq)
-* [BountySource](https://salt.bountysource.com/teams/nim)
 * Bitcoin: `1BXfuKM2uvoD6mbx4g5xM3eQhLzkCK77tJ`
 
 If you are a company, we also offer commercial support.
@@ -114,7 +112,7 @@ Use:
 
 ### Consistent underscore handling
 
-The underscore identifier (`_`) is now generally not added to scope when
+The underscore identifier (`_`) is now generally not added to a scope when
 used as the name of a definition. While this was already the case for
 variables, it is now also the case for routine parameters, generic
 parameters, routine declarations, type declarations, etc. This means that the following code now does not compile:
@@ -212,8 +210,8 @@ See also [the docs](https://nim-lang.github.io/Nim/markdown_rst.html).
 
 ## C++ interop enhancements
 
-Nim 2.0 takes C++ interop to the next level. With the new [virtual](https://nim-lang.github.io/Nim/manual_experimental.html#virtual-pragma) pragma and the extended [constructor](https://nim-lang.github.io/Nim/manual_experimental.html#constructor-pragma) pragma.
-Now one can define constructors and virtual procs that maps to C++ constructors and virtual methods, allowing one to further customize
+Nim 2.0 takes C++ interop to the next level with the new [virtual](https://nim-lang.github.io/Nim/manual_experimental.html#virtual-pragma) pragma and the extended [constructor](https://nim-lang.github.io/Nim/manual_experimental.html#constructor-pragma) pragma.
+Now one can define constructors and virtual procs that map to C++ constructors and virtual methods, allowing one to further customize
 the interoperability. There is also extended support for the [codeGenDecl](https://nim-lang.org/docs/manual.html#implementation-specific-pragmas-codegendecl-pragma) pragma, so that it works on types.
 
 It's a common pattern in C++ to use inheritance to extend a library. Some even use multiple inheritance as a mechanism to make interfaces.
