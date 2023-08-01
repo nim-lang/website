@@ -8,6 +8,11 @@ The Nim team is proud and happy to announce Nim version 2.0.
 This is an evolution (not revolution) of Nim, bringing ORC memory management as a default, along with many other new features and improvements.
 
 
+Nim is a programming language that is good for everything, but not for everybody.
+It focusses on the imperative programming paradigm and enhances it with a macro system.
+Its customizable memory management makes it well suited for unforgiving domains such as hard realtime systems and system programming in general.
+
+
 
 
 ## Installing Nim 2.0
