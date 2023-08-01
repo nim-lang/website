@@ -57,6 +57,13 @@ css_class: install
     <h2>Windows</h2>
     Nim 1.6:
     <ul>
+      <li>Nim 2.0.0:
+      <a href="{{ site.baseurl }}/download/nim-2.0.0_x64.zip">64-bit</a>,
+      <a href="{{ site.baseurl }}/download/nim-2.0.0_x32.zip">32-bit</a>
+      </li>
+    </ul>
+    Nim 1.6:
+    <ul>
       <li>Nim 1.6.14:
       <a href="{{ site.baseurl }}/download/nim-1.6.14_x64.zip">64-bit</a>,
       <a href="{{ site.baseurl }}/download/nim-1.6.14_x32.zip">32-bit</a>
@@ -189,6 +196,14 @@ css_class: install
 
   <div class="pure-u pure-u-md-1-3">
     <h2>Unix</h2>
+    Nim 2.0:
+    <ul>
+      <li>Nim 2.0.0:
+      <a href="{{ site.baseurl }}/download/nim-2.0.0-linux_x64.tar.xz">64-bit</a>,
+      <a href="{{ site.baseurl }}/download/nim-2.0.0-linux_x32.tar.xz">32-bit</a>,
+      <a href="{{ site.baseurl }}/download/nim-2.0.0.tar.xz">source</a>
+      </li>
+    </ul>
     Nim 1.6:
     <ul>
       <li>Nim 1.6.14:
