@@ -60,7 +60,6 @@ proc returnsNestedTuple(): (int, (int, int), int, int) = (4, (5, 7), 2, 3)
 
 # Now nesting is supported!
 let (x, (_, y), _, z) = returnsNestedTuple()
-
 ```
 
 ### Improved type inference
