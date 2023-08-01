@@ -244,7 +244,7 @@ const objTemplate = """
   };
 """;
 
-type NimChild {.codegenDecl: objTemplate .} = object of Base
+type NimChild {.codegenDecl: objTemplate.} = object of Base
 
 proc makeNimChild(val: int32): NimChild {.constructor: "NimClass('1 #1) : Base(#1)".} =
   echo "It calls the base constructor passing " & $this.someValue
