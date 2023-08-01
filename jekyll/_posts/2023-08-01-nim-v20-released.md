@@ -244,6 +244,7 @@ foo 4
 ```
 
 produces:
+
 ```
 temp3.nim(11, 1) Error: type mismatch
 Expression: foo 4
