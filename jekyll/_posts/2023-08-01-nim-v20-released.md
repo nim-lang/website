@@ -166,7 +166,7 @@ old behavior is currently still supported with the command line option
 
 `Markdown` is now the default markup language of doc comments (instead
 of the legacy `RstMarkdown` mode). In this release we begin to separate
-RST and Markdown features to better follow specification of each
+RST and Markdown features to better follow the specification of each
 language, with the focus on Markdown development.
 See also [the docs](https://nim-lang.github.io/Nim/markdown_rst.html).
 
