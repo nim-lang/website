@@ -55,7 +55,7 @@ css_class: install
 <div class="slim content center">
   <div class="pure-u pure-u-md-1-3">
     <h2>Windows</h2>
-    Nim 1.6:
+    Nim 2.0:
     <ul>
       <li>Nim 2.0.0:
       <a href="{{ site.baseurl }}/download/nim-2.0.0_x64.zip">64-bit</a>,
