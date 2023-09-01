@@ -9,7 +9,7 @@ excerpt: "Webdev, webdev, webdev, and a backup program!"
 
 #### Author: [ethosa](https://github.com/Ethosa)
 
-Happyx is a macro-oriented full-stack web framework that combines frontend and backend features.
+HappyX is a macro-oriented full-stack web framework that combines frontend and backend features.
 
 With HappyX you can write single page applications (SPA),
 static site generation (SSG),
@@ -24,6 +24,8 @@ serve("127.0.0.1", 5000):
   "/":
     "Hello, world!"
 ```
+
+or:
 
 ```nim
 import happyx
@@ -51,17 +53,27 @@ A non exhaustive list of features is as follows:
 - Python bindings
 
 
+
+
+
+
 ## [Sauer](https://github.com/moigagoo/sauer)
 
 #### Author: [moigagoo](https://github.com/moigagoo)
 
 Sauer is a command-line tool that helps set up Karax projects and add new pages and routes to them.
+
 Sauer uses [Kraut](https://github.com/moigagoo/kraut) for routing and offers a sane default app structure where each page is a separate module.
 The routes are defined in `routes.nim` and the global state is just a module name `state.nim`.
 Simple as that.
 It automatically adds the necessary dependencies and useful tasks to your nimble file and even ships with a simple static server to serve your app locally for development.
+
 Install Sauer with `nimble install sauer` and run `sauer --help` to see the available commands.
 Sauer is powered by [Climate](https://github.com/moigagoo/climate).
+
+
+
+
 
 ## [EZ Bkup](https://ezbkup.app)
 
@@ -100,6 +112,10 @@ Thank You for supporting the development of ethical software!
 
 A special thanks to Nim for rekindling the fun of programming, and making it easier to create programs that are more correct and efficient!
 
+
+
+
+
 ## [Karkas](https://github.com/moigagoo/karkas)
 
 #### Author: [moigagoo](https://github.com/moigagoo)
@@ -116,7 +132,7 @@ you can write something like this: `tdiv(style = hStack() <- box(2) <- {border: 
 Which means there's a vertical stack which is in turn a box of size 2 inside another container,
 with a solid border.
 
-Find the official tutorial at https://karkas.nim.town.
+Find the official tutorial at [https://karkas.nim.town](https://karkas.nim.town).
 
 ----
 
