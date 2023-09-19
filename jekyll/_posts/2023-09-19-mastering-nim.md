@@ -15,8 +15,8 @@ Please have a look at its cover image:
   <img width="auto" height="600" src="{{ site.url }}{{ site.baseurl }}/assets/img/mastering_nim_2.jpg">
 </p>
 
-But Nim's logo is a crown!
-Where is the crown?
+**But Nim's logo is a crown!
+Where is the crown?**
 That's the secret of Nim!
 
 Send us your reply to support@nim-lang.org until December 6th 2023.
