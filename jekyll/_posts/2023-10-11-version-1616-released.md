@@ -48,6 +48,7 @@ You can donate via:
 
 * [Open Collective](https://opencollective.com/nim)
 * Bitcoin: `1BXfuKM2uvoD6mbx4g5xM3eQhLzkCK77tJ`
+
 If you are a company, we also offer commercial support.
 
 
