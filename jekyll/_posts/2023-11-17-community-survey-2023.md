@@ -38,8 +38,7 @@ We would appreciate your help in spreading the word about this survey.
 Share the Google Forms link on your social network feeds, with your colleagues
 and in other communities.
 
-Thank you to everyone that helped develop and test the survey!
 Once the submission period ends, the results will be shown here and publicized
-via Twitter, the Nim Forum and IRC.
+via the Nim Forum.
 
 Thanks for your time!
