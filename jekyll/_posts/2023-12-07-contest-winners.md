@@ -6,7 +6,10 @@ author: The Nim Team
 The [contest](https://nim-lang.org/blog/2023/09/19/mastering-nim.html) is over!
 A gold crown can be seen by turning the picture upside down:
 
-![](https://i.imgur.com/pzaEbpO.png)
+<p style="text-align: center;">
+  <img width="auto" height="600" src="{{ site.url }}{{ site.baseurl }}/assets/img/contest_image.png">
+</p>
+
 
 We received lots of correct answers!
 Among those who answered correctly, three lucky winners were chosen by random draw.
