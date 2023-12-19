@@ -8,13 +8,15 @@ The Nim team is happy to announce two releases:
 - LTS release, version 1.6.18
 
 
+For the majority of our users, v2.0.2 contains [63 commits](https://github.com/nim-lang/Nim/compare/v2.0.0...v2.0.2) and brings bugfixes and improvements to Nim 2.0.0, released four months ago.
+
 **NOTE**: If your program uses threads (`--threads:on` became the default in the 2.0.x line) please also use the `-d:useMalloc` switch.
 This problem will be fixed in 2.0.4, sorry for the inconvenience.
 
-For the majority of our users, v2.0.2 contains [63 commits](https://github.com/nim-lang/Nim/compare/v2.0.0...v2.0.2) and brings bugfixes and improvements to Nim 2.0.0, released four months ago.
 
 For those users who haven't switched to [Nim v2.0](https://nim-lang.org/blog/2023/08/01/nim-v20-released.html) yet, we have released the ninth patch release for Nim 1.6.x.
 It is a small release with [13 commits](https://github.com/nim-lang/Nim/compare/v1.6.16...v1.6.18).
+
 
 
 ## Nim Community Survey 2023
