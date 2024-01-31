@@ -155,7 +155,7 @@ Your time is precious and we are deeply thankful that you used it to share your 
 Please remember that you do not need to wait for a survey in order to give us feedback; of course you’re more than welcome to wait if you wish, but ideally share your feedback with us immediately.
 We can be found in various places - see [the community page](https://nim-lang.org/community.html) for links and instructions on how to get in touch.
 
-If you would like to help us in our 2022 plans, consider [contributing](https://github.com/nim-lang/Nim) or making a donation.
+If you would like to help us in our 2024 plans, consider [contributing](https://github.com/nim-lang/Nim) or making a donation.
 You can donate via:
 
 - [Open Collective](https://opencollective.com/nim)
