@@ -73,8 +73,8 @@ css_class: install
     Nim 1.6:
     <ul>
       <li>Nim 1.6.20:
-      <a href="{{ site.baseurl }}/download/nim-1.6.20.zip">64-bit</a>,
-      <a href="{{ site.baseurl }}/download/nim-1.6.20.zip">32-bit</a>
+      <a href="{{ site.baseurl }}/download/nim-1.6.20_x64.zip">64-bit</a>,
+      <a href="{{ site.baseurl }}/download/nim-1.6.20_x32.zip">32-bit</a>
       </li>
       <li>Nim 1.6.18:
       <a href="{{ site.baseurl }}/download/nim-1.6.18_x64.zip">64-bit</a>,
