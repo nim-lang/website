@@ -10,7 +10,9 @@ excerpt: "It has been a long time since one of these!"
 #### Author: [Neo](https://github.com/glassesneo)
 
 New super cool features here!
+
 ### Multiple constructor
+
 ```nim
 class Gun:
   var
@@ -45,8 +47,11 @@ class Sword:
 # made from the type definition
 let _ = Sword.new(8)
 ```
+
 ### `{.construct.}`
+
 a type definition with {.construct.} are made into a class. Now that we can define a class without using `class`!
+
 ```nim
 type Shield {.construct.} = ref object
   defence*: int
@@ -56,8 +61,11 @@ type Shield {.construct.} = ref object
 let _ = Shield.new(4)
 ```
 
+
 ### Multiple implementation
+
 Now we can use multiple implementation!
+
 ```nim
 protocol Readable:
   var text: string
@@ -112,11 +120,13 @@ Also, the features below were removed:
 Running Apache NuttX RTOS (Real-Time Operating System) on Single-Board Computers with plenty of RAM.
 Like Pine64 Ox64 BL808 SBC with 64 MB RAM!
 
-In this article, we create a Blinky LED app with Nim on NuttX.
+In [this article](https://lupyuen.codeberg.page/articles/nim.html), we create a Blinky LED app with Nim on NuttX.
+
 Garbage-Collected Languages (like Nim) require a bit more RAM than Low-Level Languages (like C).
 Perfect for our roomy (and vroomy) single board computer!
-We test NuttX + Nim Blinky on QEMU Emulator for 64-bit RISC-V (minus the blinkenlight)
-Then we run NuttX + Nim Blinky on the Ox64 BL808 RISC-V SBC (with a real LED)
+
+We test NuttX + Nim Blinky on QEMU Emulator for 64-bit RISC-V (minus the blinkenlight).
+Then we run NuttX + Nim Blinky on the Ox64 BL808 RISC-V SBC (with a real LED).
 
 
 ## happyx-ui
@@ -125,7 +135,8 @@ Then we run NuttX + Nim Blinky on the Ox64 BL808 RISC-V SBC (with a real LED)
 
 UI library for the HappyX web framework, inspired by Jetpack Compose.
 
-A small code exmaple follows:
+A small code example follows:
+
 <p style="text-align: center;">
   <img width="auto" height="600" src="{{ site.url }}{{ site.baseurl }}/assets/thismonthwithnim/2024-06/happyx-ui-code.png">
 </p>
@@ -133,7 +144,7 @@ A small code exmaple follows:
 <p style="text-align: center;">
   <img width="auto" height="600" src="{{ site.url }}{{ site.baseurl }}/assets/thismonthwithnim/2024-06/happyx-ui.png">
 </p>
-A live demo can be found [here](https://hapticx.github.io/happyx-ui/#/)
+A live demo can be found [here](https://hapticx.github.io/happyx-ui/#/).
 
 ----
 
