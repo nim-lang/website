@@ -1,6 +1,7 @@
 ---
 title: "Launching the 2019 Nim Community Survey"
 author: The Nim Team
+use_dark_highlighting: true
 ---
 
 We are proud to announce the launch of the official

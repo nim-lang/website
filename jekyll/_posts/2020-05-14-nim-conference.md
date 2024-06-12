@@ -1,6 +1,7 @@
 ---
 title: "Nim Online Conference 2020"
 author: The Nim Team
+use_dark_highlighting: true
 ---
 
 Mark the date: Saturday, June 20th 2020.

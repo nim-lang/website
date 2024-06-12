@@ -1,6 +1,7 @@
 ---
 title: Hacktoberfest with Nim
 author: The Nim Team
+use_dark_highlighting: true
 ---
 
 [Hacktoberfest](https://hacktoberfest.digitalocean.com/) is an annual event happening in October which celebrates open source software and encourages meaningful contributions to the open source ecosystem.

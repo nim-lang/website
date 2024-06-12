@@ -1,6 +1,7 @@
 ---
 title: "Version 0.9.2 released"
 author: Dominik Picheta
+use_dark_highlighting: true
 ---
 
 We are pleased to announce that version 0.9.2 of the Nimrod compiler has been

@@ -2,6 +2,7 @@
 title: "Static Analysis"
 author: Moerm
 excerpt: "Nim is in an excellent position to “get married” with static analysis, and it doesn’t have to be based on some intermediate representation but can achieve a solution more similar to Spark."
+use_dark_highlighting: true
 ---
 
 <div class="sidebarblock">

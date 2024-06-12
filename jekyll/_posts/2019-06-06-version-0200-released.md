@@ -2,6 +2,7 @@
 title: "Version 0.20.0 released"
 author: The Nim Team
 excerpt: "We are very proud to announce Nim version 0.20. This is a massive release, both literally and figuratively. It contains more than 1,000 commits and it marks our release candidate for version 1.0!"
+use_dark_highlighting: true
 ---
 
 We are very proud to announce Nim version 0.20.
