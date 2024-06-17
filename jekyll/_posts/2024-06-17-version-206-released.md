@@ -29,7 +29,7 @@ If you are on OSX ARM, `choosenim` will not work for you.
 Please choose an alternative method of installing or updating.
 
 Alternatively, you can download Nim 2.0.6 from
-[our nightlies builds](https://github.com/nim-lang/nightlies/releases/tag/2024-03-28-version-2-0-b47747d31844c6bd9af4322efe55e24fefea544c).
+[our nightlies builds](https://github.com/nim-lang/nightlies/releases/tag/2024-06-17-version-2-0-c00e8e71e0c8465b5a5257c76c674b803273b222).
 
 
 
