@@ -9,7 +9,8 @@ Version 2.0.6 contains (exactly!) [200 commits](https://github.com/nim-lang/Nim/
 
 The reason for this many commits in this release is that this is planned as the last 2.0.x release before Nim 2.2 and we wanted to give you the best Nim 2.0 experience in case you won't be able to switch immediately to Nim 2.2.
 
-**NOTE**: This release fixes the problem with `--threads:on`, and there's no need for the `-d:useMalloc` workaround anymore.
+**NOTE**: If your program uses threads (`--threads:on` became the default in the 2.0.x line) please also use the `-d:useMalloc` switch.
+This problem will be fixed in a future release, sorry for the inconvenience.
 
 Check out if the package manager of your OS already ships version 2.0.6 or
 install it as described [here](https://nim-lang.org/install.html).
