@@ -13,6 +13,10 @@ Major improvements in this release:
 - Optimized `setLen(0)` for uninitialized strings and seqs.
 - Optimized `move` when used with `--mm:refc`.
 
+This release comes relatively quickly after our previous release because it was time-critical for our partner Status to receive these improvements as soon as possible.
+It is our way of saying "thank you" for their continued support of Nim.
+
+
 Check out if the package manager of your OS already ships version 2.0.8 or
 install it as described [here](https://nim-lang.org/install.html).
 
