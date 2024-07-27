@@ -52,6 +52,7 @@ glue code thanks to powerful metaprogramming capabilities of Nim.
 - Emacs: [https://github.com/nim-lang/nim-mode](https://github.com/nim-lang/nim-mode)
 - Vim: [https://github.com/zah/nimrod.vim/](https://github.com/zah/nimrod.vim)
 - NeoVim: [https://github.com/alaviss/nim.nvim](https://github.com/alaviss/nim.nvim)
+- Helix: [https://github.com/nim-lang/langserver](https://github.com/nim-lang/langserver)
 - QtCreator (4.1+): Included as experimental plugin.
 - Scite: Included
 - Gedit: The [Aporia .lang file](https://github.com/nim-lang/Aporia/blob/master/share/gtksourceview-2.0/language-specs/nim.lang).
