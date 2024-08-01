@@ -45,9 +45,7 @@ glue code thanks to powerful metaprogramming capabilities of Nim.
 
 ## What about editor support?
 
-- Visual Studio Code:
-  - Extension written in Nim [https://marketplace.visualstudio.com/items?itemName=nimsaem.nimvscode](https://marketplace.visualstudio.com/items?itemName=nimsaem.nimvscode)
-  - Original Extension written in TypeScript [https://marketplace.visualstudio.com/items?itemName=kosz78.nim](https://marketplace.visualstudio.com/items?itemName=kosz78.nim)
+- Visual Studio Code: Official extension [https://marketplace.visualstudio.com/items?itemName=NimLang.nimlang](https://marketplace.visualstudio.com/)
 - VSCodium/OpenVSX: [https://open-vsx.org/extension/nimsaem/nimvscode](https://open-vsx.org/extension/nimsaem/nimvscode)
 - Emacs: [https://github.com/nim-lang/nim-mode](https://github.com/nim-lang/nim-mode)
 - Vim: [https://github.com/zah/nimrod.vim/](https://github.com/zah/nimrod.vim)
