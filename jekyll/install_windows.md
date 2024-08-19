@@ -76,7 +76,7 @@ Nim:
 
 # Installation using ``choosenim``
 
-[``choosenim``](https://github.com/dom96/choosenim#choosenim) is an
+[``choosenim``](https://github.com/nim-lang/choosenim) is an
 installer for the Nim programming language. It allows you
 to easily switch between versions of Nim, whether that is the latest stable
 release or the latest development version.
