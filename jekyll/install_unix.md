@@ -131,13 +131,13 @@ necessary.
 
 # Installation using package managers
 
-## Arch Linux
+## Arch Linux & derivatives
 
 ```
 pacman -S nim
 ```
 
-## Debian / Ubuntu
+## Debian / Ubuntu & derivatives
 
 ```
 apt-get install nim
@@ -168,7 +168,7 @@ docker pull nimlang/nim:devel
 pkg install nim
 ```
 
-## macOS
+## macOS (Homebrew)
 
 ```
 brew install nim
