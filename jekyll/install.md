@@ -57,6 +57,10 @@ css_class: install
     <h2>Windows</h2>
     Nim 2.2:
     <ul>
+      <li>Nim 2.2.2:
+      <a href="{{ site.baseurl }}/download/nim-2.2.2_x64.zip">64-bit</a>,
+      <a href="{{ site.baseurl }}/download/nim-2.2.2_x32.zip">32-bit</a>
+      </li>
       <li>Nim 2.2.0:
       <a href="{{ site.baseurl }}/download/nim-2.2.0_x64.zip">64-bit</a>,
       <a href="{{ site.baseurl }}/download/nim-2.2.0_x32.zip">32-bit</a>
@@ -245,6 +249,11 @@ css_class: install
     <h2>Unix</h2>
     Nim 2.2:
     <ul>
+      <li>Nim 2.2.2:
+      <a href="{{ site.baseurl }}/download/nim-2.2.2-linux_x64.tar.xz">64-bit</a>,
+      <a href="{{ site.baseurl }}/download/nim-2.2.2-linux_x32.tar.xz">32-bit</a>,
+      <a href="{{ site.baseurl }}/download/nim-2.2.2.tar.xz">source</a>
+      </li>
       <li>Nim 2.2.0:
       <a href="{{ site.baseurl }}/download/nim-2.2.0-linux_x64.tar.xz">64-bit</a>,
       <a href="{{ site.baseurl }}/download/nim-2.2.0-linux_x32.tar.xz">32-bit</a>,
