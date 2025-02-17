@@ -1,5 +1,5 @@
 Attribution 3.0 Unported (CC BY 3.0)\
-Copyright (C) 2023 The Nim Programming language
+Copyright (C) 2025 The Nim Programming language
 
 ## You are free to
 
