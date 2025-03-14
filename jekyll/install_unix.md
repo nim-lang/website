@@ -162,6 +162,16 @@ The latest development version:
 docker pull nimlang/nim:devel
 ```
 
+## Fedora
+
+Requires [Terra](https://terra.fyralabs.com) (**Third party repository**).
+
+```
+dnf install nim
+```
+
+Alternatively, install `nim-nightly` or `choosenim`.
+
 ## FreeBSD
 
 ```
