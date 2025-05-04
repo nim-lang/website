@@ -131,13 +131,13 @@ necessary.
 
 # Installation using package managers
 
-## Arch Linux
+## Arch Linux & derivatives
 
 ```
 pacman -S nim
 ```
 
-## Debian / Ubuntu
+## Debian / Ubuntu & derivatives
 
 ```
 apt-get install nim
@@ -178,7 +178,7 @@ Alternatively, install `nim-nightly` or `choosenim`.
 pkg install nim
 ```
 
-## macOS
+## macOS (Homebrew)
 
 ```
 brew install nim
