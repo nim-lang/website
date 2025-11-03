@@ -74,6 +74,13 @@ Nim:
 * 64 bit - [mingw64.7z]({{ site.baseurl }}/download/mingw64.7z) ([SHA256]({{ site.baseurl }}/download/mingw64.7z.sha256))
 
 
+# Installation using ``winget``
+
+The [``Windows Package Manager``](https://github.com/microsoft/winget-cli) is a tool designed to help you quickly and easily discover and install those packages that make your PC environment special.
+```sh
+winget install -e --id nim.nim
+```
+
 # Installation using ``choosenim``
 
 [``choosenim``](https://github.com/nim-lang/choosenim) is an
