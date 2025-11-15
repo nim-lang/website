@@ -60,17 +60,17 @@ proc deriveOsKey(assetName, version: string): string =
   if base.startsWith("nim-"):
     base = base[4..^1]
 
-  # Strip extension (first dot and everything after).
-  let dotIdx = base.find('.')
-  if dotIdx != -1:
-    base = base[0 ..< dotIdx]
-
   # Strip version prefix plus separator.
   if base.len >= version.len and base.startsWith(version):
     var rest = base[version.len .. ^1]
     if rest.len > 0 and (rest[0] == '-' or rest[0] == '_' or rest[0] == '.'):
       rest = rest[1..^1]
     base = rest
+
+  # Strip extension (first dot and everything after) from the remainder.
+  let dotIdx = base.find('.')
+  if dotIdx != -1:
+    base = base[0 ..< dotIdx]
 
   var osKey = base
   # Heuristic for Windows builds that are just x64/x32.
@@ -132,9 +132,11 @@ proc main() =
   echo root.pretty()
 
 when isMainModule:
-  # main()
 
-  assert deriveOsKey("nim-2.2.6-linux_x32.tar.xz", "2.2.6") == "linux_x32"
-  echo deriveOsKey("nim-2.2.6-linux_armv7l.tar.xz", "2.2.6") == "linux_armv7l"
-  echo deriveOsKey("nim-2.2.6-windows_x32.zip", "2.2.6") == "windows_x32"
-
+  when defined(test):
+    echo deriveOsKey("nim-2.2.6-linux_x32.tar.xz", "2.2.6")
+    assert deriveOsKey("nim-2.2.6-linux_x32.tar.xz", "2.2.6") == "linux_x32"
+    assert deriveOsKey("nim-2.2.6-linux_armv7l.tar.xz", "2.2.6") == "linux_armv7l"
+    assert deriveOsKey("nim-2.2.6-windows_x32.zip", "2.2.6") == "windows_x32"
+  else:
+    main()
