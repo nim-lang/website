@@ -79,6 +79,22 @@ proc deriveOsKey(assetName, version: string): string =
 
   result = osKey
 
+proc nimlangUrl(version, osKey: string): string =
+  ## Returns the canonical download URL on nim-lang.org for a subset of OS keys.
+  ## Note: only windows_{x32,x64} and linux_{x32,x64} are hosted on nim-lang.org.
+  const base = "https://nim-lang.org/download/"
+  case osKey
+  of "windows_x32":
+    result = base & "nim-" & version & "_x32.zip"
+  of "windows_x64":
+    result = base & "nim-" & version & "_x64.zip"
+  of "linux_x64":
+    result = base & "nim-" & version & "-linux_x64.tar.xz"
+  of "linux_x32":
+    result = base & "nim-" & version & "-linux_x32.tar.xz"
+  else:
+    result = ""
+
 proc main() =
   # Get all tags from Nim and the nightlies repo.
   let nimTagLines = runGitLsRemote(nimRepoUrl)
@@ -129,12 +145,16 @@ proc main() =
         let osKey = deriveOsKey(name, version)
 
         var osObj = newJObject()
-        osObj["url"] = %downloadUrl
+        osObj["github_url"] = %downloadUrl
 
-        if asset.hasKey("digest"):
+        if asset.hasKey("digest") and asset["digest"].getStr() != "":
           osObj["digest"] = %asset["digest"].getStr()
-        if asset.hasKey("updated_at"):
+        if asset.hasKey("updated_at") and asset["updated_at"].getStr() != "":
           osObj["updated"] = %asset["updated_at"].getStr()
+
+        let nlUrl = nimlangUrl(version, osKey)
+        if nlUrl.len > 0:
+          osObj["nimlang_url"] = %nlUrl
 
         assetsObj[osKey] = osObj
 
