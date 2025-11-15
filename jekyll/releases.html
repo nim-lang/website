@@ -1,0 +1,73 @@
+---
+layout: default
+title: Nim Releases
+css_class: releases
+---
+
+<h1 class="text-centered page-title main-heading">Nim Releases</h1>
+
+<div class="slim content">
+  {% assign releases = site.data.nim_releases %}
+
+  {% if releases %}
+    {% for v in releases %}
+      {% assign version = v[0] %}
+      {% assign platforms = v[1] %}
+
+      <h2>Nim {{ version }}</h2>
+      <table class="pure-table pure-table-striped">
+        <thead>
+          <tr>
+            <th>Platform</th>
+            <th>nim-lang.org download</th>
+            <th>GitHub nightly</th>
+            <th>Digest</th>
+            <th>Updated at</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for p in platforms %}
+            {% assign os = p[0] %}
+            {% assign data = p[1] %}
+            {% assign gh_url = data.url | default: data.github_url %}
+            {% assign updated = data.updated_at | default: data.updated %}
+            <tr>
+              <td><code>{{ os }}</code></td>
+              <td>
+                {% if data.nimlang_url %}
+                  <a href="{{ data.nimlang_url }}">Download</a>
+                {% else %}
+                  &mdash;
+                {% endif %}
+              </td>
+              <td>
+                {% if gh_url %}
+                  <a href="{{ gh_url }}">Download</a>
+                {% else %}
+                  &mdash;
+                {% endif %}
+              </td>
+              <td>
+                {% if data.digest %}
+                  <code>{{ data.digest }}</code>
+                {% else %}
+                  &mdash;
+                {% endif %}
+              </td>
+              <td>
+                {% if updated %}
+                  {{ updated }}
+                {% else %}
+                  &mdash;
+                {% endif %}
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% endfor %}
+  {% else %}
+    <p>No release data available.</p>
+  {% endif %}
+</div>
+

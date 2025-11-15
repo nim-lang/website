@@ -1,0 +1,5 @@
+---
+layout: null
+---
+
+{{ site.data.nim_releases | jsonify }}

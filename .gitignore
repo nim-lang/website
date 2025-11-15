@@ -1,3 +1,4 @@
 _site
 .sass-cache
 .jekyll-metadata
+scripts/generate_releases_json
