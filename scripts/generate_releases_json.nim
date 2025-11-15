@@ -119,16 +119,26 @@ proc main() =
       var assetsObj = newJObject()
       for asset in parsed["assets"].getElems():
         let name = asset["name"].getStr()
+        if not asset.hasKey("browser_download_url"):
+          continue
         let downloadUrl = asset["browser_download_url"].getStr()
         let osKey = deriveOsKey(name, version)
-        echo "OSKEY: ", osKey
-        assetsObj[osKey] = %downloadUrl
+
+        var osObj = newJObject()
+        osObj["url"] = %downloadUrl
+
+        if asset.hasKey("digest"):
+          osObj["digest"] = %asset["digest"].getStr()
+        if asset.hasKey("updated_at"):
+          osObj["updated"] = %asset["updated_at"].getStr()
+
+        assetsObj[osKey] = osObj
 
       root[version] = assetsObj
     except CatchableError as e:
       stderr.writeLine "Failed to fetch or parse release for ", version, ": ", e.msg
 
-  # Final JSON: { "<version>": { "<os>": "<url>", ... }, ... }
+  # Final JSON: { "<version>": { "<os>": { "url": ..., "digest": ..., "updated_at": ... }, ... }, ... }
   echo root.pretty()
 
 when isMainModule:
