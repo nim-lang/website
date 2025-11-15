@@ -162,8 +162,15 @@ proc main() =
     except CatchableError as e:
       stderr.writeLine "Failed to fetch or parse release for ", version, ": ", e.msg
 
-  # Final JSON: { "<version>": { "<os>": { "url": ..., "digest": ..., "updated_at": ... }, ... }, ... }
-  echo root.pretty()
+  # Final JSON: { "<version>": { "<os>": { "url": ..., "digest": ..., "updated_at": ..., "nimlang_url": ... }, ... }, ... }
+  let srcPath = currentSourcePath()
+  let scriptDir = splitFile(srcPath).dir
+  let repoRoot = parentDir(scriptDir)
+  let dataDir = repoRoot / "jekyll" / "_data"
+  createDir(dataDir)
+  let outPath = dataDir / "nim_releases.json"
+  writeFile(outPath, root.pretty())
+  stderr.writeLine "Wrote Nim releases JSON to: ", outPath
 
 when isMainModule:
 
