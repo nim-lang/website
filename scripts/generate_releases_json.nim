@@ -1,5 +1,11 @@
 import std/[osproc, strutils, tables, sequtils, json, httpclient, os, algorithm]
 
+## Lists the git tags on https://github.com/nim-lang/nim.git and then looks up the nightlies
+## builds associated with the tagged releases. It then generates a `jekyll/assets/nim_releases.json`.
+## 
+## Set `GITHUB_TOKEN` environment variable if you get API limis. Not normally related.
+## 
+
 const
   nimRepoUrl = "https://github.com/nim-lang/nim.git"
   nightliesRepoUrl = "https://github.com/nim-lang/nightlies.git"
@@ -77,9 +83,10 @@ proc deriveOsKey(assetName, version: string): string =
   if osKey == "x64" or osKey == "x32":
     osKey = "windows_" & osKey
 
-  if osKey == "tar":
-    result = "source"
   result = osKey
+
+  if result == "tar":
+    result = "source"
 
 proc nimlangUrl(version, osKey: string): string =
   ## Returns the canonical download URL on nim-lang.org for a subset of OS keys.
@@ -121,7 +128,11 @@ proc main() =
   var versionList: seq[string] = @[]
   for v in versions.keys:
     versionList.add v
-  sort(versionList, Descending)
+  sort(versionList) do (x, y: string) -> int:
+    let xx = x.split(".").mapIt(it.parseInt())
+    let yy = y.split(".").mapIt(it.parseInt())
+    result = cmp((xx[0], xx[1], xx[2]), (yy[0], yy[1], yy[2]))
+  versionList.reverse()
 
   for version in versionList:
     let commit = versions[version]
