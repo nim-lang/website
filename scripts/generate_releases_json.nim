@@ -86,7 +86,7 @@ proc deriveOsKey(assetName, version: string): string =
   result = osKey
 
   if result == "tar":
-    result = "source"
+    result = "source_tar"
 
 proc nimlangUrl(version, osKey: string): string =
   ## Returns the canonical download URL on nim-lang.org for a subset of OS keys.
