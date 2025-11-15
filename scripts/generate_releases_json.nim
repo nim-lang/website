@@ -121,7 +121,7 @@ proc main() =
     versionList.add v
   versionList.sort()
 
-  for version in versionList[^2..^1]:
+  for version in versionList:
     let commit = versions[version]
     let nightlyTag = findNightlyTagForCommit(nightlyTagLines, commit)
     if nightlyTag.len == 0:
