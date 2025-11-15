@@ -77,6 +77,8 @@ proc deriveOsKey(assetName, version: string): string =
   if osKey == "x64" or osKey == "x32":
     osKey = "windows_" & osKey
 
+  if osKey == "tar":
+    result = "source"
   result = osKey
 
 proc nimlangUrl(version, osKey: string): string =
@@ -115,11 +117,11 @@ proc main() =
 
   var root = newJObject()
 
-  # Iterate versions in a stable order.
+  # Collect versions and iterate from latest to oldest.
   var versionList: seq[string] = @[]
   for v in versions.keys:
     versionList.add v
-  versionList.sort()
+  sort(versionList, Descending)
 
   for version in versionList:
     let commit = versions[version]
