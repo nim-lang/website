@@ -33,8 +33,6 @@ navigation:
     url: /features.html
   - title: Download
     url: /install.html
-  - title: Releases
-    url: /releases.html
   - title: Documentation
     url: /documentation.html
   - title: Forum
