@@ -87,11 +87,15 @@ proc main() =
   # version -> commit hash
   let versions = extractNimVersions(nimTagLines)
 
+  # Configure GitHub API headers, including optional auth token.
+  var headers = newHttpHeaders({"x-github-api-version": "2022-11-28"})
+  var githubToken = getEnv("GITHUB_TOKEN")
+  if githubToken.len > 0:
+    headers["authorization"] = "Bearer " & githubToken
+  headers["user-agent"] = "nim-website-release-generator"
+
   var client = newHttpClient()
-  let token = getEnv("GITHUB_TOKEN")
-  if token.len > 0:
-    client.headers["Authorization"] = "token " & token
-  client.headers["User-Agent"] = "nim-website-release-generator"
+  client.headers = headers
 
   var root = newJObject()
 
