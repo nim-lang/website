@@ -101,6 +101,14 @@ proc nimlangUrl(version, osKey: string): string =
     result = base & "nim-" & version & "-linux_x64.tar.xz"
   of "linux_x32":
     result = base & "nim-" & version & "-linux_x32.tar.xz"
+  of "linux_arm64":
+    result = base & "nim-" & version & "-linux_arm64.tar.xz"
+  of "linux_armv7l":
+    result = base & "nim-" & version & "-linux_armv7l.tar.xz"
+  of "macosx_x64":
+    result = base & "nim-" & version & "-macosx_x64.tar.xz"
+  of "macosx_arm64":
+    result = base & "nim-" & version & "-macosx_arm64.tar.xz"
   else:
     result = ""
 

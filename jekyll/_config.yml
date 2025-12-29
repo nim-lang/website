@@ -50,7 +50,7 @@ exclude:
   - README.md
   - LICENSE.md
 
-gems:
+plugins:
   - jekyll-asciidoc
 
 asciidoc: {}
@@ -58,5 +58,4 @@ asciidoctor:
   attributes:
     - imagesdir=/assets/news/images/asciidoc
     - icons=font
-    - source-highlighter=pygments
-    - pygments-css=style
+    - source-highlighter=rouge

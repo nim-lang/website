@@ -30,3 +30,13 @@ a.download-tile {
     width: calc(33.3333% - 16px);
   }
 }
+
+.sha-link {
+  font-size: 68%;
+  margin-left: 2px;
+  color: #888;
+
+  &:hover {
+    color: #555;
+  }
+}

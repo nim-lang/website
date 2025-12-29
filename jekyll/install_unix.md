@@ -5,6 +5,8 @@ css_class: install_unix
 current: Install
 ---
 
+{% assign current_release = site.data.nim_releases[site.nim_version] %}
+
 <h1 class="text-centered page-title main-heading">Install Nim on Unix</h1>
 
 # Installation using ``choosenim``
@@ -25,52 +27,137 @@ curl https://nim-lang.org/choosenim/init.sh -sSf | sh
 
 ## Pre-built binaries for Linux
 
+{% if current_release.linux_x64 %}
 If you're not sure which version (64-bit or 32-bit) to pick, it is very likely
 that you want the 64-bit version (x86\_64):
 
+{% assign url = current_release.linux_x64.nimlang_url | default: current_release.linux_x64.github_url %}
 <div class="center">
-  <a href="{{ site.baseurl }}/download/nim-{{ site.nim_version }}-linux_x64.tar.xz"
+  <a href="{{ url }}"
     class="pure-button pure-button-primary download-button">
     <i class="fa fa-file-archive-o" aria-hidden="true"></i>
     Download x86_64 tarball
   </a>
-  <a href="{{ site.baseurl }}/download/nim-{{ site.nim_version }}-linux_x64.tar.xz.sha256"
+  <a href="{{ url }}.sha256"
     class="pure-button">
     <i class="fa fa-file-text-o" aria-hidden="true"></i>
     SHA256
   </a>
 </div>
+{% endif %}
 
+{% if current_release.linux_x32 %}
 If you know what you're doing and you're sure you need a 32-bit version,
 you can download it below:
 
+{% assign url = current_release.linux_x32.nimlang_url | default: current_release.linux_x32.github_url %}
 <div class="center">
-  <a href="{{ site.baseurl }}/download/nim-{{ site.nim_version }}-linux_x32.tar.xz"
+  <a href="{{ url }}"
     class="pure-button pure-button-primary download-button">
     <i class="fa fa-file-archive-o" aria-hidden="true"></i>
     Download x86 tarball
   </a>
-  <a href="{{ site.baseurl }}/download/nim-{{ site.nim_version }}-linux_x32.tar.xz.sha256"
+  <a href="{{ url }}.sha256"
     class="pure-button">
     <i class="fa fa-file-text-o" aria-hidden="true"></i>
     SHA256
   </a>
 </div>
+{% endif %}
 
+{% if current_release.linux_arm64 %}
+For ARM64 (aarch64) systems:
+
+{% assign url = current_release.linux_arm64.nimlang_url | default: current_release.linux_arm64.github_url %}
+<div class="center">
+  <a href="{{ url }}"
+    class="pure-button pure-button-primary download-button">
+    <i class="fa fa-file-archive-o" aria-hidden="true"></i>
+    Download ARM64 tarball
+  </a>
+  <a href="{{ url }}.sha256"
+    class="pure-button">
+    <i class="fa fa-file-text-o" aria-hidden="true"></i>
+    SHA256
+  </a>
+</div>
+{% endif %}
+
+{% if current_release.linux_armv7l %}
+For ARMv7 (armv7l) systems:
+
+{% assign url = current_release.linux_armv7l.nimlang_url | default: current_release.linux_armv7l.github_url %}
+<div class="center">
+  <a href="{{ url }}"
+    class="pure-button pure-button-primary download-button">
+    <i class="fa fa-file-archive-o" aria-hidden="true"></i>
+    Download ARMv7 tarball
+  </a>
+  <a href="{{ url }}.sha256"
+    class="pure-button">
+    <i class="fa fa-file-text-o" aria-hidden="true"></i>
+    SHA256
+  </a>
+</div>
+{% endif %}
+
+{% if current_release.macosx_arm64 or current_release.macosx_x64 %}
+## Pre-built binaries for macOS
+
+{% if current_release.macosx_arm64 %}
+For Apple Silicon (M1/M2/M3) Macs:
+
+{% assign url = current_release.macosx_arm64.nimlang_url | default: current_release.macosx_arm64.github_url %}
+<div class="center">
+  <a href="{{ url }}"
+    class="pure-button pure-button-primary download-button">
+    <i class="fa fa-file-archive-o" aria-hidden="true"></i>
+    Download ARM64 tarball
+  </a>
+  <a href="{{ url }}.sha256"
+    class="pure-button">
+    <i class="fa fa-file-text-o" aria-hidden="true"></i>
+    SHA256
+  </a>
+</div>
+{% endif %}
+
+{% if current_release.macosx_x64 %}
+For Intel Macs:
+
+{% assign url = current_release.macosx_x64.nimlang_url | default: current_release.macosx_x64.github_url %}
+<div class="center">
+  <a href="{{ url }}"
+    class="pure-button pure-button-primary download-button">
+    <i class="fa fa-file-archive-o" aria-hidden="true"></i>
+    Download x86_64 tarball
+  </a>
+  <a href="{{ url }}.sha256"
+    class="pure-button">
+    <i class="fa fa-file-text-o" aria-hidden="true"></i>
+    SHA256
+  </a>
+</div>
+{% endif %}
+{% endif %}
+
+{% if current_release.source_tar %}
 ## Source archive
 
+{% assign url = current_release.source_tar.nimlang_url | default: current_release.source_tar.github_url %}
 <div class="center">
-  <a href="{{ site.baseurl }}/download/nim-{{ site.nim_version }}.tar.xz"
+  <a href="{{ url }}"
     class="pure-button pure-button-primary download-button">
     <i class="fa fa-file-archive-o" aria-hidden="true"></i>
     Download source tarball
   </a>
-  <a href="{{ site.baseurl }}/download/nim-{{ site.nim_version }}.tar.xz.sha256"
+  <a href="{{ url }}.sha256"
     class="pure-button">
     <i class="fa fa-file-text-o" aria-hidden="true"></i>
     SHA256
   </a>
 </div>
+{% endif %}
 
 After downloading the compressed archive, extract its contents into the
 desired installation directory. Pre-built binaries are provided in the
