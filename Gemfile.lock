@@ -3,7 +3,7 @@ GEM
   specs:
     addressable (2.5.1)
       public_suffix (~> 2.0, >= 2.0.2)
-    asciidoctor (1.5.6.1)
+    asciidoctor (2.0.18)
     coderay (1.1.2)
     colorator (1.1.0)
     ffi (1.9.18)
