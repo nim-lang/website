@@ -6,7 +6,7 @@ description: >
 url: "https://nim-lang.org/"
 baseurl: ""
 
-nim_version: 2.2.6
+nim_version: 2.2.8
 
 future: true
 
