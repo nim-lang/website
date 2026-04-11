@@ -65,12 +65,6 @@ to Nim using one the following services:
 <i class="fa fa-credit-card" aria-hidden="true"></i>
 [Patreon](https://www.patreon.com/araq)
 
-<i class="fa fa-money-bill-alt" aria-hidden="true"></i>
-[Salt - BountySource](https://salt.bountysource.com/teams/nim)
-
-<i class="fab fa-paypal" aria-hidden="true"></i>
-[PayPal](https://www.paypal.com/donate/?hosted_button_id=KYXH3BLJBHZTA)
-
 <i class="fab fa-btc" aria-hidden="true"></i>
 ``bc1qzgw3vsppsa9gu53qyecyu063jfajmjpye3r2h4``
 
