@@ -31,7 +31,7 @@ import std/strformat
 type
   Person = object
     name: string
-    age: Natural # Ensures the age is positive
+    age: Natural # Ensures the age is nonnegative
 
 let people = [
   Person(name: "John", age: 45),
