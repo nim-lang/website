@@ -232,21 +232,14 @@ apt-get install nim
 
 ## Docker
 
-The community managed [Docker images](https://hub.docker.com/r/nimlang/nim/)
+The official [Docker images](https://hub.docker.com/_/nim/)
 are published on Docker Hub and include
-the compiler and Nimble. There are images for standalone scripts as well as
-Nimble packages.
+the compiler and Nimble.
 
-Get the latest stable image:
-
-```
-docker pull nimlang/nim
-```
-
-The latest development version:
+Get the latest image:
 
 ```
-docker pull nimlang/nim:devel
+docker pull nim
 ```
 
 ## Fedora
