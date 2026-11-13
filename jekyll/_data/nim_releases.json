@@ -1,4 +1,59 @@
 {
+  "2.4.2": {
+    "linux_arm64": {
+      "github_url": "https://github.com/nim-lang/nightlies/releases/download/2026-11-13-version-2-4-b27dcb4f70883978e984e427cc24b64eeb7c875f/nim-2.4.2-linux_arm64.tar.xz",
+      "digest": "sha256:58e86d84e679d003ec04320b2411cd10aefd942132f9eaf6c583012b22be3595",
+      "updated": "2026-11-13T06:45:54Z",
+      "nimlang_url": "https://nim-lang.org/download/nim-2.4.2-linux_arm64.tar.xz"
+    },
+    "linux_armv7l": {
+      "github_url": "https://github.com/nim-lang/nightlies/releases/download/2026-11-13-version-2-4-b27dcb4f70883978e984e427cc24b64eeb7c875f/nim-2.4.2-linux_armv7l.tar.xz",
+      "digest": "sha256:def8eab70da055ee526059238499ff4d20bf920157ac33c367664699eeb1e1e9",
+      "updated": "2026-11-13T11:18:14Z",
+      "nimlang_url": "https://nim-lang.org/download/nim-2.4.2-linux_armv7l.tar.xz"
+    },
+    "linux_x32": {
+      "github_url": "https://github.com/nim-lang/nightlies/releases/download/2026-11-13-version-2-4-b27dcb4f70883978e984e427cc24b64eeb7c875f/nim-2.4.2-linux_x32.tar.xz",
+      "digest": "sha256:52c50476d396444224ee1e45d139888f7e247ff314ef4da936ef31115c948a5a",
+      "updated": "2026-11-13T06:54:07Z",
+      "nimlang_url": "https://nim-lang.org/download/nim-2.4.2-linux_x32.tar.xz"
+    },
+    "linux_x64": {
+      "github_url": "https://github.com/nim-lang/nightlies/releases/download/2026-11-13-version-2-4-b27dcb4f70883978e984e427cc24b64eeb7c875f/nim-2.4.2-linux_x64.tar.xz",
+      "digest": "sha256:0ee5b16e81852a956d4fddb4aa44b5958c645c992132fa43be45f489573ee325",
+      "updated": "2026-11-13T06:49:12Z",
+      "nimlang_url": "https://nim-lang.org/download/nim-2.4.2-linux_x64.tar.xz"
+    },
+    "macosx_arm64": {
+      "github_url": "https://github.com/nim-lang/nightlies/releases/download/2026-11-13-version-2-4-b27dcb4f70883978e984e427cc24b64eeb7c875f/nim-2.4.2-macosx_arm64.tar.xz",
+      "digest": "sha256:0ba92eb537755ca3bdabd5add1a3b14ab114b382debdcdf647f5152675ef62a9",
+      "updated": "2026-11-13T06:43:50Z",
+      "nimlang_url": "https://nim-lang.org/download/nim-2.4.2-macosx_arm64.tar.xz"
+    },
+    "macosx_x64": {
+      "github_url": "https://github.com/nim-lang/nightlies/releases/download/2026-11-13-version-2-4-b27dcb4f70883978e984e427cc24b64eeb7c875f/nim-2.4.2-macosx_x64.tar.xz",
+      "digest": "sha256:eb0486d36828027a84e36ad3747798adb1132fb42adec08cb759907c3e287d19",
+      "updated": "2026-11-13T06:53:52Z",
+      "nimlang_url": "https://nim-lang.org/download/nim-2.4.2-macosx_x64.tar.xz"
+    },
+    "windows_x32": {
+      "github_url": "https://github.com/nim-lang/nightlies/releases/download/2026-11-13-version-2-4-b27dcb4f70883978e984e427cc24b64eeb7c875f/nim-2.4.2-windows_x32.zip",
+      "digest": "sha256:1fcb5cb8130196289533e6affa605806ec7a345b1ebdc96eca9e7d3252d970ab",
+      "updated": "2026-11-13T07:46:45Z",
+      "nimlang_url": "https://nim-lang.org/download/nim-2.4.2_x32.zip"
+    },
+    "windows_x64": {
+      "github_url": "https://github.com/nim-lang/nightlies/releases/download/2026-11-13-version-2-4-b27dcb4f70883978e984e427cc24b64eeb7c875f/nim-2.4.2-windows_x64.zip",
+      "digest": "sha256:eb5345c78c989859c6642463069c1a389f83f6dc790a2283ba5931867e94daed",
+      "updated": "2026-11-13T07:42:33Z",
+      "nimlang_url": "https://nim-lang.org/download/nim-2.4.2_x64.zip"
+    },
+    "source_tar": {
+      "github_url": "https://github.com/nim-lang/nightlies/releases/download/2026-11-13-version-2-4-b27dcb4f70883978e984e427cc24b64eeb7c875f/nim-2.4.2.tar.xz",
+      "digest": "sha256:b28bf4da1fce46dba9d16685c981b3d5e98de8db1b60d66f279b0bd2af2d8211",
+      "updated": "2026-11-13T06:26:28Z"
+    }
+  },
   "2.4.0": {
     "linux_x32": {
       "github_url": "https://github.com/nim-lang/nightlies/releases/download/2026-10-28-version-2-4-14991af742d0833503741fd9a0918133d1bcf8a4/nim-2.4.0-linux_x32.tar.xz",
